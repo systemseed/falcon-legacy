@@ -1,0 +1,27 @@
+# Event code routing definition
+event_code.settings_tab:
+  route_name: event_code.settings
+  title: 'Settings'
+  base_route: event_code.settings
+
+entity.event_code.canonical:
+  route_name: entity.event_code.canonical
+  base_route: entity.event_code.canonical
+  title: 'View'
+
+entity.event_code.edit_form:
+  route_name: entity.event_code.edit_form
+  base_route: entity.event_code.canonical
+  title: 'Edit'
+
+entity.event_code.version_history:
+  route_name: entity.event_code.version_history
+  base_route: entity.event_code.canonical
+  title: 'Revisions'
+
+entity.event_code.delete_form:
+  route_name:  entity.event_code.delete_form
+  base_route:  entity.event_code.canonical
+  title: Delete
+  weight: 10
+

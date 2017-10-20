@@ -1,0 +1,20 @@
+uuid: da2de3a9-1ec8-449a-8da9-bcacca71558b
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_payment
+    - eck
+id: payment_event.field_stripe_event_payment_gw
+field_name: field_stripe_event_payment_gw
+entity_type: payment_event
+type: entity_reference
+settings:
+  target_type: commerce_payment_gateway
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

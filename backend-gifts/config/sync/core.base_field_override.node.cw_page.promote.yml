@@ -1,0 +1,24 @@
+uuid: 6ce878a5-2f66-4383-b0dc-cd9281fc12f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.cw_page
+_core:
+  default_config_hash: U2PMfw7gJFi_the67S_esjRnJut75r2pWw8R89nXm1A
+id: node.cw_page.promote
+field_name: promote
+entity_type: node
+bundle: cw_page
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

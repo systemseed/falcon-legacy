@@ -1,0 +1,10 @@
+uuid: 52108a9e-9ebf-40a3-80ff-deaa53e80a69
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Da5YWhJdKLxaJ9gDRI1u5oCbm5WBxiiDgA4M1QrOEPQ
+id: '403'
+label: '403 access denied'
+tags:
+  title: '403 Access Denied | Gifts'

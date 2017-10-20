@@ -1,0 +1,10 @@
+uuid: d3ad1b91-08f2-44db-9e00-e230b99819f0
+langcode: en
+status: true
+dependencies:
+  module:
+    - cw_gifts_cards
+id: gift_card_config.token
+label: Token
+targetEntityType: gift_card_config
+cache: true

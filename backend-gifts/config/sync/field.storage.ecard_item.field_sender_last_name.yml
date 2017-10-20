@@ -1,0 +1,21 @@
+uuid: 5d662436-677e-4635-b5b3-6ec2212a3e34
+langcode: en
+status: true
+dependencies:
+  module:
+    - cw_gifts_cards
+id: ecard_item.field_sender_last_name
+field_name: field_sender_last_name
+entity_type: ecard_item
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

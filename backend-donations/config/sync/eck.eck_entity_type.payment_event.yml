@@ -1,0 +1,10 @@
+uuid: 472beb26-79ca-4116-875d-a930c2438f36
+langcode: en
+status: true
+dependencies: {  }
+id: payment_event
+label: 'Payment event'
+created: true
+changed: true
+uid: false
+title: false

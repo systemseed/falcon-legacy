@@ -1,0 +1,7 @@
+access thankq configuration:
+  title: 'Access ThankQ configuration'
+trigger thankq export:
+  title: 'Run ThankQ export manually'
+  restrict access: true
+
+

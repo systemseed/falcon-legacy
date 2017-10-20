@@ -1,0 +1,39 @@
+uuid: 3a489e86-b2f0-45fd-a15d-96750b189b3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.gift
+    - field.field.commerce_product_variation.gift.field_thankq_id
+  module:
+    - commerce_price
+id: commerce_product_variation.gift.default
+targetEntityType: commerce_product_variation
+bundle: gift
+mode: default
+content:
+  field_thankq_id:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  price:
+    type: commerce_price_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  sku:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,22 @@
+uuid: 07b766e1-ad0b-4f6f-b3a2-c445c8819999
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+  theme:
+    - cw_ie_donations
+_core:
+  default_config_hash: 4QlSnWBcxxKMIFRM8sbu_MjSkcp3NjGgnVrc-lynQHI
+id: cw_ie_donations_login
+theme: cw_ie_donations
+region: content
+weight: -3
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'User login'
+  provider: user
+  label_display: visible
+visibility: {  }

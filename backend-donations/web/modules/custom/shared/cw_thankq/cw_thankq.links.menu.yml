@@ -1,0 +1,26 @@
+cw_thankq.index:
+  title: ThankQ
+  route_name: cw_thankq.index
+  parent: system.admin
+  description: 'Manage integration with ThankQ CRM.'
+  position: left
+  weight: 1
+cw_thankq.thankq_config_form:
+  title: 'ThankQ settings'
+  route_name: cw_thankq.thankq_config_form
+  description: 'ThankQ settings'
+  parent: cw_thankq.index
+  weight: 0
+cw_thankq.gifts.products_list:
+  title: 'Products list'
+  route_name: cw_thankq.gifts.products_list
+  description: 'List of products in ThankQ for reference.'
+  parent: cw_thankq.index
+  weight: 2
+cw_thankq.gifts.manual_export:
+  title: 'Manual export: Gifts'
+  route_name: cw_thankq.gifts.manual_export
+  description: 'Manually trigger synchronisation for Gifts.'
+  parent: cw_thankq.index
+  weight: 2
+

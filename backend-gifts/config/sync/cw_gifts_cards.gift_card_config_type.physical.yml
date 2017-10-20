@@ -1,0 +1,8 @@
+uuid: f8d16bce-0668-4ab5-966e-ebb9b448b815
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: xX32qGl-El0haU_Zx8p2AMpRhRVC2VMyfQnaNssvKEk
+id: physical
+label: 'Physical Card'

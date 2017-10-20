@@ -1,0 +1,19 @@
+uuid: 10a257b0-850d-43bd-915a-d3356957412c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_profile_first_name
+    - profile.type.profile_gifts
+id: profile.profile_gifts.field_profile_first_name
+field_name: field_profile_first_name
+entity_type: profile
+bundle: profile_gifts
+label: 'First name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

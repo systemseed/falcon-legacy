@@ -1,0 +1,10 @@
+uuid: 9a15f2f9-1582-4849-ac72-be385bc62bb6
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: jSc2ykWv5Kwyl7gRFjAPbllwskyhSrW_s-NdDR9lzsE
+id: contact
+label: 'Contact page'
+tags:
+  title: 'Contact us | Gifts'

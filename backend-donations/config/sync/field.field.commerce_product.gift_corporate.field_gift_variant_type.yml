@@ -1,0 +1,23 @@
+uuid: 9728c2d7-7c8f-4833-9e8b-c9f88cb5a1a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.gift_corporate
+    - field.storage.commerce_product.field_gift_variant_type
+  module:
+    - options
+id: commerce_product.gift_corporate.field_gift_variant_type
+field_name: field_gift_variant_type
+entity_type: commerce_product
+bundle: gift_corporate
+label: 'Product type'
+description: '@todo: Describe what is Normal, Custom Price and Custom donations types.'
+required: true
+translatable: false
+default_value:
+  -
+    value: normal
+default_value_callback: ''
+settings: {  }
+field_type: list_string

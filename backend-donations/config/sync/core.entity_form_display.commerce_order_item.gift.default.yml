@@ -1,0 +1,40 @@
+uuid: 70d642d4-30f9-4d2e-a237-b1ef9f86d9a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_item_type.gift
+    - field.field.commerce_order_item.gift.field_gift_delivery_format
+  module:
+    - commerce_price
+id: commerce_order_item.gift.default
+targetEntityType: commerce_order_item
+bundle: gift
+mode: default
+content:
+  field_gift_delivery_format:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  purchased_entity:
+    type: entity_reference_autocomplete
+    weight: -1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  quantity:
+    type: number
+    weight: 1
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  unit_price:
+    type: commerce_price_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true

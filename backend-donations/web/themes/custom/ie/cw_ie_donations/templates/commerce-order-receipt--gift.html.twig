@@ -1,0 +1,73 @@
+{#
+/**
+ * @file
+ * Template for the order receipt.
+ *
+ * Available variables:
+ * - order_entity: The order entity.
+ * - billing_information: The rendered billing information.
+ * - shipping_information: The rendered shipping information.
+ * - payment_method: The rendered payment method.
+ *
+ * @ingroup themeable
+ */
+#}
+<table style="margin: 15px auto 0 auto; font-family: arial,sans-serif">
+  <tbody>
+  <tr>
+    <td>
+      <table style="min-width: 450px; margin: 5px auto 0 auto; border: none;">
+        <tbody>
+        <tr>
+          <td style="font-size: 24px; padding-bottom: 15px">
+              {# TODO: move this text to Mandill template for Gifts Receipt. #}
+              {{ 'Dear @name,'|t({'@name': first_name}) }}
+          </td>
+        </tr>
+        <tr>
+          <td style="font-size: 16px; padding-bottom: 30px">
+            {# TODO: move this text to Mandill template for Gifts Receipt. #}
+            <p>Thank you very much for buying Gifts.</p>
+            <p>Your generous purchase will help transform the lives of people and communities living in extreme poverty. We hope the person receiving this gift likes it too!</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 20px 10px 10px; border-top: 1px solid #c1c1c1;border-bottom: 1px solid #c1c1c1;">
+            {% block order_items %}
+            <table style="padding-top: 15px; padding-bottom:15px; width: 100%">
+              <tbody style="text-align: left;">
+              {% for order_item in order_entity.getItems %}
+              <tr>
+                <td>
+                  {{ order_item.getQuantity|number_format }} x
+                </td>
+                <td>
+                  <span>{{ order_item.label }}</span>
+                  <span style="float: right;">{{ order_item.getTotalPrice|commerce_price_format }}</span>
+                </td>
+              </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+            {% endblock %}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p style="font-size: 16px; padding-top: 5px; padding-bottom: 5px;">
+              {{ 'Order total: @total'|t({'@total': order_entity.getTotalPrice|commerce_price_format}) }}
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-size: 16px; padding-top: 30px">
+            <p>If you've ordered postal cards, they should be with you in 3 – 5 working days.</p>
+            <p>{{ 'For reference, your order number is @number.'|t({'@number': order_entity.getOrderNumber}) }}</p>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  </tbody>
+</table>

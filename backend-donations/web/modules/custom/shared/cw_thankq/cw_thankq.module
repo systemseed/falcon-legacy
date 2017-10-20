@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * @file
+ * Contains cw_thankq.module.
+ */
+
+use \Drupal\cw_thankq\OrderProcessor\GiftsOrderProcessor;
+
+/**
+ * Implements hook_cron().
+ */
+function cw_thankq_cron() {
+
+  // Start synchronisation just before midnight.
+  // Given that cron is configured to run every 20 min we can guarantee that
+  // synchronisation will be triggered at least twice before midnight.
+  // If both attempts fail, then orders for that day have to be uploaded into
+  // ThankQ manually by CW managers.
+  // 
+  if (REQUEST_TIME < strtotime('23:00:00')) {
+    return;
+  }
+
+  // Synchronise Gifts orders.
+  $processor = new GiftsOrderProcessor();
+  $orders = $processor->getUnprocessed();
+
+  if (empty($orders)) {
+    // No orders or all orders were already processed in previous cron run.
+    return;
+  }
+
+  $count_errors = 0;
+
+  foreach ($orders as $order) {
+    try {
+      $processor->process($order);
+    }
+    catch (Exception $e) {
+      // Log an error and continue processing other orders.
+      watchdog_exception('cw_thankq', $e);
+      $count_errors++;
+    }
+  }
+
+  \Drupal::logger('cw_thankq_cron')
+    ->notice('Finished processing of @count orders with @errors errors.', [
+      '@count' => count($orders),
+      '@errors' => $count_errors,
+    ]);
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function cw_thankq_field_widget_form_alter(&$element, \Drupal\Core\Form\FormStateInterface $form_state, $context) {
+  $field_definition = $context['items']->getFieldDefinition();
+
+  // Disable ThankQ ID field on order form. In shouldn't be edited manually.
+  if ($field_definition->getName() == 'field_thankq_id' && $field_definition->getTargetEntityTypeId() == 'commerce_order') {
+    $element['#disabled'] = TRUE;
+  }
+}

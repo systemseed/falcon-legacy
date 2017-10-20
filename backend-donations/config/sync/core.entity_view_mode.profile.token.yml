@@ -1,0 +1,10 @@
+uuid: fdc75627-bd97-46a3-a1fa-0728549cc7ec
+langcode: en
+status: true
+dependencies:
+  module:
+    - profile
+id: profile.token
+label: Token
+targetEntityType: profile
+cache: true

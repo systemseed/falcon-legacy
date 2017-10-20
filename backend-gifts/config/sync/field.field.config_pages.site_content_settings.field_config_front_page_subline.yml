@@ -1,0 +1,24 @@
+uuid: f463b01d-2779-4309-86ab-96950ccf1697
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.site_content_settings
+    - field.storage.config_pages.field_config_front_page_subline
+  module:
+    - text
+id: config_pages.site_content_settings.field_config_front_page_subline
+field_name: field_config_front_page_subline
+entity_type: config_pages
+bundle: site_content_settings
+label: Subline
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'Change a life this year with Gifts'
+    format: raw_html
+default_value_callback: ''
+settings: {  }
+field_type: text

@@ -1,0 +1,4 @@
+cw_thankq.order_view:
+  route_name: cw_thankq.order_view
+  base_route: entity.commerce_order.canonical
+  title: ThankQ

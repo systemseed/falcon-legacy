@@ -1,0 +1,33 @@
+uuid: 218bb1b4-4350-4b74-8c15-460cf29babf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.featured_image.image
+    - field.field.featured_image.image.field_featured_image
+    - image.style.thumbnail
+  module:
+    - image
+id: featured_image.image.default
+targetEntityType: featured_image
+bundle: image
+mode: default
+content:
+  field_featured_image:
+    weight: 1
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true

@@ -1,0 +1,8 @@
+name: FLC Metatag
+type: module
+description: Provides helpers to prepare metatags to show on frontend.
+core: 8.x
+package: FLC
+dependencies:
+  - jsonapi
+  - metatag

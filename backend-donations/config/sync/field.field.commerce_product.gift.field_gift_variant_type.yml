@@ -1,0 +1,23 @@
+uuid: c57347e9-0d5a-4035-a28b-eb0c1c66cd76
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.gift
+    - field.storage.commerce_product.field_gift_variant_type
+  module:
+    - options
+id: commerce_product.gift.field_gift_variant_type
+field_name: field_gift_variant_type
+entity_type: commerce_product
+bundle: gift
+label: 'Product type'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: normal
+default_value_callback: ''
+settings: {  }
+field_type: list_string

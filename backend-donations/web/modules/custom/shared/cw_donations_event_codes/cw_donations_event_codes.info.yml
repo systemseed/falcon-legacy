@@ -1,0 +1,5 @@
+name: FLC Donations Event Codes
+type: module
+description: Module that handles event codes(source codes)
+core: 8.x
+package: FLC

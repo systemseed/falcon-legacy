@@ -1,0 +1,17 @@
+uuid: 79186954-175e-4b7a-ac63-213748336d09
+langcode: en
+status: false
+dependencies: {  }
+id: gb
+label: GB
+folder: ../config/sync/gb
+module: {  }
+theme: {  }
+blacklist: {  }
+graylist:
+  - contact.form.feedback
+  - mandrill.settings
+  - mandrill_template.mandrill_template_map.flc_gifts
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

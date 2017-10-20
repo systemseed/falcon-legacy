@@ -1,0 +1,24 @@
+uuid: fc01cbad-2596-4109-9e95-d4514151c79c
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.site_content_settings
+    - field.storage.config_pages.field_config_contact_us_address
+  module:
+    - text
+id: config_pages.site_content_settings.field_config_contact_us_address
+field_name: field_config_contact_us_address
+entity_type: config_pages
+bundle: site_content_settings
+label: 'Contact us address'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: "<h3>For all general queries:</h3>\r\n<ul class=\"list-icon\">\r\n<li><i class=\"material-icons phone\"></i><strong>Call:</strong> 111 (111) 111-1111</li>\r\n<li><i class=\"material-icons email\"></i><strong>Email:</strong> <a href=\"mailto:falcon-test@systemseed.com\">falcon-test@systemseed.com</a></li>\r\n<li><i class=\"material-icons location_on\"></i><strong>Write:</strong> Falcon<br>11 Street<br>Dublin 2</li>\r\n</ul>\r\n\r\n<h3>For all corporate queries:</h3>\r\n<ul class=\"list-icon\">\r\n<li><i class=\"material-icons phone\"></i><strong>Call:</strong> +111 1 111 1111</li>\r\n<li><i class=\"material-icons email\"></i><strong>Email:</strong> <a href=\"mailto:falcon-test@systemseed.com\">falcon-test@systemseed.com</a></li>\r\n</ul>"
+    format: raw_html
+default_value_callback: ''
+settings: {  }
+field_type: text_long

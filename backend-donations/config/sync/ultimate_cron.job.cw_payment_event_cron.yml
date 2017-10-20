@@ -1,0 +1,29 @@
+uuid: c1fba744-cebb-4de6-bade-502a03c5a29d
+langcode: en
+status: true
+dependencies:
+  module:
+    - cw_payment_event
+title: 'Backup cron job for Stripe security report fetching'
+id: cw_payment_event_cron
+weight: 0
+module: cw_payment_event
+callback: cw_payment_event_cron
+scheduler:
+  id: simple
+  configuration:
+    rules:
+      - '0+@ */3 * * *'
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+    launcher:
+      thread: 0
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000

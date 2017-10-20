@@ -1,0 +1,26 @@
+uuid: ac9c3a63-2201-4bea-a63b-da1be07ceece
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.admin
+  module:
+    - system
+  theme:
+    - cw_gb_donations
+_core:
+  default_config_hash: DWAB7HaAfAJerAmyT8B2K-6qxicu9n0PcKVpDr--N4c
+id: cw_gb_donations_admin
+theme: cw_gb_donations
+region: sidebar_first
+weight: -3
+provider: null
+plugin: 'system_menu_block:admin'
+settings:
+  id: 'system_menu_block:admin'
+  label: Administration
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

@@ -1,0 +1,37 @@
+uuid: 5761f622-237f-4dca-8826-e6b677837bcb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.cw_page.body
+    - field.field.node.cw_page.field_metatags
+    - node.type.cw_page
+  module:
+    - metatag
+    - text
+    - user
+_core:
+  default_config_hash: bnG8TkRMBJLAP6lsjojhCYNPjRF68DatbcbDfkcIyN8
+id: node.cw_page.default
+targetEntityType: node
+bundle: cw_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_metatags:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

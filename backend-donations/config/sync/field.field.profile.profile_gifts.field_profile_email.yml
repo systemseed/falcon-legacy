@@ -1,0 +1,19 @@
+uuid: 0f2b7a85-6c23-4ff6-a2d0-9112b02e9826
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_profile_email
+    - profile.type.profile_gifts
+id: profile.profile_gifts.field_profile_email
+field_name: field_profile_email
+entity_type: profile
+bundle: profile_gifts
+label: Email
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

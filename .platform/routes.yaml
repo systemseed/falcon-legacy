@@ -1,0 +1,31 @@
+# Documentation https://docs.platform.sh/configuration/routes.html
+
+# Gifts frontend.
+"https://www.{default}/":
+    type: upstream
+    upstream: "frontend-gifts:http"
+
+"https://{default}/":
+  type: redirect
+  to: "https://www.{default}/"
+
+# Gifts backend.
+"https://gifts.api.{default}/":
+    type: upstream
+    upstream: "backend-gifts:http"
+    cache:
+        enabled: false
+
+# Donations backend.
+"https://donations.api.{default}/":
+    type: upstream
+    upstream: "backend-donations:http"
+    cache:
+        enabled: false
+
+# API Bus.
+"https://api.{default}/":
+    type: upstream
+    upstream: "backend-api-bus:http"
+    cache:
+        enabled: false

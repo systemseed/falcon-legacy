@@ -1,0 +1,68 @@
+uuid: 771cbb53-6c36-44c7-881e-a261a630f3ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - cw_gifts_cards.ecard_item_type.gift
+    - field.field.ecard_item.gift.field_friends_email
+    - field.field.ecard_item.gift.field_friends_name
+    - field.field.ecard_item.gift.field_message
+    - field.field.ecard_item.gift.field_sender_first_name
+    - field.field.ecard_item.gift.field_sender_last_name
+_core:
+  default_config_hash: 58gOqZupgoq-NVSLukacAWKIdqqrTVQa2iScmHKJs7Y
+id: ecard_item.gift.default
+targetEntityType: ecard_item
+bundle: gift
+mode: default
+content:
+  field_friends_email:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_friends_name:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_message:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_sender_first_name:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_sender_last_name:
+    weight: 11
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

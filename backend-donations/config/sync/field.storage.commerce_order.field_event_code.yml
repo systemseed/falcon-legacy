@@ -1,0 +1,20 @@
+uuid: ca8577d8-4ee8-465a-8b2c-4c7028291ef2
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+    - cw_donations_event_codes
+id: commerce_order.field_event_code
+field_name: field_event_code
+entity_type: commerce_order
+type: entity_reference
+settings:
+  target_type: event_code
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

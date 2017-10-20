@@ -1,0 +1,21 @@
+uuid: 88fc7832-51b0-4a48-9787-44a26a60a827
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: payment_event.field_stripe_event_action
+field_name: field_stripe_event_action
+entity_type: payment_event
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

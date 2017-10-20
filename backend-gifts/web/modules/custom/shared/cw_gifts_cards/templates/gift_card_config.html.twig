@@ -1,0 +1,22 @@
+{#
+/**
+ * @file gift_card_config.html.twig
+ * Default theme implementation to present Gifts Card Configuration data.
+ *
+ * This template is used when viewing Gifts Card Configuration pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_gift_card_config()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('gift_card_config') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

@@ -1,0 +1,23 @@
+uuid: 91ef793d-809b-49f9-9d61-d09a20f87781
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.gift
+    - field.storage.commerce_product.field_metatags
+  module:
+    - metatag
+id: commerce_product.gift.field_metatags
+field_name: field_metatags
+entity_type: commerce_product
+bundle: gift
+label: Metatags
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'a:0:{}'
+default_value_callback: ''
+settings: {  }
+field_type: metatag

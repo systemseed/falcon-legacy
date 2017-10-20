@@ -1,0 +1,43 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - cw_gifts_cards.ecard_item_type.gift
+    - field.field.ecard_item.gift.field_friends_email
+    - field.field.ecard_item.gift.field_friends_name
+    - field.field.ecard_item.gift.field_message
+id: ecard_item.gift.default
+targetEntityType: ecard_item
+bundle: gift
+mode: default
+content:
+  field_friends_email:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+  field_friends_name:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_message:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

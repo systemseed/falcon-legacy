@@ -1,0 +1,20 @@
+uuid: 898eefa7-3b33-40eb-9bbe-c34e1ed8e39e
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+_core:
+  default_config_hash: D9XhCHdPDJ0Q8yImHkqJine8Yn50VeHpGpJOj7hova0
+name: Page
+type: cw_page
+description: 'Simple page with title and body.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

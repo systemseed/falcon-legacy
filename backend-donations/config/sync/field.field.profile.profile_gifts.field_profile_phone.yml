@@ -1,0 +1,19 @@
+uuid: ed11ead7-baff-43ab-a47f-c8d326ec0fd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_profile_phone
+    - profile.type.profile_gifts
+id: profile.profile_gifts.field_profile_phone
+field_name: field_profile_phone
+entity_type: profile
+bundle: profile_gifts
+label: Phone
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

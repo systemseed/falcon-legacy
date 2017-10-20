@@ -1,0 +1,20 @@
+uuid: 0607ee84-e0c1-430d-aaa9-360abbe72c42
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - cw_ie_donations
+id: cw_ie_donations_help
+theme: cw_ie_donations
+region: help
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

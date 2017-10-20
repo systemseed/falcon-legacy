@@ -1,0 +1,9 @@
+uuid: 9e0ff7c4-8f66-4387-b483-a94a37246bcd
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.payment_event
+name: 'Stripe event'
+type: stripe_event
+description: 'Stripe events parsed from Security History report (https://dashboard.stripe.com/security_history).'

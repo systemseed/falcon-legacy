@@ -1,0 +1,10 @@
+uuid: 3cfbe7af-e916-44cb-b013-266c4e597e57
+langcode: en
+status: true
+dependencies:
+  module:
+    - cw_gifts_cards
+id: ecard_item.token
+label: Token
+targetEntityType: ecard_item
+cache: true

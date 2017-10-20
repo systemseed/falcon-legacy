@@ -1,0 +1,19 @@
+uuid: deb84bf0-6819-49fc-a473-135c4bf5b960
+langcode: en
+status: true
+dependencies:
+  module:
+    - metatag
+    - node
+id: node.field_metatags
+field_name: field_metatags
+entity_type: node
+type: metatag
+settings: {  }
+module: metatag
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

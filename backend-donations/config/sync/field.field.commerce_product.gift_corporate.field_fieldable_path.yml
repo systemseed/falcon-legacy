@@ -1,0 +1,23 @@
+uuid: c6ad86e5-b5f5-4414-8d98-f12cc2be007c
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.gift_corporate
+    - field.storage.commerce_product.field_fieldable_path
+  module:
+    - fieldable_path
+id: commerce_product.gift_corporate.field_fieldable_path
+field_name: field_fieldable_path
+entity_type: commerce_product
+bundle: gift_corporate
+label: 'Fieldable Path'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: fieldable_path

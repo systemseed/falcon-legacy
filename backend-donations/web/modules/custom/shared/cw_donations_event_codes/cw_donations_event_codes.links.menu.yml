@@ -1,0 +1,14 @@
+
+# Event code menu items definition
+entity.event_code.collection:
+  title: 'Event code list'
+  route_name: entity.event_code.collection
+  description: 'List Event code entities'
+  parent: system.admin_structure
+  weight: 100
+
+event_code.admin.structure.settings:
+  title: Event code settings
+  description: 'Configure Event code entities'
+  route_name: event_code.settings
+  parent: system.admin_config

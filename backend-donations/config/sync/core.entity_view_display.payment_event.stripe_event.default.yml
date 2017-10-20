@@ -1,0 +1,66 @@
+uuid: e5e3b3b8-4e05-47d4-ba50-ebd8af2a3f6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.payment_event.stripe_event
+    - field.field.payment_event.stripe_event.field_stripe_event_action
+    - field.field.payment_event.stripe_event.field_stripe_event_description
+    - field.field.payment_event.stripe_event.field_stripe_event_email
+    - field.field.payment_event.stripe_event.field_stripe_event_metadata
+    - field.field.payment_event.stripe_event.field_stripe_event_payment_gw
+id: payment_event.stripe_event.default
+targetEntityType: payment_event
+bundle: stripe_event
+mode: default
+content:
+  created:
+    label: hidden
+    type: timestamp
+    weight: 0
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+    region: content
+  field_stripe_event_action:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_stripe_event_description:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_stripe_event_email:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_stripe_event_metadata:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_stripe_event_payment_gw:
+    weight: 3
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  changed: true

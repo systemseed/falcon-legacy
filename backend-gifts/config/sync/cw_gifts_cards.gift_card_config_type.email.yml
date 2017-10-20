@@ -1,0 +1,8 @@
+uuid: 91cce9ac-e7a8-400a-ab2e-47087f9b16e5
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: pyzzKOV4UCUHQM72MiSScPKsci4bblNIc5hgRclogFc
+id: email
+label: 'Email Card'

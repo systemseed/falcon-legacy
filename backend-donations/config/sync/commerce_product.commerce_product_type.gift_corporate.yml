@@ -1,0 +1,9 @@
+uuid: 6d90ae76-eaaa-4fa2-a390-2bc5a20685cf
+langcode: en
+status: true
+dependencies: {  }
+id: gift_corporate
+label: 'Gift Corporate'
+description: ''
+variationType: gift
+injectVariationFields: false

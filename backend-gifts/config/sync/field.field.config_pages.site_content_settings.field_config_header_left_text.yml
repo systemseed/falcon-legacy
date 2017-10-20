@@ -1,0 +1,24 @@
+uuid: 5dc3c50d-0ba8-45f8-97f2-07c373da7607
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.site_content_settings
+    - field.storage.config_pages.field_config_header_left_text
+  module:
+    - text
+id: config_pages.site_content_settings.field_config_header_left_text
+field_name: field_config_header_left_text
+entity_type: config_pages
+bundle: site_content_settings
+label: 'Header left text'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'Order by 15th December to receive your gifts by post!'
+    format: raw_html
+default_value_callback: ''
+settings: {  }
+field_type: text

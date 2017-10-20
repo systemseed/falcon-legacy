@@ -1,0 +1,40 @@
+uuid: cfcc438f-5639-406e-923c-589a4a93e7ac
+langcode: en
+status: true
+dependencies: {  }
+id: gifts_manager
+label: 'Gifts manager'
+weight: 3
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access e-card item overview'
+  - 'access files overview'
+  - 'access gifts card configuration overview'
+  - 'access media overview'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'add e-card item entities'
+  - 'add gifts card configuration entities'
+  - 'administer nodes'
+  - 'administer taxonomy'
+  - 'bypass node access'
+  - 'create media'
+  - 'delete all gifts card configuration revisions'
+  - 'delete any featured_image entities'
+  - 'delete any media'
+  - 'delete gifts card configuration entities'
+  - 'delete media'
+  - 'delete terms in tags'
+  - 'edit any featured_image entities'
+  - 'edit e-card item entities'
+  - 'edit gifts card configuration entities'
+  - 'edit terms in tags'
+  - 'revert all gifts card configuration revisions'
+  - 'update any media'
+  - 'update media'
+  - 'use text format full_html'
+  - 'view all gifts card configuration revisions'
+  - 'view media'
+  - 'view the administration theme'

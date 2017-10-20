@@ -1,0 +1,44 @@
+id: cw_event_codes_csv
+label: CSV
+migration_group: cw_event_codes_csv
+source:
+  plugin: csv
+  # Leave path empty. It will be configured in form.
+  path: ''
+  delimiter: ';'
+  header_row_count: 1
+  keys:
+    - code
+  # For some reason capital letters in keys doesn't work. Create map of fields manually:
+  column_names:
+    0:
+      code: Source Code
+    1:
+      label: Name
+    6:
+      status: 'Should Appear in Online Dropdown?'
+destination:
+  plugin: entity:event_code
+process:
+  code: code
+  label: label
+  status:
+    plugin: static_map
+    # Specify the source field we're reading (containing 0's and 1's).
+    source: status
+    # Tell it to transform No to 0, and Yes to 1.
+    map:
+      No: 0
+      Yes: 1
+    # If the input is missing, leave the field empty. Without this, an empty
+    # or invalid source value would cause the user record to be skipped
+    # entirely.
+    bypass: true
+  user_id:
+    plugin: default_value
+    default_value: 1
+
+dependencies:
+  enforced:
+    module:
+      - cw_event_codes_migrate

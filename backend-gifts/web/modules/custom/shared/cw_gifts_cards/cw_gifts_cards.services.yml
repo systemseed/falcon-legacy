@@ -1,0 +1,13 @@
+services:
+  cw_gifts_cards.mail_sender:
+    class: Drupal\cw_gifts_cards\MailSender
+    arguments: ['@entity.query', '@entity_type.manager', '@plugin.manager.mail', '@renderer', '@language_manager', '@config.factory', '@logger.channel.cw_gifts_cards']
+  logger.channel.cw_gifts_cards:
+    parent: logger.channel_base
+    arguments: ['cw_gifts_cards']
+  cw_gifts_cards.route_subscriber:
+    class: Drupal\cw_gifts_cards\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
+
+

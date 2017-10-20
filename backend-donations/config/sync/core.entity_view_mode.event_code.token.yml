@@ -1,0 +1,10 @@
+uuid: 4a7616fe-e1b9-4b1c-9f16-fdfb688cf7f6
+langcode: en
+status: true
+dependencies:
+  module:
+    - cw_donations_event_codes
+id: event_code.token
+label: Token
+targetEntityType: event_code
+cache: true

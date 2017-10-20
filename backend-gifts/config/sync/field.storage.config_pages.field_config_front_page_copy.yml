@@ -1,0 +1,19 @@
+uuid: 4efd626f-007c-4676-8e51-ccb206424d73
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+    - text
+id: config_pages.field_config_front_page_copy
+field_name: field_config_front_page_copy
+entity_type: config_pages
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

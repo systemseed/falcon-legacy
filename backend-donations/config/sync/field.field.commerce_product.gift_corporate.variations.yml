@@ -1,0 +1,24 @@
+uuid: 45cf57d1-608d-4819-8704-7d95371d2d39
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.gift_corporate
+    - commerce_product.commerce_product_variation_type.gift
+    - field.storage.commerce_product.variations
+id: commerce_product.gift_corporate.variations
+field_name: variations
+entity_type: commerce_product
+bundle: gift_corporate
+label: Variations
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:commerce_product_variation'
+  handler_settings:
+    target_bundles:
+      - gift
+field_type: entity_reference

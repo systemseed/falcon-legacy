@@ -1,0 +1,21 @@
+uuid: af844572-70e5-4fd7-b011-c63799ca8d91
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.payment_event.stripe_event
+    - field.storage.payment_event.field_stripe_event_payment_gw
+id: payment_event.stripe_event.field_stripe_event_payment_gw
+field_name: field_stripe_event_payment_gw
+entity_type: payment_event
+bundle: stripe_event
+label: 'Payment gateway'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:commerce_payment_gateway'
+  handler_settings: {  }
+field_type: entity_reference

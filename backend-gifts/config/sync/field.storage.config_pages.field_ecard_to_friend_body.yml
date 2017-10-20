@@ -1,0 +1,19 @@
+uuid: 161e93a3-a9b9-43d9-8449-e87478b8d818
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+    - text
+id: config_pages.field_ecard_to_friend_body
+field_name: field_ecard_to_friend_body
+entity_type: config_pages
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

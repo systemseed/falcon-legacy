@@ -1,0 +1,20 @@
+uuid: 3bf98be5-0e2c-4eac-9762-9ff9b07c5b8b
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cw_ie_donations
+_core:
+  default_config_hash: PffmQ-ABSz5tFjWmVsR7NesunDnEivvopnJnBjl8KNE
+id: cw_ie_donations_local_actions
+theme: cw_ie_donations
+region: content
+weight: -5
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

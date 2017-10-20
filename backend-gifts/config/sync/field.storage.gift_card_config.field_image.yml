@@ -1,0 +1,22 @@
+uuid: 981dc743-a535-438c-9e26-b129049f6ab5
+langcode: en
+status: true
+dependencies:
+  module:
+    - cw_gifts_cards
+    - media_entity
+_core:
+  default_config_hash: 00710VlMbtq9mZNOl0AxjcmQeh6U0jcBl5JYLn_3Za0
+id: gift_card_config.field_image
+field_name: field_image
+entity_type: gift_card_config
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

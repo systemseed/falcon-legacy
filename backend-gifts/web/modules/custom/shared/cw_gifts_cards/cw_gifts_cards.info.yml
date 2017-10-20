@@ -1,0 +1,5 @@
+name: Gift Cards
+type: module
+description: Postal and E-cards for Gifts.
+core: 8.x
+package: FLC Gifts

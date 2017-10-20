@@ -1,0 +1,23 @@
+uuid: 10b11f9d-dc67-435a-9907-3ff010af1350
+langcode: en
+status: true
+dependencies:
+  config:
+    - cw_gifts_cards.gift_card_config_type.email
+    - field.storage.gift_card_config.field_intro_text
+  module:
+    - text
+_core:
+  default_config_hash: Xhwv9mVMi6nKD3oiv8p1ePT27ckmket3tuxZsO_C6Ss
+id: gift_card_config.email.field_intro_text
+field_name: field_intro_text
+entity_type: gift_card_config
+bundle: email
+label: 'Intro text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

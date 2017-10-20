@@ -1,0 +1,23 @@
+uuid: 282233cb-9ee7-44a9-a9a1-6454c24ce36c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_profile_prefs_sms
+    - profile.type.profile_gifts
+id: profile.profile_gifts.field_profile_prefs_sms
+field_name: field_profile_prefs_sms
+entity_type: profile
+bundle: profile_gifts
+label: 'Contact by SMS'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

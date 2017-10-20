@@ -1,0 +1,17 @@
+uuid: bba3c1bd-83fb-4428-aafa-5bb73976c9bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - cw_thankq
+title: 'Default cron handler'
+id: cw_thankq_cron
+weight: 0
+module: cw_thankq
+callback: cw_thankq_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

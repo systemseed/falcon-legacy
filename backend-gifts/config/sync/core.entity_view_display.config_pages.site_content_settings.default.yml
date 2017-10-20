@@ -1,0 +1,62 @@
+uuid: f44af73d-31ea-480f-8b69-83ba5e54165c
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.site_content_settings
+    - field.field.config_pages.site_content_settings.field_config_contact_us_address
+    - field.field.config_pages.site_content_settings.field_config_footer_left_text
+    - field.field.config_pages.site_content_settings.field_config_front_page_copy
+    - field.field.config_pages.site_content_settings.field_config_front_page_subline
+    - field.field.config_pages.site_content_settings.field_config_header_left_text
+    - field.field.config_pages.site_content_settings.field_config_header_right_text
+  module:
+    - text
+id: config_pages.site_content_settings.default
+targetEntityType: config_pages
+bundle: site_content_settings
+mode: default
+content:
+  field_config_contact_us_address:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_config_footer_left_text:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_config_front_page_copy:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_config_front_page_subline:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_config_header_left_text:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_config_header_right_text:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

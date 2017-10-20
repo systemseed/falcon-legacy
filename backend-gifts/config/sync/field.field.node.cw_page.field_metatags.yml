@@ -1,0 +1,23 @@
+uuid: b4c0a77b-71f9-4796-8ace-523e18fa66b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_metatags
+    - node.type.cw_page
+  module:
+    - metatag
+id: node.cw_page.field_metatags
+field_name: field_metatags
+entity_type: node
+bundle: cw_page
+label: Metatags
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'a:0:{}'
+default_value_callback: ''
+settings: {  }
+field_type: metatag

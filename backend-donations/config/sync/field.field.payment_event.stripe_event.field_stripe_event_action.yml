@@ -1,0 +1,19 @@
+uuid: 05b6d023-45d8-490b-bef3-d5da3a565f84
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.payment_event.stripe_event
+    - field.storage.payment_event.field_stripe_event_action
+id: payment_event.stripe_event.field_stripe_event_action
+field_name: field_stripe_event_action
+entity_type: payment_event
+bundle: stripe_event
+label: Action
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

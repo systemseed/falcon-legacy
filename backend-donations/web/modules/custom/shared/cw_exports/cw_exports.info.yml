@@ -1,0 +1,5 @@
+name: FLC Exports
+type: module
+description: 'Provides orders exports for the Platform.'
+package: FLC
+core: 8.x

@@ -1,0 +1,27 @@
+uuid: 54252381-0603-4ca0-9f0a-5c73491997e1
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+    - options
+id: commerce_order_item.field_gift_delivery_format
+field_name: field_gift_delivery_format
+entity_type: commerce_order_item
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Post
+      label: Post
+    -
+      value: Email
+      label: Email
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,10 @@
+uuid: cf82003c-0cbe-4344-b98d-5fa4ea2876ce
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+id: featured_image.token
+label: Token
+targetEntityType: featured_image
+cache: true

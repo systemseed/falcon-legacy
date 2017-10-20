@@ -1,0 +1,23 @@
+uuid: 88ceb505-8086-47ec-9546-ac5c678bcf2d
+langcode: en
+status: true
+dependencies:
+  module:
+    - cw_gifts_cards
+_core:
+  default_config_hash: L1VymgF6uWsz8dgSYbt7swz6C-OamVphzzjQOXImpgE
+id: ecard_item.field_friends_name
+field_name: field_friends_name
+entity_type: ecard_item
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

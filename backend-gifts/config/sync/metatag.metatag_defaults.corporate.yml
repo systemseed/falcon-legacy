@@ -1,0 +1,10 @@
+uuid: 5fa38a1f-4664-4eae-864d-41047046b1b5
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: axFdTavKnT02ww5Uu0JrhV8kpGQ4wK8RnS7NOykw0So
+id: corporate
+label: 'Corporate page'
+tags:
+  title: 'Ideas for Corporations - Life Changing Virtual Gifts | Gifts'

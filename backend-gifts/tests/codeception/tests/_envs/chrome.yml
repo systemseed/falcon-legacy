@@ -1,0 +1,6 @@
+# `phantom` environment config goes here
+modules:
+  config:
+      WebDriver:
+          browser: 'chrome'
+          port: 9515

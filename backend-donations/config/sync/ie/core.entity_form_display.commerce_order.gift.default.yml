@@ -1,0 +1,70 @@
+uuid: b764f964-4d25-41b5-9f87-df00400a618d
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_type.gift
+    - field.field.commerce_order.gift.field_event_code
+    - field.field.commerce_order.gift.field_thankq_id
+    - field.field.commerce_order.gift.order_items
+  module:
+    - commerce_order
+    - inline_entity_form
+id: commerce_order.gift.default
+targetEntityType: commerce_order
+bundle: gift
+mode: default
+content:
+  adjustments:
+    type: commerce_adjustment_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  billing_profile:
+    type: options_select
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  cart:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 20
+    third_party_settings: {  }
+    region: content
+  field_event_code:
+    weight: 21
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_thankq_id:
+    weight: 22
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  order_items:
+    type: inline_entity_form_complex
+    weight: 0
+    settings:
+      override_labels: true
+      label_singular: 'order item'
+      label_plural: 'order items'
+      form_mode: default
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+    third_party_settings: {  }
+    region: content
+hidden:
+  ip_address: true
+  mail: true
+  order_number: true
+  state: true
+  store_id: true
+  uid: true

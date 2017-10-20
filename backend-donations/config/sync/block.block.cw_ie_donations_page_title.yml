@@ -1,0 +1,20 @@
+uuid: 8cefda5f-f534-4919-bdc8-7494d1239db4
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cw_ie_donations
+_core:
+  default_config_hash: 8yptDf6WrXxeyevUz4nP5vfr7BtxQqCBMninhV2IJ1g
+id: cw_ie_donations_page_title
+theme: cw_ie_donations
+region: header
+weight: -4
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

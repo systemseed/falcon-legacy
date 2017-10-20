@@ -1,0 +1,124 @@
+//
+// Isotope Grid Styles
+// --------------------------------------------------
+.transition-wrapper {
+  position: relative;
+}
+.isotope-grid {
+  position: relative;
+  @include clearfix;
+
+  // Gap Width
+  .gutter-sizer { width: 30px; }
+
+  // Items
+  .grid-item {
+    margin-bottom: 30px;
+    .post-tile,
+    .portfolio-tile { margin-bottom: 0; }
+  }
+
+  // 1 Column
+  &.col-1 {
+    .gutter-sizer { width: 0; }
+    .grid-sizer,
+    .grid-item { width: 100%; }
+  }
+
+  // 2 Columns
+  &.col-2 {
+    .grid-sizer,
+    .grid-item { width: calc((100% / 2) - 15px); }
+  }
+
+  // 3 Columns
+  &.col-3 {
+    .grid-sizer,
+    .grid-item { width: calc((100% / 3) - 20px); }
+  }
+
+  // 4 Columns
+  &.col-4 {
+    .grid-sizer,
+    .grid-item { width: calc((100% / 4) - 22.5px); }
+  }
+
+  // 5 Columns
+  &.col-5 {
+    .grid-sizer,
+    .grid-item { width: calc((100% / 5) - 24px); }
+  }
+
+  // 6 Columns
+  &.col-6 {
+    .grid-sizer,
+    .grid-item { width: calc((100% / 6) - 25px); }
+  }
+
+  // Media Queries
+  @media #{$desktop} {
+    &.col-6,
+    &.col-5,
+    &.col-4,
+    &.col-3 {
+      .grid-sizer,
+      .grid-item { width: calc((100% / 2) - 15px); }
+    }
+  }
+  @media #{$tablet-port} {
+    &.col-6,
+    &.col-5,
+    &.col-4,
+    &.col-3,
+    &.col-2 {
+      .gutter-sizer { width: 0; }
+      .grid-sizer,
+      .grid-item { width: 100%; }
+    }
+  }
+
+  // No Gap Version
+  &.grid-no-gap {
+    .gutter-sizer { width: 0; }
+    .grid-item { margin-bottom: 0; }
+    &.col-2 {
+      .grid-sizer,
+      .grid-item { width: (100% / 2); }
+    }
+    &.col-3 {
+      .grid-sizer,
+      .grid-item { width: (100% / 3); }
+    }
+    &.col-4 {
+      .grid-sizer,
+      .grid-item { width: (100% / 4); }
+    }
+    &.col-5 {
+      .grid-sizer,
+      .grid-item { width: (100% / 5); }
+    }
+    &.col-6 {
+      .grid-sizer,
+      .grid-item { width: (100% / 6); }
+    }
+    @media #{$desktop} {
+      &.col-6,
+      &.col-5,
+      &.col-4,
+      &.col-3 {
+        .grid-sizer,
+        .grid-item { width: (100% / 2); }
+      }
+    }
+    @media #{$tablet-port} {
+      &.col-6,
+      &.col-5,
+      &.col-4,
+      &.col-3,
+      &.col-2 {
+        .grid-sizer,
+        .grid-item { width: 100%; }
+      }
+    }
+  }
+}

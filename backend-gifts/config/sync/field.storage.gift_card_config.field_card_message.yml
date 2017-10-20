@@ -1,0 +1,21 @@
+uuid: 4f0bacd7-154b-41d7-aaf1-23e738035970
+langcode: en
+status: true
+dependencies:
+  module:
+    - cw_gifts_cards
+    - text
+_core:
+  default_config_hash: jAhKqpV3P3S4kouPcrDUbXp4LsxFGmw_sLTawH06gqI
+id: gift_card_config.field_card_message
+field_name: field_card_message
+entity_type: gift_card_config
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

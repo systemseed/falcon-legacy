@@ -1,0 +1,10 @@
+uuid: a30905ff-e481-492c-b8da-b9521208cf24
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: b-qxCu1VLGWjqvXKv4Nt7y2BUo5VSGpEIj8gb6C_PUY
+id: global
+label: Global
+tags:
+  title: 'Life Changing Gift Ideas | Gifts'

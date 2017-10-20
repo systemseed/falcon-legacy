@@ -1,0 +1,12 @@
+cw_gifts_cards.ecard_item_type.*:
+  type: config_entity
+  label: 'E-Card Item type config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string

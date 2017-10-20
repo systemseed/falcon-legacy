@@ -1,0 +1,7 @@
+ignored_config_entities:
+  - reroute_email.settings
+  - system.menu.devel
+  - devel.toolbar.settings
+  - devel.settings
+_core:
+  default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk

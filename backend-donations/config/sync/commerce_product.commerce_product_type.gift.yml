@@ -1,0 +1,9 @@
+uuid: 2fe59b00-9d40-4ce5-b027-c43e93c8a8c4
+langcode: en
+status: true
+dependencies: {  }
+id: gift
+label: Gift
+description: ''
+variationType: gift
+injectVariationFields: false

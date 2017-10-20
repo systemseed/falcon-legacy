@@ -1,0 +1,19 @@
+uuid: 4fe8eda8-cfbe-4469-9008-3d10bece51f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.gift
+    - field.storage.commerce_product_variation.field_thankq_id
+id: commerce_product_variation.gift.field_thankq_id
+field_name: field_thankq_id
+entity_type: commerce_product_variation
+bundle: gift
+label: 'ThankQ ID'
+description: 'Go to “<a href="/admin/thankq/products">ThankQ products</a>” page to figure out ThankQ ID for this product. '
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

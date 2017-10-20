@@ -1,0 +1,7 @@
+services:
+  # Custom normalizer to remove sensitive payment gateway data from API output.
+  serializer.cw_commerce.commerce_payment_gateway:
+    class: Drupal\cw_commerce\Normalizer\PaymentGatewayNormalizer
+    arguments: ['@jsonapi.link_manager', '@jsonapi.resource_type.repository', '@entity_type.manager']
+    tags:
+      - { name: normalizer, priority: 22 }

@@ -1,0 +1,8 @@
+uuid: 2ac7f964-344f-45e6-a05d-adca9c921ffa
+langcode: en
+status: true
+dependencies: {  }
+label: Gift
+id: gift
+purchasableEntityType: commerce_product_variation
+orderType: gift

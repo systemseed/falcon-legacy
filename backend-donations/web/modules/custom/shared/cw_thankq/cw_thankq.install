@@ -1,0 +1,89 @@
+<?php
+
+/**
+ * Update ThankQ IDs for existing Gifts.
+ */
+function cw_thankq_update_8011() {
+  $storage = \Drupal::entityTypeManager()->getStorage('commerce_product');
+
+  // Prepare map Gift -> Thankq ID.
+  // @todo: Provide correct ThankQ ids and codes for integration.
+  if (getenv('CW_REGION') == 'gb') {
+    $gifts_map = [
+      'Bicycle Ambulance' => ['id' => '', 'code' => '', 'price' => 1],
+      'Village Well' => ['id' => '', 'code' => '', 'price' => 1],
+      'Goat' => ['id' => '', 'code' => '', 'price' => 1],
+      'Piglet' => ['id' => '', 'code' => '', 'price' => 1],
+      'Rabbits' => ['id' => '', 'code' => '', 'price' => 1],
+      'Six Chickens' => ['id' => '', 'code' => '', 'price' => 1],
+      'Sweet potatoes' => ['id' => '', 'code' => '', 'price' => 1],
+      'Kitchen Garden' => ['id' => '', 'code' => '', 'price' => 1],
+      'Custom donation' => ['id' => '', 'code' => ''],
+    ];
+  }
+  else {
+    $gifts_map = [
+      'Bicycle Ambulance' => ['id' => '', 'code' => ''],
+      'Village Well' => ['id' => '', 'code' => ''],
+      'Goat' => ['id' => '', 'code' => ''],
+      'Piglet' => ['id' => '', 'code' => ''],
+      'Rabbits' => ['id' => '', 'code' => ''],
+      'Six Chickens' => ['id' => '', 'code' => ''],
+      'Sweet potatoes' => ['id' => '', 'code' => ''],
+      'Kitchen Garden' => ['id' => '', 'code' => ''],
+      'Custom donation' => ['id' => '', 'code' => ''],
+    ];
+  }
+
+
+  $query = $storage->getQuery();
+
+  $product_ids = $query
+    ->condition('title', array_keys($gifts_map), 'IN')
+    ->condition('type', 'gift')
+    ->execute();
+
+  $products = $storage->loadMultiple($product_ids);
+
+  /* @var \Drupal\commerce_product\Entity\Product $product */
+  foreach ($products as $product) {
+    $thankq_id = $gifts_map[$product->label()]['id'];
+    $code = $gifts_map[$product->label()]['code'];
+
+    if (empty($thankq_id)) {
+      continue;
+    }
+
+    // Save product code.
+    if ($product->get('field_gift_product_code')->getString() != $code) {
+      $product->field_gift_product_code = $code;
+      $product->save();
+    }
+
+    // Figure out which currency is used on this site.
+    if (getenv('CW_REGION') == 'gb') {
+      $currency = 'GBP';
+    }
+    else {
+      $currency = 'EUR';
+    }
+
+    // Update variant for this currency.
+    /* @var \Drupal\commerce_product\Entity\ProductVariation $variation */
+    foreach ($product->getVariations() as $variation) {
+      if ($variation->getPrice()->getCurrencyCode() == $currency) {
+        $variation->field_thankq_id = $thankq_id;
+
+        // If price is not empty in $gifts_map then update it in variant.
+        if (!empty($gifts_map[$product->label()]['price'])) {
+          $price = new \Drupal\commerce_price\Price($gifts_map[$product->label()]['price'], $currency);
+          $variation->setPrice($price);
+        }
+
+        $variation->save();
+        break;
+      }
+    }
+  }
+
+}

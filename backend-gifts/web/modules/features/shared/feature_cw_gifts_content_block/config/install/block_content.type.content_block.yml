@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: content_block
+label: 'Content Block'
+revision: 1
+description: 'Basic content block to place on the frontend'

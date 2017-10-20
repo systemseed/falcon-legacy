@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains cw_gifts_api.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function cw_gifts_api_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the cw_gifts_api module.
+    case 'help.page.cw_gifts_api':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Common improvements and enhancements for Drupal/JSON API.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

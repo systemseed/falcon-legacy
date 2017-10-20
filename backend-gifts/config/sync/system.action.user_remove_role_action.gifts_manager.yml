@@ -1,0 +1,14 @@
+uuid: 973d1ecc-2c7a-46fb-bf76-4a206c55625d
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.gifts_manager
+  module:
+    - user
+id: user_remove_role_action.gifts_manager
+label: 'Remove the Gifts manager role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: gifts_manager

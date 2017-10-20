@@ -1,0 +1,8 @@
+uuid: 26fafa19-4cc5-42a7-abcd-9edd1e3f8aaa
+langcode: en
+status: true
+dependencies: {  }
+id: gift
+label: Gift
+orderItemType: gift
+generateTitle: true

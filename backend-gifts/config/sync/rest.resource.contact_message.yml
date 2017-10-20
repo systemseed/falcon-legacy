@@ -1,0 +1,17 @@
+uuid: 9c676ee9-a9d8-47a1-8f72-6d07617801c4
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact_message_rest
+    - serialization
+    - simple_oauth
+id: contact_message
+plugin_id: contact_message
+granularity: method
+configuration:
+  POST:
+    supported_formats:
+      - json
+    supported_auth:
+      - oauth2

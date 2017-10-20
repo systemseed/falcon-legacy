@@ -1,0 +1,11 @@
+uuid: fdfc80a0-0644-4935-95df-e8d647770224
+langcode: en
+status: true
+dependencies: {  }
+label: Gift
+id: gift
+workflow: order_default
+refresh_mode: customer
+refresh_frequency: 300
+sendReceipt: true
+receiptBcc: ''

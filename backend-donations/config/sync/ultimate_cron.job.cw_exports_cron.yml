@@ -1,0 +1,29 @@
+uuid: 91124efd-8eee-4596-a1b9-1ebb2bc1f782
+langcode: en
+status: true
+dependencies:
+  module:
+    - cw_exports
+title: 'Default cron handler'
+id: cw_exports_cron
+weight: 0
+module: cw_exports
+callback: cw_exports_cron
+scheduler:
+  id: simple
+  configuration:
+    rules:
+      - '0+@ */3 * * *'
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+    launcher:
+      thread: 0
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000

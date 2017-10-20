@@ -1,0 +1,10 @@
+uuid: ed8c2e82-0a14-4ee0-99b3-68abf714dbfe
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: puBstSLDz8mbaWU357zaqQDBGMGsJzG0j-TQNQkjg20
+id: '404'
+label: '404 page not found'
+tags:
+  title: '404 Not Found | Gifts'

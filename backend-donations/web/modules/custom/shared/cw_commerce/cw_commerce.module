@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Contains cw_commerce.module.
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_theme_suggestions_commerce_order_receipt().
+ */
+function cw_commerce_theme_suggestions_commerce_order_receipt(array $variables) {
+  $original = $variables['theme_hook_original'];
+  $entity = $variables['order_entity'];
+
+  // Allow to override receipt templates per order bundle.
+  $suggestions = [];
+  $suggestions[] = $original;
+  $suggestions[] = $original . '__' . $entity->bundle();
+
+  return $suggestions;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function cw_commerce_preprocess_commerce_order_receipt(&$variables) {
+  // Get first name for receipt template. @todo: 'field_profile_address' key can be different for different profile types.
+  if (isset($variables['billing_information']['#profile'])
+    && !$variables['billing_information']['#profile']->get('field_profile_first_name')->isEmpty()) {
+    $variables['first_name'] = $variables['billing_information']['#profile']
+      ->get('field_profile_first_name')
+      ->getString();
+  }
+
+  $variables['first_name'] = empty($variables['first_name']) ? t('Customer') : $variables['first_name'];
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_access().
+ */
+function cw_commerce_commerce_payment_gateway_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account) {
+  switch ($operation) {
+    case 'view':
+      return AccessResult::allowedIfHasPermission($account, 'view commerce_payment_gateway');
+    default:
+      // No opinion.
+      return AccessResult::neutral();
+  }
+}

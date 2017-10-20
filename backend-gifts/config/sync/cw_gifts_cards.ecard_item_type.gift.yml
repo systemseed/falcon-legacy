@@ -1,0 +1,8 @@
+uuid: d37aa69d-da0a-4591-8cf2-55f510ed6b60
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: QtBsxmtZDeAGSWOniAIDeiwCts0YA70sVtUTWVfUukw
+id: gift
+label: 'Gift (normal)'

@@ -1,0 +1,22 @@
+{#
+/**
+ * @file ecard_item.html.twig
+ * Default theme implementation to present E-Card Item data.
+ *
+ * This template is used when viewing E-Card Item pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_ecard_item()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('ecard_item') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

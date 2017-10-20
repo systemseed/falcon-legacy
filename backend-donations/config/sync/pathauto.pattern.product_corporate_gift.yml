@@ -1,0 +1,23 @@
+uuid: f8fea8b0-961b-4c1e-a5e3-f569f1a869d5
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - ctools
+id: product_corporate_gift
+label: 'Product: Corporate Gift'
+type: 'canonical_entities:commerce_product'
+pattern: '/corporate/[commerce_product:title]'
+selection_criteria:
+  94a96730-6ca5-4e6e-a9b1-e2d83e7391d1:
+    id: 'entity_bundle:commerce_product'
+    bundles:
+      gift_corporate: gift_corporate
+    negate: false
+    context_mapping:
+      commerce_product: commerce_product
+    uuid: 94a96730-6ca5-4e6e-a9b1-e2d83e7391d1
+selection_logic: and
+weight: -5
+relationships: {  }

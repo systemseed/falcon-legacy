@@ -1,0 +1,20 @@
+uuid: 498fa7e2-b304-4650-9944-640d87554698
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cw_gb_donations
+id: cw_gb_donations_tabs
+theme: cw_gb_donations
+region: sidebar_first
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  provider: core
+  label_display: '0'
+  primary: false
+  secondary: true
+visibility: {  }

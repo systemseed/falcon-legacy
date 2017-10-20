@@ -1,0 +1,35 @@
+import React from 'react';
+import { Grid, Col, Row } from 'react-bootstrap';
+import Metatags from '../../components/Metatags';
+import CheckoutContainer from '../../containers/CheckoutContainer';
+import CheckoutBasketSummary from '../../containers/CheckoutBasketSummary';
+import CheckoutPaymentContainer from '../../containers/CheckoutPaymentContainer';
+
+const CheckoutView = () => (
+  <div>
+    <Metatags metatags={{"title": {"attributes": {"content": "Checkout and save lives | Gifts"}}}} />
+    <Grid className="padding-top-3x padding-bottom-2x">
+
+      <h1 className="space-top-half">
+        Checkout and save lives
+      </h1>
+
+      <Row className="checkout-container padding-top">
+
+        <Col sm={8} className="padding-bottom-2x">
+          <CheckoutContainer />
+        </Col>
+
+        <Col md={3} mdOffset={1} sm={4} className="padding-bottom-2x">
+          <aside className="checkout-payment">
+            <CheckoutBasketSummary />
+            <CheckoutPaymentContainer />
+          </aside>
+        </Col>
+
+      </Row>
+    </Grid>
+  </div>
+);
+
+export default CheckoutView;

@@ -1,0 +1,9 @@
+uuid: b506d5f3-5660-4604-b49b-4710966551fe
+langcode: en
+status: true
+dependencies: {  }
+id: commerce_product
+label: Product
+tags:
+  description: '[commerce_product:field_gift_annotation]'
+  title: '[commerce_product:title] | Gifts'

@@ -1,0 +1,22 @@
+uuid: 45a67898-427b-46d0-a70f-af9b503e8577
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.gift_category
+id: taxonomy_term.gift_category.default
+targetEntityType: taxonomy_term
+bundle: gift_category
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  description: true
+  path: true

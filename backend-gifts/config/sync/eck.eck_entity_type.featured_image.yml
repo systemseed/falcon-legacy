@@ -1,0 +1,10 @@
+uuid: cf309850-bf8d-4e45-87f2-c6d62ed90c80
+langcode: en
+status: true
+dependencies: {  }
+id: featured_image
+label: 'Featured Image'
+created: true
+changed: true
+uid: false
+title: true

@@ -1,0 +1,31 @@
+.message-bar {
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 114px;
+  display: none;
+  text-align: center;
+  opacity: 0;
+  padding: 10px 15px;
+  color: white;
+  transition-property: opacity;
+  transition-duration: 0.5s;
+  z-index: 15;
+  text-decoration: none;
+  a {
+    color: white;
+  }
+  &:hover, &:visited, &:focus {
+    color: white;
+    text-decoration: none;
+  }
+  &.visible {
+    opacity: 1;
+    display: block;
+  }
+  span.material-icons {
+    font-size: 20px;
+    margin-right: 10px;
+    margin-top: -4px;
+  }
+}

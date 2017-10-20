@@ -1,0 +1,15 @@
+uuid: cbb0be04-2432-4b75-bac6-47fa067d93e5
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access data models'
+  - 'add own profile_gifts profile'
+  - 'view any commerce_product'

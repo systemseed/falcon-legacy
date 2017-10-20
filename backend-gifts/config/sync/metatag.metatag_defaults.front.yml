@@ -1,0 +1,10 @@
+uuid: 83b99835-184e-45b7-94cd-2f5bfb570eeb
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 1noCXlegCr5HFehQRF1ViXy1jhU1jZ_sNN99a8Sj5jo
+id: front
+label: 'Front page'
+tags:
+  title: 'Life Changing Gift Ideas | Gifts'

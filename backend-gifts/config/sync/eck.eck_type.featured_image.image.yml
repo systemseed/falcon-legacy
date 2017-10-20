@@ -1,0 +1,9 @@
+uuid: 5b5ebda7-612b-4211-b1aa-7d3cadd4b8ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.featured_image
+name: image
+type: image
+description: ''

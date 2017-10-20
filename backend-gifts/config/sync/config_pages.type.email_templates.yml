@@ -1,0 +1,12 @@
+uuid: 7b18999a-cc18-47e5-a489-72f4651f9ac1
+langcode: en
+status: true
+dependencies: {  }
+id: email_templates
+label: 'Email templates'
+context:
+  show_warning: 1
+  group:
+    language: 0
+menu:
+  path: /admin/config/system/email-templates

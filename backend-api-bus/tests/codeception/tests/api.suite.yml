@@ -1,0 +1,8 @@
+class_name: ApiTester
+modules:
+    enabled:
+        - \Helper\Api
+        - REST:
+            depends: PhpBrowser
+            timeout: 90
+            part: Json

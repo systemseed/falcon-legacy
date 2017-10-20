@@ -1,0 +1,10 @@
+
+cw_ie_gifts_test.simple_api_controller_get:
+  path: '/ie'
+  defaults:
+    _controller: '\Drupal\cw_ie_gifts_test\Controller\SimpleApiController::get'
+    _title: 'get'
+  methods:  [GET]
+  requirements:
+    _permission: 'access content'
+    _format: 'json'

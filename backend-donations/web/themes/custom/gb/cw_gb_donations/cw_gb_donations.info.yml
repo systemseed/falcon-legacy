@@ -1,0 +1,7 @@
+name: FLC Donations (UK)
+type: theme
+description: Region specific templates for donations service.
+package: FLC
+core: 8.x
+base theme: seven
+

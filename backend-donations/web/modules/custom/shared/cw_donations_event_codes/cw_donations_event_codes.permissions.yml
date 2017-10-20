@@ -1,0 +1,33 @@
+add event code entities:
+  title: 'Create new Event code entities'
+
+administer event code entities:
+  title: 'Administer Event code entities'
+  description: 'Allow to access the administration form to configure Event code entities.'
+  restrict access: true
+
+delete event code entities:
+  title: 'Delete Event code entities'
+
+edit event code entities:
+  title: 'Edit Event code entities'
+
+access event code overview:
+  title: 'Access the Event code overview page'
+
+view published event code entities:
+  title: 'View published Event code entities'
+
+view unpublished event code entities:
+  title: 'View unpublished Event code entities'
+
+view all event code revisions:
+  title: 'View all Event code revisions'
+
+revert all event code revisions:
+  title: 'Revert all Event code revisions'
+  description: 'Role requires permission <em>view Event code revisions</em> and <em>edit rights</em> for event code entities in question or <em>administer event code entities</em>.'
+
+delete all event code revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Event code revisions</em> and <em>delete rights</em> for event code entities in question or <em>administer event code entities</em>.'

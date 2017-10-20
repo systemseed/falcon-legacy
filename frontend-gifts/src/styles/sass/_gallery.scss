@@ -1,0 +1,68 @@
+//
+// Gallery
+// --------------------------------------------------
+
+.gallery-item {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none !important;
+  text-align: center;
+
+  img {
+    @include transform(translate3d(0,0,0));
+    @include transition(all .5s);
+  }
+
+  .gallery-caption {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: $body-bg;
+    padding: $line-height-computed;
+    @include transform(translate3d(0,100%,0));
+    @include transition(all .45s);
+
+    h2, h3, h4, h5, h6 {
+      font-size: $font-size-h6;
+      font-weight: normal;
+      margin-bottom: floor($line-height-computed / 3);
+    }
+    p {
+      color: lighten($gray, 10%);
+      font-size: $font-size-small;
+      margin-bottom: 0;
+    }
+  }
+
+  &:hover {
+    .gallery-caption {
+      @include transform(translate3d(0,0,0));
+    }
+    img { @include transform(translate3d(0,-25px,0)); }
+  }
+}
+
+// For Touch Devices
+.touch .gallery-item {
+
+  img {
+    @include transform(none);
+    @include transition(none);
+  }
+
+  .gallery-caption {
+    position: relative;
+    @include transform(none);
+    @include transition(none);
+  }
+
+  &:hover {
+    .gallery-caption {
+      @include transform(none);
+    }
+    img { @include transform(none); }
+  }
+}

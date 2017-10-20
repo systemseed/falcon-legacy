@@ -1,0 +1,10 @@
+name: 'Content Block'
+description: 'Provides simple content block that can be placed on the frontend.'
+type: module
+core: 8.x
+dependencies:
+  - block_content
+  - field
+  - taxonomy
+  - text
+version: 8.x-1.0

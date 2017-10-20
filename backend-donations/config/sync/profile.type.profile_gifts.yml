@@ -1,0 +1,11 @@
+uuid: d6548914-6182-42b9-a1f1-4479322439e6
+langcode: en
+status: true
+dependencies: {  }
+id: profile_gifts
+label: 'Profile Gifts'
+registration: false
+multiple: false
+roles:
+  authenticated: '0'
+weight: 0

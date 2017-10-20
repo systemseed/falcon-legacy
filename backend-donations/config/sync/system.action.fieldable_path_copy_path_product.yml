@@ -1,0 +1,11 @@
+uuid: d081d4fb-d419-4ca5-827e-88ea93a1806a
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: fieldable_path_copy_path_product
+label: 'Copy path to Fieldable Path field'
+type: commerce_product
+plugin: fieldable_path_copy_path
+configuration: {  }

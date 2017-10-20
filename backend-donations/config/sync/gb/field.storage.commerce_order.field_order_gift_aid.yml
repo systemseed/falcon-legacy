@@ -1,0 +1,18 @@
+uuid: 18d1a58d-d884-4b08-9571-42258d73aeb4
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+id: commerce_order.field_order_gift_aid
+field_name: field_order_gift_aid
+entity_type: commerce_order
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

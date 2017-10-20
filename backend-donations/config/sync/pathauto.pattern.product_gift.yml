@@ -1,0 +1,23 @@
+uuid: 526b2d88-32cc-4882-8b4c-641a4afd4445
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - ctools
+id: product_gift
+label: 'Product: Gift'
+type: 'canonical_entities:commerce_product'
+pattern: '/gifts/[commerce_product:title]'
+selection_criteria:
+  1e4312e4-214c-4d17-9b83-33b74aabfb8a:
+    id: 'entity_bundle:commerce_product'
+    bundles:
+      gift: gift
+    negate: false
+    context_mapping:
+      commerce_product: commerce_product
+    uuid: 1e4312e4-214c-4d17-9b83-33b74aabfb8a
+selection_logic: and
+weight: -5
+relationships: {  }

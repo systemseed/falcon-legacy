@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - cw_gifts_cards.gift_card_config_type.physical
+    - field.field.gift_card_config.physical.field_image
+id: gift_card_config.physical.default
+targetEntityType: gift_card_config
+bundle: physical
+mode: default
+content:
+  field_image:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+hidden: {  }

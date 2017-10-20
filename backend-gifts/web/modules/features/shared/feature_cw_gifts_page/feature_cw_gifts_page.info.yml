@@ -1,0 +1,13 @@
+name: Page
+description: 'Provides Page content type and related configuration. Simple page with title and body.'
+type: module
+core: 8.x
+dependencies:
+  - field
+  - menu_ui
+  - node
+  - path
+  - text
+  - user
+version: 8.x-1.0
+package: 'FLC Gifts'

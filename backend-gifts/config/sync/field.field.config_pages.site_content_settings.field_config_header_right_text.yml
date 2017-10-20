@@ -1,0 +1,24 @@
+uuid: e5eb4428-b061-40d3-b226-0f9dddba29d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.site_content_settings
+    - field.storage.config_pages.field_config_header_right_text
+  module:
+    - text
+id: config_pages.site_content_settings.field_config_header_right_text
+field_name: field_config_header_right_text
+entity_type: config_pages
+bundle: site_content_settings
+label: 'Header right text'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: '<a href="tel:014791301">Order by Phone (01) 479 1301</a>'
+    format: raw_html
+default_value_callback: ''
+settings: {  }
+field_type: text

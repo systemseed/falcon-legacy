@@ -1,0 +1,30 @@
+uuid: 1878b166-927b-49d8-b9a9-80340b2fde32
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - file
+    - image
+id: featured_image.field_featured_image
+field_name: field_featured_image
+entity_type: featured_image
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

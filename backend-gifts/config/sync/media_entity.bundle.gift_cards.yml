@@ -1,0 +1,18 @@
+uuid: fa575b54-6d31-4932-b6cd-b2ba73212f62
+langcode: en
+status: true
+dependencies:
+  module:
+    - media_entity_image
+_core:
+  default_config_hash: _ooU83WdS6dHrUUVs0gxD_OGe-EvGsVZGn7lNQlIIw4
+id: gift_cards
+label: 'Gift Cards'
+description: ''
+type: image
+queue_thumbnail_downloads: false
+new_revision: false
+type_configuration:
+  source_field: field_image
+  gather_exif: false
+field_map: {  }

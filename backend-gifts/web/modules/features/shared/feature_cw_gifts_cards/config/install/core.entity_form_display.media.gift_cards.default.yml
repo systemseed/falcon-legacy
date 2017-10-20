@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.gift_cards.field_image
+    - image.style.thumbnail
+    - media_entity.bundle.gift_cards
+  module:
+    - image
+id: media.gift_cards.default
+targetEntityType: media
+bundle: gift_cards
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+  field_image:
+    weight: 2
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+  uid:
+    type: entity_reference_autocomplete
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  name: true

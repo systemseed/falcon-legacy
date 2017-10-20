@@ -1,0 +1,25 @@
+uuid: ffce84e0-4923-49e8-bfa4-cc84cc791d58
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_type.gift
+    - field.storage.commerce_order.field_event_code
+id: commerce_order.gift.field_event_code
+field_name: field_event_code
+entity_type: commerce_order
+bundle: gift
+label: 'Event Code'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:event_code'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

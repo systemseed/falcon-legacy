@@ -1,0 +1,7 @@
+# IDE files
+.idea
+dev
+
+# Ignoring any composer files inside of the root (if any).
+vendor
+.DS_Store

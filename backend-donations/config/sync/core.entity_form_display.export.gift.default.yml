@@ -1,0 +1,20 @@
+uuid: 3727af4f-9900-4bf9-bae3-d07bb7dc0636
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.export.gift
+id: export.gift.default
+targetEntityType: export
+bundle: gift
+mode: default
+content:
+  field_export_in_thanq:
+    weight: 0
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+hidden:
+  created: true

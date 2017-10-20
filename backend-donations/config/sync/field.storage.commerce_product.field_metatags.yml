@@ -1,0 +1,19 @@
+uuid: 0e5a8103-d4c0-43f8-a941-3b3355b14b2e
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - metatag
+id: commerce_product.field_metatags
+field_name: field_metatags
+entity_type: commerce_product
+type: metatag
+settings: {  }
+module: metatag
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,14 @@
+uuid: b3fa4217-0058-4955-aa75-cf20c6ef7e4f
+name: 'Gifts'
+mail: falcon-test@systemseed.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: AyT9s8OUcclfALRE_imByOMgtZ19eOlqdF6zI3p7yqo

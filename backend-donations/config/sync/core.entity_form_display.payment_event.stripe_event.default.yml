@@ -1,0 +1,61 @@
+uuid: 047bc300-17f3-45c4-a9a7-de7a4ac6f740
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.payment_event.stripe_event
+    - field.field.payment_event.stripe_event.field_stripe_event_action
+    - field.field.payment_event.stripe_event.field_stripe_event_description
+    - field.field.payment_event.stripe_event.field_stripe_event_email
+    - field.field.payment_event.stripe_event.field_stripe_event_metadata
+    - field.field.payment_event.stripe_event.field_stripe_event_payment_gw
+id: payment_event.stripe_event.default
+targetEntityType: payment_event
+bundle: stripe_event
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_stripe_event_action:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_stripe_event_description:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_stripe_event_email:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_stripe_event_metadata:
+    weight: 6
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_stripe_event_payment_gw:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden: {  }

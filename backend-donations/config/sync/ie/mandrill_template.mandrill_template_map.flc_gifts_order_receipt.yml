@@ -1,0 +1,10 @@
+uuid: ebcb31af-c80e-4621-8e6a-e58372302590
+langcode: en
+status: true
+dependencies: {  }
+id: flc_gifts_order_receipt
+label: 'Falcon Gifts: Order receipt. IMPORTANT: currently  works for ALL order types, not just Gifts.'
+mailsystem_key: commerce_order_receipt
+template_id: flc-gifts-order-receipt
+main_section: body
+sections: null

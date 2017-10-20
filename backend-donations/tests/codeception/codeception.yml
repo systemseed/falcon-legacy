@@ -1,0 +1,29 @@
+actor: Tester
+paths:
+    tests: tests
+    log: tests/_output
+    data: tests/_data
+    support: tests/_support
+    envs: tests/_envs
+settings:
+    bootstrap: _bootstrap.php
+    colors: true
+    memory_limit: 1024M
+extensions:
+    enabled:
+        - Codeception\Extension\RunFailed
+        - PlatformExtension
+        #- Codeception\Extension\Recorder
+    config:
+        PlatformExtension:
+          http_user: falcon
+          http_pass: FALC0n$!
+
+modules:
+    config:
+        WebDriver:
+          url: http://be_donations_nginx
+        REST:
+          url: http://be_donations_nginx
+        PhpBrowser:
+          url: http://be_donations_nginx

@@ -1,0 +1,20 @@
+uuid: 86c3f6ee-4407-4e4c-be4f-047bb5e2cd3d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access data models'
+  - 'access site-wide contact form'
+  - 'add e-card item entities'
+  - 'restful post contact_message'
+  - 'view any featured_image entities'
+  - 'view e-card item entities'
+  - 'view gifts card configuration entities'
+  - 'view media'

@@ -1,0 +1,24 @@
+uuid: 9c302dbf-6581-4087-816f-52cdd5a0a735
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.email_templates
+    - field.storage.config_pages.field_ecard_to_friend_body
+  module:
+    - text
+id: config_pages.email_templates.field_ecard_to_friend_body
+field_name: field_ecard_to_friend_body
+entity_type: config_pages
+bundle: email_templates
+label: 'Ecard to a frield Email body'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: "<h2>Dear @friend_name,</h2>\r\n\r\n<p>I’m glad to tell you @sender_name has sent you a Gift.</p>\r\n\r\n<p>It's something that will help provide a better, brighter future for a family living in extreme poverty.</p>\r\n\r\n<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnButtonBlock\" style=\"min-width:100%;\" width=\"100%\">\r\n\t<tbody class=\"mcnButtonBlockOuter\">\r\n\t\t<tr>\r\n\t\t\t<td align=\"center\" class=\"mcnButtonBlockInner\" style=\"padding-top:0; padding-right:18px; padding-bottom:18px; padding-left:18px;\" valign=\"top\">\r\n\t\t\t<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnButtonContentContainer\" style=\"border-collapse: separate !important;border-radius: 3px;background-color: #007549;\">\r\n\t\t\t\t<tbody>\r\n\t\t\t\t\t<tr>\r\n\t\t\t\t\t\t<td align=\"center\" class=\"mcnButtonContent\" style=\"font-family: Arial; font-size: 18px; padding: 15px;\" valign=\"middle\"><a class=\"mcnButton\" href=\"@button_url\" style=\"font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;\" target=\"_blank\" title=\"View your gift here\">View your gift here</a></td>\r\n\t\t\t\t\t</tr>\r\n\t\t\t\t</tbody>\r\n\t\t\t</table>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>Your gift will help transform the lives of those living the world's poorest communities - we hope you like it!</p>\r\n\r\n<p>Now you've seen how easy it is to make a difference with a fantastic gift, why not choose a gift at <a href=\"https://www.falcon.systemseed.com\">www.falcon.systemseed.com</a> for someone else?</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>If you have any problems, please contact us on 1111 111 111.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>With best wishes, from everyone at Falcon</strong></p>\r\n"
+    format: full_html
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,49 @@
+add gifts card configuration entities:
+  title: 'Create new Gifts Card Configuration entities'
+
+administer gifts card configuration entities:
+  title: 'Administer Gifts Card Configuration entities'
+  description: 'Allow to access the administration form to configure Gifts Card Configuration entities.'
+  restrict access: true
+
+delete gifts card configuration entities:
+  title: 'Delete Gifts Card Configuration entities'
+
+edit gifts card configuration entities:
+  title: 'Edit Gifts Card Configuration entities'
+
+access gifts card configuration overview:
+  title: 'Access the Gifts Card Configuration overview page'
+
+view gifts card configuration entities:
+  title: 'View Gifts Card Configuration entities'
+
+view all gifts card configuration revisions:
+  title: 'View all Gifts Card Configuration revisions'
+
+revert all gifts card configuration revisions:
+  title: 'Revert all Gifts Card Configuration revisions'
+  description: 'Role requires permission <em>view Gifts Card Configuration revisions</em> and <em>edit rights</em> for gifts card configuration entities in question or <em>administer gifts card configuration entities</em>.'
+
+delete all gifts card configuration revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Gifts Card Configuration revisions</em> and <em>delete rights</em> for gifts card configuration entities in question or <em>administer gifts card configuration entities</em>.'
+add e-card item entities:
+  title: 'Create new E-Card Item entities'
+
+administer e-card item entities:
+  title: 'Administer E-Card Item entities'
+  description: 'Allow to access the administration form to configure E-Card Item entities.'
+  restrict access: true
+
+delete e-card item entities:
+  title: 'Delete E-Card Item entities'
+
+edit e-card item entities:
+  title: 'Edit E-Card Item entities'
+
+access e-card item overview:
+  title: 'Access the E-Card Item overview page'
+
+view e-card item entities:
+  title: 'View E-Card Item entities'

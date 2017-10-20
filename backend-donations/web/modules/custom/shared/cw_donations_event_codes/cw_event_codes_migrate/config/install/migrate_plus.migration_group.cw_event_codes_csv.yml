@@ -1,0 +1,13 @@
+id: cw_event_codes_csv
+label: Event codes from CSV
+description: Event codes from CSV
+source_type: CSV file
+status: true
+
+# As with the migration configuration (see beer_term), we add an enforced
+# dependency so the migration_group configuration will be removed on module
+# uninstall.
+dependencies:
+  enforced:
+    module:
+      - cw_event_codes_migrate

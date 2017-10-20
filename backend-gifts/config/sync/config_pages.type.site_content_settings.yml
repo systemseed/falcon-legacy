@@ -1,0 +1,12 @@
+uuid: 937a6340-9b8d-4f71-8bf9-ec6a45654656
+langcode: en
+status: true
+dependencies: {  }
+id: site_content_settings
+label: 'Site content settings'
+context:
+  show_warning: 1
+  group:
+    language: 0
+menu:
+  path: /admin/config/system/site-content-settings

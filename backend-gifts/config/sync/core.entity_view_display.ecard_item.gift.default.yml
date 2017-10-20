@@ -1,0 +1,66 @@
+uuid: e3b7f1ea-7508-4a2a-a7d5-ff7072eb1763
+langcode: en
+status: true
+dependencies:
+  config:
+    - cw_gifts_cards.ecard_item_type.gift
+    - field.field.ecard_item.gift.field_friends_email
+    - field.field.ecard_item.gift.field_friends_name
+    - field.field.ecard_item.gift.field_message
+    - field.field.ecard_item.gift.field_sender_first_name
+    - field.field.ecard_item.gift.field_sender_last_name
+  module:
+    - user
+_core:
+  default_config_hash: ndZS9dGiftDd4C-nWIZDGkbNYiyeI2qvpCn6BaW5iTk
+id: ecard_item.gift.default
+targetEntityType: ecard_item
+bundle: gift
+mode: default
+content:
+  field_friends_email:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_friends_name:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_message:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_sender_first_name:
+    weight: 5
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_sender_last_name:
+    weight: 6
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

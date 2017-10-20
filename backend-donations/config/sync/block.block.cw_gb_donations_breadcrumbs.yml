@@ -1,0 +1,20 @@
+uuid: b61f879d-8caf-41f9-9e3f-ce53f3776473
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - cw_gb_donations
+id: cw_gb_donations_breadcrumbs
+theme: cw_gb_donations
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

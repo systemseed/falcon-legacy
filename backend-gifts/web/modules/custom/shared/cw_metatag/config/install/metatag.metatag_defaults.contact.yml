@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: 'contact'
+label: 'Contact page'
+tags:
+  title: 'Contact us | Gifts'

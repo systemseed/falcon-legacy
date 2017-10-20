@@ -1,0 +1,27 @@
+uuid: 3c2e5d0d-2b56-48a2-8ab6-de23c061686f
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - options
+id: commerce_product.field_gift_variant_type
+field_name: field_gift_variant_type
+entity_type: commerce_product
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: normal
+      label: Normal
+    -
+      value: custom_price
+      label: 'Custom Price'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

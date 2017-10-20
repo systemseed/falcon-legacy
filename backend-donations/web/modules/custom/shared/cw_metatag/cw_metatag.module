@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Contains cw_metatag.module.
+ */
+
+use Drupal\Core\Entity\EntityTypeInterface;
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function cw_metatag_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'entity_base_field_info_alter') {
+    // Move cw_metatag_entity_base_field_info_alter() to the end of the list.
+    $group = $implementations['cw_metatag'];
+    unset($implementations['cw_metatag']);
+    $implementations['cw_metatag'] = $group;
+  }
+}
+
+/**
+ * Implements hook_entity_base_field_info_alter().
+ */
+function cw_metatag_entity_base_field_info_alter(&$fields, EntityTypeInterface $entity_type) {
+  // By default Metatag module adds additional metatag field to any entity output,
+  // We remove this field to avoid issues, we can get metatag info from added field anyway.
+  if (!empty($fields['metatag'])) {
+    unset($fields['metatag']);
+  }
+}

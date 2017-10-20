@@ -1,0 +1,24 @@
+uuid: b36b0f70-5264-4285-8eba-686052236c3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.cw_page
+  module:
+    - text
+_core:
+  default_config_hash: uycZTk5xbA47MgLeiutBEPk6z76liOpvgUAayrG_Wus
+id: node.cw_page.body
+field_name: body
+entity_type: node
+bundle: cw_page
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

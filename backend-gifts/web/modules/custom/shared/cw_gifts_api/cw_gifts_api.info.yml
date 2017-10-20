@@ -1,0 +1,7 @@
+name: FLC Gifts API
+type: module
+description: Common improvements and enhancements for Drupal/JSON API.
+core: 8.x
+package: FLC Gifts
+dependencies:
+  - jsonapi

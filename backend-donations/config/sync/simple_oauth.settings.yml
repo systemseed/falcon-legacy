@@ -1,0 +1,5 @@
+expiration: 100300
+_core:
+  default_config_hash: RViccNnarW8cWYl6LGhaqdWxqCg0rNzyT3I6MtGB9ug
+public_key: /app/certificates/public.key
+private_key: /app/certificates/private.key

@@ -1,0 +1,129 @@
+uuid: 52aefd51-3ef9-495d-a7e9-8669ccb99d3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.site_content_settings
+    - field.field.config_pages.site_content_settings.field_config_contact_us_address
+    - field.field.config_pages.site_content_settings.field_config_footer_left_text
+    - field.field.config_pages.site_content_settings.field_config_front_page_copy
+    - field.field.config_pages.site_content_settings.field_config_front_page_subline
+    - field.field.config_pages.site_content_settings.field_config_header_left_text
+    - field.field.config_pages.site_content_settings.field_config_header_right_text
+  module:
+    - field_group
+    - text
+third_party_settings:
+  field_group:
+    group_config_general:
+      children:
+        - field_config_header_left_text
+        - field_config_header_right_text
+        - field_config_footer_left_text
+      parent_name: group_config_tabs
+      weight: 1
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+        formatter: closed
+      label: General
+    group_config_front_page:
+      children:
+        - field_config_front_page_subline
+        - field_config_front_page_copy
+      parent_name: group_config_tabs
+      weight: 2
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+        formatter: closed
+      label: 'Front Page'
+    group_config_contact_us_page:
+      children:
+        - field_config_contact_us_address
+      parent_name: group_config_tabs
+      weight: 3
+      format_type: tab
+      format_settings:
+        label: 'Contact Us'
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Contact Us'
+    group_config_tabs:
+      children:
+        - group_config_general
+        - group_config_front_page
+        - group_config_contact_us_page
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        label: Tabs
+        direction: vertical
+        id: ''
+        classes: ''
+      label: Tabs
+id: config_pages.site_content_settings.default
+targetEntityType: config_pages
+bundle: site_content_settings
+mode: default
+content:
+  field_config_contact_us_address:
+    weight: 5
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_config_footer_left_text:
+    weight: 4
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_config_front_page_copy:
+    weight: 7
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_config_front_page_subline:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_config_header_left_text:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_config_header_right_text:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+hidden:
+  label: true

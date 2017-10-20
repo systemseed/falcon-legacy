@@ -1,0 +1,19 @@
+uuid: 4d5f3f76-9298-4833-bb79-ba84cd0643c7
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - fieldable_path
+id: commerce_product.field_fieldable_path
+field_name: field_fieldable_path
+entity_type: commerce_product
+type: fieldable_path
+settings: {  }
+module: fieldable_path
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

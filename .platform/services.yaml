@@ -1,0 +1,21 @@
+# The services of the project.
+#
+# Each service listed will be deployed
+# to power your Platform.sh project.
+
+mariadb_ie:
+    type: "mysql:10.0"
+    disk: 2048
+    configuration:
+        schemas:
+            - gifts
+            - donations
+        endpoints:
+            gifts_user:
+                default_schema: gifts
+                privileges:
+                    gifts: admin
+            donations_user:
+                default_schema: donations
+                privileges:
+                    donations: admin

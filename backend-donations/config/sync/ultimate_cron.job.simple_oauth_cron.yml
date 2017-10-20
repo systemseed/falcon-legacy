@@ -1,0 +1,29 @@
+uuid: 6df4443b-7598-41c5-b567-391a92c21412
+langcode: en
+status: true
+dependencies:
+  module:
+    - simple_oauth
+title: 'Default cron handler'
+id: simple_oauth_cron
+weight: 0
+module: simple_oauth
+callback: simple_oauth_cron
+scheduler:
+  id: simple
+  configuration:
+    rules:
+      - '0+@ */3 * * *'
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+    launcher:
+      thread: 0
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000

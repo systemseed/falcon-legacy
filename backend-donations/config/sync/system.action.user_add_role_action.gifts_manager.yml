@@ -1,0 +1,14 @@
+uuid: 437850bc-f808-47ea-b627-42211366c2f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.gifts_manager
+  module:
+    - user
+id: user_add_role_action.gifts_manager
+label: 'Add the Gifts manager role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: gifts_manager

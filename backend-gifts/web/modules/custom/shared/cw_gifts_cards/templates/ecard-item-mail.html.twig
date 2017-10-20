@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * ecard_item_mail.html.twig
+ * Template for E-Card Item email with a link to Gift card.
+ *
+ * Available variables:
+ * - ecard_item_entity: The E-Card Item entity of bundle "gift"
+ * - friends_name: Name of recipient
+ * - sender_name: Name of sender
+ * - button_url: Full url to gift card on the frontend
+ *
+ * @ingroup themeable
+ */
+#}
+
+<h2>Dear {{ friends_name }},</h2>
+
+<p>I’m glad to tell you {{ sender_name }} has sent you a Gift.</p>
+<p>It's something that will help provide a better, brighter future for a family living in extreme poverty.
+</p>
+
+{#
+Button markup below is a quick copy-paste from Mailchimp.
+#}
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnButtonBlock" style="min-width:100%;">
+    <tbody class="mcnButtonBlockOuter">
+    <tr>
+        <td style="padding-top:0; padding-right:18px; padding-bottom:18px; padding-left:18px;" valign="top" align="center" class="mcnButtonBlockInner">
+            <table border="0" cellpadding="0" cellspacing="0" class="mcnButtonContentContainer" style="border-collapse: separate !important;border-radius: 3px;background-color: #007549;">
+                <tbody>
+                <tr>
+                    <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial; font-size: 18px; padding: 15px;">
+                        <a class="mcnButton" title="View your gift here" href="{{ button_url }}" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">View your gift here</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<p>Your gift will help transform the lives of those living the world's poorest communities - we hope you like it!</p>
+<p>Now you've seen how easy it is to make a difference with a fantastic gift, why not choose a gift at <a href="https://www.falcon.systemseed.com">www.falcon.systemseed.com</a> for someone else?</p>
+<br>
+<p>If you have any problems, please contact us on 1111 111 111.</p>
+<p><strong>With best wishes, from everyone at Falcon</strong></p>

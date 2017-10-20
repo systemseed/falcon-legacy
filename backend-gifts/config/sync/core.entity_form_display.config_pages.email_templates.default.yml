@@ -1,0 +1,24 @@
+uuid: 582908f3-a9de-4c21-8ab6-235a104aa45f
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.email_templates
+    - field.field.config_pages.email_templates.field_ecard_to_friend_body
+  module:
+    - text
+id: config_pages.email_templates.default
+targetEntityType: config_pages
+bundle: email_templates
+mode: default
+content:
+  field_ecard_to_friend_body:
+    weight: 0
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+hidden:
+  label: true

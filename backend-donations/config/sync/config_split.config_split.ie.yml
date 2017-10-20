@@ -1,0 +1,31 @@
+uuid: 6c5c382f-0a74-4cd1-8a40-4e5a32ae3f7f
+langcode: en
+status: true
+dependencies: {  }
+id: ie
+label: IE
+folder: ../config/sync/ie
+module: {  }
+theme: {  }
+blacklist: {  }
+graylist:
+  - commerce_payment.commerce_payment_gateway.gifts_live_paypal
+  - commerce_payment.commerce_payment_gateway.gifts_live_stripe
+  - commerce_payment.commerce_payment_gateway.gifts_test_paypal
+  - commerce_payment.commerce_payment_gateway.gifts_test_stripe
+  - core.entity_form_display.commerce_order.gift.default
+  - core.entity_view_display.commerce_order.gift.default
+  - cw_payment_event.gifts_live_stripe
+  - cw_thankq.config
+  - mailsystem.settings
+  - mandrill.settings
+  - mandrill_template.mandrill_template_map.flc_gifts_order_receipt
+  - system.date
+  - views.view.exports_gifts_order_list
+  - cw_payment_event.gifts_live_stripe
+  - core.entity_form_display.profile.profile_gifts.default
+  - core.entity_view_display.profile.profile_gifts.default
+  - system.theme
+graylist_dependents: true
+graylist_skip_equal: false
+weight: 0

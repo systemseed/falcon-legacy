@@ -1,0 +1,11 @@
+name: FLC Event Codes Migrate CSV
+type: module
+description: Event Codes Migrate CSV. Enable this module only when you need to import event codes from CSV.
+configure: cw_event_codes_migrate.config_form
+core: 8.x
+package: FLC
+dependencies:
+  - cw_donations_event_codes
+  - migrate_plus
+  - migrate_tools
+  - migrate_source_csv

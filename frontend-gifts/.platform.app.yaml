@@ -1,0 +1,41 @@
+name: frontend-gifts
+type: nodejs:6.9
+
+dependencies:
+  nodejs:
+    pm2: "^2.4.4"
+web:
+  commands:
+    # Run node server in pm2 process manager. Logs will be available in /app/run/logs.
+    start: "BABEL_CACHE_PATH=/tmp/babel-register.cache.json NODE_ENV=production PM2_HOME=$PLATFORM_APP_DIR/run pm2 start server/index.js --no-daemon"
+  locations:
+    # Delegate static files to Nginx. Note that "/" is currently served by Node.
+    "/static":
+      passthru: false
+      root: "build/static"
+      expires: 5m
+      allow: true
+    "/images":
+      passthru: false
+      root: "build/images"
+      expires: 5m
+      allow: true
+
+hooks:
+  build: |
+    npm run build:platform
+  deploy: |
+    # Copy built files into writable folder to write into index.html on per-environment basis.
+    # This should be refactored once server-side rendering is enabled.
+    set -e
+    cp -r build-platform/* build/
+    node build_scripts/platform-deploy.js
+    node build_scripts/build-snippets.js
+
+
+disk: 512
+
+mounts:
+  # Make whole build folder writeble for build scripts purposes.
+  '/build': 'shared:files/build'
+  '/run': 'shared:files/run'

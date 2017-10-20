@@ -1,0 +1,46 @@
+.giftaid-container {
+  .giftaid-image {
+    text-align: center;
+    img {
+      display: inline-block;
+    }
+  }
+  .checkbox {
+    padding-left: 0;
+    label {
+      color: $gray;
+      font-weight: normal;
+    }
+    input {
+      margin-right: 8px;
+    }
+  }
+  // Mobile only styles. Outputs GiftAid image near the checkbox.
+  @media #{$tablet-port} {
+    .giftaid-checkbox > .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .checkbox {
+      label {
+        position: relative;
+        &:after {
+          background-image: url(/images/giftaid.png);
+          content: '';
+          width: 128px;
+          height: 45px;
+          display: inline-block;
+          position: absolute;
+          top: -10px;
+          left: 18px;
+        }
+        span {
+          display: block;
+        }
+      }
+      input {
+        margin-bottom: 26px;
+      }
+    }
+  }
+}

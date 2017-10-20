@@ -1,0 +1,11 @@
+#
+# This is a configuration file for platform.sh CLI.
+# It's primary purpose to provide inline authentication for CLI
+# during build step at CircleCI.
+# @see ../circle.yml file for more details.
+#
+
+api:
+    # A path (relative or absolute) to a file containing an API token.
+    #   # Run 'platform logout --all' if you change this value.
+    token_file: token
