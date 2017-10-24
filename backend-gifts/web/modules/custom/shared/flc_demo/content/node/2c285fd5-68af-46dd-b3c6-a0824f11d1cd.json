@@ -1,0 +1,145 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/node\/3?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/node\/cw_page"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/node\/cw_page\/uid": [
+            {
+                "href": "http:\/\/default\/user\/3?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/cw_page\/revision_uid": [
+            {
+                "href": "http:\/\/default\/user\/8?_format=hal_json"
+            }
+        ]
+    },
+    "nid": [
+        {
+            "value": 3
+        }
+    ],
+    "uuid": [
+        {
+            "value": "2c285fd5-68af-46dd-b3c6-a0824f11d1cd"
+        }
+    ],
+    "vid": [
+        {
+            "value": 21
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "cw_page"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "title": [
+        {
+            "value": "Frequently Asked Questions",
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/node\/cw_page\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/3?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "e5493cdb-70a0-4b26-b621-2773d6996e44"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/cw_page\/revision_uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/8?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "d85cdc63-9f7a-4c6c-8686-1a4142972023"
+                    }
+                ]
+            }
+        ]
+    },
+    "created": [
+        {
+            "value": 1489406951,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1496328774,
+            "lang": "en"
+        }
+    ],
+    "promote": [
+        {
+            "value": false,
+            "lang": "en"
+        }
+    ],
+    "sticky": [
+        {
+            "value": false,
+            "lang": "en"
+        }
+    ],
+    "revision_timestamp": [
+        {
+            "value": 1496328774
+        }
+    ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "body": [
+        {
+            "value": "<h2>How long will it take to receive my gift(s)?<\/h2>\r\n\r\n<p>Your postal gift should arrive within 3-5 working days. If you order your postal gift by the 16th of December we guarantee it will arrive in time for Christmas,&nbsp;giving you enough time to receive the gift card and then post it onto your loved one in time for Christmas. But if you've left your shopping until the last minute, remember you can always send an e-card for instant delivery. You can also call into our Camden Street office during office hours (9am-5pm) until December 23rd and pick up your cards directly.<\/p>\r\n\r\n<h2>How do I send a Concern Gift?<\/h2>\r\n\r\n<p>It's easy! Just choose a gift you think your friend or relative would like. For instance, if you know someone who loves cooking (or eating!) then why not buy them a fuel-efficient stove? Just order online or by calling 1850 458 400 and their gift will help a person who really needs it.<\/p>\r\n\r\n<h2>Where does the money from all the gifts go?<\/h2>\r\n\r\n<p>All the money goes into one of our four global programmes - education, livelihoods, health and emergency - unless otherwise stated.&nbsp;<\/p>\r\n\r\n<h2>If I buy a goat, will a family definitely get a goat?<\/h2>\r\n\r\n<p>In many cases yes; your money would go into the livelihoods programme and a family could get a goat. However, sometimes a family needs a donkey more than they need a goat. In that case, we'd put your money towards providing one of those instead. Whatever you choose, we promise your money will go into the relevant programme.<\/p>\r\n\r\n<h2>What will my friends or family get?<\/h2>\r\n\r\n<p>If you get a gift for a friend, you can choose to send them either an e-card or a postal card. If you choose to send them an e-card, they will receive an e-mail telling them how to view it. The e-card will be personalised with your own message and there will also be more information about the gift on it. E-cards are great because they're quick to send and cost less money to create, which means more money for someone in need. E-cards can be sent instantly or scheduled to send at a later date.&nbsp;<\/p>\r\n\r\n<p>If you'd prefer, you can give them a real card instead. We'll post you the blank gift card which you can then personalise with your own greeting and send on to your friend or relative.<\/p>\r\n",
+            "format": "basic_html",
+            "summary": "",
+            "lang": "en"
+        }
+    ]
+}

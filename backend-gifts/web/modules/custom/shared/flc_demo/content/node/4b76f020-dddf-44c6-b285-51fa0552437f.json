@@ -1,0 +1,145 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/about?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/node\/cw_page"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/node\/cw_page\/uid": [
+            {
+                "href": "http:\/\/default\/user\/3?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/cw_page\/revision_uid": [
+            {
+                "href": "http:\/\/default\/user\/3?_format=hal_json"
+            }
+        ]
+    },
+    "nid": [
+        {
+            "value": 2
+        }
+    ],
+    "uuid": [
+        {
+            "value": "4b76f020-dddf-44c6-b285-51fa0552437f"
+        }
+    ],
+    "vid": [
+        {
+            "value": 48
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "cw_page"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "title": [
+        {
+            "value": "How it works",
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/node\/cw_page\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/3?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "e5493cdb-70a0-4b26-b621-2773d6996e44"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/cw_page\/revision_uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/3?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "e5493cdb-70a0-4b26-b621-2773d6996e44"
+                    }
+                ]
+            }
+        ]
+    },
+    "created": [
+        {
+            "value": 1489405971,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1498573244,
+            "lang": "en"
+        }
+    ],
+    "promote": [
+        {
+            "value": false,
+            "lang": "en"
+        }
+    ],
+    "sticky": [
+        {
+            "value": false,
+            "lang": "en"
+        }
+    ],
+    "revision_timestamp": [
+        {
+            "value": 1498573244
+        }
+    ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "body": [
+        {
+            "value": "<h2>Concern Gifts are the alternative gifts offering from <a href=\"https:\/\/www.concern.net\/\">Concern Worldwide<\/a>&nbsp;and help support our work&nbsp;in 26 of the world\u2019s poorest countries. This is how they work:<\/h2>\r\n\r\n<h4><img alt=\"What you get when you when you purchase a Concern gift\" data-align=\"right\" data-entity-type=\"file\" data-entity-uuid=\"b937099e-d056-49db-87a4-7ff22dac2841\" height=\"545\" src=\"\/sites\/default\/files\/inline-images\/CW086%202013%20Goat_1.jpg\" width=\"385\" \/><\/h4>\r\n\r\n<p>&nbsp;<\/p>\r\n\r\n<p><strong>1. Browse our catalogue&nbsp;online and pick a unique gift.&nbsp;<\/strong><\/p>\r\n\r\n<p>We have gifts to suit all budgets and interests, including school packs, water pumps and the always popular piglets, so you're sure to find the right gift for your recipient.&nbsp;<\/p>\r\n\r\n<p><strong>2. When you've decided on your gift, we'll send you a card in the post or by email.<\/strong><\/p>\r\n\r\n<p>You'll have the opportunity to personalise&nbsp;it and give to your loved one by hand. Alternatively, you can choose to send an e-card which will be emailed directly to the recipient. All cards feature a photo of your chosen gift and information about how it makes a difference.&nbsp;<\/p>\r\n\r\n<p><strong>3. Your generous&nbsp;purchase will help bring hope to those who need it most!&nbsp;<\/strong><\/p>\r\n\r\n<p>Your money will contribute to one of our four&nbsp;<a href=\"http:\/\/www.concerngifts.org\/global\/\">key areas of work<\/a>;&nbsp;education, emergencies, health and livelihoods. Whatever gift you choose, you can be completely confident that it will make a big difference!<\/p>\r\n\r\n<p>&nbsp;<\/p>\r\n",
+            "format": "full_html",
+            "summary": "",
+            "lang": "en"
+        }
+    ]
+}

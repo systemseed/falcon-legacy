@@ -162,8 +162,8 @@ services:
   ##########################
   ### NGINX PROXY ##########
   ##########################
-
-  flc_nginx_proxy:
+  # todo: fix replacement cw2 to flc.
+  cw2_nginx_proxy:
     image: jwilder/nginx-proxy:0.5.0
     container_name: flc-nginx-proxy
     ports:
