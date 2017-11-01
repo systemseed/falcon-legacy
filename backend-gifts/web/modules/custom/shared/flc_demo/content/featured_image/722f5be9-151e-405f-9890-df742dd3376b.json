@@ -1,0 +1,84 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/admin\/structure\/eck\/entity\/featured_image\/1?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/featured_image\/image"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/featured_image\/image\/field_featured_image": [
+            {
+                "href": "public:\/\/featured_images\/browse-gifts.jpg"
+            }
+        ]
+    },
+    "id": [
+        {
+            "value": 1
+        }
+    ],
+    "uuid": [
+        {
+            "value": "722f5be9-151e-405f-9890-df742dd3376b"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "image"
+        }
+    ],
+    "title": [
+        {
+            "value": "Front page",
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1495127565,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1495130477,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/featured_image\/image\/field_featured_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "public:\/\/featured_images\/browse-gifts.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "4f69d2bf-af42-44a3-8621-4620f0883901"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "public:\/\/featured_images\/browse-gifts.jpg"
+                    }
+                ]
+            }
+        ]
+    }
+}

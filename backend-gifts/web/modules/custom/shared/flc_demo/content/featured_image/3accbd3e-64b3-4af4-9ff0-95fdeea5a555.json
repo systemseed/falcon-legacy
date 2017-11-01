@@ -1,0 +1,84 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/admin\/structure\/eck\/entity\/featured_image\/5?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/featured_image\/image"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/featured_image\/image\/field_featured_image": [
+            {
+                "href": "public:\/\/featured_images\/contact-us-1920x530.jpg"
+            }
+        ]
+    },
+    "id": [
+        {
+            "value": 5
+        }
+    ],
+    "uuid": [
+        {
+            "value": "3accbd3e-64b3-4af4-9ff0-95fdeea5a555"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "image"
+        }
+    ],
+    "title": [
+        {
+            "value": "Contact",
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1495127631,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1495129953,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/featured_image\/image\/field_featured_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "public:\/\/featured_images\/contact-us-1920x530.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "84dde961-cc33-4ad9-8898-b2c32f671198"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "public:\/\/featured_images\/contact-us-1920x530.jpg"
+                    }
+                ]
+            }
+        ]
+    }
+}

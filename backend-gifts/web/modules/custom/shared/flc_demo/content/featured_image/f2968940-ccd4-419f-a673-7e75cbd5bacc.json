@@ -1,0 +1,84 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/admin\/structure\/eck\/entity\/featured_image\/6?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/featured_image\/image"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/featured_image\/image\/field_featured_image": [
+            {
+                "href": "public:\/\/featured_images\/WebSitePic.jpg"
+            }
+        ]
+    },
+    "id": [
+        {
+            "value": 6
+        }
+    ],
+    "uuid": [
+        {
+            "value": "f2968940-ccd4-419f-a673-7e75cbd5bacc"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "image"
+        }
+    ],
+    "title": [
+        {
+            "value": "Page Not Found",
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1495127642,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1496327139,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/featured_image\/image\/field_featured_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "public:\/\/featured_images\/WebSitePic.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "3273f2f1-98de-43d4-b754-d7781cb381b8"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "public:\/\/featured_images\/WebSitePic.jpg"
+                    }
+                ]
+            }
+        ]
+    }
+}

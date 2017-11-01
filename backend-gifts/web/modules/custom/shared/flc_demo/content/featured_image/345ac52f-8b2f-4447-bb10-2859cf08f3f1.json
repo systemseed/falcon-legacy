@@ -1,0 +1,84 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/admin\/structure\/eck\/entity\/featured_image\/7?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/featured_image\/image"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/featured_image\/image\/field_featured_image": [
+            {
+                "href": "public:\/\/featured_images\/Thank%20you%20image%201920_0.jpg"
+            }
+        ]
+    },
+    "id": [
+        {
+            "value": 7
+        }
+    ],
+    "uuid": [
+        {
+            "value": "345ac52f-8b2f-4447-bb10-2859cf08f3f1"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "image"
+        }
+    ],
+    "title": [
+        {
+            "value": "Thank You",
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1495127655,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1496143580,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/featured_image\/image\/field_featured_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "public:\/\/featured_images\/Thank%20you%20image%201920_0.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "41a6b535-e3c7-4ce9-9550-364fffffdc05"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "public:\/\/featured_images\/Thank%20you%20image%201920_0.jpg"
+                    }
+                ]
+            }
+        ]
+    }
+}
