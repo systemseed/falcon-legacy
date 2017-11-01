@@ -1,0 +1,125 @@
+{
+    "_links": {
+        "self": {
+            "href": ""
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/uid": [
+            {
+                "href": "http:\/\/default\/user\/86?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
+            {
+                "href": "http:\/\/default\/gifts\/thermal-blankets?_format=hal_json"
+            }
+        ]
+    },
+    "variation_id": [
+        {
+            "value": 45
+        }
+    ],
+    "uuid": [
+        {
+            "value": "45b93012-97ec-42c8-a023-6a4af1da2cfd"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/86?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "7bd3ec75-f0f6-4afa-b4e9-303846b1dc7a"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/gifts\/thermal-blankets?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "764cd5dd-9273-4b43-a83c-6494f6fed795"
+                    }
+                ]
+            }
+        ]
+    },
+    "sku": [
+        {
+            "value": "T-Blanket"
+        }
+    ],
+    "title": [
+        {
+            "value": "Thermal Blankets",
+            "lang": "en"
+        }
+    ],
+    "price": [
+        {
+            "number": "28.000000",
+            "currency_code": "EUR"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1508256794,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1508256887,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_thankq_id": [
+        {
+            "value": "PR000087"
+        }
+    ]
+}

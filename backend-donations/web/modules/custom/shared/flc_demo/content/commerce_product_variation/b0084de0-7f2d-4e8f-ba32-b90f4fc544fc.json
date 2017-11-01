@@ -1,0 +1,125 @@
+{
+    "_links": {
+        "self": {
+            "href": ""
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/uid": [
+            {
+                "href": "http:\/\/default\/user\/9?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
+            {
+                "href": "http:\/\/default\/gifts\/custom-donation?_format=hal_json"
+            }
+        ]
+    },
+    "variation_id": [
+        {
+            "value": 11
+        }
+    ],
+    "uuid": [
+        {
+            "value": "b0084de0-7f2d-4e8f-ba32-b90f4fc544fc"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/9?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "6c6c8f0c-81a1-4fce-93e6-0330f87b3162"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/gifts\/custom-donation?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "7e39242c-b1f5-4159-b47c-d00c57032892"
+                    }
+                ]
+            }
+        ]
+    },
+    "sku": [
+        {
+            "value": "custom-donation"
+        }
+    ],
+    "title": [
+        {
+            "value": "Custom donation",
+            "lang": "en"
+        }
+    ],
+    "price": [
+        {
+            "number": "0.000000",
+            "currency_code": "EUR"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1492330835,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1508946935,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_thankq_id": [
+        {
+            "value": "PR000180"
+        }
+    ]
+}

@@ -1,0 +1,125 @@
+{
+    "_links": {
+        "self": {
+            "href": ""
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/uid": [
+            {
+                "href": "http:\/\/default\/user\/86?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
+            {
+                "href": "http:\/\/default\/gifts\/school-starter-kit?_format=hal_json"
+            }
+        ]
+    },
+    "variation_id": [
+        {
+            "value": 47
+        }
+    ],
+    "uuid": [
+        {
+            "value": "045a2b89-5f7c-4bd2-9dd6-599ea8d4b05b"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/86?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "7bd3ec75-f0f6-4afa-b4e9-303846b1dc7a"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/gifts\/school-starter-kit?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "5db3c181-2992-4ab9-945b-06ac645b1783"
+                    }
+                ]
+            }
+        ]
+    },
+    "sku": [
+        {
+            "value": "SS-Kit"
+        }
+    ],
+    "title": [
+        {
+            "value": "School Starter Kit",
+            "lang": "en"
+        }
+    ],
+    "price": [
+        {
+            "number": "35.000000",
+            "currency_code": "EUR"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1508258742,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1508258833,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_thankq_id": [
+        {
+            "value": "PR000170"
+        }
+    ]
+}

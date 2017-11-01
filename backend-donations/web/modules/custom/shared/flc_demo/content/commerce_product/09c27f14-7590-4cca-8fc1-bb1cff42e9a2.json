@@ -1,0 +1,246 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/gifts\/milk?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/uid": [
+            {
+                "href": "http:\/\/default\/user\/88?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_action_image": [
+            {
+                "href": "public:\/\/gifts\/2017-10\/Milk%20new.jpg"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
+            {
+                "href": "http:\/\/default\/taxonomy\/term\/3?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
+            {
+                "href": "public:\/\/gifts\/2017-10\/6_0.png",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/stores": [
+            {
+                "href": "http:\/\/default\/store\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/variations": [
+            {
+                "href": ""
+            }
+        ]
+    },
+    "product_id": [
+        {
+            "value": 29
+        }
+    ],
+    "uuid": [
+        {
+            "value": "09c27f14-7590-4cca-8fc1-bb1cff42e9a2"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/88?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "5530dea6-89c5-4e8e-9cf8-5ca10f259171"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_action_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "public:\/\/gifts\/2017-10\/Milk%20new.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "a41f0bdb-fdba-4543-8b3b-1f8b8e87fb08"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "public:\/\/gifts\/2017-10\/Milk%20new.jpg"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/taxonomy\/term\/3?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/gift_category"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "b8997d72-e96a-438b-a4fd-7807b368a2bf"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "public:\/\/gifts\/2017-10\/6_0.png"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "a4717298-169f-4b3e-a89f-79ffaeb438ed"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "public:\/\/gifts\/2017-10\/6_0.png"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/stores": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/store\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_store\/online"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "2ae267c5-6d12-444e-ab5f-d34b5c9825cd"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/variations": [
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "7655f2d9-4226-43e8-a071-3de1457f01a5"
+                    }
+                ]
+            }
+        ]
+    },
+    "title": [
+        {
+            "value": "Milk",
+            "lang": "en"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1507899352,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1509113335,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_fieldable_path": [
+        {
+            "value": "\/gifts\/milk"
+        }
+    ],
+    "field_gift_action_description": [
+        {
+            "value": "<p>The Marsabit region in Kenya has been hit hard by drought and locals like Nasino Asuran struggle to feed their families. Nasino's crops have been ravaged by the lack of rainfall and she relies on goat's milk to feed her two children, including her son Sampson. Thankfully, goat's milk is rich in minerals and nutrients and can help sustain her children as they wait for their crops to grow.<\/p>&#13;\n&#13;\n<p>This gift goes towards our\u00a0<a href=\"https:\/\/www.concern.net\/about\/our-programmes\/livelihoods\">Livelihoods<\/a> programme.<\/p>&#13;\n",
+            "format": "basic_html"
+        }
+    ],
+    "field_gift_annotation": [
+        {
+            "value": "<p><strong>A whole lot of goodness!<\/strong><\/p>&#13;\n&#13;\n<p>Milk it this Christmas with a gift that gives families the essential nutrients they need for a healthy diet! One glass of this nutritious and delicious stuff is filled with calcium, protein and vitamins that helps families build healthy bones and teeth. From you to the people who need it most - give the udderly fantastic gift of milk this Christmas!<\/p>&#13;\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_description": [
+        {
+            "value": "<p>When you buy this gift, you\u2019ll receive a special card to pass on to your friend or loved one. This card will indicate what you have bought for them and you can choose to personalise it by adding a special message. Alternatively, you can choose to send them an e-card directly.\u00a0<\/p>&#13;\n&#13;\n<p>Prefer to order by phone? Call us at\u00a0<a href=\"tel:1850 458 400\">1850 458 400<\/a>\u00a0and we'll be happy to help.<\/p>&#13;\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_product_code": [
+        {
+            "value": "D",
+            "lang": "en"
+        }
+    ],
+    "field_gift_variant_type": [
+        {
+            "value": "normal",
+            "lang": "en"
+        }
+    ]
+}

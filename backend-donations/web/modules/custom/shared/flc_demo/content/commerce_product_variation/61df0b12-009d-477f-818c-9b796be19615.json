@@ -1,0 +1,125 @@
+{
+    "_links": {
+        "self": {
+            "href": ""
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/uid": [
+            {
+                "href": "http:\/\/default\/user\/9?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
+            {
+                "href": "http:\/\/default\/gifts\/sweet-potatoes?_format=hal_json"
+            }
+        ]
+    },
+    "variation_id": [
+        {
+            "value": 27
+        }
+    ],
+    "uuid": [
+        {
+            "value": "61df0b12-009d-477f-818c-9b796be19615"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/9?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "6c6c8f0c-81a1-4fce-93e6-0330f87b3162"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/gifts\/sweet-potatoes?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "8719e0d9-cd79-418a-974c-a4c428a7f1e1"
+                    }
+                ]
+            }
+        ]
+    },
+    "sku": [
+        {
+            "value": "TODO"
+        }
+    ],
+    "title": [
+        {
+            "value": "Sweet potatoes",
+            "lang": "en"
+        }
+    ],
+    "price": [
+        {
+            "number": "24.000000",
+            "currency_code": "EUR"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1493889197,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1505830565,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_thankq_id": [
+        {
+            "value": "PR000113"
+        }
+    ]
+}

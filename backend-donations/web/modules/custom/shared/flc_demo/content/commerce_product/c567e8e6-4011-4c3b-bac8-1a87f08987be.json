@@ -1,0 +1,246 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/gifts\/girls-skills?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/uid": [
+            {
+                "href": "http:\/\/default\/user\/86?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_action_image": [
+            {
+                "href": "public:\/\/gifts\/2017-10\/Girl%20Skills%20new.jpg"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
+            {
+                "href": "http:\/\/default\/taxonomy\/term\/2?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
+            {
+                "href": "public:\/\/gifts\/2017-10\/Girls%20Skills%20Final.png",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/stores": [
+            {
+                "href": "http:\/\/default\/store\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/variations": [
+            {
+                "href": ""
+            }
+        ]
+    },
+    "product_id": [
+        {
+            "value": 43
+        }
+    ],
+    "uuid": [
+        {
+            "value": "c567e8e6-4011-4c3b-bac8-1a87f08987be"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/86?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "7bd3ec75-f0f6-4afa-b4e9-303846b1dc7a"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_action_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "public:\/\/gifts\/2017-10\/Girl%20Skills%20new.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "3f4e5e84-be75-4702-9917-30a34c3dca0a"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "public:\/\/gifts\/2017-10\/Girl%20Skills%20new.jpg"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/taxonomy\/term\/2?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/gift_category"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "8c195cb8-ec3d-4d8e-b70a-3690b6a99521"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "public:\/\/gifts\/2017-10\/Girls%20Skills%20Final.png"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "6492567c-4b67-40fe-b0d4-a8ac5761ce88"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "public:\/\/gifts\/2017-10\/Girls%20Skills%20Final.png"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/stores": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/store\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_store\/online"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "2ae267c5-6d12-444e-ab5f-d34b5c9825cd"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/variations": [
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "57934057-d335-424e-b4d1-1fa4c486258a"
+                    }
+                ]
+            }
+        ]
+    },
+    "title": [
+        {
+            "value": "Girls Skills",
+            "lang": "en"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1508517883,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1509113874,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_fieldable_path": [
+        {
+            "value": "\/gifts\/girls-skills"
+        }
+    ],
+    "field_gift_action_description": [
+        {
+            "value": "<p>Beauty Mbewe, Diolinda Fernando and Esther Banda are three students from the most recent Girl Skills course in Malawi. Not only is the course teaching these girls about their rights and how to look after their health, it also creates a bond and support system in their community. Beauty likes learning these new skills and particularly loves getting to know the other girls in her community. She says that \"here in the Girl Skills team, I have found friends\". Now that's some girl power we can all be part of.<\/p>&#13;\n&#13;\n<p>This gift goes towards our <a href=\"https:\/\/www.concern.net\/about\/our-programmes\/education\">Education<\/a>\u00a0programme.<\/p>&#13;\n",
+            "format": "basic_html"
+        }
+    ],
+    "field_gift_annotation": [
+        {
+            "value": "<p><strong>Celebrating girl power around the world!<\/strong><\/p>&#13;\n&#13;\n<p>In some countries, girls are not given as much support\u00a0and many can grow up not knowing their rights. For this reason, Concern has started up the Girls Skills course in Malawi by training coaches and providing them with the toolkits to teach teenage girls through a series of sports-based classes. Teenage girls are taught how to have important discussions about life, take steps to achieve their goals and stay strong when faced with challenges. This gift can cover the cost of six girls' attendance. That's six futures changed!<\/p>&#13;\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_description": [
+        {
+            "value": "<p>When you buy this gift, you\u2019ll receive a special card to pass on to your friend or loved one. This card will indicate what you have bought for them and you can choose to personalise it by adding a special message. Alternatively, you can choose to send them an e-card directly.\u00a0<\/p>&#13;\n&#13;\n<p>Prefer to order by phone? Call us at\u00a0<a href=\"tel:1850 458 400\">1850 458 400<\/a>\u00a0and we'll be happy to help.<\/p>&#13;\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_product_code": [
+        {
+            "value": "H",
+            "lang": "en"
+        }
+    ],
+    "field_gift_variant_type": [
+        {
+            "value": "normal",
+            "lang": "en"
+        }
+    ]
+}

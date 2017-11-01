@@ -1,0 +1,212 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/corporate\/train-10-farm-vets?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift_corporate"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/uid": [
+            {
+                "href": "http:\/\/default\/user\/65?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_description_image": [
+            {
+                "href": "public:\/\/2017-10\/Gift%20in%20action%203%20720x480.jpg"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_image": [
+            {
+                "href": "public:\/\/gifts_corporate\/2017-10\/10%20FARM%20VETS%20NEW.jpg",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/stores": [
+            {
+                "href": "http:\/\/default\/store\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/variations": [
+            {
+                "href": ""
+            }
+        ]
+    },
+    "product_id": [
+        {
+            "value": 16
+        }
+    ],
+    "uuid": [
+        {
+            "value": "afa5f334-5959-40fa-82e0-7c042d8819e4"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift_corporate"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/65?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "3b3597ce-c86a-47e9-b8c5-740540b124c9"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_description_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "public:\/\/2017-10\/Gift%20in%20action%203%20720x480.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "8549a3cc-c1bd-4441-8608-ec16b7331f46"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "public:\/\/2017-10\/Gift%20in%20action%203%20720x480.jpg"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "public:\/\/gifts_corporate\/2017-10\/10%20FARM%20VETS%20NEW.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "2fa0c1de-ed27-4fb7-bcf2-6e15d24e0e14"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "public:\/\/gifts_corporate\/2017-10\/10%20FARM%20VETS%20NEW.jpg"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/stores": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/store\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_store\/online"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "2ae267c5-6d12-444e-ab5f-d34b5c9825cd"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/variations": [
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "5a664e67-e689-4fbf-8121-a99ea0b329f9"
+                    }
+                ]
+            }
+        ]
+    },
+    "title": [
+        {
+            "value": "Train 10 farm vets",
+            "lang": "en"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1492709037,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1509109488,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_fieldable_path": [
+        {
+            "value": "\/corporate\/train-10-farm-vets",
+            "lang": "en"
+        }
+    ],
+    "field_gift_annotation": [
+        {
+            "value": "<p><strong>The most inspiring and powerful Christmas gifts on earth!<\/strong><\/p>&#13;\n&#13;\n<p>In poor communities, livestock like cows, goats and chickens provide\u00a0a strong livelihood, market produce, and a source of nutritious milk and eggs. Sadly, many of these animals die from easily preventable diseases. To combat this, Concern trains key people over a three-year period to become effective Community Animal Health Workers. Crucially, this means they can vaccinate and care for sick animals. They can also make a living from this vital work - a gift that benefits people and animals alike.<\/p>&#13;\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_description": [
+        {
+            "value": "<p>Joyce Positani, aged 42, received training from Concern Worldwide to become a Community Animal Health Worker in the Nakumba District of Malawi. She is well known in the region and vaccinates up to 300 chickens a month. Thanks to the income she receives from this crucial work, her life has been transformed.<\/p>&#13;\n&#13;\n<p>To find out more, please contact Claire Concannon on\u00a0<a href=\"tel:(01) 417 7756\">(01) 417 7756<\/a>\u00a0 or by email\u00a0<a href=\"mailto:corporategifts@concern.net\">corporategifts@concern.net<\/a><\/p>&#13;\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_variant_type": [
+        {
+            "value": "normal"
+        }
+    ]
+}

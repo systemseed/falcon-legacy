@@ -1,0 +1,93 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/user\/65?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+        }
+    },
+    "uid": [
+        {
+            "value": 65
+        }
+    ],
+    "uuid": [
+        {
+            "value": "3b3597ce-c86a-47e9-b8c5-740540b124c9"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "preferred_langcode": [
+        {
+            "value": "en"
+        }
+    ],
+    "preferred_admin_langcode": [
+        {
+            "value": "en"
+        }
+    ],
+    "name": [
+        {
+            "value": "maedhbh.mcdonald@concern.net"
+        }
+    ],
+    "mail": [
+        {
+            "value": "maedhbh.mcdonald@concern.net"
+        }
+    ],
+    "timezone": [
+        {
+            "value": "UTC"
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ],
+    "created": [
+        {
+            "value": 1496143986
+        }
+    ],
+    "changed": [
+        {
+            "value": 1507737242,
+            "lang": "en"
+        }
+    ],
+    "access": [
+        {
+            "value": 1508513640
+        }
+    ],
+    "login": [
+        {
+            "value": 1508251374
+        }
+    ],
+    "init": [
+        {
+            "value": "maedhbh.mcdonald@concern.net"
+        }
+    ],
+    "roles": [
+        {
+            "target_id": "gifts_manager"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ]
+}

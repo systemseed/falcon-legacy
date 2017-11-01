@@ -1,0 +1,212 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/corporate\/provide-15-villages-bicycle-ambulance?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift_corporate"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/uid": [
+            {
+                "href": "http:\/\/default\/user\/65?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_description_image": [
+            {
+                "href": "public:\/\/2017-10\/Gift%20in%20action%205%20720x480.jpg"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_image": [
+            {
+                "href": "public:\/\/gifts_corporate\/2017-10\/provide%2015%20villages%20with%20ambulance%20NEW.jpg",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/stores": [
+            {
+                "href": "http:\/\/default\/store\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/variations": [
+            {
+                "href": ""
+            }
+        ]
+    },
+    "product_id": [
+        {
+            "value": 18
+        }
+    ],
+    "uuid": [
+        {
+            "value": "ee780ca0-fe8b-4983-95a4-d0ed55c7abc0"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift_corporate"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/65?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "3b3597ce-c86a-47e9-b8c5-740540b124c9"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_description_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "public:\/\/2017-10\/Gift%20in%20action%205%20720x480.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "4af9b6bc-ba6d-4487-9668-f3e5990dd244"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "public:\/\/2017-10\/Gift%20in%20action%205%20720x480.jpg"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "public:\/\/gifts_corporate\/2017-10\/provide%2015%20villages%20with%20ambulance%20NEW.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "68d64fc8-4c27-41c3-a588-7d8d6b8ea894"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "public:\/\/gifts_corporate\/2017-10\/provide%2015%20villages%20with%20ambulance%20NEW.jpg"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/stores": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/store\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_store\/online"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "2ae267c5-6d12-444e-ab5f-d34b5c9825cd"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/variations": [
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "f19dd828-3fcd-4351-8bdd-2b950d13d39f"
+                    }
+                ]
+            }
+        ]
+    },
+    "title": [
+        {
+            "value": "Provide 15 villages with a bicycle ambulance",
+            "lang": "en"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1492709224,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1509111427,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_fieldable_path": [
+        {
+            "value": "\/corporate\/provide-15-villages-bicycle-ambulance",
+            "lang": "en"
+        }
+    ],
+    "field_gift_annotation": [
+        {
+            "value": "<p><strong>The most inspiring and powerful Christmas gifts on earth!<\/strong><\/p>&#13;\n&#13;\n<p>Most rural communities are remote, inaccessible and have no local hospitals. When serious injury or illness strike, local people have to walk for hours to get vital health treatment. This simple but ingenious bicycle ambulance is a game-changing gift that saves lives and improves health. It means that a gravely-ill person can be transported on a stretcher to hospital by a family member without delay.<\/p>&#13;\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_description": [
+        {
+            "value": "<p><span lang=\"EN-GB\" xml:lang=\"EN-GB\">Vincent Vundu is treasurer of his village in Nkhotakota, Malawi. He is responsible for the village's bicycle ambulance which was provided by Concern Worldwide and has helped save lives in the community. As the closest hospital is over 10km away, this bicycle ambulance allows sick or injured people to access treatment as soon as possible. <\/span><\/p>&#13;\n&#13;\n<p>To find out more please contact Claire Concannon on\u00a0<a href=\"tel:014177756\">(01) 417 7756<\/a> or by email <a href=\"mailto:corporategifts@concern.net\">corporategifts@concern.net<\/a><\/p>&#13;\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_variant_type": [
+        {
+            "value": "normal"
+        }
+    ]
+}

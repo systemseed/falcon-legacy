@@ -1,0 +1,125 @@
+{
+    "_links": {
+        "self": {
+            "href": ""
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/uid": [
+            {
+                "href": "http:\/\/default\/user\/65?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
+            {
+                "href": "http:\/\/default\/corporate\/gift-your-choice?_format=hal_json"
+            }
+        ]
+    },
+    "variation_id": [
+        {
+            "value": 37
+        }
+    ],
+    "uuid": [
+        {
+            "value": "4de30d2b-d279-4851-9cd7-2bd5eca0cab8"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/65?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "3b3597ce-c86a-47e9-b8c5-740540b124c9"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/corporate\/gift-your-choice?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift_corporate"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "aa417fee-a062-4ce1-9bca-8c7d49567732"
+                    }
+                ]
+            }
+        ]
+    },
+    "sku": [
+        {
+            "value": "corporate-choose-amount"
+        }
+    ],
+    "title": [
+        {
+            "value": "Your own wonderful gift",
+            "lang": "en"
+        }
+    ],
+    "price": [
+        {
+            "number": "0.000000",
+            "currency_code": "EUR"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1507908003,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1507908010,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_thankq_id": [
+        {
+            "value": "CXWE17-01"
+        }
+    ]
+}

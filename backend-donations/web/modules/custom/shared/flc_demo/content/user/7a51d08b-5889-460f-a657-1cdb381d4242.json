@@ -1,0 +1,83 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/user\/39?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+        }
+    },
+    "uid": [
+        {
+            "value": 39
+        }
+    ],
+    "uuid": [
+        {
+            "value": "7a51d08b-5889-460f-a657-1cdb381d4242"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "preferred_langcode": [
+        {
+            "value": "en"
+        }
+    ],
+    "name": [
+        {
+            "value": "david.finlay@concern.net"
+        }
+    ],
+    "mail": [
+        {
+            "value": "david.finlay@concern.net"
+        }
+    ],
+    "timezone": [
+        {
+            "value": "UTC"
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ],
+    "created": [
+        {
+            "value": 1495035829
+        }
+    ],
+    "changed": [
+        {
+            "value": 1508868652,
+            "lang": "en"
+        }
+    ],
+    "access": [
+        {
+            "value": 1509023877
+        }
+    ],
+    "login": [
+        {
+            "value": 1508868637
+        }
+    ],
+    "roles": [
+        {
+            "target_id": "gifts_manager"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ]
+}

@@ -1,0 +1,212 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/corporate\/gift-your-choice?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift_corporate"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/uid": [
+            {
+                "href": "http:\/\/default\/user\/65?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_description_image": [
+            {
+                "href": "public:\/\/2017-10\/Gift%20in%20action%201%20720x480.jpg"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_image": [
+            {
+                "href": "public:\/\/gifts_corporate\/2017-10\/gift%20of%20your%20choice.jpg",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/stores": [
+            {
+                "href": "http:\/\/default\/store\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/variations": [
+            {
+                "href": ""
+            }
+        ]
+    },
+    "product_id": [
+        {
+            "value": 32
+        }
+    ],
+    "uuid": [
+        {
+            "value": "aa417fee-a062-4ce1-9bca-8c7d49567732"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift_corporate"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/65?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "3b3597ce-c86a-47e9-b8c5-740540b124c9"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_description_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "public:\/\/2017-10\/Gift%20in%20action%201%20720x480.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "ccc98456-62bd-47c9-9e01-0a70a0df66d5"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "public:\/\/2017-10\/Gift%20in%20action%201%20720x480.jpg"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "public:\/\/gifts_corporate\/2017-10\/gift%20of%20your%20choice.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "3f0a1839-b02e-48b5-a2b9-3231a4344ef5"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "public:\/\/gifts_corporate\/2017-10\/gift%20of%20your%20choice.jpg"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/stores": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/store\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_store\/online"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "2ae267c5-6d12-444e-ab5f-d34b5c9825cd"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/variations": [
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "4de30d2b-d279-4851-9cd7-2bd5eca0cab8"
+                    }
+                ]
+            }
+        ]
+    },
+    "title": [
+        {
+            "value": "Gift of your choice",
+            "lang": "en"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1507907757,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1509111565,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_fieldable_path": [
+        {
+            "value": "\/corporate\/gift-your-choice",
+            "lang": "en"
+        }
+    ],
+    "field_gift_annotation": [
+        {
+            "value": "<p><strong>The most inspiring and powerful Christmas gifts on earth.<\/strong><\/p>&#13;\n&#13;\n<p>If you're not sure which gift to choose, or if you have a specific budget you want to invest, just enter the amount you'd like to spend below. Priorities change all the time and catastrophe sometimes strikes when people least expect it. It's crucial that Concern can respond early and effectively. Your gift could help children and their families survive emergencies, protect themselves from disasters or build brighter futures after a war. We\u00a0promise to use your gift wisely wherever the need is greatest.<\/p>&#13;\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_description": [
+        {
+            "value": "<p>Chisomo Makisoni, 22, holds vegetable seed\u00a0packets in his mother's vegetable garden in Nkhotakota, Malawi. Concern Worldwide provided his mother with the seeds and tools. Previously the family would have mainly eaten okra but thanks to the kitchen garden they now have a variety of vegetables they can eat.<\/p>&#13;\n&#13;\n<p>To find out more, please contact Claire Concannon on\u00a0<a href=\"tel:(01) 417 7756\">(01) 417 7756<\/a>\u00a0or by email\u00a0<a href=\"mailto:corporategifts@concern.net\">corporategifts@concern.net<\/a><\/p>&#13;\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_variant_type": [
+        {
+            "value": "custom_price"
+        }
+    ]
+}

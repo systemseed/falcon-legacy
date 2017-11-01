@@ -1,0 +1,88 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/user\/88?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+        }
+    },
+    "uid": [
+        {
+            "value": 88
+        }
+    ],
+    "uuid": [
+        {
+            "value": "5530dea6-89c5-4e8e-9cf8-5ca10f259171"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "preferred_langcode": [
+        {
+            "value": "en"
+        }
+    ],
+    "preferred_admin_langcode": [
+        {
+            "value": "en"
+        }
+    ],
+    "name": [
+        {
+            "value": "cian.purcell-milton@concern.net"
+        }
+    ],
+    "mail": [
+        {
+            "value": "cian.purcell-milton@concern.net"
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ],
+    "created": [
+        {
+            "value": 1507039629
+        }
+    ],
+    "changed": [
+        {
+            "value": 1507796230,
+            "lang": "en"
+        }
+    ],
+    "access": [
+        {
+            "value": 1509115578
+        }
+    ],
+    "login": [
+        {
+            "value": 1509014329
+        }
+    ],
+    "init": [
+        {
+            "value": "cian.purcell-milton@concern.net"
+        }
+    ],
+    "roles": [
+        {
+            "target_id": "gifts_manager"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ]
+}

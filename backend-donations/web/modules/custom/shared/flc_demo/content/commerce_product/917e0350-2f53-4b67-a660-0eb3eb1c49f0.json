@@ -1,0 +1,212 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/corporate\/send-100-children-school?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift_corporate"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/uid": [
+            {
+                "href": "http:\/\/default\/user\/65?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_description_image": [
+            {
+                "href": "public:\/\/2017-10\/Gift%20in%20action%204%20720x480.jpg"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_image": [
+            {
+                "href": "public:\/\/gifts_corporate\/2017-10\/SEND%20100%20CHILDREN%20TO%20SCHOOL%20NEW.jpg",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/stores": [
+            {
+                "href": "http:\/\/default\/store\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/variations": [
+            {
+                "href": ""
+            }
+        ]
+    },
+    "product_id": [
+        {
+            "value": 17
+        }
+    ],
+    "uuid": [
+        {
+            "value": "917e0350-2f53-4b67-a660-0eb3eb1c49f0"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift_corporate"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/65?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "3b3597ce-c86a-47e9-b8c5-740540b124c9"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_description_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "public:\/\/2017-10\/Gift%20in%20action%204%20720x480.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "e0b30b2c-0810-40f0-a1a6-99a5d22f30b2"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "public:\/\/2017-10\/Gift%20in%20action%204%20720x480.jpg"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "public:\/\/gifts_corporate\/2017-10\/SEND%20100%20CHILDREN%20TO%20SCHOOL%20NEW.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "2558893b-8966-4201-b598-1fd1b15259ba"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "public:\/\/gifts_corporate\/2017-10\/SEND%20100%20CHILDREN%20TO%20SCHOOL%20NEW.jpg"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/stores": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/store\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_store\/online"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "2ae267c5-6d12-444e-ab5f-d34b5c9825cd"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/variations": [
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "d0c3af78-c896-4ffd-890b-3172b9cc0157"
+                    }
+                ]
+            }
+        ]
+    },
+    "title": [
+        {
+            "value": "Send 100 children to school",
+            "lang": "en"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1492709126,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1509091158,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_fieldable_path": [
+        {
+            "value": "\/corporate\/send-100-children-school",
+            "lang": "en"
+        }
+    ],
+    "field_gift_annotation": [
+        {
+            "value": "<p><strong>The most inspiring and powerful Christmas gifts on earth. <\/strong><\/p>&#13;\n&#13;\n<p>If you want to break the vicious cycle of poverty and strengthen futures, education is key. It also impacts positively on the wider family and community. However, many children can't afford basic school supplies. This inspirational gift will give children the pencils, notebooks and other items they need to do their schoolwork, school tuition fees for one year and nutritious meals every lunchtime for six months.<\/p>&#13;\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_description": [
+        {
+            "value": "<p>Janet attends St Francis School thanks to a cash transfer provided by Concern to her parents \u2013 Nancy Wanjiku (34) and husband Eric Karanja (38) who work on the Dandora dumpsite.<\/p>&#13;\n&#13;\n<p>To find out more, please contact Claire Concannon on\u00a0<a href=\"tel:(01) 417 7756\">(01) 417 7756<\/a>\u00a0 or by email\u00a0<a href=\"mailto:corporategifts@concern.net\">corporategifts@concern.net<\/a><\/p>&#13;\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_variant_type": [
+        {
+            "value": "normal"
+        }
+    ]
+}
