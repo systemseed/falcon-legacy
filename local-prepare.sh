@@ -21,17 +21,19 @@ docker-compose up -d
 # @todo: Ask if user want to reinstall.
 # @todo: Uncomment to reconfigure site.
 # Prepares certificates for Gifts backend.
-#docker-compose run be_gifts openssl genrsa -out ./certificates/private.key 2048
-#docker-compose run be_gifts openssl rsa -in ./certificates/private.key -pubout > backend-gifts/certificates/public.key
-#
-## Use generated keys for Donations backend.
-#cp ./backend-gifts/certificates/public.key ./backend-donations/certificates/public.key
-#cp ./backend-gifts/certificates/private.key ./backend-donations/certificates/private.key
-#
-#cp ./backend-gifts/web/sites/default/example.settings.local.php ./backend-gifts/web/sites/default/settings.local.php
-#cp ./backend-donations/web/sites/default/example.settings.local.php ./backend-donations/web/sites/default/settings.local.php
-#
-## Run site installation step
-#docker-compose run be_gifts drush site-install config_installer --root='./web' --yes
-#docker-compose run be_gifts drush en flc_demo --yes # To create a demo content.
-#docker-compose run be_donations drush site-install config_installer --root='./web' --yes
+docker-compose run be_gifts openssl genrsa -out ./certificates/private.key 2048
+docker-compose run be_gifts openssl rsa -in ./certificates/private.key -pubout > backend-gifts/certificates/public.key
+
+# Use generated keys for Donations backend.
+cp ./backend-gifts/certificates/public.key ./backend-donations/certificates/public.key
+cp ./backend-gifts/certificates/private.key ./backend-donations/certificates/private.key
+
+cp ./backend-gifts/web/sites/default/example.settings.local.php ./backend-gifts/web/sites/default/settings.local.php
+cp ./backend-donations/web/sites/default/example.settings.local.php ./backend-donations/web/sites/default/settings.local.php
+
+# Run site installation step
+docker-compose run be_gifts drush site-install config_installer --root='./web' --yes
+docker-compose run be_gifts drush en flc_demo --root='./web' --yes # To create a demo content.
+
+docker-compose run be_donations drush site-install config_installer --root='./web' --yes
+docker-compose run be_donations drush en flc_demo --root='./web' --yes # To create a demo content.
