@@ -86,7 +86,7 @@ module:
   views_data_export: 0
   views_ui: 0
   pathauto: 1
-  minimal: 1000
+  config_installer: 1000
 theme:
   stark: 0
   stable: 0
@@ -96,4 +96,4 @@ theme:
   cw_gb_donations: 0
 _core:
   default_config_hash: m2GVq11UAOVuNgj8x0t5fMOPujpvQQ_zxLoaly1BMEU
-profile: minimal
+profile: config_installer

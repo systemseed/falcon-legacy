@@ -6,7 +6,7 @@ use Drupal\config_pages\Entity\ConfigPagesType;
 /**
  * Implements hook_install().
  */
-function flc_core_install() {
+function flc_demo_install() {
   createContentPagesEntity();
 }
 

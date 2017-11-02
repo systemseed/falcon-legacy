@@ -22,7 +22,7 @@ $settings['file_scan_ignore_directories'] = [
 // As the settings.php file is not writable during install on Platform.sh (for
 // good reasons), Drupal will refuse to install a profile that is not defined
 // here.
-//$settings['install_profile'] = 'standard';
+$settings['install_profile'] = 'config_installer';
 // The hash_salt should be a unique random value for each application.
 // If left unset, the settings.platformsh.php file will attempt to provide one.
 // You can also provide a specific value here if you prefer and it will be used

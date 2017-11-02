@@ -1,5 +1,0 @@
-name: 'FLC Core'
-type: module
-description: 'Core Helper functions'
-package: Falcon
-core: 8.x
