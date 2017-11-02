@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f3ffe9e0ad910332f938c4f9ddfb6e5c",
+    "content-hash": "e0a811b6b41b294da534360bd6eeedad",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -546,17 +546,6 @@
             ],
             "description": "Format text by applying transformations provided by plug-in formatters.",
             "time": "2017-08-17T22:11:07+00:00"
-        },
-        {
-            "name": "flc/data_model",
-            "version": "8.1.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/e0ipso/data_model/archive/8.x-1.x.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "type": "drupal-module"
         },
         {
             "name": "cweagans/composer-patches",
@@ -1479,6 +1468,65 @@
             "homepage": "https://www.drupal.org/project/better_exposed_filters",
             "support": {
                 "source": "http://cgit.drupalcode.org/better_exposed_filters"
+            }
+        },
+        {
+            "name": "drupal/better_normalizers",
+            "version": "1.0.0-beta3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/better_normalizers",
+                "reference": "8.x-1.0-beta3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/better_normalizers-8.x-1.0-beta3.zip",
+                "reference": "8.x-1.0-beta3",
+                "shasum": "876c5f0006c3764677e1dbe6dec60a32d5a2d636"
+            },
+            "require": {
+                "drupal/core": "^8.3"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta3",
+                    "datestamp": "1493796785",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Sam152",
+                    "homepage": "https://www.drupal.org/user/1485048"
+                },
+                {
+                    "name": "andypost",
+                    "homepage": "https://www.drupal.org/user/118908"
+                },
+                {
+                    "name": "chr.fritsch",
+                    "homepage": "https://www.drupal.org/user/2103716"
+                },
+                {
+                    "name": "larowlan",
+                    "homepage": "https://www.drupal.org/user/395439"
+                }
+            ],
+            "description": "Improve the normalizers in core.",
+            "homepage": "https://www.drupal.org/project/better_normalizers",
+            "support": {
+                "source": "http://cgit.drupalcode.org/better_normalizers"
             }
         },
         {
@@ -4323,6 +4371,17 @@
                 "validator"
             ],
             "time": "2017-02-03T22:48:59+00:00"
+        },
+        {
+            "name": "flc/data_model",
+            "version": "8.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/e0ipso/data_model/archive/8.x-1.x.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "drupal-module"
         },
         {
             "name": "gabordemooij/redbean",
@@ -9675,6 +9734,7 @@
         "drupal/config_split": 10,
         "drupal/better_exposed_filters": 15,
         "drupal/ultimate_cron": 15,
+        "drupal/better_normalizers": 10,
         "drupal/devel": 5,
         "drupal/reroute_email": 10
     },

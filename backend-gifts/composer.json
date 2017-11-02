@@ -45,7 +45,8 @@
     "drupal/config_ignore": "^2.0",
     "drupal/metatag": "^1.2",
     "drupal/config_installer": "^1.5",
-    "drupal/default_content": "^1.0@alpha"
+    "drupal/default_content": "^1.0@alpha",
+    "drupal/better_normalizers": "^1.0@beta"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
