@@ -51,7 +51,8 @@
     "drupal/metatag": "^1.2",
     "drupal/config_ignore": "^2.0",
     "drupal/config_installer": "^1.5",
-    "drupal/better_normalizers": "^1.0@beta"
+    "drupal/better_normalizers": "^1.0@beta",
+    "drupal/default_content": "^1.0@alpha"
   },
   "require-dev": {
     "codeception/codeception": "^2.2.9",

@@ -36,11 +36,11 @@ docker-compose run be_gifts drush site-install config_installer --root='./web' -
  # To create a demo content.
 docker-compose run be_gifts drush en flc_demo --root='./web' --yes
 # Disable unnecessary modules.
-docker-compose run be_donations drush pmu flc_demo default_content better_normalizers --root='./web' --yes
+docker-compose run be_donations drush pmu flc_demo default_content better_normalizers hal --root='./web' --yes
 
 # Run site installation.
 docker-compose run be_donations drush site-install config_installer --root='./web' --yes
 # To create a demo content.
 docker-compose run be_donations drush en flc_demo --root='./web' --yes
 # Disable unnecessary modules.
-docker-compose run be_donations drush pmu flc_demo default_content better_normalizers --root='./web' --yes
+docker-compose run be_donations drush pmu flc_demo default_content better_normalizers hal --root='./web' --yes
