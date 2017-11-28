@@ -8,7 +8,7 @@
         },
         "http:\/\/drupal.org\/rest\/relation\/featured_image\/image\/field_featured_image": [
             {
-                "href": "public:\/\/featured_images\/Thank%20you%20image%201920_0.jpg"
+                "href": "http:\/\/default\/sites\/default\/files\/featured_images\/thank-you.jpg"
             }
         ]
     },
@@ -47,7 +47,7 @@
     ],
     "changed": [
         {
-            "value": 1496143580,
+            "value": 1511865395,
             "lang": "en"
         }
     ],
@@ -62,7 +62,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/featured_images\/Thank%20you%20image%201920_0.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/featured_images\/thank-you.jpg"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -70,14 +70,13 @@
                 },
                 "uuid": [
                     {
-                        "value": "41a6b535-e3c7-4ce9-9550-364fffffdc05"
+                        "value": "8f25cc64-59fe-45c1-a950-e0d4dca3eb14"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/featured_images\/Thank%20you%20image%201920_0.jpg"
-                    }
-                ]
+                "alt": "",
+                "title": "",
+                "width": "1920",
+                "height": "530"
             }
         ]
     }

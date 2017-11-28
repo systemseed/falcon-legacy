@@ -8,7 +8,7 @@
         },
         "http:\/\/drupal.org\/rest\/relation\/featured_image\/image\/field_featured_image": [
             {
-                "href": "public:\/\/featured_images\/corporate-gifts.jpg"
+                "href": "http:\/\/default\/sites\/default\/files\/featured_images\/corporate_0.jpg"
             }
         ]
     },
@@ -47,7 +47,7 @@
     ],
     "changed": [
         {
-            "value": 1495130416,
+            "value": 1511865567,
             "lang": "en"
         }
     ],
@@ -62,7 +62,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/featured_images\/corporate-gifts.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/featured_images\/corporate_0.jpg"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -70,14 +70,13 @@
                 },
                 "uuid": [
                     {
-                        "value": "7081df4b-665b-475f-bb37-e269ed8bfcf9"
+                        "value": "ea3d647b-6e20-44ed-acd4-d65e9fe270ca"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/featured_images\/corporate-gifts.jpg"
-                    }
-                ]
+                "alt": "",
+                "title": "",
+                "width": "1920",
+                "height": "530"
             }
         ]
     }

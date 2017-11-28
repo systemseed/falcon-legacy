@@ -8,7 +8,7 @@
         },
         "http:\/\/drupal.org\/rest\/relation\/featured_image\/image\/field_featured_image": [
             {
-                "href": "public:\/\/featured_images\/WebSitePic.jpg"
+                "href": "http:\/\/default\/sites\/default\/files\/featured_images\/not-found.jpg"
             }
         ]
     },
@@ -47,7 +47,7 @@
     ],
     "changed": [
         {
-            "value": 1496327139,
+            "value": 1511865066,
             "lang": "en"
         }
     ],
@@ -62,7 +62,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/featured_images\/WebSitePic.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/featured_images\/not-found.jpg"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -70,14 +70,13 @@
                 },
                 "uuid": [
                     {
-                        "value": "3273f2f1-98de-43d4-b754-d7781cb381b8"
+                        "value": "b4833a89-dff6-4c93-badc-182245a0e9fb"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/featured_images\/WebSitePic.jpg"
-                    }
-                ]
+                "alt": "",
+                "title": "",
+                "width": "1920",
+                "height": "530"
             }
         ]
     }

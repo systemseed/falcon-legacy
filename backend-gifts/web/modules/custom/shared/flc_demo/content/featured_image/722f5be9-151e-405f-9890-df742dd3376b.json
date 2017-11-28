@@ -8,7 +8,7 @@
         },
         "http:\/\/drupal.org\/rest\/relation\/featured_image\/image\/field_featured_image": [
             {
-                "href": "public:\/\/featured_images\/browse-gifts.jpg"
+                "href": "http:\/\/default\/sites\/default\/files\/featured_images\/front.jpg"
             }
         ]
     },
@@ -47,7 +47,7 @@
     ],
     "changed": [
         {
-            "value": 1495130477,
+            "value": 1511865557,
             "lang": "en"
         }
     ],
@@ -62,7 +62,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/featured_images\/browse-gifts.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/featured_images\/front.jpg"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -70,14 +70,13 @@
                 },
                 "uuid": [
                     {
-                        "value": "4f69d2bf-af42-44a3-8621-4620f0883901"
+                        "value": "7812f924-9057-435d-a621-879ce3e8dc95"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/featured_images\/browse-gifts.jpg"
-                    }
-                ]
+                "alt": "",
+                "title": "",
+                "width": "1920",
+                "height": "530"
             }
         ]
     }

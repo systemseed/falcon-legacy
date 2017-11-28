@@ -8,7 +8,7 @@
         },
         "http:\/\/drupal.org\/rest\/relation\/featured_image\/image\/field_featured_image": [
             {
-                "href": "public:\/\/featured_images\/Static%20image.jpg"
+                "href": "http:\/\/default\/sites\/default\/files\/featured_images\/faq_0.jpg"
             }
         ]
     },
@@ -47,7 +47,7 @@
     ],
     "changed": [
         {
-            "value": 1496150775,
+            "value": 1511865579,
             "lang": "en"
         }
     ],
@@ -62,7 +62,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/featured_images\/Static%20image.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/featured_images\/faq_0.jpg"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -70,14 +70,13 @@
                 },
                 "uuid": [
                     {
-                        "value": "8550b1e2-1d9a-4d04-9001-85bcfca0d114"
+                        "value": "447d1656-fa08-4ecb-8cfb-c46cc030257f"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/featured_images\/Static%20image.jpg"
-                    }
-                ]
+                "alt": "",
+                "title": "",
+                "width": "1920",
+                "height": "530"
             }
         ]
     }
