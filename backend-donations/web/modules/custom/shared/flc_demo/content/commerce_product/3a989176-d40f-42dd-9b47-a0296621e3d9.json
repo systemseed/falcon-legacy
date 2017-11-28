@@ -1,30 +1,30 @@
 {
     "_links": {
         "self": {
-            "href": "http:\/\/default\/gifts\/mosquito-net?_format=hal_json"
+            "href": "http:\/\/default\/gifts\/cow?_format=hal_json"
         },
         "type": {
             "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift"
         },
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/uid": [
             {
-                "href": "http:\/\/default\/user\/88?_format=hal_json",
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
                 "lang": "en"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_action_image": [
             {
-                "href": "public:\/\/gifts\/2017-10\/Mosquito%20Net%20new.jpg"
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/cow_PNG2141_1.png"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
             {
-                "href": "http:\/\/default\/taxonomy\/term\/4?_format=hal_json"
+                "href": "http:\/\/default\/taxonomy\/term\/1?_format=hal_json"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
             {
-                "href": "public:\/\/gifts\/2017-10\/7_0.png",
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/cow_PNG2141.png",
                 "lang": "en"
             }
         ],
@@ -65,7 +65,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/user\/88?_format=hal_json"
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
@@ -73,7 +73,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "5530dea6-89c5-4e8e-9cf8-5ca10f259171"
+                        "value": "fe4901f0-2d88-4398-9215-ac5a00ee9eeb"
                     }
                 ],
                 "lang": "en"
@@ -83,7 +83,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/gifts\/2017-10\/Mosquito%20Net%20new.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/cow_PNG2141_1.png"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -91,21 +91,20 @@
                 },
                 "uuid": [
                     {
-                        "value": "dd979568-81e6-4f62-bbdd-ced5e9e2f52b"
+                        "value": "2456157e-f61d-4a3b-aeb4-656d67bde11c"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/gifts\/2017-10\/Mosquito%20Net%20new.jpg"
-                    }
-                ]
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "550"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/taxonomy\/term\/4?_format=hal_json"
+                        "href": "http:\/\/default\/taxonomy\/term\/1?_format=hal_json"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/gift_category"
@@ -113,7 +112,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "c790b71a-667f-44ea-8c6b-295f98bbddca"
+                        "value": "16cefdd7-b265-43cb-aa02-2ba7c4ec4584"
                     }
                 ]
             }
@@ -122,7 +121,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/gifts\/2017-10\/7_0.png"
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/cow_PNG2141.png"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -130,15 +129,14 @@
                 },
                 "uuid": [
                     {
-                        "value": "2ebc6c3b-022d-49b4-9fb3-3ffe67e295be"
+                        "value": "4ce9eca4-f2ea-4993-870c-a6d7163f0a9f"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/gifts\/2017-10\/7_0.png"
-                    }
-                ],
-                "lang": "en"
+                "lang": "en",
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "550"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/stores": [
@@ -178,7 +176,7 @@
     },
     "title": [
         {
-            "value": "Mosquito Net",
+            "value": "Cow",
             "lang": "en"
         }
     ],
@@ -196,7 +194,7 @@
     ],
     "changed": [
         {
-            "value": 1509112932,
+            "value": 1511878239,
             "lang": "en"
         }
     ],
@@ -208,25 +206,25 @@
     ],
     "field_fieldable_path": [
         {
-            "value": "\/gifts\/mosquito-net"
+            "value": "\/gifts\/cow"
         }
     ],
     "field_gift_action_description": [
         {
-            "value": "<p>The diseases that mosquitos carry can have potentially lethal consequences, especially for people already weakened by illness and malnutrition. Aweng Aken, from South Sudan, and her 10-month-old daughter, Adut Ayii Garang, were given a mosquito net, among other items, at a Concern health centre to help protect them from preventable disease and illness. Thanks to this gift, Aweng and her daughter can go to bed each night, safe in the knowledge that they are protected.<\/p>&#13;\n&#13;\n<p>This gift goes towards our\u00a0<a href=\"https:\/\/www.concern.net\/about\/our-programmes\/health-and-nutrition\">Health<\/a>\u00a0programme.<\/p>&#13;\n",
+            "value": "<p>Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices.&nbsp;<\/p>\r\n",
             "format": "basic_html"
         }
     ],
     "field_gift_annotation": [
         {
-            "value": "<p><strong>A net that can save lives<\/strong><\/p>&#13;\n&#13;\n<p>Mosquito nets are a simple but effective way of protecting people from mosquito-borne infectious diseases such as malaria. These nets keep\u00a0mosquitoes at bay and enable\u00a0a family to sleep safe and sound.<\/p>&#13;\n",
+            "value": "<p><strong>Proin sodales libero eget ante. Nulla quam.<\/strong><\/p>\r\n\r\n<p>Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo.&nbsp;<\/p>\r\n",
             "format": "basic_html",
             "lang": "en"
         }
     ],
     "field_gift_description": [
         {
-            "value": "<p>When you buy this gift, you\u2019ll receive a special card to pass on to your friend or loved one. This card will indicate what you have bought for them and you can choose to personalise it by adding a special message. Alternatively, you can choose to send them an e-card directly.\u00a0<\/p>&#13;\n&#13;\n<p>Prefer to order by phone? Call us at\u00a0<a href=\"tel:1111 111 100\">1111 111 100<\/a>\u00a0and we'll be happy to help.<\/p>&#13;\n",
+            "value": "<p>Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper.&nbsp;<\/p>\r\n",
             "format": "basic_html",
             "lang": "en"
         }

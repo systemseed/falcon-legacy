@@ -6,12 +6,6 @@
         "type": {
             "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
         },
-        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/uid": [
-            {
-                "href": "http:\/\/default\/user\/65?_format=hal_json",
-                "lang": "en"
-            }
-        ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
             {
                 "href": "http:\/\/default\/corporate\/gift-your-choice?_format=hal_json"
@@ -39,25 +33,13 @@
             "target_id": "gift"
         }
     ],
+    "uid": [
+        {
+            "target_id": 65,
+            "lang": "en"
+        }
+    ],
     "_embedded": {
-        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/uid": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "http:\/\/default\/user\/65?_format=hal_json"
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "3b3597ce-c86a-47e9-b8c5-740540b124c9"
-                    }
-                ],
-                "lang": "en"
-            }
-        ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
             {
                 "_links": {
@@ -83,7 +65,7 @@
     ],
     "title": [
         {
-            "value": "Your own wonderful gift",
+            "value": "Gift of your choice",
             "lang": "en"
         }
     ],
@@ -107,7 +89,7 @@
     ],
     "changed": [
         {
-            "value": 1507908010,
+            "value": 1511878623,
             "lang": "en"
         }
     ],
@@ -119,7 +101,7 @@
     ],
     "field_thankq_id": [
         {
-            "value": "CXWE17-01"
+            "value": "THXE17-01"
         }
     ]
 }

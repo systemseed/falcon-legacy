@@ -8,23 +8,23 @@
         },
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/uid": [
             {
-                "href": "http:\/\/default\/user\/88?_format=hal_json",
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
                 "lang": "en"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_action_image": [
             {
-                "href": "public:\/\/gifts\/2017-10\/Milk%20new.jpg"
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/milk_PNG12761_3.png"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
             {
-                "href": "http:\/\/default\/taxonomy\/term\/3?_format=hal_json"
+                "href": "http:\/\/default\/taxonomy\/term\/4?_format=hal_json"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
             {
-                "href": "public:\/\/gifts\/2017-10\/6_0.png",
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/milk_PNG12761_1.png",
                 "lang": "en"
             }
         ],
@@ -65,7 +65,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/user\/88?_format=hal_json"
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
@@ -73,7 +73,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "5530dea6-89c5-4e8e-9cf8-5ca10f259171"
+                        "value": "fe4901f0-2d88-4398-9215-ac5a00ee9eeb"
                     }
                 ],
                 "lang": "en"
@@ -83,7 +83,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/gifts\/2017-10\/Milk%20new.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/milk_PNG12761_3.png"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -91,21 +91,20 @@
                 },
                 "uuid": [
                     {
-                        "value": "a41f0bdb-fdba-4543-8b3b-1f8b8e87fb08"
+                        "value": "b2e30c23-285f-4a85-b736-c21be3a9b51a"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/gifts\/2017-10\/Milk%20new.jpg"
-                    }
-                ]
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "550"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/taxonomy\/term\/3?_format=hal_json"
+                        "href": "http:\/\/default\/taxonomy\/term\/4?_format=hal_json"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/gift_category"
@@ -113,7 +112,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "b8997d72-e96a-438b-a4fd-7807b368a2bf"
+                        "value": "c790b71a-667f-44ea-8c6b-295f98bbddca"
                     }
                 ]
             }
@@ -122,7 +121,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/gifts\/2017-10\/6_0.png"
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/milk_PNG12761_1.png"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -130,15 +129,14 @@
                 },
                 "uuid": [
                     {
-                        "value": "a4717298-169f-4b3e-a89f-79ffaeb438ed"
+                        "value": "dd344854-8df1-40b5-b071-56a4658b1801"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/gifts\/2017-10\/6_0.png"
-                    }
-                ],
-                "lang": "en"
+                "lang": "en",
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "550"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/stores": [
@@ -196,7 +194,7 @@
     ],
     "changed": [
         {
-            "value": 1509113335,
+            "value": 1511878106,
             "lang": "en"
         }
     ],
@@ -213,20 +211,20 @@
     ],
     "field_gift_action_description": [
         {
-            "value": "<p>The Marsabit region in Kenya has been hit hard by drought and locals like Nasino Asuran struggle to feed their families. Nasino's crops have been ravaged by the lack of rainfall and she relies on goat's milk to feed her two children, including her son Sampson. Thankfully, goat's milk is rich in minerals and nutrients and can help sustain her children as they wait for their crops to grow.<\/p>&#13;\n&#13;\n<p>This gift goes towards our\u00a0<a href=\"https:\/\/www.concern.net\/about\/our-programmes\/livelihoods\">Livelihoods<\/a> programme.<\/p>&#13;\n",
+            "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc.&nbsp;<\/p>\r\n",
             "format": "basic_html"
         }
     ],
     "field_gift_annotation": [
         {
-            "value": "<p><strong>A whole lot of goodness!<\/strong><\/p>&#13;\n&#13;\n<p>Milk it this Christmas with a gift that gives families the essential nutrients they need for a healthy diet! One glass of this nutritious and delicious stuff is filled with calcium, protein and vitamins that helps families build healthy bones and teeth. From you to the people who need it most - give the udderly fantastic gift of milk this Christmas!<\/p>&#13;\n",
+            "value": "<p><strong>Curabitur tortor. Pellentesque nibh.<\/strong><\/p>\r\n\r\n<p>Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam.&nbsp;<\/p>\r\n",
             "format": "basic_html",
             "lang": "en"
         }
     ],
     "field_gift_description": [
         {
-            "value": "<p>When you buy this gift, you\u2019ll receive a special card to pass on to your friend or loved one. This card will indicate what you have bought for them and you can choose to personalise it by adding a special message. Alternatively, you can choose to send them an e-card directly.\u00a0<\/p>&#13;\n&#13;\n<p>Prefer to order by phone? Call us at\u00a0<a href=\"tel:1111 111 100\">1111 111 100<\/a>\u00a0and we'll be happy to help.<\/p>&#13;\n",
+            "value": "<p>Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.&nbsp;<\/p>\r\n",
             "format": "basic_html",
             "lang": "en"
         }

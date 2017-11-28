@@ -8,18 +8,13 @@
         },
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/uid": [
             {
-                "href": "http:\/\/default\/user\/65?_format=hal_json",
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
                 "lang": "en"
-            }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_description_image": [
-            {
-                "href": "public:\/\/2017-10\/Gift%20in%20action%201%20720x480.jpg"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_image": [
             {
-                "href": "public:\/\/gifts_corporate\/2017-10\/gift%20of%20your%20choice.jpg",
+                "href": "http:\/\/default\/sites\/default\/files\/gifts_corporate\/2017-11\/annie-spratt-210845.jpg",
                 "lang": "en"
             }
         ],
@@ -60,7 +55,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/user\/65?_format=hal_json"
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
@@ -68,39 +63,17 @@
                 },
                 "uuid": [
                     {
-                        "value": "3b3597ce-c86a-47e9-b8c5-740540b124c9"
+                        "value": "fe4901f0-2d88-4398-9215-ac5a00ee9eeb"
                     }
                 ],
                 "lang": "en"
-            }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_description_image": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "public:\/\/2017-10\/Gift%20in%20action%201%20720x480.jpg"
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "ccc98456-62bd-47c9-9e01-0a70a0df66d5"
-                    }
-                ],
-                "uri": [
-                    {
-                        "value": "public:\/\/2017-10\/Gift%20in%20action%201%20720x480.jpg"
-                    }
-                ]
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_image": [
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/gifts_corporate\/2017-10\/gift%20of%20your%20choice.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts_corporate\/2017-11\/annie-spratt-210845.jpg"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -108,15 +81,14 @@
                 },
                 "uuid": [
                     {
-                        "value": "3f0a1839-b02e-48b5-a2b9-3231a4344ef5"
+                        "value": "be2bf5dc-864a-4150-aac2-364867ff93aa"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/gifts_corporate\/2017-10\/gift%20of%20your%20choice.jpg"
-                    }
-                ],
-                "lang": "en"
+                "lang": "en",
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "440"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/stores": [
@@ -174,7 +146,7 @@
     ],
     "changed": [
         {
-            "value": 1509111565,
+            "value": 1511878957,
             "lang": "en"
         }
     ],
@@ -192,14 +164,14 @@
     ],
     "field_gift_annotation": [
         {
-            "value": "<p><strong>The most inspiring and powerful Christmas gifts on earth.<\/strong><\/p>&#13;\n&#13;\n<p>If you're not sure which gift to choose, or if you have a specific budget you want to invest, just enter the amount you'd like to spend below. Priorities change all the time and catastrophe sometimes strikes when people least expect it. It's crucial that Concern can respond early and effectively. Your gift could help children and their families survive emergencies, protect themselves from disasters or build brighter futures after a war. We\u00a0promise to use your gift wisely wherever the need is greatest.<\/p>&#13;\n",
+            "value": "<p><strong>Maecenas aliquet mollis lectus.<\/strong><\/p>\r\n\r\n<p>Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo.&nbsp;<\/p>\r\n",
             "format": "basic_html",
             "lang": "en"
         }
     ],
     "field_gift_description": [
         {
-            "value": "<p>Chisomo Makisoni, 22, holds vegetable seed\u00a0packets in his mother's vegetable garden in Nkhotakota, Malawi. Concern Worldwide provided his mother with the seeds and tools. Previously the family would have mainly eaten okra but thanks to the kitchen garden they now have a variety of vegetables they can eat.<\/p>&#13;\n&#13;\n<p>To find out more, please contact Claire Concannon on\u00a0<a href=\"tel:(01) 111 1111 \">(01) 111 1111 <\/a>\u00a0or by email\u00a0<a href=\"mailto:falcongifts@systemseed.com\">falcongifts@systemseed.com<\/a><\/p>&#13;\n",
+            "value": "<p>Sed pretium blandit orci. Ut eu diam at pede suscipit sodales. Aenean lectus elit, fermentum non, convallis id, sagittis at, neque. Nullam mauris orci, aliquet et, iaculis et, viverra vitae, ligula. Nulla ut felis in purus aliquam imperdiet. Maecenas aliquet mollis lectus. Vivamus consectetuer risus et tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.&nbsp;<\/p>\r\n",
             "format": "basic_html",
             "lang": "en"
         }

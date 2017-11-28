@@ -8,13 +8,13 @@
         },
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/uid": [
             {
-                "href": "http:\/\/default\/user\/88?_format=hal_json",
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
                 "lang": "en"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_action_image": [
             {
-                "href": "public:\/\/gifts\/2017-10\/piglet%20new.jpg"
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/pig_PNG2206_0.png"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
@@ -24,7 +24,7 @@
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
             {
-                "href": "public:\/\/gifts\/2017-10\/Concern%20Gifts%20%28NEW%29.png",
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/pig_PNG2206.png",
                 "lang": "en"
             }
         ],
@@ -65,7 +65,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/user\/88?_format=hal_json"
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
@@ -73,7 +73,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "5530dea6-89c5-4e8e-9cf8-5ca10f259171"
+                        "value": "fe4901f0-2d88-4398-9215-ac5a00ee9eeb"
                     }
                 ],
                 "lang": "en"
@@ -83,7 +83,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/gifts\/2017-10\/piglet%20new.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/pig_PNG2206_0.png"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -91,14 +91,13 @@
                 },
                 "uuid": [
                     {
-                        "value": "b56c2c82-ad93-4b06-acb1-48d59889e4cb"
+                        "value": "eb7e404b-ad07-4e72-82d9-3be2f7318d0b"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/gifts\/2017-10\/piglet%20new.jpg"
-                    }
-                ]
+                "alt": "",
+                "title": "",
+                "width": "600",
+                "height": "600"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
@@ -122,7 +121,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/gifts\/2017-10\/Concern%20Gifts%20%28NEW%29.png"
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/pig_PNG2206.png"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -130,15 +129,14 @@
                 },
                 "uuid": [
                     {
-                        "value": "229a78f1-6367-4dff-9680-48dce0ba4b3f"
+                        "value": "28dd418e-b479-439f-9807-10261be5bbfd"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/gifts\/2017-10\/Concern%20Gifts%20%28NEW%29.png"
-                    }
-                ],
-                "lang": "en"
+                "lang": "en",
+                "alt": "",
+                "title": "",
+                "width": "600",
+                "height": "600"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/stores": [
@@ -196,7 +194,7 @@
     ],
     "changed": [
         {
-            "value": 1509113266,
+            "value": 1511878365,
             "lang": "en"
         }
     ],
@@ -213,20 +211,20 @@
     ],
     "field_gift_action_description": [
         {
-            "value": "<p>Joseph Kanyangalazi is one of the many people in Chitsulo village in Malawi who now has his own pigs thanks to Concern. A father of five, he now hopes to rear these pigs to sell at the market so he can provide for his family.<\/p>&#13;\n&#13;\n<p>This gift goes towards our <a href=\"https:\/\/www.concern.net\/about\/our-programmes\/livelihoods\">Livelihoods<\/a>\u00a0programme.<\/p>&#13;\n",
+            "value": "<p>Sed pretium blandit orci. Ut eu diam at pede suscipit sodales. Aenean lectus elit, fermentum non, convallis id, sagittis at, neque. Nullam mauris orci, aliquet et, iaculis et, viverra vitae, ligula. Nulla ut felis in purus aliquam imperdiet. Maecenas aliquet mollis lectus. Vivamus consectetuer risus et tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.&nbsp;<\/p>\r\n",
             "format": "basic_html"
         }
     ],
     "field_gift_annotation": [
         {
-            "value": "<p><strong>This piglet goes to help a family in need<\/strong><\/p>&#13;\n&#13;\n<p>This little piggy would make the perfect gift for a family. Piglets are super\u00a0easy and affordable to look after and better yet, they grow up to provide income and security, especially when they have little piglets of their own!<\/p>&#13;\n",
+            "value": "<p><strong>Quisque cursus, metus vitae pharetra auctor<\/strong><\/p>\r\n\r\n<p>Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris.&nbsp;<\/p>\r\n",
             "format": "basic_html",
             "lang": "en"
         }
     ],
     "field_gift_description": [
         {
-            "value": "<p>When you buy this gift, you\u2019ll receive a special card to pass on to your friend or loved one. This card will indicate what you have bought for them and you can choose to personalise it by adding a special message. Alternatively, you can choose to send them an e-card directly.\u00a0<\/p>&#13;\n&#13;\n<p>Prefer to order by phone? Call us at\u00a0<a href=\"tel:1111 111 100\">1111 111 100<\/a>\u00a0and we'll be happy to help.<\/p>&#13;\n",
+            "value": "<p>Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo.&nbsp;<\/p>\r\n",
             "format": "basic_html",
             "lang": "en"
         }

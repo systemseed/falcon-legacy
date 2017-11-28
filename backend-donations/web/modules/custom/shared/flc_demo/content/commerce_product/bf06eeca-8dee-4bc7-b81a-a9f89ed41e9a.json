@@ -8,13 +8,13 @@
         },
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/uid": [
             {
-                "href": "http:\/\/default\/user\/88?_format=hal_json",
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
                 "lang": "en"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_action_image": [
             {
-                "href": "public:\/\/gifts\/2017-10\/Goat%20new.jpg"
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/goat_PNG13158_0.png"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
@@ -24,7 +24,7 @@
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
             {
-                "href": "public:\/\/gifts\/2017-05\/GoatEdit_1.jpg",
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/goat_PNG13158.png",
                 "lang": "en"
             }
         ],
@@ -65,7 +65,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/user\/88?_format=hal_json"
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
@@ -73,7 +73,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "5530dea6-89c5-4e8e-9cf8-5ca10f259171"
+                        "value": "fe4901f0-2d88-4398-9215-ac5a00ee9eeb"
                     }
                 ],
                 "lang": "en"
@@ -83,7 +83,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/gifts\/2017-10\/Goat%20new.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/goat_PNG13158_0.png"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -91,14 +91,13 @@
                 },
                 "uuid": [
                     {
-                        "value": "dd37b15c-0d1e-42c5-9e13-1c2227e2c54f"
+                        "value": "14f89b63-5652-4adf-9ffb-89bc121728f6"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/gifts\/2017-10\/Goat%20new.jpg"
-                    }
-                ]
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "545"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
@@ -122,7 +121,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/gifts\/2017-05\/GoatEdit_1.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/goat_PNG13158.png"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -130,15 +129,14 @@
                 },
                 "uuid": [
                     {
-                        "value": "4a0c6985-fd18-4311-95c7-fe4faa1ea3a1"
+                        "value": "2a0cde02-7816-4df5-b1bd-3e9d8cbcc433"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/gifts\/2017-05\/GoatEdit_1.jpg"
-                    }
-                ],
-                "lang": "en"
+                "lang": "en",
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "545"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/stores": [
@@ -196,7 +194,7 @@
     ],
     "changed": [
         {
-            "value": 1509115611,
+            "value": 1511878404,
             "lang": "en"
         }
     ],
@@ -213,20 +211,20 @@
     ],
     "field_gift_action_description": [
         {
-            "value": "<p>After Chilouanga's father died several years ago, her mother struggled to support five children on her own. Thankfully, she received a goat from Concern which helped her to feed her family and can now make sure they no longer go hungry. What's more, she has helped other families by passing on kid goats too.<\/p>&#13;\n&#13;\n<p>This gift goes towards our\u00a0<a href=\"https:\/\/www.concern.net\/about\/our-programmes\/livelihoods\">Livelihoods<\/a>\u00a0programme.<\/p>&#13;\n",
+            "value": "<p>Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim.&nbsp;<\/p>\r\n",
             "format": "basic_html"
         }
     ],
     "field_gift_annotation": [
         {
-            "value": "<p><strong>Milk, manure, magic!<\/strong><\/p>&#13;\n&#13;\n<p>A single goat provides gallons of healthy milk as well as providing manure that helps improve soil fertility. Along with this, when they breed, the kid goats are given to other families so they can benefit too. The farmer, the land and the animals, all working perfectly together.<\/p>&#13;\n",
+            "value": "<p><strong>Fusce ac turpis quis ligula lacinia aliquet<\/strong><\/p>\r\n\r\n<p>Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor.&nbsp;<\/p>\r\n",
             "format": "basic_html",
             "lang": "en"
         }
     ],
     "field_gift_description": [
         {
-            "value": "<p>When you buy this gift, you\u2019ll receive a special card to pass on to your friend or loved one. This card will indicate what you have bought for them and you can choose to personalise it by adding a special message. Alternatively, you can choose to send them an e-card directly.\u00a0<\/p>&#13;\n&#13;\n<p>Prefer to order by phone? Call us at\u00a0<a href=\"tel:1111 111 100\">1111 111 100<\/a>\u00a0and we'll be happy to help.<\/p>&#13;\n",
+            "value": "<p>Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien.&nbsp;<\/p>\r\n",
             "format": "basic_html",
             "lang": "en"
         }

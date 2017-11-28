@@ -1,20 +1,20 @@
 {
     "_links": {
         "self": {
-            "href": "http:\/\/default\/gifts\/eight-avocado-trees?_format=hal_json"
+            "href": "http:\/\/default\/gifts\/tomatoes?_format=hal_json"
         },
         "type": {
             "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift"
         },
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/uid": [
             {
-                "href": "http:\/\/default\/user\/88?_format=hal_json",
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
                 "lang": "en"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_action_image": [
             {
-                "href": "public:\/\/gifts\/2017-10\/avocados%20new.jpg"
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/tomato_PNG12589_4.png"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
@@ -24,7 +24,7 @@
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
             {
-                "href": "public:\/\/gifts\/2017-10\/Avocados%20redone.jpg",
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/tomato_PNG12589_1.png",
                 "lang": "en"
             }
         ],
@@ -65,7 +65,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/user\/88?_format=hal_json"
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
@@ -73,7 +73,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "5530dea6-89c5-4e8e-9cf8-5ca10f259171"
+                        "value": "fe4901f0-2d88-4398-9215-ac5a00ee9eeb"
                     }
                 ],
                 "lang": "en"
@@ -83,7 +83,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/gifts\/2017-10\/avocados%20new.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/tomato_PNG12589_4.png"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -91,14 +91,13 @@
                 },
                 "uuid": [
                     {
-                        "value": "05c07f57-0d48-420b-a982-95942a032949"
+                        "value": "da49f6c8-d935-411e-891c-ca981f89ce4b"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/gifts\/2017-10\/avocados%20new.jpg"
-                    }
-                ]
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "550"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
@@ -122,7 +121,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/gifts\/2017-10\/Avocados%20redone.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/tomato_PNG12589_1.png"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -130,15 +129,14 @@
                 },
                 "uuid": [
                     {
-                        "value": "d4e732d8-35f7-4bc3-9902-429c368b015c"
+                        "value": "366b31ab-f7f9-4b16-af1f-9de0639978fd"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/gifts\/2017-10\/Avocados%20redone.jpg"
-                    }
-                ],
-                "lang": "en"
+                "lang": "en",
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "550"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/stores": [
@@ -178,7 +176,7 @@
     },
     "title": [
         {
-            "value": "Eight Avocado Trees",
+            "value": "Tomatoes",
             "lang": "en"
         }
     ],
@@ -196,7 +194,7 @@
     ],
     "changed": [
         {
-            "value": 1509112620,
+            "value": 1511878194,
             "lang": "en"
         }
     ],
@@ -208,25 +206,25 @@
     ],
     "field_fieldable_path": [
         {
-            "value": "\/gifts\/eight-avocado-trees"
+            "value": "\/gifts\/tomatoes"
         }
     ],
     "field_gift_action_description": [
         {
-            "value": "<p>Mother of two, Veronica Moffat from Malawi, has received avocado trees from Concern which she planted in her back garden. The trees are already bearing fruit and she uses the nutrient-rich avocados to diversify and enrich her children's diet.<\/p>&#13;\n&#13;\n<p>This gift goes towards our\u00a0<a href=\"https:\/\/www.concern.net\/about\/our-programmes\/livelihoods\">Livelihoods<\/a>\u00a0programme.<\/p>&#13;\n",
+            "value": "<p>Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo.&nbsp;<\/p>\r\n",
             "format": "basic_html"
         }
     ],
     "field_gift_annotation": [
         {
-            "value": "<p><strong>A lean mean green berry<\/strong><\/p>&#13;\n&#13;\n<p>Avocados are far more than just fashionable fruit, they're packed with almost 20 essential nutrients including fibre, potassium and folic acid. They also act as a nutrient booster, enabling the body to absorb more nutrients. Your gift can provide eight avocado trees, which will produce 200 - 300 avocados per year once they reach maturity!<\/p>&#13;\n",
+            "value": "<p><strong>Suspendisse in justo eu magna luctus suscipit. Sed lectus.<\/strong><\/p>\r\n\r\n<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa.&nbsp;<\/p>\r\n",
             "format": "basic_html",
             "lang": "en"
         }
     ],
     "field_gift_description": [
         {
-            "value": "<p>When you buy this gift, you\u2019ll receive a special card to pass on to your friend or loved one. This card will indicate what you have bought for them and you can choose to personalise it by adding a special message. Alternatively, you can choose to send them an e-card directly.\u00a0<\/p>&#13;\n&#13;\n<p>Prefer to order by phone? Call us at\u00a0<a href=\"tel:1111 111 100\">1111 111 100<\/a>\u00a0and we'll be happy to help.<\/p>&#13;\n",
+            "value": "<p>Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper.&nbsp;<\/p>\r\n",
             "format": "basic_html",
             "lang": "en"
         }

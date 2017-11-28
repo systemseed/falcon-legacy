@@ -6,15 +6,9 @@
         "type": {
             "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
         },
-        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/uid": [
-            {
-                "href": "http:\/\/default\/user\/86?_format=hal_json",
-                "lang": "en"
-            }
-        ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
             {
-                "href": "http:\/\/default\/gifts\/thermal-blankets?_format=hal_json"
+                "href": "http:\/\/default\/gifts\/rabbit?_format=hal_json"
             }
         ]
     },
@@ -39,30 +33,18 @@
             "target_id": "gift"
         }
     ],
+    "uid": [
+        {
+            "target_id": 86,
+            "lang": "en"
+        }
+    ],
     "_embedded": {
-        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/uid": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "http:\/\/default\/user\/86?_format=hal_json"
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "7bd3ec75-f0f6-4afa-b4e9-303846b1dc7a"
-                    }
-                ],
-                "lang": "en"
-            }
-        ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/gifts\/thermal-blankets?_format=hal_json"
+                        "href": "http:\/\/default\/gifts\/rabbit?_format=hal_json"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift"
@@ -83,7 +65,7 @@
     ],
     "title": [
         {
-            "value": "Thermal Blankets",
+            "value": "Rabbit",
             "lang": "en"
         }
     ],
@@ -107,7 +89,7 @@
     ],
     "changed": [
         {
-            "value": 1508256887,
+            "value": 1511878276,
             "lang": "en"
         }
     ],
@@ -119,7 +101,7 @@
     ],
     "field_thankq_id": [
         {
-            "value": "PR000087"
+            "value": "THX000087"
         }
     ]
 }

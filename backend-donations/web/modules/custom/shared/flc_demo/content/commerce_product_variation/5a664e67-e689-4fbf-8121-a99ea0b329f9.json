@@ -6,15 +6,9 @@
         "type": {
             "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
         },
-        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/uid": [
-            {
-                "href": "http:\/\/default\/user\/9?_format=hal_json",
-                "lang": "en"
-            }
-        ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
             {
-                "href": "http:\/\/default\/corporate\/train-10-farm-vets?_format=hal_json"
+                "href": "http:\/\/default\/corporate\/quisque-volutpat?_format=hal_json"
             }
         ]
     },
@@ -39,30 +33,18 @@
             "target_id": "gift"
         }
     ],
+    "uid": [
+        {
+            "target_id": 9,
+            "lang": "en"
+        }
+    ],
     "_embedded": {
-        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/uid": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "http:\/\/default\/user\/9?_format=hal_json"
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "6c6c8f0c-81a1-4fce-93e6-0330f87b3162"
-                    }
-                ],
-                "lang": "en"
-            }
-        ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/corporate\/train-10-farm-vets?_format=hal_json"
+                        "href": "http:\/\/default\/corporate\/quisque-volutpat?_format=hal_json"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift_corporate"
@@ -83,7 +65,7 @@
     ],
     "title": [
         {
-            "value": "10 farm vets",
+            "value": "Train 10 farm vets",
             "lang": "en"
         }
     ],
@@ -107,7 +89,7 @@
     ],
     "changed": [
         {
-            "value": 1508406451,
+            "value": 1509646759,
             "lang": "en"
         }
     ],

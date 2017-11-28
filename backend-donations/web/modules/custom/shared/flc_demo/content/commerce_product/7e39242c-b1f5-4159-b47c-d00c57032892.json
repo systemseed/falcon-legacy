@@ -8,18 +8,18 @@
         },
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/uid": [
             {
-                "href": "http:\/\/default\/user\/39?_format=hal_json",
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
                 "lang": "en"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_action_image": [
             {
-                "href": "public:\/\/gifts\/2017-10\/Custome%20Donation%20Image%20%28resize%29_0.jpg"
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/larm-rmah-216854.jpg"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
             {
-                "href": "public:\/\/gifts\/2017-10\/Custome%20Donation%20Image%20%28resize%29.jpg",
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/larm-rmah-216854_0.jpg",
                 "lang": "en"
             }
         ],
@@ -60,7 +60,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/user\/39?_format=hal_json"
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
@@ -68,7 +68,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "7a51d08b-5889-460f-a657-1cdb381d4242"
+                        "value": "fe4901f0-2d88-4398-9215-ac5a00ee9eeb"
                     }
                 ],
                 "lang": "en"
@@ -78,7 +78,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/gifts\/2017-10\/Custome%20Donation%20Image%20%28resize%29_0.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/larm-rmah-216854.jpg"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -86,21 +86,20 @@
                 },
                 "uuid": [
                     {
-                        "value": "e51d5a36-5e09-4802-9e30-34c99f2a0903"
+                        "value": "3649603d-00c8-4713-94da-12882dce3d22"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/gifts\/2017-10\/Custome%20Donation%20Image%20%28resize%29_0.jpg"
-                    }
-                ]
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "550"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/gifts\/2017-10\/Custome%20Donation%20Image%20%28resize%29.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/larm-rmah-216854_0.jpg"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -108,15 +107,14 @@
                 },
                 "uuid": [
                     {
-                        "value": "6abf38ed-eab7-4d67-949d-e31bcc747c3a"
+                        "value": "10fa600f-7901-498e-b111-7b7b0d8baeab"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/gifts\/2017-10\/Custome%20Donation%20Image%20%28resize%29.jpg"
-                    }
-                ],
-                "lang": "en"
+                "lang": "en",
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "550"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/stores": [
@@ -174,7 +172,7 @@
     ],
     "changed": [
         {
-            "value": 1509012075,
+            "value": 1511878521,
             "lang": "en"
         }
     ],
@@ -191,13 +189,13 @@
     ],
     "field_gift_action_description": [
         {
-            "value": "<p>Description<\/p>&#13;\n",
+            "value": "<p>Description<\/p>\r\n",
             "format": "basic_html"
         }
     ],
     "field_gift_description": [
         {
-            "value": "<p>Choose your own donation<\/p>&#13;\n",
+            "value": "<p>Choose your own donation<\/p>\r\n",
             "format": "basic_html",
             "lang": "en"
         }

@@ -1,25 +1,14 @@
 {
     "_links": {
         "self": {
-            "href": "http:\/\/default\/corporate\/provide-15-villages-bicycle-ambulance?_format=hal_json"
+            "href": "http:\/\/default\/corporate\/vestibulum-ante-ipsum-primis?_format=hal_json"
         },
         "type": {
             "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift_corporate"
         },
-        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/uid": [
-            {
-                "href": "http:\/\/default\/user\/65?_format=hal_json",
-                "lang": "en"
-            }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_description_image": [
-            {
-                "href": "public:\/\/2017-10\/Gift%20in%20action%205%20720x480.jpg"
-            }
-        ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_image": [
             {
-                "href": "public:\/\/gifts_corporate\/2017-10\/provide%2015%20villages%20with%20ambulance%20NEW.jpg",
+                "href": "http:\/\/default\/sites\/default\/files\/gifts_corporate\/2017-11\/StockSnap_R22QHXWQOO.jpg",
                 "lang": "en"
             }
         ],
@@ -55,52 +44,68 @@
             "target_id": "gift_corporate"
         }
     ],
+    "uid": [
+        {
+            "target_id": 65,
+            "lang": "en"
+        }
+    ],
+    "title": [
+        {
+            "value": "Vestibulum ante ipsum primis",
+            "lang": "en"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1492709224,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1511879020,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_fieldable_path": [
+        {
+            "value": "\/corporate\/vestibulum-ante-ipsum-primis",
+            "lang": "en"
+        }
+    ],
+    "field_gift_annotation": [
+        {
+            "value": "<p><strong>Class aptent taciti sociosqu ad litora torquent per conubia nostra!<\/strong><\/p>\r\n\r\n<p>Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui.&nbsp;<\/p>\r\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_description": [
+        {
+            "value": "<p><span lang=\"EN-GB\">Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.&nbsp;<\/span><\/p>\r\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
     "_embedded": {
-        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/uid": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "http:\/\/default\/user\/65?_format=hal_json"
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "3b3597ce-c86a-47e9-b8c5-740540b124c9"
-                    }
-                ],
-                "lang": "en"
-            }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_description_image": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "public:\/\/2017-10\/Gift%20in%20action%205%20720x480.jpg"
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "4af9b6bc-ba6d-4487-9668-f3e5990dd244"
-                    }
-                ],
-                "uri": [
-                    {
-                        "value": "public:\/\/2017-10\/Gift%20in%20action%205%20720x480.jpg"
-                    }
-                ]
-            }
-        ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_image": [
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/gifts_corporate\/2017-10\/provide%2015%20villages%20with%20ambulance%20NEW.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts_corporate\/2017-11\/StockSnap_R22QHXWQOO.jpg"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -108,15 +113,14 @@
                 },
                 "uuid": [
                     {
-                        "value": "68d64fc8-4c27-41c3-a588-7d8d6b8ea894"
+                        "value": "7caf2903-1f5c-400e-970f-665c193041e2"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/gifts_corporate\/2017-10\/provide%2015%20villages%20with%20ambulance%20NEW.jpg"
-                    }
-                ],
-                "lang": "en"
+                "lang": "en",
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "440"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/stores": [
@@ -154,56 +158,6 @@
             }
         ]
     },
-    "title": [
-        {
-            "value": "Provide 15 villages with a bicycle ambulance",
-            "lang": "en"
-        }
-    ],
-    "status": [
-        {
-            "value": true,
-            "lang": "en"
-        }
-    ],
-    "created": [
-        {
-            "value": 1492709224,
-            "lang": "en"
-        }
-    ],
-    "changed": [
-        {
-            "value": 1509111427,
-            "lang": "en"
-        }
-    ],
-    "default_langcode": [
-        {
-            "value": true,
-            "lang": "en"
-        }
-    ],
-    "field_fieldable_path": [
-        {
-            "value": "\/corporate\/provide-15-villages-bicycle-ambulance",
-            "lang": "en"
-        }
-    ],
-    "field_gift_annotation": [
-        {
-            "value": "<p><strong>The most inspiring and powerful Christmas gifts on earth!<\/strong><\/p>&#13;\n&#13;\n<p>Most rural communities are remote, inaccessible and have no local hospitals. When serious injury or illness strike, local people have to walk for hours to get vital health treatment. This simple but ingenious bicycle ambulance is a game-changing gift that saves lives and improves health. It means that a gravely-ill person can be transported on a stretcher to hospital by a family member without delay.<\/p>&#13;\n",
-            "format": "basic_html",
-            "lang": "en"
-        }
-    ],
-    "field_gift_description": [
-        {
-            "value": "<p><span lang=\"EN-GB\" xml:lang=\"EN-GB\">Vincent Vundu is treasurer of his village in Nkhotakota, Malawi. He is responsible for the village's bicycle ambulance which was provided by Concern Worldwide and has helped save lives in the community. As the closest hospital is over 10km away, this bicycle ambulance allows sick or injured people to access treatment as soon as possible. <\/span><\/p>&#13;\n&#13;\n<p>To find out more please contact Claire Concannon on\u00a0<a href=\"tel:014177756\">(01) 111 1111 <\/a> or by email <a href=\"mailto:falcongifts@systemseed.com\">falcongifts@systemseed.com<\/a><\/p>&#13;\n",
-            "format": "basic_html",
-            "lang": "en"
-        }
-    ],
     "field_gift_variant_type": [
         {
             "value": "normal"

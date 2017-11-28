@@ -6,15 +6,9 @@
         "type": {
             "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
         },
-        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/uid": [
-            {
-                "href": "http:\/\/default\/user\/9?_format=hal_json",
-                "lang": "en"
-            }
-        ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
             {
-                "href": "http:\/\/default\/corporate\/send-100-children-school?_format=hal_json"
+                "href": "http:\/\/default\/corporate\/fusce-nec-tellus?_format=hal_json"
             }
         ]
     },
@@ -39,30 +33,18 @@
             "target_id": "gift"
         }
     ],
+    "uid": [
+        {
+            "target_id": 9,
+            "lang": "en"
+        }
+    ],
     "_embedded": {
-        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/uid": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "http:\/\/default\/user\/9?_format=hal_json"
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "6c6c8f0c-81a1-4fce-93e6-0330f87b3162"
-                    }
-                ],
-                "lang": "en"
-            }
-        ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/corporate\/send-100-children-school?_format=hal_json"
+                        "href": "http:\/\/default\/corporate\/fusce-nec-tellus?_format=hal_json"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift_corporate"
@@ -107,7 +89,7 @@
     ],
     "changed": [
         {
-            "value": 1508406718,
+            "value": 1511878879,
             "lang": "en"
         }
     ],
@@ -119,7 +101,7 @@
     ],
     "field_thankq_id": [
         {
-            "value": "CXWE17-01"
+            "value": "THXE17-01"
         }
     ]
 }

@@ -1,7 +1,7 @@
 {
     "_links": {
         "self": {
-            "href": "http:\/\/default\/user\/65?_format=hal_json"
+            "href": "http:\/\/default\/user\/1?_format=hal_json"
         },
         "type": {
             "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
@@ -9,12 +9,12 @@
     },
     "uid": [
         {
-            "value": 65
+            "value": 1
         }
     ],
     "uuid": [
         {
-            "value": "3b3597ce-c86a-47e9-b8c5-740540b124c9"
+            "value": "fe4901f0-2d88-4398-9215-ac5a00ee9eeb"
         }
     ],
     "langcode": [
@@ -28,24 +28,14 @@
             "value": "en"
         }
     ],
-    "preferred_admin_langcode": [
-        {
-            "value": "en"
-        }
-    ],
     "name": [
         {
-            "value": "maedhbh.mcdonald@concern.net"
+            "value": "admin"
         }
     ],
     "mail": [
         {
-            "value": "maedhbh.mcdonald@concern.net"
-        }
-    ],
-    "timezone": [
-        {
-            "value": "UTC"
+            "value": "admin@example.com"
         }
     ],
     "status": [
@@ -55,33 +45,28 @@
     ],
     "created": [
         {
-            "value": 1496143986
+            "value": 1509646161
         }
     ],
     "changed": [
         {
-            "value": 1507737242,
+            "value": 1511866739,
             "lang": "en"
         }
     ],
     "access": [
         {
-            "value": 1508513640
+            "value": 1511899438
         }
     ],
     "login": [
         {
-            "value": 1508251374
+            "value": 1511866723
         }
     ],
     "init": [
         {
-            "value": "maedhbh.mcdonald@concern.net"
-        }
-    ],
-    "roles": [
-        {
-            "target_id": "gifts_manager"
+            "value": "admin@example.com"
         }
     ],
     "default_langcode": [

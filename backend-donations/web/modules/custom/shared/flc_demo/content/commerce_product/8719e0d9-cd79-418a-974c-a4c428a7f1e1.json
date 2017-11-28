@@ -8,13 +8,13 @@
         },
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/uid": [
             {
-                "href": "http:\/\/default\/user\/86?_format=hal_json",
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
                 "lang": "en"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_action_image": [
             {
-                "href": "public:\/\/gifts\/2017-10\/Sweet%20potatoes%20new.jpg"
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/potato_PNG7082_4.png"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
@@ -24,7 +24,7 @@
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
             {
-                "href": "public:\/\/gifts\/2017-05\/SweetPotatoEdit_0.jpg",
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/potato_PNG7082_2.png",
                 "lang": "en"
             }
         ],
@@ -65,7 +65,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/user\/86?_format=hal_json"
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
@@ -73,7 +73,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "7bd3ec75-f0f6-4afa-b4e9-303846b1dc7a"
+                        "value": "fe4901f0-2d88-4398-9215-ac5a00ee9eeb"
                     }
                 ],
                 "lang": "en"
@@ -83,7 +83,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/gifts\/2017-10\/Sweet%20potatoes%20new.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/potato_PNG7082_4.png"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -91,14 +91,13 @@
                 },
                 "uuid": [
                     {
-                        "value": "12924475-6758-4730-99ba-7910b82539d5"
+                        "value": "83d8ac6b-1060-4562-b317-0c3a6e342825"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/gifts\/2017-10\/Sweet%20potatoes%20new.jpg"
-                    }
-                ]
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "550"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
@@ -122,7 +121,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "public:\/\/gifts\/2017-05\/SweetPotatoEdit_0.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/potato_PNG7082_2.png"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -130,15 +129,14 @@
                 },
                 "uuid": [
                     {
-                        "value": "ccd22332-1fea-4d1a-afa2-717cd7fe65c0"
+                        "value": "cce95502-4195-4299-b715-f33ae4fd7741"
                     }
                 ],
-                "uri": [
-                    {
-                        "value": "public:\/\/gifts\/2017-05\/SweetPotatoEdit_0.jpg"
-                    }
-                ],
-                "lang": "en"
+                "lang": "en",
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "550"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/stores": [
@@ -196,7 +194,7 @@
     ],
     "changed": [
         {
-            "value": 1509114092,
+            "value": 1511878152,
             "lang": "en"
         }
     ],
@@ -213,20 +211,20 @@
     ],
     "field_gift_action_description": [
         {
-            "value": "<p>Fishani Nyirenda from Nkhotakota in Malawi received a portion of sweet potatoes to plant and was delighted to find they have a short harvest cycle. This means she can plant them twice a year and have food all year round. Her family loves the taste of sweet potato and Fishani is happy to see her children eating them as she knows they are full of the nutrients they need to grow up strong and healthy.<\/p>&#13;\n&#13;\n<p>This gift goes towards our <a href=\"https:\/\/www.concern.net\/about\/our-programmes\/livelihoods\">Livelihoods<\/a> programme.<\/p>&#13;\n",
+            "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.&nbsp;<\/p>\r\n",
             "format": "basic_html"
         }
     ],
     "field_gift_annotation": [
         {
-            "value": "<p><strong>The humble potato - but sweeter!<\/strong><\/p>&#13;\n&#13;\n<p>The sweet potato is full of starchy goodness. It's a tasty food that keeps families growing strong, healthy and happy. This gift could provide the vines to grow up to 120kg of sweet potatoes, giving a\u00a0family a nutritious staple ingredient for a whole year!<\/p>&#13;\n",
+            "value": "<p><strong>Class aptent taciti sociosqu ad litora torquent per conubia nostra<\/strong><\/p>\r\n\r\n<p>Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices.&nbsp;<\/p>\r\n",
             "format": "basic_html",
             "lang": "en"
         }
     ],
     "field_gift_description": [
         {
-            "value": "<p>When you buy this gift, you\u2019ll receive a special card to pass on to your friend or loved one. This card will indicate what you have bought for them and you can choose to personalise it by adding a special message. Alternatively, you can choose to send them an e-card directly.\u00a0<\/p>&#13;\n&#13;\n<p>Prefer to order by phone? Call us at\u00a0<a href=\"tel:1111 111 100\">1111 111 100<\/a>\u00a0and we'll be happy to help.<\/p>&#13;\n",
+            "value": "<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa.&nbsp;<\/p>\r\n",
             "format": "basic_html",
             "lang": "en"
         }
