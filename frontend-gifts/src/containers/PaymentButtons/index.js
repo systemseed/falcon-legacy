@@ -36,7 +36,7 @@ class PaymentButtons extends Component {
           <h3 className="payment-options-label">Payment options:</h3>
           <Stripe paymentMethod={paymentMethods.stripe} />
           <p style={{ textAlign: 'center' }}><br />or</p>
-          { typeof window !== 'undefined' &&
+          { typeof window !== 'undefined' && paymentMethods.paypal_button.configuration.client_id !== '' &&
             <Paypal paymentMethod={paymentMethods.paypal_button} />
           }
         </div>
