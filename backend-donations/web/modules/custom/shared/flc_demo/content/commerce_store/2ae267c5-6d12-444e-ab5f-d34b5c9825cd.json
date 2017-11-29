@@ -54,13 +54,13 @@
     },
     "name": [
         {
-            "value": "Gifts ROI",
+            "value": "Gifts",
             "lang": "en"
         }
     ],
     "mail": [
         {
-            "value": "info@concern.net"
+            "value": "falcon-test@systemseed.com"
         }
     ],
     "default_currency": [
@@ -76,9 +76,9 @@
             "administrative_area": "",
             "locality": "Dublin 2",
             "dependent_locality": "",
-            "postal_code": "D02 H425",
+            "postal_code": "D01 H123",
             "sorting_code": "",
-            "address_line1": "52-55 Lower Camden Street",
+            "address_line1": "11-11 Lower Street",
             "address_line2": "",
             "organization": "",
             "given_name": "",

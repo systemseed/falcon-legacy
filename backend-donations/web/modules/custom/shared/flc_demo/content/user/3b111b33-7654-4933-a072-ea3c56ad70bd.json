@@ -76,7 +76,7 @@
     ],
     "init": [
         {
-            "value": "cw2.gifts_manager-test@systemseed.com"
+            "value": "flc.gifts_manager-test@systemseed.com"
         }
     ],
     "roles": [
