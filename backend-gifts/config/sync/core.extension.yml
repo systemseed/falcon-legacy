@@ -9,28 +9,21 @@ module:
   color: 0
   config: 0
   config_filter: 0
-  config_ignore: 0
   config_pages: 0
   config_split: 0
-  config_update: 0
   contact: 0
   contact_message_rest: 0
   contextual: 0
-  cw_gifts_api: 0
   cw_gifts_cards: 0
-  cw_ie_gifts_test: 0
-  cw_mail: 0
-  cw_metatag: 0
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
   eck: 0
   editor: 0
   entity: 0
-  feature_cw_gifts_content_block: 0
-  feature_cw_gifts_page: 0
-  features: 0
-  features_ui: 0
+  falcon_gifts_api: 0
+  falcon_mail: 0
+  falcon_metatag: 0
   field: 0
   field_group: 0
   field_ui: 0

@@ -1,0 +1,20 @@
+uuid: 5008b25a-3074-4581-b574-fb312474b76d
+langcode: en
+status: true
+dependencies: {  }
+id: development
+label: Development
+folder: ../config/development
+module:
+  devel: 0
+  falcon_development: 0
+  reroute_email: 0
+theme: {  }
+blacklist:
+  - devel.settings
+  - devel.toolbar.settings
+  - reroute_email.settings
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: false
+weight: 1
