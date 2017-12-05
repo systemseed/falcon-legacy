@@ -17,6 +17,7 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
   purchased_entity:
     type: entity_reference_autocomplete
     weight: -1
@@ -25,16 +26,19 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
   quantity:
     type: number
     weight: 1
     settings:
       placeholder: ''
     third_party_settings: {  }
+    region: content
   unit_price:
     type: commerce_price_default
     weight: 2
     settings: {  }
     third_party_settings: {  }
+    region: content
 hidden:
   created: true

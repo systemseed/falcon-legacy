@@ -23,18 +23,10 @@ module:
   commerce_stripe: 0
   config: 0
   config_filter: 0
-  config_ignore: 0
   config_split: 0
   contextual: 0
   csv_serialization: 0
   ctools: 0
-  cw_commerce: 0
-  cw_commerce_checkout: 0
-  cw_donations_event_codes: 0
-  cw_exports: 0
-  cw_metatag: 0
-  cw_payment_event: 0
-  cw_thankq: 0
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
@@ -42,6 +34,13 @@ module:
   editor: 0
   entity: 0
   entity_reference_revisions: 0
+  falcon_commerce: 0
+  falcon_commerce_checkout: 0
+  falcon_event_codes: 0
+  falcon_exports: 0
+  falcon_metatag: 0
+  falcon_payment_event: 0
+  falcon_thankq: 0
   field: 0
   field_group: 0
   field_ui: 0

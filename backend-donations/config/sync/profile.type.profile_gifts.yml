@@ -9,3 +9,4 @@ multiple: false
 roles:
   authenticated: '0'
 weight: 0
+use_revisions: false

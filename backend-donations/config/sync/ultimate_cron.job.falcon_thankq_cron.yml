@@ -3,12 +3,12 @@ langcode: en
 status: true
 dependencies:
   module:
-    - cw_thankq
+    - falcon_thankq
 title: 'Default cron handler'
-id: cw_thankq_cron
+id: falcon_thankq_cron
 weight: 0
-module: cw_thankq
-callback: cw_thankq_cron
+module: falcon_thankq
+callback: falcon_thankq_cron
 scheduler:
   id: simple
 launcher:

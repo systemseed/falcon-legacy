@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - cw_donations_event_codes
+    - falcon_event_codes
 id: event_code.token
 label: Token
 targetEntityType: event_code

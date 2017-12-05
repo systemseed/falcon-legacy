@@ -6,7 +6,7 @@ dependencies:
     - eck.eck_type.export.gift
     - system.menu.admin
   module:
-    - cw_thankq
+    - falcon_thankq
     - eck
     - user
 id: exports_gift

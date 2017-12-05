@@ -3,12 +3,12 @@ langcode: en
 status: true
 dependencies:
   module:
-    - cw_payment_event
+    - falcon_payment_event
 title: 'Backup cron job for Stripe security report fetching'
-id: cw_payment_event_cron
+id: falcon_payment_event_cron
 weight: 0
-module: cw_payment_event
-callback: cw_payment_event_cron
+module: falcon_payment_event
+callback: falcon_payment_event_cron
 scheduler:
   id: simple
   configuration:

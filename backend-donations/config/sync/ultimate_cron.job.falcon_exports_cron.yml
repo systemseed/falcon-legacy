@@ -3,12 +3,12 @@ langcode: en
 status: true
 dependencies:
   module:
-    - cw_exports
+    - falcon_exports
 title: 'Default cron handler'
-id: cw_exports_cron
+id: falcon_exports_cron
 weight: 0
-module: cw_exports
-callback: cw_exports_cron
+module: falcon_exports
+callback: falcon_exports_cron
 scheduler:
   id: simple
   configuration:
