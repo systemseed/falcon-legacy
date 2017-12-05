@@ -36,8 +36,4 @@ time drush -y updatedb
 time drush -y config-import
 time drush -y entup
 
-if [ $PLATFORM_BRANCH != "master" ]; then
-  # Enable development modules on dev environments at the end of each deploy.
-  time drush en cw_development -y
-fi
 echo "== DEPLOY SUCCESSFULLY COMPLETED $(date +"%d.%m.%Y %T") =="

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# TODO: Replace with your platform.sh project ID.
+PROJECT_ID="fsdfsdfsfdf"
 PSH_ENV=master
 DB_CONTAINERS=("be_donations_mariadb" "be_gifts_mariadb")
 
@@ -10,11 +12,11 @@ fi
 
 # Dump database for DONATIONS backend.
 echo "Dumping Donations database..."
-platform db:dump -y --project=ozkalhzfgtcls --environment=${PSH_ENV} --app=backend-donations --file=./backend-donations/sql-dump/dump.sql
+platform db:dump -y --project=$PROJECT_ID --environment=${PSH_ENV} --app=backend-donations --file=./backend-donations/mysql/init/dump.sql
 
 # Dump database for GIFTS backend.
 echo "Dumping Gifts database..."
-platform db:dump -y --project=ozkalhzfgtcls --environment=${PSH_ENV} --app=backend-gifts --file=./backend-gifts/sql-dump/dump.sql
+platform db:dump -y --project=$PROJECT_ID --environment=${PSH_ENV} --app=backend-gifts --file=./backend-gifts/mysql/init/dump.sql
 
 # Loop over the containers and rebuild them.
 for CONTAINER in "${DB_CONTAINERS[@]}"

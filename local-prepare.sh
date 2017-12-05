@@ -30,9 +30,6 @@ then
   cp ./backend-gifts/certificates/public.key ./backend-donations/certificates/public.key
   cp ./backend-gifts/certificates/private.key ./backend-donations/certificates/private.key
 
-  cp ./backend-gifts/web/sites/default/example.settings.local.php ./backend-gifts/web/sites/default/settings.local.php
-  cp ./backend-donations/web/sites/default/example.settings.local.php ./backend-donations/web/sites/default/settings.local.php
-
   # Run site installation.
   docker-compose run be_gifts drush site-install config_installer --root='./web' --yes
   # To create a demo content.
