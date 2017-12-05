@@ -26,14 +26,12 @@ You'll find more info about it at their [documentation](https://docs.platform.sh
 
 3. Run bash script `./local-prepare.sh` in the git root to prepare all necessary dependencies & local environment.
 
-4. Run bash script `./local-sql-dump.sh` in the git root to download databases from platform.sh and put them into bthe right folders.
-
-5. Add the following lines to your hosts file:
+4. Add the following lines to your hosts file:
 
     ```
     127.0.0.1 gifts.flc.local api.flc.local gifts.api.flc.local donations.api.flc.local # FALCON installation
     ```
-6. Run `docker-compose up -d`. Profit!
+5. Run `docker-compose up -d`. Profit!
 
 ## Accessing web sites locally
 
