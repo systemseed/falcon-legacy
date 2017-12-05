@@ -27,6 +27,6 @@ class ExampleCest
    * @param \UnitTester $I
    */
     public function testSharedFunction(UnitTester $I) {
-      $I->amGoingTo('Pass valid and invalid arrays to cw_gifts_test_is_array_valid and make sure it works as expected');
+      //$I->amGoingTo('Pass valid and invalid arrays to cw_gifts_test_is_array_valid and make sure it works as expected');
     }
 }
