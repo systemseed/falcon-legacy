@@ -4,11 +4,6 @@
  * Platform.sh settings.
  */
 
-// Disable test mode for master environment.
-if (isset($_ENV['PLATFORM_BRANCH']) && $_ENV['PLATFORM_BRANCH'] == 'master') {
-  $config['cw_core.settings']['test_mode_enabled'] = FALSE;
-}
-
 // Configure the database.
 if (isset($_ENV['PLATFORM_RELATIONSHIPS'])) {
   $relationships = json_decode(base64_decode($_ENV['PLATFORM_RELATIONSHIPS']), TRUE);
