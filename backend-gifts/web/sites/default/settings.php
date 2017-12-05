@@ -45,14 +45,24 @@ $config_directories[CONFIG_SYNC_DIRECTORY] = '../config/sync';
 // there are configs different from Falcon's, then you'll want to graylist
 // them and they'll appear on config export in separate folder automatically.
 $config['config_split.config_split.customizations']['status'] = TRUE;
-$config['config_split.config_split.development']['status'] = FALSE;
+$config['config_split.config_split.development']['status'] = TRUE;
 
-// Automatic Platform.sh settings.
-if (file_exists($app_root . '/' . $site_path . '/settings.platformsh.php')) {
-  include $app_root . '/' . $site_path . '/settings.platformsh.php';
+/**
+ * Settings for Platform.sh environments.
+ */
+if (!empty($_ENV['PLATFORM_BRANCH'])) {
+  // Include Platform.sh specific configs to connect
+  // Drupal to Platform.sh servers.
+  require_once(__DIR__ . '/settings.platformsh.php');
+
+  if ($_ENV['PLATFORM_BRANCH'] == 'master') {
+    // Include production-only configs which override
+    // development settings.
+    require_once(__DIR__ . '/settings.env_production.php');
+  }
 }
-
 // Local settings. These come last so that they can override anything.
-if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-  include $app_root . '/' . $site_path . '/settings.local.php';
+else {
+  require_once(__DIR__ . '/settings.local.php');
 }
+
