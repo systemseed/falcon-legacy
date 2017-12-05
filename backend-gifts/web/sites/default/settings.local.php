@@ -45,6 +45,5 @@ $databases['default']['default'] = array(
   'prefix' => '',
 );
 
-// Will use UK configuration files if TRUE.
-$config['config_split.config_split.ie']['status'] = TRUE;
-$config['config_split.config_split.gb']['status'] = FALSE;
+// Enable devel configs on local environments.
+$config['config_split.config_split.development']['status'] = TRUE;
