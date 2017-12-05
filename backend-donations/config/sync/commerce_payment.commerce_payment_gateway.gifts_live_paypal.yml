@@ -1,0 +1,18 @@
+uuid: 86975957-28fd-474f-b79d-beab43734711
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_paypal_button
+id: gifts_live_paypal
+label: 'Paypal Live (to be updated!)'
+weight: null
+plugin: paypal_button
+configuration:
+  client_id: ''
+  secret_key: ''
+  display_label: Paypal
+  mode: test
+  payment_method_types:
+    - paypal
+conditions: {  }

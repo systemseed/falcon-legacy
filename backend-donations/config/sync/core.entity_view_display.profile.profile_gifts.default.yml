@@ -1,0 +1,101 @@
+uuid: f2e2be69-b992-4ac1-a744-34f4e10be1c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.profile.profile_gifts.field_profile_address
+    - field.field.profile.profile_gifts.field_profile_email
+    - field.field.profile.profile_gifts.field_profile_first_name
+    - field.field.profile.profile_gifts.field_profile_last_name
+    - field.field.profile.profile_gifts.field_profile_phone
+    - field.field.profile.profile_gifts.field_profile_prefs_email
+    - field.field.profile.profile_gifts.field_profile_prefs_phone
+    - field.field.profile.profile_gifts.field_profile_prefs_post
+    - field.field.profile.profile_gifts.field_profile_prefs_sms
+    - profile.type.profile_gifts
+  module:
+    - address
+id: profile.profile_gifts.default
+targetEntityType: profile
+bundle: profile_gifts
+mode: default
+content:
+  field_profile_address:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_profile_email:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_profile_first_name:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_profile_last_name:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_profile_phone:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_profile_prefs_email:
+    weight: 8
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_profile_prefs_phone:
+    weight: 6
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_profile_prefs_post:
+    weight: 7
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_profile_prefs_sms:
+    weight: 5
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden: {  }

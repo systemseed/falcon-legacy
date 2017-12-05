@@ -1,0 +1,11 @@
+theme: cw_ie_donations
+defaults:
+  sender: mandrill_mail
+  formatter: mandrill_mail
+_core:
+  default_config_hash: IhwTepsVwtbtbcT5GzQKhCXDCRvbk3MNkWqPiuiZ10s
+modules:
+  commerce_order:
+    receipt:
+      formatter: mandrill_mail
+      sender: mandrill_mail

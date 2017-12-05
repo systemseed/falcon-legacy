@@ -1,0 +1,18 @@
+uuid: fb37c33f-1579-4285-9ea6-d7f8ac19ca4e
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_paypal_button
+id: gifts_test_paypal
+label: 'Paypal Test'
+weight: null
+plugin: paypal_button
+configuration:
+  client_id: ''
+  secret_key: ''
+  display_label: Paypal
+  mode: test
+  payment_method_types:
+    - paypal
+conditions: {  }

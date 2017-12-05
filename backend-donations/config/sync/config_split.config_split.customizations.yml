@@ -1,0 +1,14 @@
+uuid: 0cef9a5c-d589-4004-869f-6b3e486ffb90
+langcode: en
+status: true
+dependencies: {  }
+id: customizations
+label: Customizations
+folder: ../config/customizations
+module: {  }
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0
