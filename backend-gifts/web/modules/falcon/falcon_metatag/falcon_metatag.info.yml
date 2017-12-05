@@ -1,0 +1,7 @@
+name: Falcon Metatag
+type: module
+description: Provides helpers to prepare metatags for frontend display.
+core: 8.x
+package: Falcon
+dependencies:
+  - metatag

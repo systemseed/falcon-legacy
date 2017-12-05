@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Contains falcon_metatag.module.
+ */
+
+use Drupal\Core\Entity\EntityTypeInterface;
+
+function falcon_metatag_entity_type_alter(array &$entity_types) {
+  /** @var $entity_types \Drupal\Core\Entity\EntityTypeInterface[] */
+  // Allows anonymous to get default Metatag entities.
+  $entity_types['metatag_defaults']->setAccessClass('Drupal\falcon_metatag\FalconMetatagAccessControlHandler');
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function falcon_metatag_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'entity_base_field_info_alter') {
+    // Move falcon_metatag_entity_base_field_info_alter() to the end of the list.
+    $group = $implementations['falcon_metatag'];
+    unset($implementations['falcon_metatag']);
+    $implementations['falcon_metatag'] = $group;
+  }
+}
+
+/**
+ * Implements hook_entity_base_field_info_alter().
+ */
+function falcon_metatag_entity_base_field_info_alter(&$fields, EntityTypeInterface $entity_type) {
+  // By default Metatag module adds additional metatag field to any entity output,
+  // We remove this field to avoid issues, we can get metatag info from added field anyway.
+  if (!empty($fields['metatag'])) {
+    unset($fields['metatag']);
+  }
+}

@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Contains falcon_mail.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function falcon_mail_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the falcon_mail module.
+    case 'help.page.falcon_mail':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('E-mail customisations for FLC') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+/**
+ * Implements hook_mandrill_mail_alter().
+ */
+function falcon_mail_mandrill_mail_alter(&$mandrill_params, $message) {
+
+  // Convert system emails into HTML if Mandrill is used.
+  $message_ids = [
+    'contact_page_mail',
+    'user_password_reset',
+  ];
+
+  if (in_array($mandrill_params['message']['id'], $message_ids)) {
+    $mandrill_params['message']['html'] = nl2br($mandrill_params['message']['html']);
+  }
+}

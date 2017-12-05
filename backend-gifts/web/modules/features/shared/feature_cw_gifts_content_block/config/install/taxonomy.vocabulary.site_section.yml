@@ -1,8 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: 'Site section'
-vid: site_section
-description: 'Various locations of the site (i.e. home, about)'
-hierarchy: 0
-weight: 0

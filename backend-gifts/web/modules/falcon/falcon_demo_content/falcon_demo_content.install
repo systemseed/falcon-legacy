@@ -1,0 +1,31 @@
+<?php
+
+use Drupal\config_pages\Entity\ConfigPages;
+use Drupal\config_pages\Entity\ConfigPagesType;
+
+/**
+ * Implements hook_install().
+ */
+function falcon_demo_content_install() {
+  createContentPagesEntity();
+}
+
+/**
+ * Save Site Content settings entity once to make it available via jsonapi.
+ *
+ * Config pages entity isn't available as an entity right after configuration import.
+ * We should create an entity from default values to make it available via api.
+ */
+function createContentPagesEntity() {
+  // Creates an entity from default configurations.
+  $config_pages = ConfigPages::create([
+    'type' => 'site_content_settings'
+  ]);
+
+  // Attaches context to the entity.
+  $type = ConfigPagesType::load('site_content_settings');
+  $config_pages->context = $type->getContextData();
+
+  // Save entity.
+  $config_pages->save();
+}

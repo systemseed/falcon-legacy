@@ -1,0 +1,7 @@
+name: Falcon Gifts API
+type: module
+description: Common improvements and enhancements for JSON API integrations.
+core: 8.x
+package: Falcon
+dependencies:
+  - jsonapi

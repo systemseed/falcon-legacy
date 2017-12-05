@@ -1,5 +1,0 @@
-name: FLC Mail
-type: module
-description: E-mail customisations for FLC
-core: 8.x
-package: FLC
