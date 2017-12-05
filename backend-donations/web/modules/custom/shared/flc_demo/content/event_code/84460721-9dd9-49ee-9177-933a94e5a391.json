@@ -1,0 +1,111 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/admin\/cw\/event_code\/20?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/event_code\/event_code"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/event_code\/event_code\/user_id": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/event_code\/event_code\/revision_uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json"
+            }
+        ]
+    },
+    "id": [
+        {
+            "value": 20
+        }
+    ],
+    "uuid": [
+        {
+            "value": "84460721-9dd9-49ee-9177-933a94e5a391"
+        }
+    ],
+    "vid": [
+        {
+            "value": 20
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en"
+        }
+    ],
+    "revision_created": [
+        {
+            "value": 1492939623
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/event_code\/event_code\/user_id": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "fe4901f0-2d88-4398-9215-ac5a00ee9eeb"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/event_code\/event_code\/revision_uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "fe4901f0-2d88-4398-9215-ac5a00ee9eeb"
+                    }
+                ]
+            }
+        ]
+    },
+    "code": [
+        {
+            "value": "AXWS17-02"
+        }
+    ],
+    "label": [
+        {
+            "value": "I saw an ad online"
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ],
+    "created": [
+        {
+            "value": 1492939623
+        }
+    ],
+    "changed": [
+        {
+            "value": 1492939623
+        }
+    ],
+    "revision_timestamp": [
+        {
+            "value": 1492939623
+        }
+    ]
+}

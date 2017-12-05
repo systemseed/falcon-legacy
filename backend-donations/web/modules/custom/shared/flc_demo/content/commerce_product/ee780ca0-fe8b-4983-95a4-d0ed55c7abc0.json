@@ -1,0 +1,166 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/corporate\/vestibulum-ante-ipsum-primis?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift_corporate"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_image": [
+            {
+                "href": "http:\/\/default\/sites\/default\/files\/gifts_corporate\/2017-11\/StockSnap_R22QHXWQOO.jpg",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/stores": [
+            {
+                "href": "http:\/\/default\/store\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/variations": [
+            {
+                "href": ""
+            }
+        ]
+    },
+    "product_id": [
+        {
+            "value": 18
+        }
+    ],
+    "uuid": [
+        {
+            "value": "ee780ca0-fe8b-4983-95a4-d0ed55c7abc0"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift_corporate"
+        }
+    ],
+    "uid": [
+        {
+            "target_id": 65,
+            "lang": "en"
+        }
+    ],
+    "title": [
+        {
+            "value": "Vestibulum ante ipsum primis",
+            "lang": "en"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1492709224,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1511879020,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_fieldable_path": [
+        {
+            "value": "\/corporate\/vestibulum-ante-ipsum-primis",
+            "lang": "en"
+        }
+    ],
+    "field_gift_annotation": [
+        {
+            "value": "<p><strong>Class aptent taciti sociosqu ad litora torquent per conubia nostra!<\/strong><\/p>\r\n\r\n<p>Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui.&nbsp;<\/p>\r\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_description": [
+        {
+            "value": "<p><span lang=\"EN-GB\">Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.&nbsp;<\/span><\/p>\r\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/field_gift_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts_corporate\/2017-11\/StockSnap_R22QHXWQOO.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "7caf2903-1f5c-400e-970f-665c193041e2"
+                    }
+                ],
+                "lang": "en",
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "440"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/stores": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/store\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_store\/online"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "2ae267c5-6d12-444e-ab5f-d34b5c9825cd"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift_corporate\/variations": [
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "f19dd828-3fcd-4351-8bdd-2b950d13d39f"
+                    }
+                ]
+            }
+        ]
+    },
+    "field_gift_variant_type": [
+        {
+            "value": "normal"
+        }
+    ]
+}

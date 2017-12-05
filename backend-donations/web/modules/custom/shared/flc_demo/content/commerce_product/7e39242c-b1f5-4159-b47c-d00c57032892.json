@@ -1,0 +1,215 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/gifts\/custom-donation?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_action_image": [
+            {
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/larm-rmah-216854.jpg"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
+            {
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/larm-rmah-216854_0.jpg",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/stores": [
+            {
+                "href": "http:\/\/default\/store\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/variations": [
+            {
+                "href": ""
+            }
+        ]
+    },
+    "product_id": [
+        {
+            "value": 8
+        }
+    ],
+    "uuid": [
+        {
+            "value": "7e39242c-b1f5-4159-b47c-d00c57032892"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "fe4901f0-2d88-4398-9215-ac5a00ee9eeb"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_action_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/larm-rmah-216854.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "3649603d-00c8-4713-94da-12882dce3d22"
+                    }
+                ],
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "550"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/larm-rmah-216854_0.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "10fa600f-7901-498e-b111-7b7b0d8baeab"
+                    }
+                ],
+                "lang": "en",
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "550"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/stores": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/store\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_store\/online"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "2ae267c5-6d12-444e-ab5f-d34b5c9825cd"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/variations": [
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "b0084de0-7f2d-4e8f-ba32-b90f4fc544fc"
+                    }
+                ]
+            }
+        ]
+    },
+    "title": [
+        {
+            "value": "Custom donation",
+            "lang": "en"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1492330813,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1511878521,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_fieldable_path": [
+        {
+            "value": "\/gifts\/custom-donation"
+        }
+    ],
+    "field_gift_action_description": [
+        {
+            "value": "<p>Description<\/p>\r\n",
+            "format": "basic_html"
+        }
+    ],
+    "field_gift_description": [
+        {
+            "value": "<p>Choose your own donation<\/p>\r\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_product_code": [
+        {
+            "value": "DON",
+            "lang": "en"
+        }
+    ],
+    "field_gift_variant_type": [
+        {
+            "value": "custom_price",
+            "lang": "en"
+        }
+    ]
+}

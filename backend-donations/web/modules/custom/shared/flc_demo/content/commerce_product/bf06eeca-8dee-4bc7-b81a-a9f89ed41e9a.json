@@ -1,0 +1,244 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/gifts\/goat?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_action_image": [
+            {
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/goat_PNG13158_0.png"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
+            {
+                "href": "http:\/\/default\/taxonomy\/term\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
+            {
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/goat_PNG13158.png",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/stores": [
+            {
+                "href": "http:\/\/default\/store\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/variations": [
+            {
+                "href": ""
+            }
+        ]
+    },
+    "product_id": [
+        {
+            "value": 12
+        }
+    ],
+    "uuid": [
+        {
+            "value": "bf06eeca-8dee-4bc7-b81a-a9f89ed41e9a"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "fe4901f0-2d88-4398-9215-ac5a00ee9eeb"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_action_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/goat_PNG13158_0.png"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "14f89b63-5652-4adf-9ffb-89bc121728f6"
+                    }
+                ],
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "545"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/taxonomy\/term\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/gift_category"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "16cefdd7-b265-43cb-aa02-2ba7c4ec4584"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/goat_PNG13158.png"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "2a0cde02-7816-4df5-b1bd-3e9d8cbcc433"
+                    }
+                ],
+                "lang": "en",
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "545"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/stores": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/store\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_store\/online"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "2ae267c5-6d12-444e-ab5f-d34b5c9825cd"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/variations": [
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "a6ddfb94-4e3c-4d04-81b0-c6bb72c50498"
+                    }
+                ]
+            }
+        ]
+    },
+    "title": [
+        {
+            "value": "Goat",
+            "lang": "en"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1492708228,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1511878404,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_fieldable_path": [
+        {
+            "value": "\/gifts\/goat"
+        }
+    ],
+    "field_gift_action_description": [
+        {
+            "value": "<p>Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim.&nbsp;<\/p>\r\n",
+            "format": "basic_html"
+        }
+    ],
+    "field_gift_annotation": [
+        {
+            "value": "<p><strong>Fusce ac turpis quis ligula lacinia aliquet<\/strong><\/p>\r\n\r\n<p>Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor.&nbsp;<\/p>\r\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_description": [
+        {
+            "value": "<p>Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien.&nbsp;<\/p>\r\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_product_code": [
+        {
+            "value": "C",
+            "lang": "en"
+        }
+    ],
+    "field_gift_variant_type": [
+        {
+            "value": "normal",
+            "lang": "en"
+        }
+    ]
+}

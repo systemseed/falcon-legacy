@@ -1,0 +1,83 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/admin\/structure\/eck\/entity\/featured_image\/2?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/featured_image\/image"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/featured_image\/image\/field_featured_image": [
+            {
+                "href": "http:\/\/default\/sites\/default\/files\/featured_images\/corporate_0.jpg"
+            }
+        ]
+    },
+    "id": [
+        {
+            "value": 2
+        }
+    ],
+    "uuid": [
+        {
+            "value": "dc6cde6a-7b9c-4292-aa36-d1091b078154"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "image"
+        }
+    ],
+    "title": [
+        {
+            "value": "Corporate Gifts",
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1495127591,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1511865567,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/featured_image\/image\/field_featured_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/sites\/default\/files\/featured_images\/corporate_0.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "ea3d647b-6e20-44ed-acd4-d65e9fe270ca"
+                    }
+                ],
+                "alt": "",
+                "title": "",
+                "width": "1920",
+                "height": "530"
+            }
+        ]
+    }
+}

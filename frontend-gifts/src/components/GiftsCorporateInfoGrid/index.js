@@ -27,7 +27,7 @@ const GiftsCorporateInfoGrid = () => (
               <h3 className="space-bottom-half">
                 1: Order
               </h3>
-              <p>Choose your gift below and make your order online, or by phone on (01) 479 1301</p>
+              <p>Choose your gift below and make your order online, or by phone on (01) 111 1001</p>
             </div>
 
             <div className="column">

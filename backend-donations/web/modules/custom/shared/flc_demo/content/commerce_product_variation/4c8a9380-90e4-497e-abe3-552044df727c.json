@@ -1,0 +1,107 @@
+{
+    "_links": {
+        "self": {
+            "href": ""
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
+            {
+                "href": "http:\/\/default\/gifts\/tomatoes?_format=hal_json"
+            }
+        ]
+    },
+    "variation_id": [
+        {
+            "value": 30
+        }
+    ],
+    "uuid": [
+        {
+            "value": "4c8a9380-90e4-497e-abe3-552044df727c"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift"
+        }
+    ],
+    "uid": [
+        {
+            "target_id": 88,
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/gifts\/tomatoes?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "1500db67-d19f-44d8-bf33-dc1777e8d5e3"
+                    }
+                ]
+            }
+        ]
+    },
+    "sku": [
+        {
+            "value": "Avocado"
+        }
+    ],
+    "title": [
+        {
+            "value": "Tomatoes",
+            "lang": "en"
+        }
+    ],
+    "price": [
+        {
+            "number": "9.000000",
+            "currency_code": "EUR"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1507817197,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1511878194,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_thankq_id": [
+        {
+            "value": "THX000163"
+        }
+    ]
+}

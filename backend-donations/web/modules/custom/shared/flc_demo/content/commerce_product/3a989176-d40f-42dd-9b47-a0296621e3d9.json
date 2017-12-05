@@ -1,0 +1,244 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/gifts\/cow?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_action_image": [
+            {
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/cow_PNG2141_1.png"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
+            {
+                "href": "http:\/\/default\/taxonomy\/term\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
+            {
+                "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/cow_PNG2141.png",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/stores": [
+            {
+                "href": "http:\/\/default\/store\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/variations": [
+            {
+                "href": ""
+            }
+        ]
+    },
+    "product_id": [
+        {
+            "value": 27
+        }
+    ],
+    "uuid": [
+        {
+            "value": "3a989176-d40f-42dd-9b47-a0296621e3d9"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "fe4901f0-2d88-4398-9215-ac5a00ee9eeb"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_action_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/cow_PNG2141_1.png"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "2456157e-f61d-4a3b-aeb4-656d67bde11c"
+                    }
+                ],
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "550"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/taxonomy\/term\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/gift_category"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "16cefdd7-b265-43cb-aa02-2ba7c4ec4584"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/sites\/default\/files\/gifts\/2017-11\/cow_PNG2141.png"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "4ce9eca4-f2ea-4993-870c-a6d7163f0a9f"
+                    }
+                ],
+                "lang": "en",
+                "alt": "",
+                "title": "",
+                "width": "660",
+                "height": "550"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/stores": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/store\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_store\/online"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "2ae267c5-6d12-444e-ab5f-d34b5c9825cd"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/variations": [
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "705a0953-f482-40f4-824c-c2613cbc8d7f"
+                    }
+                ]
+            }
+        ]
+    },
+    "title": [
+        {
+            "value": "Cow",
+            "lang": "en"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1507895443,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1511878239,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_fieldable_path": [
+        {
+            "value": "\/gifts\/cow"
+        }
+    ],
+    "field_gift_action_description": [
+        {
+            "value": "<p>Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices.&nbsp;<\/p>\r\n",
+            "format": "basic_html"
+        }
+    ],
+    "field_gift_annotation": [
+        {
+            "value": "<p><strong>Proin sodales libero eget ante. Nulla quam.<\/strong><\/p>\r\n\r\n<p>Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo.&nbsp;<\/p>\r\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_description": [
+        {
+            "value": "<p>Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper.&nbsp;<\/p>\r\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_product_code": [
+        {
+            "value": "FF",
+            "lang": "en"
+        }
+    ],
+    "field_gift_variant_type": [
+        {
+            "value": "normal",
+            "lang": "en"
+        }
+    ]
+}

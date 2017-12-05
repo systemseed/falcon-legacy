@@ -1,0 +1,107 @@
+{
+    "_links": {
+        "self": {
+            "href": ""
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
+            {
+                "href": "http:\/\/default\/corporate\/fusce-nec-tellus?_format=hal_json"
+            }
+        ]
+    },
+    "variation_id": [
+        {
+            "value": 20
+        }
+    ],
+    "uuid": [
+        {
+            "value": "d0c3af78-c896-4ffd-890b-3172b9cc0157"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift"
+        }
+    ],
+    "uid": [
+        {
+            "target_id": 9,
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/corporate\/fusce-nec-tellus?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift_corporate"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "917e0350-2f53-4b67-a660-0eb3eb1c49f0"
+                    }
+                ]
+            }
+        ]
+    },
+    "sku": [
+        {
+            "value": "Send-100-children-to-school"
+        }
+    ],
+    "title": [
+        {
+            "value": "Send 100 children to school",
+            "lang": "en"
+        }
+    ],
+    "price": [
+        {
+            "number": "3350.000000",
+            "currency_code": "EUR"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1492709184,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1511878879,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_thankq_id": [
+        {
+            "value": "THXE17-01"
+        }
+    ]
+}

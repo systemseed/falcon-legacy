@@ -1,0 +1,95 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/store\/1?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_store\/online"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_store\/online\/uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json"
+            }
+        ]
+    },
+    "store_id": [
+        {
+            "value": 1
+        }
+    ],
+    "uuid": [
+        {
+            "value": "2ae267c5-6d12-444e-ab5f-d34b5c9825cd"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "online"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_store\/online\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "fe4901f0-2d88-4398-9215-ac5a00ee9eeb"
+                    }
+                ]
+            }
+        ]
+    },
+    "name": [
+        {
+            "value": "Gifts",
+            "lang": "en"
+        }
+    ],
+    "mail": [
+        {
+            "value": "falcon-test@systemseed.com"
+        }
+    ],
+    "default_currency": [
+        {
+            "target_id": "EUR",
+            "lang": "en"
+        }
+    ],
+    "address": [
+        {
+            "langcode": "",
+            "country_code": "IE",
+            "administrative_area": "",
+            "locality": "Dublin 2",
+            "dependent_locality": "",
+            "postal_code": "D01 H123",
+            "sorting_code": "",
+            "address_line1": "11-11 Lower Street",
+            "address_line2": "",
+            "organization": "",
+            "given_name": "",
+            "additional_name": "",
+            "family_name": ""
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ]
+}

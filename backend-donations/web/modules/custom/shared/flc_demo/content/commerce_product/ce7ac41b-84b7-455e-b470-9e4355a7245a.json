@@ -1,0 +1,258 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/gifts\/koala-test-suite?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_action_image": [
+            {
+                "href": "public:\/\/gifts\/2017-10\/koala_0.jpg"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
+            {
+                "href": "http:\/\/default\/taxonomy\/term\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
+            {
+                "href": "public:\/\/gifts\/2017-10\/koala.jpg",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/stores": [
+            {
+                "href": "http:\/\/default\/store\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/variations": [
+            {
+                "href": ""
+            },
+            {
+                "href": ""
+            }
+        ]
+    },
+    "product_id": [
+        {
+            "value": 45
+        }
+    ],
+    "uuid": [
+        {
+            "value": "ce7ac41b-84b7-455e-b470-9e4355a7245a"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "8ac685fb-a63e-4805-8c7b-5ccf8da45d55"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_action_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "public:\/\/gifts\/2017-10\/koala_0.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "cc360420-09e1-4b78-a056-a50fa098c554"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "public:\/\/gifts\/2017-10\/koala_0.jpg"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_category": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/taxonomy\/term\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/gift_category"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "16cefdd7-b265-43cb-aa02-2ba7c4ec4584"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/field_gift_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "public:\/\/gifts\/2017-10\/koala.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "42d99731-a078-49f5-9496-f80819b9dbaa"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "public:\/\/gifts\/2017-10\/koala.jpg"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/stores": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/store\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_store\/online"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "2ae267c5-6d12-444e-ab5f-d34b5c9825cd"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/gift\/variations": [
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "8d853147-9c50-4503-8fe3-e8a067431835"
+                    }
+                ]
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "5df9a982-7c4b-4d1c-8a68-f1e01c1aa594"
+                    }
+                ]
+            }
+        ]
+    },
+    "title": [
+        {
+            "value": "Koala (Test Suite)",
+            "lang": "en"
+        }
+    ],
+    "status": [
+        {
+            "value": false,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1508937916,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1508938245,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_fieldable_path": [
+        {
+            "value": "\/gifts\/koala-test-suite"
+        }
+    ],
+    "field_gift_action_description": [
+        {
+            "value": "<p>Phosfluorescently embrace efficient scenarios for user-centric markets. Professionally harness visionary platforms and resource sucking customer service. Interactively predominate holistic systems after 24\/7 results. Interactively optimize.<\/p>&#13;\n",
+            "format": "basic_html"
+        }
+    ],
+    "field_gift_annotation": [
+        {
+            "value": "<p>Test suite product.<\/p>&#13;\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_description": [
+        {
+            "value": "<p><strong>Do not delete!\u00a0<\/strong>Dramatically formulate prospective results via collaborative imperatives. Distinctively maintain client-centric catalysts for change with cutting-edge best practices. Seamlessly procrastinate integrated bandwidth for B2B e-services. Credibly.<\/p>&#13;\n",
+            "format": "basic_html",
+            "lang": "en"
+        }
+    ],
+    "field_gift_variant_type": [
+        {
+            "value": "normal",
+            "lang": "en"
+        }
+    ]
+}

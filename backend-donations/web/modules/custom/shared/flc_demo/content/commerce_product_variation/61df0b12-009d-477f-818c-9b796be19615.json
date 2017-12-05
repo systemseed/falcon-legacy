@@ -1,0 +1,107 @@
+{
+    "_links": {
+        "self": {
+            "href": ""
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
+            {
+                "href": "http:\/\/default\/gifts\/sweet-potatoes?_format=hal_json"
+            }
+        ]
+    },
+    "variation_id": [
+        {
+            "value": 27
+        }
+    ],
+    "uuid": [
+        {
+            "value": "61df0b12-009d-477f-818c-9b796be19615"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift"
+        }
+    ],
+    "uid": [
+        {
+            "target_id": 9,
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/gifts\/sweet-potatoes?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "8719e0d9-cd79-418a-974c-a4c428a7f1e1"
+                    }
+                ]
+            }
+        ]
+    },
+    "sku": [
+        {
+            "value": "TODO"
+        }
+    ],
+    "title": [
+        {
+            "value": "Sweet Potatoes",
+            "lang": "en"
+        }
+    ],
+    "price": [
+        {
+            "number": "24.000000",
+            "currency_code": "EUR"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1493889197,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1511878152,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_thankq_id": [
+        {
+            "value": "THX000113"
+        }
+    ]
+}

@@ -17,7 +17,7 @@ required: false
 translatable: false
 default_value:
   -
-    value: '<a href="tel:014791301">Order by Phone (01) 479 1301</a>'
+    value: '<a href="tel:014791301">Order by Phone (01) 111 1001</a>'
     format: raw_html
 default_value_callback: ''
 settings: {  }

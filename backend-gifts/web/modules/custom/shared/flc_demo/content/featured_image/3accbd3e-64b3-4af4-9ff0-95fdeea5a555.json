@@ -1,0 +1,83 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/admin\/structure\/eck\/entity\/featured_image\/5?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/featured_image\/image"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/featured_image\/image\/field_featured_image": [
+            {
+                "href": "http:\/\/default\/sites\/default\/files\/featured_images\/contact.jpg"
+            }
+        ]
+    },
+    "id": [
+        {
+            "value": 5
+        }
+    ],
+    "uuid": [
+        {
+            "value": "3accbd3e-64b3-4af4-9ff0-95fdeea5a555"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "image"
+        }
+    ],
+    "title": [
+        {
+            "value": "Contact",
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1495127631,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1511889034,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/featured_image\/image\/field_featured_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/sites\/default\/files\/featured_images\/contact.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "56d0a349-c07c-4c0f-bcbc-891201b6ef65"
+                    }
+                ],
+                "alt": "",
+                "title": "",
+                "width": "1920",
+                "height": "530"
+            }
+        ]
+    }
+}

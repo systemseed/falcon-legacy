@@ -17,7 +17,7 @@ const GiftTabs = ({ gift }) => (
       <TabPanel>
         <div className="row space-top">
           <div className="col-md-6 space-bottom">
-            <img src="/images/piglet-postal.png" width="724" height="328" alt="" />
+            <img src="/images/postal-card.jpg" width="555" alt="" />
           </div>
           <div className="col-md-6">
             <div dangerouslySetInnerHTML={{ __html: gift.description }} />

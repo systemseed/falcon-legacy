@@ -1,0 +1,83 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/admin\/structure\/eck\/entity\/featured_image\/6?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/featured_image\/image"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/featured_image\/image\/field_featured_image": [
+            {
+                "href": "http:\/\/default\/sites\/default\/files\/featured_images\/not-found.jpg"
+            }
+        ]
+    },
+    "id": [
+        {
+            "value": 6
+        }
+    ],
+    "uuid": [
+        {
+            "value": "f2968940-ccd4-419f-a673-7e75cbd5bacc"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "image"
+        }
+    ],
+    "title": [
+        {
+            "value": "Page Not Found",
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1495127642,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1511865066,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/featured_image\/image\/field_featured_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/sites\/default\/files\/featured_images\/not-found.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "b4833a89-dff6-4c93-badc-182245a0e9fb"
+                    }
+                ],
+                "alt": "",
+                "title": "",
+                "width": "1920",
+                "height": "530"
+            }
+        ]
+    }
+}

@@ -1,0 +1,107 @@
+{
+    "_links": {
+        "self": {
+            "href": ""
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/gift"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
+            {
+                "href": "http:\/\/default\/corporate\/quisque-volutpat?_format=hal_json"
+            }
+        ]
+    },
+    "variation_id": [
+        {
+            "value": 19
+        }
+    ],
+    "uuid": [
+        {
+            "value": "5a664e67-e689-4fbf-8121-a99ea0b329f9"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "gift"
+        }
+    ],
+    "uid": [
+        {
+            "target_id": 9,
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product_variation\/gift\/product_id": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/corporate\/quisque-volutpat?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product\/gift_corporate"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "afa5f334-5959-40fa-82e0-7c042d8819e4"
+                    }
+                ]
+            }
+        ]
+    },
+    "sku": [
+        {
+            "value": "10-farm-vets"
+        }
+    ],
+    "title": [
+        {
+            "value": "Train 10 farm vets",
+            "lang": "en"
+        }
+    ],
+    "price": [
+        {
+            "number": "900.000000",
+            "currency_code": "EUR"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": 1492709113,
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": 1509646759,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_thankq_id": [
+        {
+            "value": "CXWE17-01"
+        }
+    ]
+}
