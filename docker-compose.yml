@@ -46,8 +46,8 @@ services:
       PHP_HOST_NAME: localhost
       PHP_DOCROOT: web
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
-      PHP_XDEBUG: 1
-      PHP_XDEBUG_DEFAULT_ENABLE: 1
+      # PHP_XDEBUG: 1
+      # PHP_XDEBUG_DEFAULT_ENABLE: 1
       # PHP_XDEBUG_REMOTE_AUTOSTART: 1
       # PHP_XDEBUG_REMOTE_CONNECT_BACK: 0         # This is needed to respect remote.host setting bellow
       # PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"  # You will also need to 'sudo ifconfig lo0 alias 10.254.254.254'
@@ -63,7 +63,8 @@ services:
       MYSQL_USER: drupal
       MYSQL_PASSWORD: drupal
     volumes:
-      - ./backend-gifts/sql-dump:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
+      - ./backend-gifts/mysql/init:/docker-entrypoint-initdb.d
+      - ./backend-gifts/mysql/data:/var/lib/mysql
 
   be_gifts_nginx:
     image: wodby/drupal-nginx:1.10-1.1.0
@@ -102,8 +103,8 @@ services:
       PHP_HOST_NAME: localhost
       PHP_DOCROOT: web
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
-      PHP_XDEBUG: 1
-      PHP_XDEBUG_DEFAULT_ENABLE: 1
+      # PHP_XDEBUG: 1
+      # PHP_XDEBUG_DEFAULT_ENABLE: 1
       # PHP_XDEBUG_REMOTE_AUTOSTART: 1
       # PHP_XDEBUG_REMOTE_CONNECT_BACK: 0         # This is needed to respect remote.host setting bellow
       # PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"  # You will also need to 'sudo ifconfig lo0 alias 10.254.254.254'
@@ -119,7 +120,8 @@ services:
       MYSQL_USER: drupal
       MYSQL_PASSWORD: drupal
     volumes:
-      - ./backend-donations/sql-dump:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
+      - ./backend-donations/mysql/init:/docker-entrypoint-initdb.d
+      - ./backend-donations/mysql/data:/var/lib/mysql
 
   be_donations_nginx:
     image: wodby/drupal-nginx:1.10-1.1.0

@@ -6,8 +6,8 @@ web/modules/contrib
 web/themes/contrib
 web/profiles/contrib
 
-# Ignore sql dumps.
-sql-dump/*.sql
+# Ignore mysql files.
+mysql
 
 # Ignore Drupal's file directory
 web/sites/*/files
