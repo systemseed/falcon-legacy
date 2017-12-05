@@ -1,0 +1,4 @@
+services:
+  falcon_exports.cron:
+    class: Drupal\falcon_exports\ExportsCron
+    arguments: ['@database']

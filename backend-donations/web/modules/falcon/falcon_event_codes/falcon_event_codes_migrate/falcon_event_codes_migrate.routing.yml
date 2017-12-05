@@ -1,0 +1,9 @@
+
+falcon_event_codes_migrate.config_form:
+  path: 'admin/structure/event_code/settings/import-file-confg'
+  defaults:
+    _form: '\Drupal\falcon_event_codes_migrate\Form\ConfigForm'
+    _title: 'Upload CSV file'
+  requirements:
+    _permission: 'administer event code entities'
+  

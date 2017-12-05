@@ -1,0 +1,7 @@
+name: Falcon Commerce Checkout
+type: module
+description: Checkout process for payments.
+core: 8.x
+package: Falcon
+dependencies:
+  - falcon_commerce

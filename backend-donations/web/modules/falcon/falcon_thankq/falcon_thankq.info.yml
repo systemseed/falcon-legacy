@@ -1,0 +1,5 @@
+name: Falcon ThankQ API
+type: module
+description: ThankQ SOAP API integration
+core: 8.x
+package: Falcon

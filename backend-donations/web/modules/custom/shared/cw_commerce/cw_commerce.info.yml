@@ -1,8 +1,0 @@
-name: FLC Commerce
-type: module
-description: Commerce customisations for all platforms.
-core: 8.x
-package: FLC
-dependencies:
-  - jsonapi
-  - commerce_order

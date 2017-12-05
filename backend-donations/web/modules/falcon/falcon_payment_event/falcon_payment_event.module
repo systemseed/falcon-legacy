@@ -1,0 +1,96 @@
+<?php
+
+use Drupal\views\ViewExecutable;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+use \Drupal\falcon_payment_event\Controller\StripeController;
+
+/**
+ * Implements hook_cron().
+ */
+function falcon_payment_event_cron() {
+  // Usually Stripe URL is triggered every minute by external service.
+  // This cron task is a backup in case external service is broken.
+  (new StripeController())->createPaymentEventEntities();
+}
+
+/**
+ * Implements hook_views_query_alter().
+ *
+ * Alter Payment security report views to change payment gateway filter,
+ * Payment gateway can't be added as selectbox to the views, so we filter views by current payment gateway in alter
+ * To show live security events only on live environment.
+ */
+function falcon_payment_event_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
+  if ($view->id() == 'payment_security_report') {
+    $testMode = \Drupal::config('cw_core.settings')->get('test_mode_enabled') ? 'test' : 'live';
+    $paymentGateway = 'gifts_' . $testMode . '_stripe';
+
+    // Traverse through the 'where' part of the query.
+    foreach ($query->where as &$condition_group) {
+      foreach ($condition_group['conditions'] as &$condition) {
+        // Changes payment gateway filter to current from config.
+        if ($condition['field'] == 'payment_event__field_stripe_event_payment_gw.field_stripe_event_payment_gw_target_id') {
+          $condition['value'] = $paymentGateway;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function falcon_payment_event_form_commerce_payment_gateway_edit_form_alter(&$form, FormStateInterface $form_state) {
+  $paymentGateway = $form_state->getFormObject()->getEntity()->id();
+  $supportedPaymentGateways = ['gifts_test_stripe', 'gifts_live_stripe'];
+  if (in_array($paymentGateway, $supportedPaymentGateways)) {
+    $configName = 'falcon_payment_event.' . $paymentGateway;
+
+    $form['developer_username'] = [
+      '#type' => 'textfield',
+      '#title' => t('Developer username'),
+      '#default_value' => \Drupal::config($configName)->get('developer_username'),
+    ];
+    $form['developer_password'] = [
+      '#type' => 'textfield',
+      '#title' => t('Developer password'),
+      '#default_value' => \Drupal::config($configName)->get('developer_password'),
+    ];
+    $form['account_updates_notification_emails'] = [
+      '#type' => 'textfield',
+      '#title' => t('Account updates notifications emails'),
+      '#description' => t('Separate multiple emails by comma.'),
+      '#size' => 300,
+      '#maxlength' => 300,
+      '#default_value' => \Drupal::config($configName)->get('account_updates_notification_emails'),
+    ];
+    $form['actions']['submit']['#submit'][] = 'falcon_payment_event_form_commerce_payment_gateway_edit_submit';
+  }
+}
+
+/**
+ * Form submission handler for 'falcon_payment_event_form_commerce_payment_gateway_edit_form_alter'.
+ */
+function falcon_payment_event_form_commerce_payment_gateway_edit_submit($form, FormStateInterface $form_state) {
+  $paymentGateway = $form_state->getFormObject()->getEntity()->id();
+  $values = $form_state->getValue($form['#parents']);
+
+  \Drupal::configFactory()->getEditable('falcon_payment_event.' . $paymentGateway)
+    ->set('developer_username', $values['developer_username'])
+    ->set('developer_password', $values['developer_password'])
+    ->set('account_updates_notification_emails', $values['account_updates_notification_emails'])
+    ->save();
+}
+
+/**
+ * Implements hook_mail().
+ */
+function falcon_payment_event_mail($key, &$message, $params) {
+
+  if ($key != 'stripe_account_changed') {
+    return;
+  }
+  $message['subject'] = $params['subject'];
+  $message['body'][] = $params['body'];
+}

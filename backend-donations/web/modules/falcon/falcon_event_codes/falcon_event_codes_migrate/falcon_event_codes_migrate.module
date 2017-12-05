@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains falcon_event_codes_migrate.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function falcon_event_codes_migrate_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the falcon_event_codes_migrate module.
+    case 'help.page.falcon_event_codes_migrate':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Event Codes Migrate CSV') . '</p>';
+      return $output;
+
+    default:
+  }
+}

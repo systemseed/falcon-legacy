@@ -1,9 +1,0 @@
-id: fieldable_path_copy_path_product
-label: 'Copy path to Fieldable Path field'
-status: true
-langcode: en
-type: commerce_product
-plugin: fieldable_path_copy_path
-dependencies:
-  module:
-    - commerce_product

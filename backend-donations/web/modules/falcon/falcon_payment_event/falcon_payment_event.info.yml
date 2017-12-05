@@ -1,0 +1,5 @@
+name: Falcon Payment event
+type: module
+description: 'Provides functionality to collect information about events in Payment systems.'
+package: Falcon
+core: 8.x

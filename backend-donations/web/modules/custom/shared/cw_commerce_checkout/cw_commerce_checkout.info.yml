@@ -1,7 +1,0 @@
-name: FLC Commerce Checkout
-type: module
-description: Checkout process for payments.
-core: 8.x
-package: FLC
-dependencies:
-  - cw_commerce

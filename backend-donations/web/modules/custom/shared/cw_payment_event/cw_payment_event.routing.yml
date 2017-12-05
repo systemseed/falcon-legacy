@@ -1,7 +1,0 @@
-cw_payment_event.run_cron:
-  path: '/cw-payment-event/run-cron/A19-fdeiWUyCff5wdv3Y97jNAHE342BkeQejNEhU0Esi5Bl_ts6T1Ch8XDd0rNsOfX33'
-  defaults:
-    _controller: '\Drupal\cw_payment_event\Controller\StripeController::createPaymentEventEntities'
-    _title: 'Run Payment event cron'
-  requirements:
-    _access: 'TRUE'

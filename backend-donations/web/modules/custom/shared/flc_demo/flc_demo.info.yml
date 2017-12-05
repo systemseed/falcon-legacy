@@ -1,8 +1,0 @@
-name: 'FLC Demo content'
-type: module
-description: 'Default content for Falcon destributive'
-package: Falcon
-core: 8.x
-dependencies:
-  - better_normalizers
-  - default_content:default_content

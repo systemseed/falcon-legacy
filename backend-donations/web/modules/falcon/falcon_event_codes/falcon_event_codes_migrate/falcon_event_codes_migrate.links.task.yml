@@ -1,0 +1,4 @@
+falcon_event_codes_migrate.tab:
+  route_name: falcon_event_codes_migrate.config_form
+  title: 'Import Settings'
+  base_route: event_code.settings

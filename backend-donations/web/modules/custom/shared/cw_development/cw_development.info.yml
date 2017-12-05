@@ -1,8 +1,0 @@
-name: FLC Development
-type: module
-description: Modules and tools for development and local environments only.
-core: 8.x
-package: FLC
-dependencies:
-  - devel
-  - reroute_email

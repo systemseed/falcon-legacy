@@ -1,0 +1,5 @@
+falcon_thankq.gifts.force_run:
+  route_name: falcon_thankq.gifts.manual_export
+  title: 'Initiate ThankQ Update'
+  appears_on:
+    - view.exports_gift.page_1

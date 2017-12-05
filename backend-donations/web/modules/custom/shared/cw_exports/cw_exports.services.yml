@@ -1,4 +1,0 @@
-services:
-  cw_exports.cron:
-    class: Drupal\cw_exports\ExportsCron
-    arguments: ['@database']
