@@ -1,4 +1,5 @@
 import React from 'react';
+import Sticky from 'react-stickynode';
 import { Grid, Col, Row } from 'react-bootstrap';
 import Metatags from '../../components/Metatags';
 import CheckoutContainer from '../../containers/CheckoutContainer';
@@ -7,7 +8,7 @@ import CheckoutPaymentContainer from '../../containers/CheckoutPaymentContainer'
 
 const CheckoutView = () => (
   <div>
-    <Metatags metatags={{"title": {"attributes": {"content": "Checkout and save lives | Gifts"}}}} />
+    <Metatags metatags={{"title": {"attributes": {"content": "Checkout and save lives | Falcon Gifts"}}}} />
     <Grid className="padding-top-3x padding-bottom-2x">
 
       <h1 className="space-top-half">
@@ -22,8 +23,10 @@ const CheckoutView = () => (
 
         <Col md={3} mdOffset={1} sm={4} className="padding-bottom-2x">
           <aside className="checkout-payment">
-            <CheckoutBasketSummary />
-            <CheckoutPaymentContainer />
+            <Sticky enabled={true} top={114} bottomBoundary='.checkout-container-inner'>
+              <CheckoutBasketSummary />
+              <CheckoutPaymentContainer />
+            </Sticky>
           </aside>
         </Col>
 

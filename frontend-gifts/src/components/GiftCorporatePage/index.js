@@ -19,6 +19,8 @@ GiftCorporatePage.propTypes = {
     variantType: React.PropTypes.string,
     annotation: React.PropTypes.string,
     description: React.PropTypes.string,
+    imageUrl: React.PropTypes.string,
+    imageAlt: React.PropTypes.string,
     price: React.PropTypes.object,
   }).isRequired,
 };

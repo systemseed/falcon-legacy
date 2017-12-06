@@ -72,8 +72,24 @@
 }
 
 .react-tabs {
-  img {
+  .wide-image img {
     width: 100%;
+  }
+
+  .content img {
+
+    &[data-align="center"] {
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    &[data-align="left"] {
+      float: left;
+    }
+
+    &[data-align="right"] {
+      float: right;
+    }
   }
 }
 

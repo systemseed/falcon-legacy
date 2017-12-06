@@ -32,16 +32,20 @@ class ModalPreviewGiftCard extends Component {
         </Modal.Header>
         <Modal.Body>
           {type === 'email' &&
-          <EmailGiftCard product={card.product} card={fakeCardItem} cardConfig={card.cardConfigs.email} />
-            }
+            <EmailGiftCard product={card.product} card={fakeCardItem} cardConfig={card.cardConfigs.email} />
+          }
           {type === 'physical' &&
-          <div>
-            <h2>Postal Card</h2>
-            <p>If you choose this postal card option, we’ll post you a printed gift card for you to personalise and send to your friend or loved one.</p>
-            {card.cardConfigs.physical && card.cardConfigs.physical.imageUrl &&
+            <div>
+              <h2>Postal Card</h2>
+              <p>If you choose this postal card option, we’ll post you a printed gift card for you to personalise and send to your friend or loved one.</p>
+              {/* Use product's What you get image instead of Gift Card configuration. */}
+              {card.product.whatYouGetImageUrl &&
+                <Image src={card.product.whatYouGetImageUrl} alt={card.product.whatYouGetImageAlt} responsive />
+              }
+              {/* card.cardConfigs.physical && card.cardConfigs.physical.imageUrl &&
               <Image src={card.cardConfigs.physical.imageUrl} alt={card.product.title} responsive />
-            }
-          </div>
+            */}
+            </div>
           }
         </Modal.Body>
       </Modal>

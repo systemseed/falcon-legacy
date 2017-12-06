@@ -33,7 +33,9 @@ GiftsGrid.propTypes = {
       description: React.PropTypes.string,
       price: React.PropTypes.object,
       imageUrl: React.PropTypes.string,
+      imageAlt: React.PropTypes.string,
       actionImageUrl: React.PropTypes.string,
+      actionImageAlt: React.PropTypes.string,
       actionDescription: React.PropTypes.string,
     })
   ),

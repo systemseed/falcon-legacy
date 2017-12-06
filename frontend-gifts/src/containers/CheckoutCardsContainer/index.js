@@ -6,6 +6,7 @@ import * as checkoutUtils from '../../utils/checkout';
 import CheckoutCardsList from './CheckoutCardsList';
 import * as checkoutActions from '../../actions/checkout';
 import api from '../../lib/api';
+import Loading from '../../components/Loading';
 
 // Manage Gift cards configuration on checkout form.
 // TODO: this component is now a mix of old/new approaches to redux.
@@ -88,7 +89,7 @@ class CheckoutCardsContainer extends Component {
     // TODO: move to reducer.
     if (cardConfigs.isFulfilled && props.cardItems.length === 0 && products.length > 0) {
       products.forEach((product) => {
-        if (product.data.variantType === 'normal') {
+        if (product.data.variantType === 'normal' || product.data.variantType === 'bundle') {
           for (let i = 0; i < product.quantity; i += 1) {
             const cardIndex = `${product.id}.${i}`;
             cardItems[cardIndex] = {
@@ -118,15 +119,21 @@ class CheckoutCardsContainer extends Component {
     }
     return (
       <Row className="checkout-cards-list">
-        <Col xs={12}>
-          <h3>Step 2 - Choose a card to go with your gifts</h3>
-          <p className="text-gray text-sm">
-            <strong>Each gift comes with either an e-card or a postal card</strong>. All you have to do is choose which one you want your relative or friend to receive. If you choose to send an e-card, we’ll send it directly on your behalf. If you would prefer to give a postal card, we will post it to you and you’ll be able to deliver it in person.
+        {cardItems.length === 0 &&
+          <Col xs={12}>
+            <h3>Step 2 - Loading your cards...</h3>
+            <Loading />
+          </Col>
+        }
+        {cardItems.length > 0 &&
+          <Col xs={12}>
+            <h3>Step 2 - Choose a card to go with your gifts</h3>
+            <p className="text-gray text-sm">
+              <strong>Each gift comes with either an e-card or a postal card</strong>. All you have to do is choose which one you want your relative or friend to receive. If you choose to send an e-card, we’ll send it directly on your behalf. If you would prefer to give a postal card, we will post it to you and you’ll be able to deliver it in person.
           </p>
-          {cardItems.length > 0 &&
-          <CheckoutCardsList cards={cardItems} dispatch={dispatch} />
-          }
-        </Col>
+            <CheckoutCardsList cards={cardItems} dispatch={dispatch} />
+          </Col>
+        }
       </Row>
     );
   }

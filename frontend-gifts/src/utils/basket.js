@@ -1,3 +1,5 @@
+import * as productUtils from './products';
+
 /**
  * Return list of products in the basket
  * for the current site currency.
@@ -66,4 +68,18 @@ export const getTotal = (products, currentCurrency) => {
 export const getItemsCount = (products, currentCurrency) => {
   const currentProducts = getProducts(products, currentCurrency);
   return currentProducts.reduce((itemsCount, product) => itemsCount + product.quantity, 0);
+};
+
+/**
+ * Checks if the current product has delete button.
+ */
+export const hasDeleteButton = (product) => {
+  return !productUtils.isFreeProduct(product);
+};
+
+/**
+ * Checks if the current product has Quantity widget.
+ */
+export const hasQuantityWidget = (product) => {
+  return !productUtils.isCustomPrice(product) && !productUtils.isFreeProduct(product);
 };

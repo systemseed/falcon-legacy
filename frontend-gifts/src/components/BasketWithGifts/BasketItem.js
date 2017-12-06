@@ -5,34 +5,35 @@ import * as productUtils from '../../utils/products';
 import ProductPrice from '../ProductPrice';
 import BasketQuantityWidget from './BasketQuantityWidget';
 import BasketItemRemoveBtn from './BasketItemRemoveBtn';
+import BundleProductsInBasket from '../BundleProductsInBasket';
 
 const BasketItem = ({ product, currentCurrency }) => (
   <div className="item">
     {/* Show link to all normal gifts */}
-    { productUtils.hasFullView(product.data) &&
-    <Link to={productUtils.url(product)} className="item-thumb">
-      <img src={product.data.imageUrl} alt={product.data.title} />
-    </Link>
+    {productUtils.hasFullView(product.data) &&
+      <Link to={productUtils.url(product)} className="item-thumb">
+        <img src={product.data.imageUrl} alt={product.data.title} />
+      </Link>
     }
     {/* No link for custom donation product */}
-    { !productUtils.hasFullView(product.data) &&
-    <span className="item-thumb">
-      <img src={product.data.imageUrl} alt={product.data.title} />
-    </span>
+    {!productUtils.hasFullView(product.data) &&
+      <span className="item-thumb">
+        <img src={product.data.imageUrl} alt={product.data.title} />
+      </span>
     }
 
     <div className="item-details">
 
       <h3 className="item-title">
         {/* Show link to all normal gifts */}
-        { productUtils.hasFullView(product.data) &&
-        <Link to={productUtils.url(product)}>
-          {product.data.title}
-        </Link>
+        {productUtils.hasFullView(product.data) &&
+          <Link to={productUtils.url(product)}>
+            {product.data.title}
+          </Link>
         }
         {/* No link for custom donation product */}
-        { !productUtils.hasFullView(product.data) &&
-        product.data.title
+        {!productUtils.hasFullView(product.data) &&
+          product.data.title
         }
       </h3>
 
@@ -42,15 +43,19 @@ const BasketItem = ({ product, currentCurrency }) => (
           currentCurrency={currentCurrency}
         />
       </h4>
-      { !productUtils.isCustomPrice(product.data) &&
+      { basketUtils.hasQuantityWidget(product.data) &&
       <BasketQuantityWidget
         quantity={basketUtils.getProductQuantity(product)}
         productId={product.id}
       />
       }
+      {/* Display child products if it's a bundle. */}
+      <BundleProductsInBasket bundle={product.data} currency={currentCurrency} />
     </div>
+    { basketUtils.hasDeleteButton(product.data) &&
+      <BasketItemRemoveBtn productId={product.id} />
+    }
 
-    <BasketItemRemoveBtn productId={product.id} />
   </div>
 );
 

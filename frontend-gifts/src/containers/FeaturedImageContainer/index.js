@@ -25,6 +25,7 @@ class FeaturedImageContainer extends React.Component {
     <div
       className="featured-image"
       style={{ backgroundImage: `url(${this.props.imageUrl})` }}
+      title={this.props.imageAlt}
     />
   );
 }
@@ -32,6 +33,7 @@ class FeaturedImageContainer extends React.Component {
 FeaturedImageContainer.propTypes = {
   dispatch: React.PropTypes.func,
   imageUrl: React.PropTypes.string,
+  imageAlt: React.PropTypes.string,
   uuid: React.PropTypes.string.isRequired,
 };
 
@@ -39,6 +41,7 @@ const mapStateToProps = (state, ownProps) => {
   const featuredImage = featuredImageUtils.get(state.featuredImages.list, ownProps.uuid);
   return {
     imageUrl: featuredImage ? featuredImage.url : '',
+    imageAlt: featuredImage ? featuredImage.alt : '',
   };
 };
 

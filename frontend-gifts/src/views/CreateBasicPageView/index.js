@@ -6,7 +6,7 @@ import LatestPageContainer from '../../containers/LatestPageContainer';
 // TODO: component name should be the same as component folder.
 const Contact = () => (
   <div>
-    <Metatags metatags={{"title": {"attributes": {"content": "Create basic page | Gifts"}}}} />
+    <Metatags metatags={{"title": {"attributes": {"content": "Create basic page | Falcon Gifts"}}}} />
     <h2>Create Page</h2>
     <CreateBasicPageContainer />
     <LatestPageContainer />

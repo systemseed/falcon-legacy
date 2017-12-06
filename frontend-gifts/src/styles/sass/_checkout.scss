@@ -163,37 +163,26 @@
   }
 
   .checkout-payment {
-    position: fixed;
-    width: 20%;
-
-    @media #{$tablet-port} {
-      position: static;
-      width: 100%;
-    }
-    // Make Basket block static on small height devices.
-    @media screen and (max-height: 756px) {
-      position: static;
-      width: 100%;
-    }
-    @media screen and (min-height: 756px) and (max-height: 820px) {
-      .payment-options-label {
-        display: none;
-      }
-    }
     // Additional styles for Paypal button.
     .paypal-button-parent.paypal-button-parent-label-checkout {
       min-height: 60px !important;
     }
-
+    // Styles for "OR" between payment options buttons.
+    .payment-options-or-label {
+      text-align: center;
+      padding-top: 8px;
+      margin-bottom: 8px;
+    }
+    .StripeCheckout {
+      cursor: pointer;
+      display: block !important;
+      max-width: 500px;
+      margin: 0 auto;
+    }
     button {
       width: 100%;
     }
   }
-
-}
-
-.StripeCheckout {
-  cursor: pointer;
 }
 
 .checkout-processing {

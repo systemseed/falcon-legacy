@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import _cloneDeep from 'lodash/cloneDeep';
+import * as basketUtils from '../utils/basket';
 
 const basketProducts = (state = [], action) => {
   let index;
@@ -118,6 +119,34 @@ const basketProducts = (state = [], action) => {
           data: storedProduct
         }
       ];
+
+    case 'BASKET_UPDATE_FREE_PRODUCT':
+      const basketProducts = basketUtils.getProducts(state, action.currentCurrency);
+      const total = basketUtils.getTotal(basketProducts, action.currentCurrency);
+      let newState = [...state];
+
+      action.products.forEach((product) => {
+        index = newState.findIndex(element => element.id === product.id);
+
+        if (product.amount.currency === action.currentCurrency && total >= product.amount.value) {
+
+          // Add product to the basket If it doesn't exist there.
+          if (index === -1) {
+            storedProduct = _cloneDeep(product);
+            newState.push({
+              id: storedProduct.id,
+              quantity: 1,
+              data: storedProduct
+            });
+          }
+        }
+        else if (index !== -1) {
+          // Removes product from the basket if product exists in the basket and total value less then defined limit.
+          newState.splice(index, 1);
+        }
+      });
+
+      return newState;
 
     default:
       return state;

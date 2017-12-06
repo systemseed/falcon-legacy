@@ -22,6 +22,11 @@ export const getPrice = (product, currentCurrency) => {
 export const isCustomPrice = product => product.variantType === 'custom_price';
 
 /**
+ * Checks if the current product is Free product.
+ */
+export const isFreeProduct = product => product.type === 'gift_free';
+
+/**
  * Checks if the current product is corporate gift.
  */
 export const isCorporateGift = product => product.type === 'gift_corporate';
@@ -33,7 +38,7 @@ export const hasFullView = (product) => {
   if (isCorporateGift(product)) {
     return true;
   }
-  if (!isCorporateGift(product) && !isCustomPrice(product)) {
+  else if (!isCustomPrice(product) && !isFreeProduct(product)) {
     return true;
   }
   return false;

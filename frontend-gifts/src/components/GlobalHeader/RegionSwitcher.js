@@ -7,12 +7,12 @@ class RegionSwitcher extends React.Component {
     'ie': {
       'name': 'Republic of Ireland',
       'flag': '/images/flags/IE.png',
-      'url': 'https://www.falcon.systemseed.com',
+      'url': 'https://falcon.systemseed.com',
     },
     'gb': {
       'name': 'United Kingdom',
       'flag': 'images/flags/GB.png',
-      'url': 'https://www.falcon-uk.systemseed.com',
+      'url': 'https://falcon-uk.systemseed.com',
     },
   };
 

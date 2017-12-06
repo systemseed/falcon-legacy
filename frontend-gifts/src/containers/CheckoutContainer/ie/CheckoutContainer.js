@@ -7,13 +7,15 @@ import CheckoutCardsContainer from '../../../containers/CheckoutCardsContainer';
 import CheckoutFormProfile from '../CheckoutFormProfile';
 import config from '../../../config';
 import CheckoutFormAddress from '../CheckoutFormAddress';
-import CheckoutFormOptins from '../CheckoutFormOptins';
 import CheckoutFormEventCodes from '../CheckoutFormEventCodes';
 import * as checkoutActions from '../../../actions/checkout';
 import * as eventcodeActions from '../../../actions/eventcodes';
 import * as basketUtils from '../../../utils/basket';
 import * as checkoutUtils from '../../../utils/checkout';
-
+import Loading from '../../../components/Loading';
+import LoadingError from '../../../components/LoadingError';
+// Custom IE components.
+import CheckoutFormOptins from './CheckoutFormOptins';
 
 // Main checkout container.
 class CheckoutContainer extends Component {
@@ -73,36 +75,45 @@ class CheckoutContainer extends Component {
       );
     }
 
-    return (
-      <div className={showErrors ? 'showErrors' : null}>
-        <h3>Step 1 - Enter your personal details</h3>
-        {/* Different parts of the form are controlled by this container and built on top of CheckoutFormContainer */}
-        <CheckoutFormProfile
-          onFormValidate={this.onProfileChange}
-        />
-        <CheckoutFormAddress
-          region={config.region}
-          onFormValidate={this.onAddressChange}
-        />
-        {eventcodes.codes.length > 0 &&
-          /* BE AWARE: checkout form doesn't work if there is no event codes in the system. */
-          <CheckoutFormEventCodes
-            codes={eventcodes.codes}
-            labels={eventcodes.labels}
-            onFormValidate={this.onEventCodeChange}
+    // Do not render the form until event codes are loaded.
+    // Form can't be properly validated & submitted without them.
+    if (eventcodes.isPending) {
+      return <Loading big />;
+    }
+
+    if (eventcodes.isFulfilled && eventcodes.codes.length) {
+      return (
+        <div className={showErrors ? 'checkout-container-inner showErrors' : 'checkout-container-inner'}>
+          <h3>Step 1 - Enter your personal details</h3>
+          {/* Different parts of the form are controlled by this container and built on top of CheckoutFormContainer */}
+          <CheckoutFormProfile
+            onFormValidate={this.onProfileChange}
           />
-        }
-        <CheckoutFormOptins onFormValidate={this.onAOptinsChange} />
-        {showCards &&
-          /* Card container is special case. It manages everything related to cards. */
-          <CheckoutCardsContainer />
-        }
-        {/* Block screen while checkout is processing. */}
-        <Modal show={processing} backdrop="static" className="checkout-processing">
-          <p className="loading-animation">Please wait<span>.</span><span>.</span><span>.</span></p>
-        </Modal>
-      </div>
-    );
+          <CheckoutFormAddress
+            region={config.region}
+            onFormValidate={this.onAddressChange}
+          />
+          {eventcodes.codes.length > 0 &&
+            <CheckoutFormEventCodes
+              codes={eventcodes.codes}
+              labels={eventcodes.labels}
+              onFormValidate={this.onEventCodeChange}
+            />
+          }
+          <CheckoutFormOptins onFormValidate={this.onAOptinsChange} />
+          {showCards &&
+            /* Card container is special case. It manages everything related to cards. */
+            <CheckoutCardsContainer />
+          }
+          {/* Block screen while checkout is processing. */}
+          <Modal show={processing} backdrop="static" className="checkout-processing">
+            <p className="loading-animation">Please wait<span>.</span><span>.</span><span>.</span></p>
+          </Modal>
+        </div>
+      );
+    }
+
+    return (<LoadingError type="checkout form" />);
   }
 }
 

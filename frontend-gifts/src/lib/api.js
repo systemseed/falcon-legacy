@@ -259,6 +259,16 @@ const getImageUrl = (type, imageField) => {
   return false;
 };
 
+const getImageAlt = (relationship, defaultAlt = '') => {
+  // In some cases relationship data / meta can be empty.
+  if (relationship.data && relationship.data.meta) {
+    return relationship.data.meta.alt;
+  }
+
+  return defaultAlt;
+};
+
+
 // TODO: refactor with redux-promise-middleware.
 const getProduct = (type, productId) =>
   request
@@ -280,5 +290,6 @@ export default {
   postEmailCard,
   getEcardItem,
   getImageUrl,
+  getImageAlt,
   getProduct
 };

@@ -30,13 +30,13 @@ class ThankYouView extends Component {
   render() {
     return (
       <div>
-        <Metatags metatags={{"title": {"attributes": {"content": "Thank you | Gifts"}}}} />
+        <Metatags metatags={{ 'title': { 'attributes': { 'content': 'Thank you | Falcon Gifts' } } }} />
         <FeaturedImage uuid="345ac52f-8b2f-4447-bb10-2859cf08f3f1" />
         <Grid className="padding-top-3x">
           <Row>
             <Col xs={12}>
-              <h1>Your life-changing order has been completed!</h1>
-              <p>Thanks for purchasing Gifts! We really appreciate your generous support and we’re confident that the person receiving this gift will appreciate it too.</p>
+              <h1>Your life-changing order is complete!</h1>
+              <p>Thanks for purchasing Falcon Gifts. Your generous support is much appreciated and will truly help improve the lives of people living in the world’s poorest countries.</p>
               <p>We’ll be in touch shortly with further details.</p>
             </Col>
           </Row>

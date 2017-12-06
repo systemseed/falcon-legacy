@@ -1,48 +1,80 @@
 import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import BundleProductsViewContainer from '../../containers/BundleProductsViewContainer';
 
 // Disable default react-tabs styles.
 Tabs.setUseDefaultStyles(false);
 
-const GiftTabs = ({ gift }) => (
-  <section className="container padding-top-2x">
+class GiftTabs extends React.Component {
 
-    <Tabs>
+  constructor() {
+    super();
+    // Use React tabs in controlled mode.
+    // https://github.com/reactjs/react-tabs#controlled-mode
+    this.state = { tabIndex: 0 };
+  }
 
-      <TabList className="text-center">
-        <Tab>What you get</Tab>
-        <Tab>Gift in action</Tab>
-      </TabList>
+  componentWillReceiveProps(nextProps) {
+    // Force set the first tab if it's a view of another gift.
+    if (this.props.gift.id !== nextProps.gift.id) {
+      this.setState({ tabIndex: 0 });
+    }
+  }
 
-      <TabPanel>
-        <div className="row space-top">
-          <div className="col-md-6 space-bottom">
-            <img src="/images/postal-card.jpg" width="555" alt="" />
-          </div>
-          <div className="col-md-6">
-            <div dangerouslySetInnerHTML={{ __html: gift.description }} />
-          </div>
-        </div>
-      </TabPanel>
+  render() {
+    const gift = this.props.gift;
 
-      <TabPanel>
-        <div className="row space-top">
-          <div className="col-md-6 space-bottom">
-            { gift.actionImageUrl &&
-            <img src={gift.actionImageUrl} alt={`${gift.title} in action`} />
+    return (
+      <section className="container padding-top-2x">
+        <Tabs forceRenderTabPanel selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
+
+          <TabList className="text-center">
+            <Tab>Gift in action</Tab>
+            <Tab>What you get</Tab>
+            {gift.variantType === 'bundle' &&
+              <Tab>In this bundle</Tab>
             }
-          </div>
-          <div className="col-md-6">
-            { gift.actionDescription &&
-              <div dangerouslySetInnerHTML={{ __html: gift.actionDescription }} />
-            }
-          </div>
-        </div>
-      </TabPanel>
+          </TabList>
 
-    </Tabs>
-  </section>
-);
+          <TabPanel>
+            <div className="row space-top">
+              <div className="col-md-6 space-bottom wide-image">
+                {gift.actionImageUrl &&
+                  <img src={gift.actionImageUrl} alt={gift.actionImageAlt} title={gift.actionImageAlt} />
+                }
+              </div>
+              <div className="col-md-6">
+                {gift.actionDescription &&
+                  <div dangerouslySetInnerHTML={{ __html: gift.actionDescription }} />
+                }
+              </div>
+            </div>
+          </TabPanel>
+
+          <TabPanel>
+            <div className="row space-top">
+              <div className="col-md-6 space-bottom">
+                {gift.whatYouGetImageUrl &&
+                  <img src={gift.whatYouGetImageUrl} alt={gift.whatYouGetImageAlt} title={gift.whatYouGetImageAlt} />
+                }
+              </div>
+              <div className="col-md-6">
+                <div dangerouslySetInnerHTML={{ __html: gift.description }} />
+              </div>
+            </div>
+          </TabPanel>
+
+          {gift.variantType === 'bundle' &&
+            <TabPanel>
+              <BundleProductsViewContainer bundle={gift} />
+            </TabPanel>
+          }
+
+        </Tabs>
+      </section>
+    );
+  }
+}
 
 GiftTabs.propTypes = {
   gift: React.PropTypes.shape({
@@ -56,7 +88,10 @@ GiftTabs.propTypes = {
     price: React.PropTypes.object,
     imageUrl: React.PropTypes.string,
     actionImageUrl: React.PropTypes.string,
+    actionImageAlt: React.PropTypes.string,
     actionDescription: React.PropTypes.string,
+    whatYouGetImageUrl: React.PropTypes.string,
+    whatYouGetImageAlt: React.PropTypes.string
   }).isRequired,
 };
 

@@ -19,7 +19,7 @@ const GiftsGridCorporate = ({ gifts, currentCurrency }) => {
     >
 
       <h3 className="text-center">
-        Corporate Gifts - Give the gift of hope to children this year
+        Falcon Corporate Gifts - Give the gift of hope to children this year
       </h3>
 
       <Row className="padding-top">

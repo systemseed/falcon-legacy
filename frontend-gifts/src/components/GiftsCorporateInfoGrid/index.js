@@ -13,7 +13,7 @@ const GiftsCorporateInfoGrid = () => (
   >
 
     <h3 className="text-center">
-      How Corporate Gifts work?
+      How do Corporate Gifts work?
     </h3>
 
     <Row>
@@ -25,7 +25,7 @@ const GiftsCorporateInfoGrid = () => (
 
             <div className="column">
               <h3 className="space-bottom-half">
-                1: Order
+                1. Order
               </h3>
               <p>Choose your gift below and make your order online, or by phone on (01) 111 1001</p>
             </div>
@@ -47,11 +47,11 @@ const GiftsCorporateInfoGrid = () => (
 
             <div className="column">
               <h3 className="space-bottom-half">
-                2: What you get
+                2. What you get
               </h3>
               <ul>
-                <li>Web Banner / Email Signature</li>
-                <li>Thank You Certificate</li>
+                <li>Web banner / email signature</li>
+                <li>Thank You certificate</li>
                 <li>eCard</li>
                 <li>A letter to send to your clients</li>
               </ul>
@@ -74,9 +74,9 @@ const GiftsCorporateInfoGrid = () => (
 
             <div className="column">
               <h3 className="space-bottom-half">
-                3: Additional benefit
+                3. Additional benefit
               </h3>
-              <p>Your company will also have the option of appearing in our Thank You ad in the Irish Times on Thursday, 22nd December</p>
+              <p>Your company will also have the option of appearing in our Thank You ad in the Irish Times on Friday 22nd December.</p>
             </div>
 
             <div className="column">
@@ -96,9 +96,9 @@ const GiftsCorporateInfoGrid = () => (
 
             <div className="column">
               <h3 className="space-bottom-half">
-                4: Hope
+                4. Change lives
               </h3>
-              <p>Your gift goes directly to people who need it</p>
+              <p>Give stronger futures, poverty-breaking tools and strengthened livelihoods</p>
             </div>
 
             <div className="column">

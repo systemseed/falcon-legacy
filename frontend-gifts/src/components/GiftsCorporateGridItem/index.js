@@ -11,7 +11,7 @@ const GiftsGridCorporateItem = ({ productData, currentCurrency }) => (
     <div className="shop-thumbnail">
 
       <Link to={productUtils.url(productData)} className="item-link" />
-      <img src={productData.imageUrl} alt={productData.title} />
+      <img src={productData.imageUrl} alt={productData.imageAlt} title={productData.imageAlt} />
 
       { !productUtils.isCustomPrice(productData) &&
       <div className="shop-item-tools">
@@ -58,8 +58,7 @@ GiftsGridCorporateItem.propTypes = {
     description: React.PropTypes.string,
     price: React.PropTypes.object,
     imageUrl: React.PropTypes.string,
-    actionImageUrl: React.PropTypes.string,
-    actionDescription: React.PropTypes.string,
+    imageAlt: React.PropTypes.string,
   }).isRequired,
   currentCurrency: PropTypes.string.isRequired,
 };

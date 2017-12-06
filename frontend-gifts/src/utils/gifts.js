@@ -48,6 +48,7 @@ export const filterByCurrency = (products, currentCurrency) => {
  */
 export const mappedProductItem = (responseItem) => {
   let price = {};
+  let giftsInBundle = [];
 
   responseItem.variations.forEach((variation) => {
     if (responseItem.fieldGiftVariantType !== 'custom_price') {
@@ -67,6 +68,10 @@ export const mappedProductItem = (responseItem) => {
     }
   });
 
+  if (responseItem.fieldGiftVariantType === 'bundle') {
+    giftsInBundle = responseItem.fieldGiftsInBundle.map(item => mappedProductItem(item));
+  }
+
   return {
     id: responseItem.id,
     path: responseItem.fieldFieldablePath,
@@ -79,9 +84,15 @@ export const mappedProductItem = (responseItem) => {
     categoryId: responseItem.fieldGiftCategory !== undefined ? responseItem.fieldGiftCategory.id : null,
     price,
     imageUrl: api.getImageUrl('donations', responseItem.fieldGiftImage),
+    imageAlt: responseItem.relationships.field_gift_image.data.meta.alt,
+    // What you get image field.
+    whatYouGetImageUrl: api.getImageUrl('donations', responseItem.fieldGiftWhatYouGetImage),
+    whatYouGetImageAlt: api.getImageAlt(responseItem.relationships.field_gift_what_you_get_image),
     // "Gift in action" fields.
     actionImageUrl: api.getImageUrl('donations', responseItem.fieldGiftActionImage),
+    actionImageAlt: responseItem.relationships.field_gift_action_image.data.meta.alt,
     actionDescription: responseItem.fieldGiftActionDescription ? responseItem.fieldGiftActionDescription.value : '',
     fieldMetatags: responseItem.fieldMetatags !== undefined ? responseItem.fieldMetatags : {},
+    giftsInBundle
   };
 };

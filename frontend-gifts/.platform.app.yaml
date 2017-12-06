@@ -1,5 +1,5 @@
 name: frontend-gifts
-type: nodejs:6.9
+type: nodejs:8.2
 
 dependencies:
   nodejs:
@@ -31,7 +31,7 @@ hooks:
     cp -r build-platform/* build/
     node build_scripts/platform-deploy.js
     node build_scripts/build-snippets.js
-
+    echo "DEPLOY SUCCESSFULLY COMPLETED"
 
 disk: 512
 

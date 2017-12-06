@@ -78,8 +78,7 @@ GiftCorporateContainer.propTypes = {
         price: React.PropTypes.object,
         fieldMetatags: React.PropTypes.object,
         imageUrl: React.PropTypes.string,
-        actionImageUrl: React.PropTypes.string,
-        actionDescription: React.PropTypes.string,
+        imageAlt: React.PropTypes.string,
       })
     ),
   }),
@@ -95,8 +94,7 @@ GiftCorporateContainer.propTypes = {
     price: React.PropTypes.object,
     fieldMetatags: React.PropTypes.object,
     imageUrl: React.PropTypes.string,
-    actionImageUrl: React.PropTypes.string,
-    actionDescription: React.PropTypes.string,
+    imageAlt: React.PropTypes.string,
   })
 };
 

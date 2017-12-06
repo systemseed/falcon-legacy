@@ -35,8 +35,8 @@ class PaymentButtons extends Component {
         <div style={{ display: this.props.show ? 'block' : 'none' }}>
           <h3 className="payment-options-label">Payment options:</h3>
           <Stripe paymentMethod={paymentMethods.stripe} />
-          <p style={{ textAlign: 'center' }}><br />or</p>
-          { typeof window !== 'undefined' && paymentMethods.paypal_button.configuration.client_id !== '' &&
+          <p className="payment-options-or-label">or</p>
+          { typeof window !== 'undefined' &&
             <Paypal paymentMethod={paymentMethods.paypal_button} />
           }
         </div>

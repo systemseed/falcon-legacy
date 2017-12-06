@@ -3,6 +3,7 @@ import { routerReducer } from 'react-router-redux';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import { gifts, giftsFilter, giftCustomPrice } from './gifts';
 import { giftsCorporate, giftCorporateCustomPrice } from './gifts.corporate';
+import { giftsFree } from './gifts.free';
 import { currentCurrency } from './currencies';
 import { contactForm } from './contact';
 import { messageBar } from './messageBar';
@@ -54,6 +55,7 @@ export default combineReducers({
   gifts,
   giftsFilter,
   giftsCorporate,
+  giftsFree,
   giftCustomPrice,
   giftCorporateCustomPrice,
   isPersistentReady,

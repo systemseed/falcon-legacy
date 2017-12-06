@@ -45,6 +45,7 @@ const BasketWidgetDropDownItem = ({ product, currentCurrency, handleDeleteClick 
         />
       </h4>
     </div>
+    { basketUtils.hasDeleteButton(product.data) &&
     <Button
       bsStyle="link"
       className="close-btn"
@@ -53,8 +54,9 @@ const BasketWidgetDropDownItem = ({ product, currentCurrency, handleDeleteClick 
         handleDeleteClick(product.id);
       }}
     >
-      <i className="material-icons close" />
+      <i className="material-icons close"/>
     </Button>
+    }
   </div>
 );
 

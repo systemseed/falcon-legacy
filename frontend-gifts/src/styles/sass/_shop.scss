@@ -45,7 +45,7 @@
       vertical-align: top;
     }
     .shop-item-title {
-      width: 50%;
+      width: 70%;
       font-size: 14px;
       font-weight: normal;
       > a {
@@ -54,7 +54,7 @@
       }
     }
     .shop-item-price {
-      width: 50%;
+      width: 30%;
       font-size: $font-size-base;
       text-align: right;
       .old-price {
@@ -595,9 +595,27 @@
 				line-height: $btn-sm-height - 3;
 			}
 			&:hover { color: $brand-danger; }
-		}
+    }
+    .cart-item--bundle {
+      .item-thumb {
+        width: 70px;
+        padding-right: 7px;
+      }
+      .item-details {
+        vertical-align: middle;
+        font-size: 14px;
+      }
+    }
 	}
-	.btn { margin-top: 0; }
+  .btn { margin-top: 0; }
+  .basket-bundle-container {
+    background: #f5f5f5;
+    padding: 10px;
+    margin: 0 0 20px -10px;
+  }
+  .basket-bundle-label {
+    margin: 20px 0 10px;
+  }
 	@media #{$mobile-land} {
 		.item {
 			padding-bottom: 20px;

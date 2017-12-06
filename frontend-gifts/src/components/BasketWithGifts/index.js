@@ -6,6 +6,7 @@ import BasketItemsInCart from './BasketItemsInCart';
 import BasketTotal from '../BasketTotal';
 import AddGiftDonationContainer from '../../containers/AddGiftDonationContainer';
 import CheckoutButton from '../../containers/CheckoutButton';
+import FreeProductsOfferings from '../../containers/FreeProductsOfferings';
 
 const BasketWithGifts = ({ currentCurrency, products }) => {
   const basketProducts = products.map(product => (
@@ -27,6 +28,8 @@ const BasketWithGifts = ({ currentCurrency, products }) => {
           <BasketItemsInCart
             count={basketUtils.getItemsCount(products, currentCurrency)}
           />
+
+          <FreeProductsOfferings className="offering--basket-page" />
 
           <div className="shopping-cart">
             {basketProducts}

@@ -26,7 +26,6 @@ class GlobalHeader extends React.Component {
     if (_isEmpty(siteContentSettings)) {
       getSiteContentSettings().then(done, done);
     }
-
   }
 
   mobileMenuToggle = () => {
@@ -41,39 +40,40 @@ class GlobalHeader extends React.Component {
     }
 
     return (
-    <header className="navbar navbar-sticky">
+      <header className="navbar navbar-sticky">
 
-      <TopBar
-        headerLeftText={siteContentSettings.fieldConfigHeaderLeftText.value}
-        headerRightText={siteContentSettings.fieldConfigHeaderRightText.value}
-      />
-      <Logo />
-      <RegionSwitcher />
+        <TopBar
+          headerLeftText={siteContentSettings.fieldConfigHeaderLeftText.value}
+          headerRightText={siteContentSettings.fieldConfigHeaderRightText.value}
+        />
+        <Logo />
+        {/* <RegionSwitcher /> */}
 
-      <MainMenu
-        isMenuCollapsed={this.state.isMenuCollapsed}
-        onMenuClick={this.mobileMenuToggle.bind(this)}
-      />
+        <MainMenu
+          isMenuCollapsed={this.state.isMenuCollapsed}
+          onMenuClick={this.mobileMenuToggle.bind(this)}
+        />
 
-      <div className="toolbar">
-        <div className="inner">
+        <div className="toolbar">
+          <div className="inner">
 
-          {/* Visible only on the mobile */}
-          <Button
-            bsStyle="link"
-            className={this.state.isMenuCollapsed ? 'mobile-menu-toggle' : 'mobile-menu-toggle active'}
-            onClick={this.mobileMenuToggle}
-          >
-            <i className="material-icons menu" />
-          </Button>
+            {/* Visible only on the mobile */}
+            <Button
+              bsStyle="link"
+              className={this.state.isMenuCollapsed ? 'mobile-menu-toggle' : 'mobile-menu-toggle active'}
+              onClick={this.mobileMenuToggle}
+            >
+              <i className="material-icons menu" />
+            </Button>
 
-          {/* Basket DropDown Widget */}
-          <BasketWidget />
+            {/* Basket DropDown Widget */}
+            <BasketWidget />
+          </div>
         </div>
-      </div>
 
-    </header>
-  )};
+      </header>
+    );
+  };
 }
 
 // Declare our props dependencies.
@@ -85,11 +85,9 @@ GlobalHeader.propTypes = {
 // Anything in the returned object below is merged in with the props of the
 // component, so we have access to store values but the component itself
 // does not have to be aware of the store.
-const mapStoreToProps = (store) => {
-  return {
+const mapStoreToProps = (store) => ({
     siteContentSettings: store.siteContentSettings.data,
-  };
-};
+  });
 
 const mapDispatchToProps = {
   getSiteContentSettings: siteContentSettingsActions.load,

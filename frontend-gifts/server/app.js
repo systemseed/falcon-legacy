@@ -18,6 +18,7 @@ require('babel-register')({
 // Import main renderer function.
 const reactRenderer = require('./reactRenderer');
 const sitemap = require('./sitemap');
+const robotstxt = require('./robotstxt');
 
 // Create web server.
 const app = express();
@@ -34,7 +35,7 @@ if (CW_AUTH && CW_AUTH !== '0') {
   app.use(auth({
     users: { [httpAuth[0]]: httpAuth[1] },
     challenge: true,
-    realm: 'Gifts'
+    realm: 'Concern Gifts'
   }));
 }
 
@@ -50,6 +51,9 @@ app.use('/', index);
 
 // Generates sitemap.xml file.
 app.get('/sitemap.xml', sitemap);
+
+// Generates robots.txt file.
+app.get('/robots.txt', robotstxt);
 
 // Serve static files that are not served by Nginx.
 app.use(express.static(path.resolve(__dirname, '..', 'build')));

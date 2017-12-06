@@ -1,5 +1,6 @@
 import React from 'react';
 import * as popup from './popup';
+import _isEmpty from 'lodash/isEmpty';
 import * as message from './messageBar';
 import ConfirmChangeProduct from '../components/ConfirmChangeProduct';
 
@@ -19,19 +20,45 @@ const addCustomPriceProductUnsafe = (product, amount) => ({
   amount,
 });
 
+const updateFreeProduct = (products, currentCurrency) => ({
+  type: 'BASKET_UPDATE_FREE_PRODUCT',
+  products,
+  currentCurrency,
+});
+
 export const clear = () => ({
   type: 'BASKET_CLEAR'
 });
 
-export const increaseProductQuantity = productId => ({
+export const increaseProductQuantityUnsafe = productId => ({
   type: 'BASKET_INCREASE_PRODUCT_QUANTITY',
   productId,
 });
 
-export const decreaseProductQuantity = productId => ({
+export const decreaseProductQuantityUnsafe = productId => ({
   type: 'BASKET_DECREASE_PRODUCT_QUANTITY',
   productId,
 });
+
+/**
+ * Add or Remove automatically added product to the basket.
+ */
+export const updateFreeProductInBasket = (dispatch, getState) => {
+  const state = getState();
+  if (state.basket.type === 'gift' && !_isEmpty(state.giftsFree.products)) {
+    dispatch(updateFreeProduct(state.giftsFree.products, state.currentCurrency));
+  }
+};
+
+export const increaseProductQuantity = productId => (dispatch, getState) => {
+  dispatch(increaseProductQuantityUnsafe(productId));
+  updateFreeProductInBasket(dispatch, getState);
+};
+
+export const decreaseProductQuantity = productId => (dispatch, getState) => {
+  dispatch(decreaseProductQuantityUnsafe(productId));
+  updateFreeProductInBasket(dispatch, getState);
+};
 
 export const removeProduct = productId => (dispatch, getState) => {
   const state = getState();
@@ -42,6 +69,7 @@ export const removeProduct = productId => (dispatch, getState) => {
   }
   else {
     dispatch(removeProductUnsafe(productId));
+    updateFreeProductInBasket(dispatch, getState);
   }
 };
 
@@ -59,6 +87,7 @@ export const addProduct = (product, router = null) => (dispatch, getState) => {
 
   if (product.type === basketType || !basketType) {
     dispatch(addProductUnsafe(product));
+    updateFreeProductInBasket(dispatch, getState);
     if (router) {
       router.history.push({ pathname: '/basket' });
     }
@@ -67,6 +96,7 @@ export const addProduct = (product, router = null) => (dispatch, getState) => {
     const confirmCallback = () => {
       dispatch(clear());
       dispatch(addProductUnsafe(product));
+      updateFreeProductInBasket(dispatch, getState);
       dispatch(popup.close());
       dispatch(message.show('Added to basket'));
       if (router) {
@@ -97,6 +127,7 @@ export const addCustomPriceProduct = (product, amount, router) => (dispatch, get
 
   if (product.type === basketType || !basketType) {
     dispatch(addCustomPriceProductUnsafe(product, amount));
+    updateFreeProductInBasket(dispatch, getState);
     if (router) {
       router.history.push({ pathname: '/basket' });
     }
@@ -105,6 +136,7 @@ export const addCustomPriceProduct = (product, amount, router) => (dispatch, get
     const confirmCallback = () => {
       dispatch(clear());
       dispatch(addCustomPriceProductUnsafe(product, amount));
+      updateFreeProductInBasket(dispatch, getState);
       dispatch(popup.close());
       if (router) {
         router.history.push({ pathname: '/basket' });

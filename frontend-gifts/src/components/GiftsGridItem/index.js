@@ -4,19 +4,21 @@ import * as productUtils from '../../utils/products';
 import ProductPrice from '../ProductPrice';
 import AddToBasketButton from '../AddToBasketButton';
 
-const GiftsGridItem = ({ productData, currentCurrency }) => (
+const GiftsGridItem = ({ productData, currentCurrency, showAddToBasket = true }) => (
   <div className="shop-item">
 
     <div className="shop-thumbnail">
 
       <Link to={productUtils.url(productData)} className="item-link" />
-      <img src={productData.imageUrl} alt={productData.title} />
+      <img src={productData.imageUrl} alt={productData.imageAlt} title={productData.imageAlt} />
 
-      <div className="shop-item-tools">
-        <AddToBasketButton
-          product={productData}
-        />
-      </div>
+      {showAddToBasket === true &&
+        <div className="shop-item-tools">
+          <AddToBasketButton
+            product={productData}
+          />
+        </div>
+      }
 
     </div>
 
@@ -49,10 +51,13 @@ GiftsGridItem.propTypes = {
     description: React.PropTypes.string,
     price: React.PropTypes.object,
     imageUrl: React.PropTypes.string,
+    imageAlt: React.PropTypes.string,
     actionImageUrl: React.PropTypes.string,
+    actionImageAlt: React.PropTypes.string,
     actionDescription: React.PropTypes.string,
   }).isRequired,
   currentCurrency: PropTypes.string.isRequired,
+  showAddToBasket: PropTypes.bool
 };
 
 export default GiftsGridItem;

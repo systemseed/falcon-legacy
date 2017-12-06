@@ -7,13 +7,15 @@ jsonapify(request);
 
 const defaultQueryParams = {
   // Fetch extra data in the same request.
-  'include': 'variations,field_gift_category,field_gift_image,field_gift_action_image,field_fieldable_path,field_gift_product_code,field_metatags',
+  'include': 'variations,field_gift_category,field_gift_image,field_gift_action_image,field_fieldable_path,field_gift_product_code,field_metatags,field_gift_description_image,field_gift_what_you_get_image,field_gifts_in_bundle',
   // Limit variation fields to this list.
   'fields[commerce_product_variation--gift]': 'variation_id,sku,price',
   // Limit taxonomy term fields to this list.
   'fields[taxonomy_term--gift_category]': 'id,name',
   'fields[file--file]': 'url',
-  'filter[status][value]': 1
+  'filter[status][value]': 1,
+  // Sorting works this way: "order by variant price ASC".
+  'sort[sort-price][path]': 'variations.price.number',
 };
 
 /**

@@ -49,9 +49,10 @@ const App = () => (
           <RouteWithTransition exact path="/checkout" component={CheckoutView} />
           <RouteWithTransition path="/checkout/:orderId/complete" component={ThankYouView} />
           <RouteWithTransition exact path="/basket" component={BasketView} />
-          {/* ADMIN ZONE */}
+          {/* ADMIN ZONE
           <RouteWithTransition exact path="/login" component={LoginContainer} />
           <RouteWithTransition path="/admin" component={ProductAdminContainer} />
+          * ADMIN ZONE */}
           {/* CARD POPUP. CONTAINS FRONTPAGE ON THE BACKGROUND */}
           <RouteWithTransition path="/gift-card/:giftCard" component={FrontPageView} />
 

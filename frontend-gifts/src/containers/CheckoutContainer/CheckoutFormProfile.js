@@ -19,9 +19,9 @@ class CheckoutFormProfile extends Component {
   uiSchema = {
     field_profile_first_name: { 'ui:placeholder': ' ' },
     field_profile_last_name: { 'ui:placeholder': ' ' },
-    field_profile_email: { 'ui:placeholder': 'your@email.com' },
+    field_profile_email: { 'ui:placeholder': '' },
     field_profile_phone: { 'ui:placeholder': ' ' },
-  }
+  };
 
 
   render() {

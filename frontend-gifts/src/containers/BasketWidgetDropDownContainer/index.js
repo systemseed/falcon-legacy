@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import _isEmpty from 'lodash/isEmpty';
 import * as basketUtils from '../../utils/basket';
 import * as basketActions from '../../actions/basket';
+import * as giftsFreeActions from '../../actions/gifts.free';
 import BasketTotal from '../../components/BasketTotal';
 import BasketWidgetDropDownItem from '../../components/BasketWidgetDropDownItem';
+import FreeProductsOfferings from '../FreeProductsOfferings';
 
 class BasketWidgetDropDownContainer extends React.Component {
 
@@ -14,8 +16,17 @@ class BasketWidgetDropDownContainer extends React.Component {
     dispatch(basketActions.removeProduct(productId));
   }
 
+  componentWillMount() {
+    const { giftsFree, dispatch, done } = this.props;
+
+    // Loads Free products to the store.
+    if (!giftsFree.products.length) {
+      dispatch(giftsFreeActions.loadAll()).then(done, done);
+    }
+  }
+
   render = () => {
-    const { currentCurrency, products } = this.props;
+    const { currentCurrency, products, basketType } = this.props;
 
     // Don't render anything when there are
     // no products in the basket.
@@ -35,7 +46,7 @@ class BasketWidgetDropDownContainer extends React.Component {
 
     return (
       <div className="cart-dropdown">
-        { items }
+        {items}
 
         <div className="cart-subtotal">
           <div className="column">
@@ -56,7 +67,9 @@ class BasketWidgetDropDownContainer extends React.Component {
             Go to basket
           </Link>
         </div>
-
+        {basketType === 'gift' &&
+          <FreeProductsOfferings className="offering--basket-widget" />
+        }
       </div>
     );
   }
@@ -80,11 +93,31 @@ BasketWidgetDropDownContainer.propTypes = {
       })
     })
   ),
+  giftsFree: React.PropTypes.shape({
+    isPending: React.PropTypes.bool,
+    isFulfilled: React.PropTypes.bool,
+    isError: React.PropTypes.bool,
+    products: React.PropTypes.arrayOf(
+      React.PropTypes.shape({
+        id: React.PropTypes.string,
+        type: React.PropTypes.string,
+        title: React.PropTypes.string,
+        description: React.PropTypes.string,
+        price: React.PropTypes.object,
+        imageUrl: React.PropTypes.string,
+        imageAlt: React.PropTypes.string,
+        amount: React.PropTypes.object,
+      })
+    ),
+  }),
+  basketType: React.PropTypes.string
 };
 
 const mapStateToProps = state => ({
   currentCurrency: state.currentCurrency,
   products: basketUtils.getProducts(state.basket.products, state.currentCurrency),
+  giftsFree: state.giftsFree,
+  basketType: state.basket.type
 });
 
 export default connect(mapStateToProps)(BasketWidgetDropDownContainer);

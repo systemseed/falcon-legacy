@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
+import CwButton from '../../components/CwButton';
 import * as basketActions from '../../actions/basket';
 import * as messageActions from '../../actions/messageBar';
 
 class AddToBasketButton extends React.Component {
-
   addToBasketClicked = () => {
     const { product, dispatch, basketType } = this.props;
 
@@ -20,13 +20,13 @@ class AddToBasketButton extends React.Component {
   };
 
   render = () => (
-    <Button
+    <CwButton
       bsStyle="link"
       className="add-to-cart"
       onClick={() => this.addToBasketClicked()}
     >
       <em>Add to basket</em>
-    </Button>
+    </CwButton>
   );
 }
 

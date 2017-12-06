@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import CheckoutFormContainer from '../CheckoutFormContainer';
+import CheckoutFormContainer from '../../CheckoutFormContainer';
 
+// To be updated in this ticket: https://www.pivotaltracker.com/n/projects/1155390/stories/148679037
 class CheckoutFormOptins extends Component {
 
   schema = {

@@ -8,4 +8,7 @@ export const load = () => ({
   type: 'GET_SITE_CONTENT_SETTINGS',
   payload: request
     .get(`${config.backend}/v1/gifts/jsonapi/config_pages/site_content_settings`)
+    .query({
+      'include': 'field_config_corporate_images',
+    })
 });

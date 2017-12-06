@@ -6,7 +6,7 @@ import * as giftsActions from '../../actions/gifts';
 import Loading from '../../components/Loading';
 import LoadingError from '../../components/LoadingError';
 
-// Redirect from legacy URLS like http://www.falcon.systemseed.com/charity-gift/c/goat
+// Redirect from legacy URLS like http://falcon.systemseed.com/charity-gift/c/goat
 // where "c" is product code.
 class GiftsLegacyRedirect extends React.Component {
 

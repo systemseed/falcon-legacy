@@ -53,6 +53,9 @@ export const mappedProductItem = (responseItem) => {
     categoryId: responseItem.fieldGiftCategory !== undefined ? responseItem.fieldGiftCategory.id : null,
     price,
     imageUrl: api.getImageUrl('donations', responseItem.fieldGiftImage),
+    imageAlt: responseItem.relationships.field_gift_image.data.meta.alt,
+    descriptionImageUrl: api.getImageUrl('donations', responseItem.fieldGiftDescriptionImage),
+    descriptionImageAlt: api.getImageAlt(responseItem.relationships.field_gift_description_image, responseItem.title),
     fieldMetatags: responseItem.fieldMetatags !== undefined ? responseItem.fieldMetatags : {},
   };
 };

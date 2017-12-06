@@ -6,7 +6,7 @@ const GiftCorporateHeroImage = ({ gift }) => (
       <div className="product-gallery">
         <ul className="product-gallery-preview">
           <li className="current">
-            <img src={gift.imageUrl} alt={gift.title} />
+            <img src={gift.imageUrl} alt={gift.imageAlt} title={gift.imageAlt} />
           </li>
         </ul>
       </div>
@@ -25,8 +25,7 @@ GiftCorporateHeroImage.propTypes = {
     description: React.PropTypes.string,
     price: React.PropTypes.object,
     imageUrl: React.PropTypes.string,
-    actionImageUrl: React.PropTypes.string,
-    actionDescription: React.PropTypes.string,
+    imageAlt: React.PropTypes.string,
   }).isRequired,
 };
 
