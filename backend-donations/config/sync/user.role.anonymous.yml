@@ -14,4 +14,5 @@ permissions:
   - 'access data models'
   - 'add own profile_gifts profile'
   - 'view commerce_payment_gateway'
+  - 'view commerce_product'
   - 'view published event code entities'

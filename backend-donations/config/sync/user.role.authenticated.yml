@@ -13,3 +13,4 @@ permissions:
   - 'access data models'
   - 'add own profile_gifts profile'
   - 'view any commerce_product'
+  - 'view commerce_product'

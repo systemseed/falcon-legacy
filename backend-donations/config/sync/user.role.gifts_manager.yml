@@ -35,6 +35,7 @@ permissions:
   - 'edit event code entities'
   - 'edit terms in gift_category'
   - 'revert all event code revisions'
+  - 'trigger thankq export'
   - 'update any gift commerce_product'
   - 'update any gift_corporate commerce_product'
   - 'update commerce_product_attribute'
@@ -53,4 +54,3 @@ permissions:
   - 'view published event code entities'
   - 'view the administration theme'
   - 'view unpublished event code entities'
-  - 'trigger thankq export'

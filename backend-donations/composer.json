@@ -27,7 +27,7 @@
     "drush/drush": "~8.0",
     "drupal/console": "~1.0",
     "drupal/module_filter": "~3.0",
-    "drupal/admin_toolbar": "~1.18",
+    "drupal/admin_toolbar": "1.20.0",
     "drupal/toolbar_themes": "~1.0",
     "drupal/commerce": "~2.0",
     "drupal/commerce_stripe": "^1.0@beta",
