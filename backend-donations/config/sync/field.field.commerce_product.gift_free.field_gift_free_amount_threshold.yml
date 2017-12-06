@@ -22,7 +22,7 @@ default_value:
 default_value_callback: ''
 settings:
   available_currencies:
-    EUR: EUR
-    GBP: '0'
-    USD: '0'
+    - '0'
+    - '0'
+    - EUR
 field_type: commerce_price

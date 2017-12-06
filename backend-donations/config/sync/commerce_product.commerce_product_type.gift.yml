@@ -7,3 +7,4 @@ label: Gift
 description: ''
 variationType: gift
 injectVariationFields: false
+traits: {  }

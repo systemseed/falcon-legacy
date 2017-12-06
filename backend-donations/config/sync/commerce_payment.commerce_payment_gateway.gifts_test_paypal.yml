@@ -16,3 +16,4 @@ configuration:
   payment_method_types:
     - paypal
 conditions: {  }
+conditionOperator: AND
