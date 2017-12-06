@@ -7,6 +7,7 @@ dependencies:
     - field.field.commerce_product.gift_corporate.field_fieldable_path
     - field.field.commerce_product.gift_corporate.field_gift_annotation
     - field.field.commerce_product.gift_corporate.field_gift_description
+    - field.field.commerce_product.gift_corporate.field_gift_description_image
     - field.field.commerce_product.gift_corporate.field_gift_image
     - field.field.commerce_product.gift_corporate.field_gift_product_code
     - field.field.commerce_product.gift_corporate.field_gift_variant_type
@@ -45,6 +46,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_gift_description_image:
+    weight: 7
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
     region: content
   field_gift_image:
     weight: 0

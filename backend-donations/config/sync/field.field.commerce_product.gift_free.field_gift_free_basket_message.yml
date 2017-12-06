@@ -1,0 +1,21 @@
+uuid: 37523f76-1767-408b-b140-af722431729d
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.gift_free
+    - field.storage.commerce_product.field_gift_free_basket_message
+  module:
+    - text
+id: commerce_product.gift_free.field_gift_free_basket_message
+field_name: field_gift_free_basket_message
+entity_type: commerce_product
+bundle: gift_free
+label: 'Message in basket'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

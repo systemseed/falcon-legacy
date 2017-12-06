@@ -6,4 +6,3 @@ id: gift
 label: Gift
 orderItemType: gift
 generateTitle: true
-traits: {  }

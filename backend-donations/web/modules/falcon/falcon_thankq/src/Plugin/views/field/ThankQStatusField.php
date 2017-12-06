@@ -20,15 +20,9 @@ use Drupal\views\ResultRow;
  */
 class ThankQStatusField extends FieldPluginBase {
 
-  /* @var GiftsOrderProcessor */
-  protected $processor;
-
   public function __construct(array $configuration, $plugin_id, $plugin_definition) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
-
-    $this->processor = new GiftsOrderProcessor();
   }
-
 
   /**
    * {@inheritdoc}
@@ -76,7 +70,7 @@ class ThankQStatusField extends FieldPluginBase {
    */
   public function renderGift(EckEntity $entity) {
     return [
-      '#markup' => $this->processor->getDailySummary(date('Y-m-d', $entity->created->value)),
+      '#markup' => GiftsOrderProcessor::getDailySummary(date('Y-m-d', $entity->created->value)),
     ];
   }
 

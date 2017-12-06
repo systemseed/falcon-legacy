@@ -41,6 +41,14 @@ class ConfigForm extends ConfigFormBase {
       '#size' => 255,
       '#default_value' => $config->get('wsdl_uri'),
     ];
+    $form['error_recipients'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Errors recipients'),
+      '#description' => $this->t('List of emails separated by comma. Users who receive emails in case of problems with ThankQ export.'),
+      '#maxlength' => 255,
+      '#size' => 255,
+      '#default_value' => $config->get('error_recipients'),
+    ];
     return parent::buildForm($form, $form_state);
   }
 
@@ -59,6 +67,7 @@ class ConfigForm extends ConfigFormBase {
 
     $this->config('falcon_thankq.config')
       ->set('wsdl_uri', $form_state->getValue('wsdl_uri'))
+      ->set('error_recipients', $form_state->getValue('error_recipients'))
       ->save();
   }
 

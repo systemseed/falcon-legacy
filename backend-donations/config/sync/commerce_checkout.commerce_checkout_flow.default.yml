@@ -11,6 +11,7 @@ label: Default
 plugin: multistep_default
 configuration:
   display_checkout_progress: true
+  order_summary_view: commerce_checkout_order_summary
   panes:
     login:
       allow_guest_checkout: true
@@ -31,4 +32,3 @@ configuration:
       message: 'Your order number is %order_number. You can view your order on your account page when logged in.'
       step: complete
       weight: 4
-  order_summary_view: commerce_checkout_order_summary

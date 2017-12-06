@@ -9,6 +9,19 @@ namespace Drupal\falcon_thankq;
  */
 class ThankqClient {
 
+  /**
+   * Delay in seconds to set in queries before push to ThankQ,
+   * because in some cases data can't be saved properly without it.
+   *
+   * Some orders have been pushed to ThankQ without issues and returned correct ThankQ ID,
+   * but actually they weren't saved properly in ThankQ and can't be fetched by given ID.
+   *
+   * @see: https://www.pivotaltracker.com/story/show/153174917
+   *
+   * @var int
+   */
+  protected $requestDelay;
+
   /* @var \SoapClient */
   protected $client;
 
@@ -28,6 +41,9 @@ class ThankqClient {
     // Enable debug mode if Devel is enabled and current user is authenticated.
     $this->debugMode = \Drupal::moduleHandler()
         ->moduleExists('devel') && \Drupal::currentUser()->isAuthenticated();
+
+    // Define Request delay, now it's possible to override it.
+    $this->requestDelay = \Drupal::state()->get('falcon_thankq_request_delay') ? : 1;
 
     // Basic SOAP options.
     $options = [
@@ -60,7 +76,7 @@ class ThankqClient {
     $this->client->__setLocation($url_parts['scheme'] . '://' . $url_parts['host'] . $url_parts['path']);
 
     // Set name of ThankQ instance.
-    // Example: /ThankQtest/esitWS.asmx?WSDL
+    // Example: /TeleServiceCCNDtest/esitWS.asmx?WSDL
     if (preg_match('#TeleService[^/]+#', $url_parts['path'], $matches)) {
       $this->instance = $matches[0];
     }
@@ -107,6 +123,9 @@ class ThankqClient {
 
   /**
    * Create a new contact in ThankQ.
+   *
+   * See API details here:
+   * https://thankq.cwv2.net/TeleServiceCCNDtest/esitWS.asmx?op=doContactInsert.
    *
    * @param array $contact
    *   New contact details.
@@ -184,6 +203,9 @@ class ThankqClient {
     $request = ['doContactInsertArgument' => $params];
 
     try {
+      // Set delay before push to ThankQ, because in some cases data can't be saved properly without it.
+      sleep($this->requestDelay);
+
       // Make a SOAP call.
       $response = $this->client->doContactInsert($request);
 
@@ -234,6 +256,9 @@ class ThankqClient {
     $request = ['doTradingOrderSetArgument' => $params];
 
     try {
+      // Set delay before push to ThankQ, because in some cases data can't be saved properly without it.
+      sleep($this->requestDelay);
+
       // Make a SOAP call.
       $response = $this->client->doTradingOrderSet($request);
       if (empty($response) || empty($response->doTradingOrderSetResult)) {
@@ -283,6 +308,9 @@ class ThankqClient {
     $request = ['doDonateMemberInsertArgument' => $params];
 
     try {
+      // Set delay before push to ThankQ, because in some cases data can't be saved properly without it.
+      sleep($this->requestDelay);
+
       // Make a SOAP call.
       $response = $this->client->doDonateMemberInsert($request);
       if (empty($response) || empty($response->doDonateMemberInsertResult)) {
@@ -292,12 +320,20 @@ class ThankqClient {
       return $response->doDonateMemberInsertResult->donationID;
     } catch (\Exception $e) {
       watchdog_exception('falcon_thankq', $e);
+
+      if ($this->debugMode) {
+        $this->debug();
+      }
+
+      // Throw exception further.
+      throw $e;
     }
   }
 
   /**
    * Fetch trading data from ThankQ.
    *
+   * See details: https://thankq.cwv2.net/TeleServiceCCNDtest/esitWS.asmx?op=doTradingLookup
    * In fact, we can fetch Gifts products only.
    *
    * @return array
@@ -317,6 +353,13 @@ class ThankqClient {
       ];
     } catch (\Exception $e) {
       watchdog_exception('falcon_thankq', $e);
+
+      if ($this->debugMode) {
+        $this->debug();
+      }
+
+      // Throw exception further.
+      throw $e;
     }
   }
 
@@ -344,6 +387,13 @@ class ThankqClient {
 
     } catch (\Exception $e) {
       watchdog_exception('falcon_thankq', $e);
+
+      if ($this->debugMode) {
+        $this->debug();
+      }
+
+      // Throw exception further.
+      throw $e;
     }
   }
 
@@ -367,6 +417,13 @@ class ThankqClient {
 
     } catch (\Exception $e) {
       watchdog_exception('falcon_thankq', $e);
+
+      if ($this->debugMode) {
+        $this->debug();
+      }
+
+      // Throw exception further.
+      throw $e;
     }
   }
 
@@ -390,6 +447,13 @@ class ThankqClient {
 
     } catch (\Exception $e) {
       watchdog_exception('falcon_thankq', $e);
+
+      if ($this->debugMode) {
+        $this->debug();
+      }
+
+      // Throw exception further.
+      throw $e;
     }
   }
 
@@ -432,6 +496,9 @@ class ThankqClient {
     $request = ['doGADInsertArgument' => $params];
 
     try {
+      // Set delay before push to ThankQ, because in some cases data can't be saved properly without it.
+      sleep($this->requestDelay);
+
       // Make a SOAP call.
       $response = $this->client->doGADInsert($request);
       if (empty($response) || empty($response->doGADInsertResult)) {
@@ -441,6 +508,13 @@ class ThankqClient {
       return $response->doGADInsertResult->declarationID;
     } catch (\Exception $e) {
       watchdog_exception('falcon_thankq', $e);
+
+      if ($this->debugMode) {
+        $this->debug();
+      }
+
+      // Throw exception further.
+      throw $e;
     }
   }
 

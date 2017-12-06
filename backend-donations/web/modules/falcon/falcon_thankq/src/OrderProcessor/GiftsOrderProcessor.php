@@ -7,6 +7,7 @@ use Drupal\commerce_order\Entity\Order;
 use Drupal\commerce_price\Price;
 use Drupal\falcon_thankq\ThankqClient;
 use Drupal\profile\Entity\ProfileInterface;
+use Drupal\Core\Url;
 
 /**
  * Class GiftsOrderProcessor.
@@ -34,7 +35,7 @@ class GiftsOrderProcessor {
    * @param $date_string
    * @return \Drupal\Core\StringTranslation\TranslatableMarkup|string
    */
-  public function getDailySummary($date_string) {
+  public static function getDailySummary($date_string) {
     // Prepare three groups of orders.
     $count_total = 0;
     $count_success = 0;
@@ -151,7 +152,9 @@ class GiftsOrderProcessor {
 
   /**
    * Utility function to prepare correct campaign id for the order.
-   * See https://www.pivotaltracker.com/story/show/144928107/comments/179101414
+   * See:
+   * - https://www.pivotaltracker.com/story/show/144928107/comments/179101414
+   * - https://www.pivotaltracker.com/story/show/150012885/comments/179991821
    *
    * @param string $payment_gateway_name
    *
@@ -159,12 +162,6 @@ class GiftsOrderProcessor {
    *   Campaign Id.
    */
   protected function formatCampaignId($payment_gateway_name) {
-    // This is temporary solution to test UK campaign ID.
-    if (getenv('CW_REGION') == 'gb') {
-      https://www.pivotaltracker.com/story/show/150012885/comments/179615128
-      return 'TEL00001';
-    }
-
     if (strpos($payment_gateway_name, 'paypal')) {
       return 'TELPP02';
     }
@@ -220,7 +217,7 @@ class GiftsOrderProcessor {
       'doNotMail' => $this->formatOptInValue($order->getBillingProfile()->get('field_profile_prefs_post')->value),
       'doNotPhone' => $this->formatOptInValue($order->getBillingProfile()->get('field_profile_prefs_phone')->value),
       'doNotEmail' => $this->formatOptInValue($order->getBillingProfile()->get('field_profile_prefs_email')->value),
-      'doNotSMS' => $this->formatOptInValue($order->getBillingProfile()->get('field_profile_prefs_phone')->value),
+      'doNotSMS' => $this->formatOptInValue($order->getBillingProfile()->get('field_profile_prefs_sms')->value),
     ];
 
     // ThankQ order.
@@ -303,8 +300,6 @@ class GiftsOrderProcessor {
 
     }
 
-
-
     // Inserts data about Gift Aid only if it's UK and TRUE.
     if ($giftaid_value) {
       $thankq_gad = [
@@ -315,6 +310,14 @@ class GiftsOrderProcessor {
         'source' => $source_code,
       ];
       $this->client->doGADInsert($thankq_gad);
+    }
+
+    // Throw the exception if order wasn't saved correctly in ThankQ.
+    $saved_order = $this->client->doTradingOrderGet($thankq_order_id);
+    if (empty($saved_order)) {
+      $exception_message = t("ThankQ Order ID has not been properly exported. Try to push it again. No data found in ThankQ for created order id. ThankQ ID: @thankq_order_id, Serial number: @serial_number.",
+        ['@thankq_order_id' => $thankq_order_id, '@serial_number' => $serial_number]);
+      throw new \Exception($exception_message);
     }
 
     $order->set('field_thankq_id', $thankq_order_id);
@@ -343,7 +346,7 @@ class GiftsOrderProcessor {
 
   /**
    * This function can be moved to parent class and enhanced to fetch
-   * opt-in defauls for appeal.
+   * opt-in defaults for appeal.
    *
    * @param $value
    * @return bool
@@ -365,5 +368,66 @@ class GiftsOrderProcessor {
 
   public function getThankQName() {
     return $this->client->getInstance();
+  }
+
+  /**
+   * Send an email about errors in ThankQ export process.
+   *
+   * @param $errors_data
+   *   An array with following keys:
+   *    - orders - An array of order objects.
+   *    - error_message - String contains error message.
+   */
+  public function sendExportErrorEmail($errors_data) {
+    $to = \Drupal::config('falcon_thankq.config')->get('error_recipients');
+    if (empty($to)) {
+      return;
+    }
+
+    // Prepares Email's subject and body.
+    $subject = t('Concern Gifts: ThankQ export process finished with errors');
+    $body = t('ThankQ export process finished with following errors') . ':<br />';
+
+    // Attaches info with errors.
+    foreach ($errors_data as $order_id => $data) {
+      $body .= self::orderFormattedShort($data['order']) . ' - ' . $data['error_message'] . '<br />';
+    }
+    $thankq_report_url = Url::fromUri('internal:/admin/exports/gifts', ['absolute' => TRUE])->toString();
+    $body .= '<br />' . t("See more details in <a href='@url'>ThankQ export report</a>.", ['@url' => $thankq_report_url]);
+
+    $this->sendEmail('thankq_export_error', $to, $subject, $body);
+  }
+
+  /**
+   * Send an email by given params.
+   */
+  public function sendEmail($key, $to, $subject, $body) {
+    // Prepares Email's subject and body.
+    $params = ['subject' => $subject, 'body' => $body];
+    $langcode = \Drupal::languageManager()->getDefaultLanguage();
+
+    // Send email with drupal_mail.
+    $message =  \Drupal::service('plugin.manager.mail')->mail('falcon_thankq', $key, $to, $langcode, $params);
+
+    // Add message to the log if email has been sent.
+    $result_message = !empty($message['result']) ? t('%key notification has been successfully sent. Details: %body') : t('There was a problem sending %key notification message. Details: %body');
+    \Drupal::logger('falcon_thankq')->notice($result_message, ['%key' => $key, '%body' => $body]);
+  }
+
+  /**
+   * Build a summary string of the order in short format without email.
+   *
+   * @param $order \Drupal\commerce_order\Entity\Order
+   * @return string
+   */
+  public static function orderFormattedShort($order) {
+    $order_id = $order->id();
+
+    // Prepares link to the order.
+    $order_url = Url::fromUri('internal:/admin/commerce/orders/' . $order_id, ['absolute' => TRUE]);
+    $order_link = \Drupal::l(t('Order') . ' ' . $order_id, $order_url);
+
+    $total = number_format($order->getTotalPrice()->getNumber(), 2, '.', '');
+    return \Drupal::service('date.formatter')->format($order->getCompletedTime()) . ' - ' . $order_link . ' - ' . $total . ' ' . $order->getTotalPrice()->getCurrencyCode();
   }
 }

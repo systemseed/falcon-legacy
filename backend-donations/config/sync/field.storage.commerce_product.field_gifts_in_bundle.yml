@@ -1,0 +1,19 @@
+uuid: 75be644f-9dad-4912-b50e-88b162b73e12
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product.field_gifts_in_bundle
+field_name: field_gifts_in_bundle
+entity_type: commerce_product
+type: entity_reference
+settings:
+  target_type: commerce_product
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

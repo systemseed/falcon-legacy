@@ -1,0 +1,25 @@
+uuid: 6a824992-10f9-4461-b92c-f87c8618ada6
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.gift_free
+    - field.storage.commerce_product.field_gift_free_amount
+  module:
+    - commerce_price
+id: commerce_product.gift_free.field_gift_free_amount
+field_name: field_gift_free_amount
+entity_type: commerce_product
+bundle: gift_free
+label: Amount
+description: 'Product will be added to the basket automatically if Total price of products in basket equal or more than this amount.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_currencies:
+    EUR: EUR
+    GBP: GBP
+    USD: USD
+field_type: commerce_price

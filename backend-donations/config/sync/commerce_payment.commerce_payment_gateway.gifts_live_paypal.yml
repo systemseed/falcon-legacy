@@ -5,14 +5,14 @@ dependencies:
   module:
     - commerce_paypal_button
 id: gifts_live_paypal
-label: 'Paypal Live (to be updated!)'
+label: 'Paypal Live'
 weight: null
 plugin: paypal_button
 configuration:
   client_id: ''
   secret_key: ''
   display_label: Paypal
-  mode: test
+  mode: live
   payment_method_types:
     - paypal
 conditions: {  }

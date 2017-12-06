@@ -1444,6 +1444,10 @@ display:
             field_profile_phone:
               alias: Phone
               raw_output: false
+      pager:
+        type: none
+        options:
+          offset: 0
     cache_metadata:
       max-age: -1
       contexts:
@@ -1472,6 +1476,13 @@ display:
     display_options:
       display_extenders: {  }
       path: admin/exports/gifts/%
+      pager:
+        type: some
+        options:
+          items_per_page: 20
+          offset: 0
+      defaults:
+        pager: false
     cache_metadata:
       max-age: 0
       contexts:

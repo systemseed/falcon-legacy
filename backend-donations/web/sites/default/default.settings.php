@@ -86,9 +86,7 @@
  * );
  * @endcode
  */
-$databases = array(
-
-);
+ $databases = array();
 
 /**
  * Customizing database settings.
@@ -251,9 +249,7 @@ $databases = array(
  *   );
  * @endcode
  */
-$config_directories = array(
-
-);
+$config_directories = array();
 
 /**
  * Settings:
@@ -280,7 +276,6 @@ $config_directories = array(
  *   service requires the install profile use the 'install_profile' container
  *   parameter. Functional code can use \Drupal::installProfile().
  */
-
 # $settings['install_profile'] = '';
 
 /**
@@ -310,7 +305,6 @@ $settings['hash_salt'] = '';
  * custom code that changes the container, changing this identifier will also
  * allow the container to be invalidated as soon as code is deployed.
  */
-
 # $settings['deployment_identifier'] = \Drupal::VERSION;
 
 /**
@@ -342,11 +336,8 @@ $settings['update_free_access'] = FALSE;
  * You can also define an array of host names that can be accessed directly,
  * bypassing the proxy, in $settings['http_client_config']['proxy']['no'].
  */
-
 # $settings['http_client_config']['proxy']['http'] = 'http://proxy_user:proxy_pass@example.com:8080';
-
 # $settings['http_client_config']['proxy']['https'] = 'http://proxy_user:proxy_pass@example.com:8080';
-
 # $settings['http_client_config']['proxy']['no'] = ['127.0.0.1', 'localhost'];
 
 /**
@@ -380,49 +371,42 @@ $settings['update_free_access'] = FALSE;
  * Be aware, however, that it is likely that this would allow IP
  * address spoofing unless more advanced precautions are taken.
  */
-
 # $settings['reverse_proxy'] = TRUE;
 
 /**
  * Specify every reverse proxy IP address in your environment.
  * This setting is required if $settings['reverse_proxy'] is TRUE.
  */
-
 # $settings['reverse_proxy_addresses'] = array('a.b.c.d', ...);
 
 /**
  * Set this value if your proxy server sends the client IP in a header
  * other than X-Forwarded-For.
  */
-
 # $settings['reverse_proxy_header'] = 'X_CLUSTER_CLIENT_IP';
 
 /**
  * Set this value if your proxy server sends the client protocol in a header
  * other than X-Forwarded-Proto.
  */
-
 # $settings['reverse_proxy_proto_header'] = 'X_FORWARDED_PROTO';
 
 /**
  * Set this value if your proxy server sends the client protocol in a header
  * other than X-Forwarded-Host.
  */
-
 # $settings['reverse_proxy_host_header'] = 'X_FORWARDED_HOST';
 
 /**
  * Set this value if your proxy server sends the client protocol in a header
  * other than X-Forwarded-Port.
  */
-
 # $settings['reverse_proxy_port_header'] = 'X_FORWARDED_PORT';
 
 /**
  * Set this value if your proxy server sends the client protocol in a header
  * other than Forwarded.
  */
-
 # $settings['reverse_proxy_forwarded_header'] = 'FORWARDED';
 
 /**
@@ -441,8 +425,8 @@ $settings['update_free_access'] = FALSE;
  * HTTP proxy, and bypass the reverse proxy if one is used) in order to avoid
  * getting cached pages from the proxy.
  */
-
 # $settings['omit_vary_cookie'] = TRUE;
+
 
 /**
  * Cache TTL for client error (4xx) responses.
@@ -454,19 +438,8 @@ $settings['update_free_access'] = FALSE;
  * of client error responses set the value to 0. Currently applies only to
  * page_cache module.
  */
-
 # $settings['cache_ttl_4xx'] = 3600;
 
-/**
- * Expiration of cached forms.
- *
- * Drupal's Form API stores details of forms in a cache and these entries are
- * kept for at least 6 hours by default. Expired entries are cleared by cron.
- *
- * @see \Drupal\Core\Form\FormCache::setCache()
- */
-
-# $settings['form_cache_expiration'] = 21600;
 
 /**
  * Class Loader.
@@ -475,7 +448,6 @@ $settings['update_free_access'] = FALSE;
  * performance reasons. Detection can be prevented by setting
  * class_loader_auto_detect to false, as in the example below.
  */
-
 # $settings['class_loader_auto_detect'] = FALSE;
 
 /*
@@ -490,7 +462,6 @@ $settings['update_free_access'] = FALSE;
  * example, to use Symfony's APC class loader without automatic detection,
  * uncomment the code below.
  */
-
 /*
 if ($settings['hash_salt']) {
   $prefix = 'drupal.' . hash('sha256', 'drupal.' . $settings['hash_salt']);
@@ -524,7 +495,6 @@ if ($settings['hash_salt']) {
  *
  * Remove the leading hash signs to disable.
  */
-
 # $settings['allow_authorize_operations'] = FALSE;
 
 /**
@@ -532,9 +502,7 @@ if ($settings['hash_salt']) {
  *
  * Value should be in PHP Octal Notation, with leading zero.
  */
-
 # $settings['file_chmod_directory'] = 0775;
-
 # $settings['file_chmod_file'] = 0664;
 
 /**
@@ -548,7 +516,6 @@ if ($settings['hash_salt']) {
  * security by serving user-uploaded files from a different domain or subdomain
  * pointing to the same server. Do not include a trailing slash.
  */
-
 # $settings['file_public_base_url'] = 'http://downloads.example.com/files';
 
 /**
@@ -558,7 +525,6 @@ if ($settings['hash_salt']) {
  * must exist and be writable by Drupal. This directory must be relative to
  * the Drupal installation directory and be accessible over the web.
  */
-
 # $settings['file_public_path'] = 'sites/default/files';
 
 /**
@@ -574,7 +540,6 @@ if ($settings['hash_salt']) {
  * See https://www.drupal.org/documentation/modules/file for more information
  * about securing private files.
  */
-
 # $settings['file_private_path'] = '';
 
 /**
@@ -583,7 +548,6 @@ if ($settings['hash_salt']) {
  * Set the minimum interval between each session write to database.
  * For performance reasons it defaults to 180.
  */
-
 # $settings['session_write_interval'] = 180;
 
 /**
@@ -598,13 +562,9 @@ if ($settings['hash_salt']) {
  * The "en" part of the variable name, is dynamic and can be any langcode of
  * any added language. (eg locale_custom_strings_de for german).
  */
-
 # $settings['locale_custom_strings_en'][''] = array(
-
 #   'forum'      => 'Discussion board',
-
 #   '@count min' => '@count minutes',
-
 # );
 
 /**
@@ -617,7 +577,6 @@ if ($settings['hash_salt']) {
  *
  * Note: This setting does not apply to installation and update pages.
  */
-
 # $settings['maintenance_theme'] = 'bartik';
 
 /**
@@ -640,9 +599,7 @@ if ($settings['hash_salt']) {
  * and increase the limits of these variables.  For more information, see
  * http://php.net/manual/pcre.configuration.php.
  */
-
 # ini_set('pcre.backtrack_limit', 200000);
-
 # ini_set('pcre.recursion_limit', 200000);
 
 /**
@@ -662,7 +619,6 @@ if ($settings['hash_salt']) {
  *   override in a services.yml file in the same directory as settings.php
  *   (definitions in this file will override service definition defaults).
  */
-
 # $settings['bootstrap_config_storage'] = array('Drupal\Core\Config\BootstrapConfigStorageFactory', 'getFileStorage');
 
 /**
@@ -687,13 +643,8 @@ if ($settings['hash_salt']) {
  * configuration values in settings.php will not fire any of the configuration
  * change events.
  */
-
-# $config['system.file']['path']['temporary'] = '/tmp';
-
 # $config['system.site']['name'] = 'My Drupal site';
-
 # $config['system.theme']['default'] = 'stark';
-
 # $config['user.settings']['anonymous'] = 'Visitor';
 
 /**
@@ -719,11 +670,8 @@ if ($settings['hash_salt']) {
  *
  * Remove the leading hash signs if you would like to alter this functionality.
  */
-
 # $config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)|(?:system\/files)\//';
-
 # $config['system.performance']['fast_404']['paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
-
 # $config['system.performance']['fast_404']['html'] = '<!DOCTYPE html><html><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
 
 /**
@@ -738,7 +686,6 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * tracking purposes, for testing a service container with an error condition or
  * to test a service container that throws an exception.
  */
-
 # $settings['container_base_class'] = '\Drupal\Core\DependencyInjection\Container';
 
 /**
@@ -748,7 +695,6 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * alternate implementation YAML parser. The class must implement the
  * \Drupal\Component\Serialization\SerializationInterface interface.
  */
-
 # $settings['yaml_parser_class'] = NULL;
 
 /**
@@ -804,16 +750,6 @@ $settings['file_scan_ignore_directories'] = [
 ];
 
 /**
- * The default number of entities to update in a batch process.
- *
- * This is used by update and post-update functions that need to go through and
- * change all the entities on a site, so it is useful to increase this number
- * if your hosting configuration (i.e. RAM allocation, CPU speed) allows for a
- * larger number of entities to be processed in a single batch run.
- */
-$settings['entity_update_batch_size'] = 50;
-
-/**
  * Load local development override configuration, if available.
  *
  * Use settings.local.php to override variables on secondary (staging,
@@ -823,11 +759,7 @@ $settings['entity_update_batch_size'] = 50;
  *
  * Keep this code block at the end of this file to take full effect.
  */
-
 #
-
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-
 #   include $app_root . '/' . $site_path . '/settings.local.php';
-
 # }

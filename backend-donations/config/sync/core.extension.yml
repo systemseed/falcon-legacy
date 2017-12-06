@@ -32,12 +32,14 @@ module:
   dynamic_page_cache: 0
   eck: 0
   editor: 0
+  editor_advanced_link: 0
   entity: 0
   entity_reference_revisions: 0
   falcon_commerce: 0
   falcon_commerce_checkout: 0
   falcon_event_codes: 0
   falcon_exports: 0
+  falcon_mail: 0
   falcon_metatag: 0
   falcon_payment_event: 0
   falcon_thankq: 0
@@ -68,6 +70,7 @@ module:
   path: 0
   profile: 0
   rest: 0
+  rest_absolute_urls: 0
   serialization: 0
   simple_oauth: 0
   state_machine: 0

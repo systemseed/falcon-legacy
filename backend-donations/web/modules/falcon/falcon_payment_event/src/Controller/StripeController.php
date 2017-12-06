@@ -21,27 +21,48 @@ class StripeController extends ControllerBase {
    * Creates Payment event entities from Stripe Security History report.
    */
   function createPaymentEventEntities() {
-    try {
-      $siteMode = \Drupal::config('cw_core.settings')->get('test_mode_enabled') ? 'test' : 'live';
-      $paymentGateway = 'gifts_' . $siteMode . '_stripe';
+    // Acquire a lock to avoid multiple concurrency requests to Stripe.
+    $lock = \Drupal::lock();
+    $lock_name = 'falcon_payment_event_stripe_report';
 
-      // Returns an error if Stripe developer user isn't defined in Payment gateway configuration.
-      $stripe_username = \Drupal::config('falcon_payment_event.' . $paymentGateway)->get('developer_username');
-      if (empty($stripe_username)) {
+    if ($lock->acquire($lock_name, 60)) {
+
+      try {
+        $siteMode = \Drupal::config('cw_core.settings')
+          ->get('test_mode_enabled') ? 'test' : 'live';
+        $paymentGateway = 'gifts_' . $siteMode . '_stripe';
+
+        // Returns an error if Stripe developer user isn't defined in Payment gateway configuration.
+        $stripe_username = \Drupal::config('falcon_payment_event.' . $paymentGateway)
+          ->get('developer_username');
+        if (empty($stripe_username)) {
+
+          // Release the lock so the next check can be performed.
+          $lock->release($lock_name);
+          return new EmptyResponse(500);
+        }
+
+        // Gets activity items from Stripe.
+        $activities = $this->getAccountActivities($paymentGateway);
+        if (!empty($activities)) {
+          $this->createEntities($paymentGateway, $activities);
+        }
+
+        // Release the lock so the next check can be performed.
+        $lock->release($lock_name);
+        return new EmptyResponse(200);
+
+      } catch (\Exception $e) {
+        watchdog_exception('falcon_payment_event', $e);
+
+        // Release the lock so the next check can be performed.
+        $lock->release($lock_name);
         return new EmptyResponse(500);
       }
 
-      // Gets activity items from Stripe.
-      $activities = $this->getAccountActivities($paymentGateway);
-      if (!empty($activities)) {
-        $this->createEntities($paymentGateway, $activities);
-      }
-
-      return new EmptyResponse(200);
     }
-    catch (\Exception $e) {
-      watchdog_exception('falcon_payment_event', $e);
-      return new EmptyResponse(500);
+    else {
+      return new EmptyResponse(204);
     }
   }
 

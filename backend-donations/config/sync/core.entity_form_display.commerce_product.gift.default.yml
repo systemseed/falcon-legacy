@@ -13,6 +13,8 @@ dependencies:
     - field.field.commerce_product.gift.field_gift_image
     - field.field.commerce_product.gift.field_gift_product_code
     - field.field.commerce_product.gift.field_gift_variant_type
+    - field.field.commerce_product.gift.field_gift_what_you_get_image
+    - field.field.commerce_product.gift.field_gifts_in_bundle
     - field.field.commerce_product.gift.field_metatags
     - field.field.commerce_product.gift.stores
     - field.field.commerce_product.gift.variations
@@ -32,7 +34,7 @@ third_party_settings:
         - field_gift_action_image
         - field_gift_action_description
       parent_name: ''
-      weight: 10
+      weight: 9
       format_type: details
       format_settings:
         label: 'Gift in Action'
@@ -41,6 +43,31 @@ third_party_settings:
         id: ''
         classes: ''
       label: 'Gift in Action'
+    group_gift_what_you_get:
+      children:
+        - field_gift_what_you_get_image
+        - field_gift_description
+      parent_name: ''
+      weight: 8
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'What You Get'
+    group_gifts_bundle_settings:
+      children:
+        - field_gifts_in_bundle
+      parent_name: ''
+      weight: 11
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: false
+      label: 'Bundle settings'
 id: commerce_product.gift.default
 targetEntityType: commerce_product
 bundle: gift
@@ -69,7 +96,7 @@ content:
     type: image_image
     region: content
   field_gift_annotation:
-    weight: 7
+    weight: 6
     settings:
       rows: 2
       placeholder: ''
@@ -91,7 +118,7 @@ content:
     type: text_textarea
     region: content
   field_gift_image:
-    weight: 6
+    weight: 5
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -111,6 +138,20 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_gift_what_you_get_image:
+    weight: 7
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_gifts_in_bundle:
+    weight: 15
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
     region: content
   field_metatags:
     weight: 14
@@ -143,7 +184,7 @@ content:
     region: content
   uid:
     type: entity_reference_autocomplete
-    weight: 11
+    weight: 10
     settings:
       match_operator: CONTAINS
       size: 60
@@ -152,7 +193,7 @@ content:
     region: content
   variations:
     type: inline_entity_form_complex
-    weight: 9
+    weight: 7
     settings:
       override_labels: true
       label_singular: variation

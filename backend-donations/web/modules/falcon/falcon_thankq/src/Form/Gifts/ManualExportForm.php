@@ -41,14 +41,6 @@ class ManualExportForm extends FormBase {
 
     $items = [];
     foreach ($orders as $order) {
-
-      $total = number_format($order->getTotalPrice()->getNumber(), 2, '.', '');
-      $items[] = \Drupal::service('date.formatter')->format($order->getCompletedTime()) . ' - ' . $order->getEmail() . ' - ' . $total . ' ' . $order->getTotalPrice()->getCurrencyCode();
-    }
-
-    $items = [];
-    foreach ($orders as $order) {
-
       $items[] = self::orderFormatted($order);
     }
     $form['info'] = [
@@ -75,7 +67,6 @@ class ManualExportForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $orders = $this->processor->getUnprocessed();
-    $orders_success = $orders_error = [];
 
     if (empty($orders)) {
       // No orders or all orders were already processed in previous cron run.
@@ -106,7 +97,7 @@ class ManualExportForm extends FormBase {
    */
   public function startBatch(&$context) {
     $context['results']['success_messages'] = [];
-    $context['results']['error_messages'] = [];
+    $context['results']['errors_data'] = [];
   }
 
   /**
@@ -120,7 +111,10 @@ class ManualExportForm extends FormBase {
       $context['results']['success_messages'][] = $order->get('field_thankq_id')->getString() . ' - ' . self::orderFormatted($order);
     }
     catch (\Exception $e) {
-      $context['results']['error_messages'][] = $this->t('Error') . ': ' . self::orderFormatted($order) . ' - ' . $e->getMessage();
+      $context['results']['errors_data'][$order->id()] = [
+        'order' => $order,
+        'error_message' => $e->getMessage(),
+      ];
       watchdog_exception('falcon_thankq', $e);
     }
   }
@@ -134,10 +128,14 @@ class ManualExportForm extends FormBase {
         drupal_set_message($message);
       }
     }
-    if (!empty($results['error_messages'])) {
-      foreach ($results['error_messages'] as $message) {
+    if (!empty($results['errors_data'])) {
+      foreach ($results['errors_data'] as $order_id => $error_data) {
+        $message = t('Error') . ': ' . self::orderFormatted($error_data['order']) . ' - ' . $error_data['error_message'];
         drupal_set_message($message, 'error');
       }
+      // Send emails about the error.
+      $processor = new GiftsOrderProcessor();
+      $processor->sendExportErrorEmail($results['errors_data']);
     }
   }
 

@@ -110,7 +110,7 @@ abstract class CheckoutBase implements CheckoutInterface {
     $store_ids = [];
     $order_items = [];
     foreach ($this->paymentData['order_items'] as $order_item) {
-      $is_custom_price_product = $order_item['variantType'] == 'custom_price';
+      $is_custom_price_product = !empty($order_item['variantType']) && $order_item['variantType'] == 'custom_price';
 
       $variation_id = $is_custom_price_product ? $order_item['price']['variation_id'] : $order_item['price'][$currency]['variation_id'];
       $variation = ProductVariation::load($variation_id);

@@ -32,7 +32,7 @@ function falcon_thankq_cron() {
   }
 
   $count_errors = 0;
-
+  $errors_data = [];
   foreach ($orders as $order) {
     try {
       $processor->process($order);
@@ -41,6 +41,12 @@ function falcon_thankq_cron() {
       // Log an error and continue processing other orders.
       watchdog_exception('falcon_thankq', $e);
       $count_errors++;
+
+      // Prepares data for report.
+      $errors_data[$order->id()] = [
+        'order' => $order,
+        'error_message' => $e->getMessage(),
+      ];
     }
   }
 
@@ -49,6 +55,10 @@ function falcon_thankq_cron() {
       '@count' => count($orders),
       '@errors' => $count_errors,
     ]);
+
+  if (!empty($errors_data)) {
+    $processor->sendExportErrorEmail($errors_data);
+  }
 }
 
 /**
@@ -61,4 +71,15 @@ function falcon_thankq_field_widget_form_alter(&$element, \Drupal\Core\Form\Form
   if ($field_definition->getName() == 'field_thankq_id' && $field_definition->getTargetEntityTypeId() == 'commerce_order') {
     $element['#disabled'] = TRUE;
   }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function falcon_thankq_mail($key, &$message, $params) {
+  if ($key != 'thankq_export_error') {
+    return;
+  }
+  $message['subject'] = $params['subject'];
+  $message['body'][] = $params['body'];
 }

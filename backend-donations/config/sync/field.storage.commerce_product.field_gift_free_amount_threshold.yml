@@ -1,0 +1,19 @@
+uuid: 3110cef2-c6f4-47a3-ab01-8c5bf1e18ee5
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_price
+    - commerce_product
+id: commerce_product.field_gift_free_amount_threshold
+field_name: field_gift_free_amount_threshold
+entity_type: commerce_product
+type: commerce_price
+settings: {  }
+module: commerce_price
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -13,4 +13,3 @@ registration: false
 multiple: true
 roles: {  }
 weight: 0
-use_revisions: false

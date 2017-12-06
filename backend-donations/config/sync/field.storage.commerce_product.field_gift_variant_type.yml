@@ -17,6 +17,9 @@ settings:
     -
       value: custom_price
       label: 'Custom Price'
+    -
+      value: bundle
+      label: Bundle
   allowed_values_function: ''
 module: options
 locked: false

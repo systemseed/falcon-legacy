@@ -14,7 +14,7 @@ class LoginCest
       $I->amGoingTo('Submit login form with valid credentials');
       $I->amOnPage('/user');
       $I->fillField('name', 'administrator.test');
-      $I->fillField('pass', 'pass123');
+      $I->fillField('pass', 'password');
       $I->click('#edit-submit');
 
       $I->expectTo('be authorised as administrator');

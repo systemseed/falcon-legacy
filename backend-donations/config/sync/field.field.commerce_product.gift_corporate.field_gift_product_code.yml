@@ -10,7 +10,7 @@ field_name: field_gift_product_code
 entity_type: commerce_product
 bundle: gift_corporate
 label: 'Product Code'
-description: 'Unique product code assigned by FLC'
+description: 'Unique product code assigned'
 required: false
 translatable: false
 default_value: {  }

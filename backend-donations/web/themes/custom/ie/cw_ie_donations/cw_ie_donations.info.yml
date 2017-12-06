@@ -1,7 +1,7 @@
-name: FLC Donations (ROI)
+name: Falcon Donations (ROI)
 type: theme
 description: Region specific templates for donations service.
-package: FLC
+package: Falcon
 core: 8.x
 base theme: seven
 

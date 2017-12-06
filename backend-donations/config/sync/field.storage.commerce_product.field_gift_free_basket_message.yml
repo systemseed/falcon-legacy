@@ -1,0 +1,19 @@
+uuid: 8a1749e0-e012-4af5-97ca-38fa72335d55
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - text
+id: commerce_product.field_gift_free_basket_message
+field_name: field_gift_free_basket_message
+entity_type: commerce_product
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

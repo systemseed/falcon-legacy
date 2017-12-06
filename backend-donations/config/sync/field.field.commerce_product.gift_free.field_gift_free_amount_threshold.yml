@@ -1,0 +1,28 @@
+uuid: 2876fc91-aa8f-4297-af91-bd37fdeaffa0
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.gift_free
+    - field.storage.commerce_product.field_gift_free_amount_threshold
+  module:
+    - commerce_price
+id: commerce_product.gift_free.field_gift_free_amount_threshold
+field_name: field_gift_free_amount_threshold
+entity_type: commerce_product
+bundle: gift_free
+label: 'Minimal basket amount'
+description: 'Set minimal basket total when "Message in basket" should be displayed to a user. '
+required: false
+translatable: false
+default_value:
+  -
+    number: '90.00'
+    currency_code: EUR
+default_value_callback: ''
+settings:
+  available_currencies:
+    EUR: EUR
+    GBP: '0'
+    USD: '0'
+field_type: commerce_price

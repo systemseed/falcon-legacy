@@ -59,14 +59,3 @@ if (!empty($_ENV['PLATFORM_BRANCH'])) {
 else {
   require_once(__DIR__ . '/settings.local.php');
 }
-$databases['default']['default'] = array (
-  'database' => 'drupal',
-  'username' => 'drupal',
-  'password' => 'drupal',
-  'prefix' => '',
-  'host' => 'be_donations_mariadb',
-  'port' => '3306',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
-);
-$settings['hash_salt'] = 'gkR0KDzGukqs5CTEuK9Q7fKkQE9VjOqjDaCjqZ6Kx6MJiGJbkYVeSc-RMdnWuivuY3IkBMwFYg';

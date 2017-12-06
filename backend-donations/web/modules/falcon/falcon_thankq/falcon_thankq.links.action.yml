@@ -3,3 +3,8 @@ falcon_thankq.gifts.force_run:
   title: 'Initiate ThankQ Update'
   appears_on:
     - view.exports_gift.page_1
+falcon_thankq.gifts.force_run.inidividual:
+  route_name: falcon_thankq.gifts.manual_export_inidividual
+  title: 'Force push this order to ThankQ'
+  appears_on:
+    - falcon_thankq.order_view

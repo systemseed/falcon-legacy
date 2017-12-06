@@ -1,0 +1,136 @@
+uuid: de5e6b83-3910-48b7-9c79-fc571dd1f900
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.gift_free
+    - field.field.commerce_product.gift_free.field_gift_free_amount
+    - field.field.commerce_product.gift_free.field_gift_free_amount_threshold
+    - field.field.commerce_product.gift_free.field_gift_free_basket_message
+    - field.field.commerce_product.gift_free.field_gift_free_enjoy_message
+    - field.field.commerce_product.gift_free.field_gift_image
+    - field.field.commerce_product.gift_free.field_gift_product_code
+    - field.field.commerce_product.gift_free.stores
+    - field.field.commerce_product.gift_free.variations
+    - image.style.thumbnail
+  module:
+    - commerce
+    - commerce_price
+    - field_group
+    - image
+    - inline_entity_form
+    - text
+third_party_settings:
+  field_group:
+    group_messages_reminders_in_bask:
+      children:
+        - field_gift_free_amount_threshold
+        - field_gift_free_basket_message
+        - field_gift_free_enjoy_message
+      parent_name: ''
+      weight: 5
+      format_type: fieldset
+      format_settings:
+        label: 'Messages/reminders in basket'
+        description: 'Configure messages which will be displayed 1) when user is close to required amount 2) when user has got a free product in their basket.'
+        required_fields: true
+        id: free-gift-messages
+        classes: ''
+      label: 'Messages/reminders in basket'
+id: commerce_product.gift_free.default
+targetEntityType: commerce_product
+bundle: gift_free
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_gift_free_amount:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: commerce_price_default
+    region: content
+  field_gift_free_amount_threshold:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: commerce_price_default
+    region: content
+  field_gift_free_basket_message:
+    weight: 10
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_gift_free_enjoy_message:
+    weight: 11
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_gift_image:
+    weight: 3
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_gift_product_code:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  stores:
+    type: commerce_entity_select
+    weight: 0
+    settings:
+      autocomplete_threshold: 7
+      autocomplete_size: 60
+      autocomplete_placeholder: ''
+    third_party_settings: {  }
+    region: content
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 8
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  variations:
+    type: inline_entity_form_complex
+    weight: 6
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: variation
+      label_plural: variations
+      allow_new: true
+      match_operator: CONTAINS
+      allow_existing: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  path: true
+  status: true

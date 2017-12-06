@@ -37,3 +37,14 @@ falcon_thankq.order_view:
           type: 'entity:commerce_order'
   requirements:
     _permission: 'view commerce_order'
+falcon_thankq.gifts.manual_export_inidividual:
+  path: '/admin/commerce/orders/{commerce_order}/thankq/force-push'
+  defaults:
+      _form: '\Drupal\falcon_thankq\Form\Gifts\IndividualManualExportForm'
+      _title: 'Force push this order to ThankQ'
+  requirements:
+    _permission: 'trigger thankq export'
+  options:
+    parameters:
+      commerce_order:
+        type: 'entity:commerce_order'

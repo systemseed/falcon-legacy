@@ -25,7 +25,9 @@ relationships:
 dependencies:
     php:
         'drush/drush': '^8.0'
-        'drupal/console': '@stable'
+        # Comment out drupal console for now because it conflicts with `platformsh/cli` in Drupal 8.
+#        'drupal/console': '@stable'
+        'platformsh/cli': '3.20.1' # Use 3.20.1 version as Platform support recommended https://support.platform.sh/hc/en-us/requests/21129
 
 # The configuration of app when it is exposed to the web.
 web:
@@ -108,3 +110,7 @@ crons:
     drupal:
         spec: '*/20 * * * *'
         cmd: 'cd web ; drush core-cron'
+    # Run automatic snapshot creation every 12th hour.
+    snapshot:
+        spec: '0 */12 * * *'
+        cmd: 'if [ "$PLATFORM_BRANCH" = master ]; then platform snapshot:create --yes --no-wait; fi'

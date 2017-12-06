@@ -10,12 +10,12 @@ field_name: field_profile_prefs_post
 entity_type: profile
 bundle: profile_gifts
 label: 'Contact by Post'
-description: ''
+description: 'IMPORTANT: default is on because Gifts users expect to receive gift cards by post.'
 required: false
 translatable: false
 default_value:
   -
-    value: 0
+    value: 1
 default_value_callback: ''
 settings:
   on_label: 'Yes'

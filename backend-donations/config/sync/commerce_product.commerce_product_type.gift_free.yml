@@ -1,0 +1,10 @@
+uuid: 29b1f643-f887-4bbd-b551-f5011241bbee
+langcode: en
+status: true
+dependencies: {  }
+id: gift_free
+label: 'Gift Free'
+description: 'Gift product added to the basket automatically if given amount reached.'
+variationType: gift
+injectVariationFields: false
+traits: {  }

@@ -5,7 +5,6 @@ dependencies: {  }
 label: Gift
 id: gift
 workflow: order_default
-traits: {  }
 refresh_mode: customer
 refresh_frequency: 300
 sendReceipt: true
