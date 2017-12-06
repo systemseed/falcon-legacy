@@ -5,13 +5,17 @@ dependencies:
   config:
     - config_pages.type.site_content_settings
     - field.field.config_pages.site_content_settings.field_config_contact_us_address
+    - field.field.config_pages.site_content_settings.field_config_corporate_images
+    - field.field.config_pages.site_content_settings.field_config_corporate_labels
     - field.field.config_pages.site_content_settings.field_config_footer_left_text
     - field.field.config_pages.site_content_settings.field_config_front_page_copy
     - field.field.config_pages.site_content_settings.field_config_front_page_subline
     - field.field.config_pages.site_content_settings.field_config_header_left_text
     - field.field.config_pages.site_content_settings.field_config_header_right_text
+    - image.style.thumbnail
   module:
     - field_group
+    - image
     - text
 third_party_settings:
   field_group:
@@ -63,6 +67,7 @@ third_party_settings:
         - group_config_general
         - group_config_front_page
         - group_config_contact_us_page
+        - group_corporate_gifts
       parent_name: ''
       weight: 0
       format_type: tabs
@@ -72,6 +77,32 @@ third_party_settings:
         id: ''
         classes: ''
       label: Tabs
+    group_corporate_gifts:
+      children:
+        - group_how_gifts_work_section
+      parent_name: group_config_tabs
+      weight: 4
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Corporate gifts'
+    group_how_gifts_work_section:
+      children:
+        - field_config_corporate_labels
+        - field_config_corporate_images
+      parent_name: group_corporate_gifts
+      weight: 20
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'How Gifts Work section'
 id: config_pages.site_content_settings.default
 targetEntityType: config_pages
 bundle: site_content_settings
@@ -85,6 +116,22 @@ content:
     third_party_settings: {  }
     type: text_textarea
     region: content
+  field_config_corporate_images:
+    weight: 22
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_config_corporate_labels:
+    weight: 21
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_config_footer_left_text:
     weight: 4
     settings:
@@ -94,7 +141,7 @@ content:
     type: text_textarea
     region: content
   field_config_front_page_copy:
-    weight: 7
+    weight: 10
     settings:
       rows: 5
       placeholder: ''
@@ -102,7 +149,7 @@ content:
     type: text_textarea
     region: content
   field_config_front_page_subline:
-    weight: 6
+    weight: 9
     settings:
       size: 60
       placeholder: ''

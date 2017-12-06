@@ -47,7 +47,9 @@
     "drupal/config_installer": "^1.5",
     "drupal/default_content": "^1.0@alpha",
     "drupal/better_normalizers": "^1.0@beta",
-    "drupal/config_filter": "^1.1"
+    "drupal/config_filter": "^1.1",
+    "drupal/rest_absolute_urls": "^1.0@beta",
+    "drupal/editor_advanced_link": "^1.4"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,

@@ -107,7 +107,7 @@ class CorporateGiftsCheckoutStripeCest {
 
     $I->waitForText('Please wait', 20);
 
-    $I->waitForText('order has been completed', 30);
+    $I->waitForText('order is complete', 60);
     $I->canSeeInCurrentUrl('/complete');
 
     // Store data for backend checks.

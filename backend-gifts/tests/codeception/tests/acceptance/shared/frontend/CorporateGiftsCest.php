@@ -27,13 +27,13 @@ class CorporateGiftsCest {
     $I->canSeeElement('.featured-image');
 
     // Wait until products are loaded.
-    $I->waitForText('Corporate Gifts - Give the gift of hope to children this year', 15);
+    $I->waitForText('Concern Corporate Gifts - Give the gift of hope to children this year', 15);
 
-    $I->canSee('How Corporate Gifts work?');
-    $I->canSee('1: Order');
-    $I->canSee('2: What you get');
-    $I->canSee('3: Additional benefit');
-    $I->canSee('4: Hope');
+    $I->canSee('How do Corporate Gifts work?');
+    $I->canSee('1. Order');
+    $I->canSee('2. What you get');
+    $I->canSee('3. Additional benefit');
+    $I->canSee('4. Change lives');
 
     $I->amGoingTo('Visit corporate gift detailed page.');
     $I->wait(1);

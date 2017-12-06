@@ -108,7 +108,7 @@ class GiftsCheckoutStripeCest {
 
     $I->waitForText('Please wait', 20);
 
-    $I->waitForText('order has been completed', 30);
+    $I->waitForText('order is complete', 30);
     $I->canSeeInCurrentUrl('/complete');
 
     // Store data for backend checks.
@@ -156,7 +156,7 @@ class GiftsCheckoutStripeCest {
    */
   public function checkoutCompleteComplex(FrontendTester $I) {
     $currency = $I->getCurrency();
-    $products = $I->addMultiple(5);
+    $products = $I->addMultiple(4);
 
     $I->waitForElement('#root_amount', 15);
 
@@ -191,7 +191,7 @@ class GiftsCheckoutStripeCest {
 
     $I->waitForText('Please wait', 20);
 
-    $I->waitForText('order has been completed', 30);
+    $I->waitForText('order is complete', 30);
     $I->canSeeInCurrentUrl('/complete');
 
     // Store data for backend checks.
@@ -258,7 +258,7 @@ class GiftsCheckoutStripeCest {
     $I->scrollTo('.primary-buttons');
 
     $I->fillField('#root_field_friends_name', 'Tester Best Friend');
-    $I->fillField('#root_field_friends_email', 'test-falcon.friend@systemseed.com');
+    $I->fillField('#root_field_friends_email', 'test-cw2.friend@systemseed.com');
     $I->fillField('#root_field_message', 'Hello from robots!');
 
     $I->click('Save');
@@ -276,7 +276,7 @@ class GiftsCheckoutStripeCest {
 
     $I->waitForText('Please wait', 20);
 
-    $I->waitForText('order has been completed', 30);
+    $I->waitForText('order is complete', 30);
     $I->canSeeInCurrentUrl('/complete');
   }
 
@@ -299,7 +299,7 @@ class GiftsCheckoutStripeCest {
     $I->amOnUrl($card_link);
 
     $I->waitForText('Tester Best Friend');
-    $I->canSee('test-falcon.friend@systemseed.com');
+    $I->canSee('test-cw2.friend@systemseed.com');
     $I->canSee('Hello from robots!');
   }
 }

@@ -19,7 +19,7 @@ class NavigationCest
    */
   public function frontPage(FrontendTester $I) {
     $region = $I->getRegion();
-    $phone_number = ($region == 'gb') ? '1111 111 1111' : '(11) 111 1111';
+    $phone_number = ($region == 'gb') ? '0800 032 4001' : '1850 458 400';
 
     $I->amGoingTo('Visit frontpage and check all basic elements are available immediately after page load.');
     $I->amOnPage('/');
@@ -29,7 +29,8 @@ class NavigationCest
     // Logo.
     $I->canSeeElement('.site-logo');
     // Language switcher.
-    $I->canSeeElement('.lang-switcher');
+    // TODO: uncomment when UK gifts site is online.
+    // $I->canSeeElement('.lang-switcher');
     // Banner.
     $I->canSeeElement('.featured-image');
     // Basket widget.
@@ -46,15 +47,12 @@ class NavigationCest
    * Test router.
    *
    * @param \AcceptanceTester $I
-   *
-   * Skip this test until main menu content has been confirmed.
-   * @skip
    */
   public function mainMenu(FrontendTester $I) {
     $menu_items = [
-      'Corporate Gifts' => 'Corporate Gifts - Give the gift of hope to children this year',
+      'Corporate Gifts' => 'Concern Corporate Gifts - Give the gift of hope to children this year',
       'FAQs' => 'Frequently Asked Questions',
-      'How Gifts Work' => 'How do Gifts help?',
+      'How Gifts Work' => 'How it works',
       'Contact' => 'For all general queries',
       'Browse Gifts' => 'HEALTH AND SAFETY',
     ];

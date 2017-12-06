@@ -18,6 +18,9 @@ class PaymentEventCest {
    *
    * @param \Step\Acceptance\DonationsBackendTester $I
    * @group backend-donations
+   *
+   * Stripe added captcha to the login page, there is no way to run this test now.
+   * @skip
    */
   public function stripeSecurityReport(DonationsBackendTester $I) {
     // Prepares unique suffix.
@@ -38,7 +41,7 @@ class PaymentEventCest {
 
     // Run cron.
     $I->amGoingTo('Updates Payment events records');
-    $I->amOnPage('/cw-payment-event/run-cron/A19-fdeiWUyCff5wdv3Y97jNAHE342BkeQejNEhU0Esi5Bl_ts6T1Ch8XDd0rNsOfX33');
+    $I->amOnPage('/cw-payment-event/run-cron/P1-fmeiWUyCkf5wgv3Y97jNAHEjS92BkheQejNEwAXU0Esi5Bl_ts6TM1CEI8XDd0ErNsO0XZA1');
     $I->wait(5);
 
     // Go to Security report.
@@ -58,12 +61,14 @@ class PaymentEventCest {
    * THIS METHOD IS HELPER AND NOT EXECUTED BY TEST SUITE.
    */
   private function makeChangeInStripe(AcceptanceTester $I, $uniqueSuffix) {
-    $stripeTestUsername = 'falcon.developer-stripe-test@systemseed.com';
-    $stripeTestPassword = 'FALC0n$!';
+    $stripeTestUsername = 'developer-stripe-test@systemseed.com';
+    $stripeTestPassword = 'C0nc3rn!';
 
     // Go to Stripe Dashboard login page and login to Test account.
     $I->amOnUrl('https://dashboard.stripe.com/login');
+    $I->waitForElement(".login button[type='submit']", 10);
     $I->submitForm('#main-body form', ['email' => $stripeTestUsername, 'password' => $stripeTestPassword]);
+
     $I->waitForText('Business settings', 10, '.db-Sidebar-link--settings');
 
     // Go to Account settings page.

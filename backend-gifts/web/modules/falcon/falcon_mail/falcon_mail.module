@@ -33,6 +33,7 @@ function falcon_mail_mandrill_mail_alter(&$mandrill_params, $message) {
   $message_ids = [
     'contact_page_mail',
     'user_password_reset',
+    'user_register_admin_created',
   ];
 
   if (in_array($mandrill_params['message']['id'], $message_ids)) {

@@ -183,7 +183,7 @@ class MailSender implements MailSenderInterface {
         'Content-Type' => 'text/html',
       ],
       'from' => $this->configFactory->get('system.site')->get('mail'),
-      'subject' => t('A friend has bought you a Gift'),
+      'subject' => t('A friend has bought you a Concern Gift'),
       'ecard_item' => $ecardItem,
     ];
 

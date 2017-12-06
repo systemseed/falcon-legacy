@@ -7,17 +7,17 @@ class FrontendTester extends \AcceptanceTester {
     'uuid' => '355215cd-f4f2-4525-a29b-54c26f8cc1ac',
     'title' => 'Piglet',
     'path' => '/gifts/piglet',
-    'annotation' => 'This piglet goes to help a family in need.',
+    'annotation' => 'This piglet goes to help a family in need',
     'description' => 'When you buy this gift, you’ll receive a special card to pass on to your',
     'category' => 'Animal',
     'price' => [
-      'EUR' => ['number' => 9.00, 'formatted' => '€9.00'],
-      'GBP' => ['number' => 7.00, 'formatted' => '£7.00'],
+      'EUR' => ['number' => 10.00, 'formatted' => '€10.00'],
+      'GBP' => ['number' => 8.00, 'formatted' => '£9.00'],
     ]
   ];
 
   protected $corporateGift = [
-    'id' => 21,
+    'id' => 46,
     'uuid' => '663097a5-df42-4882-b8d5-20fc6674fa5f',
     'title' => 'Corporate Koala (Test Suite)',
     'path' => '/corporate/corporate-koala-test-suite',
@@ -167,8 +167,8 @@ class FrontendTester extends \AcceptanceTester {
     if (empty($profile)) {
       $profile = $this->profileData;
       $profile['root_field_profile_email'] = 'falcon.test-gifts.' . time() . '@systemseed.com';
-      // Event code.
-      $event_code_option = $I->grabTextFrom('select#root_field_event_code option:last-child');
+      // Event code. Grab first value.
+      $event_code_option = $I->grabTextFrom('select#root_field_event_code option:nth-child(2)');
       $profile['root_field_event_code'] = $event_code_option;
     }
 
@@ -201,12 +201,26 @@ class FrontendTester extends \AcceptanceTester {
     $I->selectOption('#root_field_event_code', $profile['root_field_event_code']);
 
     // Opt-ins.
+    // TODO: update & refactor in https://www.pivotaltracker.com/story/show/148679037.
     foreach ($profile['optins'] as $key => $value) {
-      if ($value === FALSE) {
-        $I->uncheckOption("#$key");
+      if ($I->getRegion() === 'ie') {
+        // Check if opt-in is presented on the page.
+        if (count($I->grabMultiple("#$key", 'value'))) {
+          if ($value === TRUE) {
+            $I->checkOption("#$key");
+          }
+          else {
+            $I->cantSeeCheckboxIsChecked("#$key");
+          }
+        }
       }
       else {
-        $I->canSeeCheckboxIsChecked("#$key");
+        if ($value === FALSE) {
+          $I->uncheckOption("#$key");
+        }
+        else {
+          $I->canSeeCheckboxIsChecked("#$key");
+        }
       }
     }
 
@@ -269,4 +283,56 @@ class FrontendTester extends \AcceptanceTester {
 
     return $products;
   }
+
+  /**
+   * Helper to click PayPal button
+   *
+   * @param $total_formatted
+   *   Total order amount to check in PayPal interface.
+   */
+  public function payWithPayPal($total_formatted) {
+    $I = $this;
+
+    // Increase this timeout if you can see __prerender__ at the beginning of
+    // iframe name.
+    $I->wait(5);
+    $iframe_name = $I->grabAttributeFrom('.paypal-button-context-iframe iframe', 'name');
+    // Paypal button lives in an iframe. Switch into it.
+    $I->switchToIFrame($iframe_name);
+    $I->seeElement('div.paypal-button');
+
+    // Click on Paypal button.
+    $I->click('div.paypal-button');
+    $I->wait(1);
+
+    // Paypal will open a new window. Switch to it.
+    $I->switchToNextTab();
+    $I->waitForText('PayPal', 80);
+    $I->wait(2);
+    $I->see($total_formatted);
+
+    // Paypal will render auth form into iframe. Switch to it.
+    $I->waitForElement('#injectedUnifiedLogin iframe');
+    $I->switchToIFrame('injectedUl');
+
+    $I->fillField('login_email', 'test-concern-roi-account@systemseed.com');
+    $I->fillField('login_password', 'C0nc3rn!');
+    $I->click('#btnLogin');
+
+    // Switch to parent window and then back to Paypal window to exit iframe.
+    $I->switchToNextTab();
+    $I->switchToNextTab();
+
+    // Wait for Buy Now button in Paypal window.
+    $I->waitForElement('#confirmButtonTop', 80);
+    $I->wait(3);
+
+    $I->click('#confirmButtonTop');
+
+    // Switch back to parent window.
+    $I->switchToWindow();
+    // Make sure we are in correct window.
+    $I->canSeeElement('.checkout-payment');
+  }
+
 }

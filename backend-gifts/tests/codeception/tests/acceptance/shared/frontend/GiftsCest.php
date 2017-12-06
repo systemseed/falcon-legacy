@@ -68,7 +68,7 @@ class GiftsCest {
     $I->canSee($gift['price'][$currency]['formatted']);
     $I->expectTo('See correct annotation');
     $I->canSee($gift['annotation']);
-    $I->expectTo('See correct description');
+    $I->click('.ReactTabs li:nth-of-type(2)');
     $I->waitForText($gift['description']);
 
     // Test "Add to basket" button.

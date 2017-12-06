@@ -72,10 +72,10 @@ class DonationsBackendTester extends DrupalTester {
     // Make sure correct ThankQ instance is chosen.
     $I->expectTo('See correct ThankQ instance chosen');
     if ($currency === 'EUR') {
-      $I->see('using ThankQtest database'); // @todo replace with real ThankQ database.
+      $I->see('using TeleServiceCCNDtest database');
     }
     elseif ($currency == 'GBP') {
-      $I->see('using ThankQUKtest database'); // @todo replace with real ThankQ database.
+      $I->see('using TeleServiceCCNUKtest database');
     }
 
     // Start synchronisation.

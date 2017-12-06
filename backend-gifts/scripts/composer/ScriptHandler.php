@@ -46,6 +46,7 @@ class ScriptHandler {
       $event->getIO()->write("Create a sites/default/files directory with chmod 0777");
     }
 
+    // Updates permissions for certificates files, because git changes it to 644 after every deploy.
     if ($fs->exists(getcwd() . '/certificates/public.key') and $fs->exists(getcwd() . '/certificates/private.key')) {
       $fs->chmod(getcwd() . '/certificates/public.key', 0600);
       $fs->chmod(getcwd() . '/certificates/private.key', 0600);

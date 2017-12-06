@@ -18,11 +18,9 @@ class RouteSubscriber extends RouteSubscriberBase {
   protected function alterRoutes(RouteCollection $collection) {
     $route = $collection->get('jsonapi.ecard_item--gift.collection');
 
-    if (!empty($route)) {
-      // Disable GET for list of e-cards.
-      $route->setMethods(['POST', 'PATCH']);
-      $collection->add('jsonapi.ecard_item--gift.collection', $route);
-    }
+    // Disable GET for list of e-cards.
+    $route->setMethods(['POST', 'PATCH']);
+    $collection->add('jsonapi.ecard_item--gift.collection', $route);
   }
 
 }

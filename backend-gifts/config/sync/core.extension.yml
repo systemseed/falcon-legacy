@@ -20,6 +20,7 @@ module:
   dynamic_page_cache: 0
   eck: 0
   editor: 0
+  editor_advanced_link: 0
   entity: 0
   falcon_gifts_api: 0
   falcon_mail: 0
@@ -51,6 +52,7 @@ module:
   quickedit: 0
   rdf: 0
   rest: 0
+  rest_absolute_urls: 0
   restui: 0
   serialization: 0
   shortcut: 0
