@@ -7,7 +7,7 @@ use Drupal\commerce\PurchasableEntityInterface;
 use Drupal\commerce_price\NumberFormatterFactoryInterface;
 use Drupal\commerce_price\Plugin\Field\FieldFormatter\PriceDefaultFormatter;
 use Drupal\commerce_price\Resolver\ChainPriceResolverInterface;
-use Drupal\commerce_store\StoreContextInterface;
+use Drupal\commerce_store\CurrentStoreInterface;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;

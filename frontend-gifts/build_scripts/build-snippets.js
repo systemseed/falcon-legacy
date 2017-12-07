@@ -7,17 +7,13 @@ const fs = require('fs');
 
 console.log('Start build-snippets.js script...');
 const PLATFORM_BRANCH = process.env.PLATFORM_BRANCH;
-const CW_REGION = process.env.CW_REGION;
 console.log(PLATFORM_BRANCH);
-console.log(CW_REGION);
 
 // Read index.html contents.
 let indexHtml = fs.readFileSync('./build/index.html', 'utf8');
 
 // Default mode is test.
 const mode = (PLATFORM_BRANCH === 'master' ? 'live' : 'test');
-// Default region is ie (Ireland).
-const region = (CW_REGION === 'gb' ? 'gb' : 'ie');
 
 // Supported zones for tracking pixels.
 // Each zone has corresponding <snippet> tqg in public/index.html.
@@ -33,8 +29,8 @@ snippet_zones.forEach((zone) => {
     process.exit(1);
   }
 
-  const dir = `./build_snippets/${region}/${zone}/`;
-  const files = fs.readdirSync(dir);
+  const dir = `./build_snippets/${zone}/`;
+  const files = fs.readdirSync(dir)
 
   const snippets = [
     // Include all snippets with .env.html suffix.
