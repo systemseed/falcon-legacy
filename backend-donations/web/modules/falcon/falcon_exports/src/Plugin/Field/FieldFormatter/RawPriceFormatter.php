@@ -77,13 +77,13 @@ class RawPriceFormatter extends PriceDefaultFormatter implements ContainerFactor
    *   The number formatter factory.
    * @param \Drupal\commerce_price\Resolver\ChainPriceResolverInterface $chain_price_resolver
    *   The chain price resolver.
-   * @param \Drupal\commerce_store\StoreContextInterface $store_context
+   * @param \Drupal\commerce_store\CurrentStoreInterface $store_context
    *   The store context.
    * @param \Drupal\Core\Session\AccountInterface $current_user
    *   The current user.
    */
-  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, EntityTypeManagerInterface $entity_type_manager, NumberFormatterFactoryInterface $number_formatter_factory, ChainPriceResolverInterface $chain_price_resolver, StoreContextInterface $store_context, AccountInterface $current_user) {
-    parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings, $entity_type_manager, $number_formatter_factory, $store_context);
+  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, EntityTypeManagerInterface $entity_type_manager, NumberFormatterFactoryInterface $number_formatter_factory, ChainPriceResolverInterface $chain_price_resolver, CurrentStoreInterface $current_store, AccountInterface $current_user) {
+    parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings, $entity_type_manager, $number_formatter_factory);
     $this->chainPriceResolver = $chain_price_resolver;
     $this->currencyStorage = $entity_type_manager->getStorage('commerce_currency');
     $this->currentUser = $current_user;
@@ -104,7 +104,7 @@ class RawPriceFormatter extends PriceDefaultFormatter implements ContainerFactor
       $container->get('entity_type.manager'),
       $container->get('commerce_price.number_formatter_factory'),
       $container->get('commerce_price.chain_price_resolver'),
-      $container->get('commerce_store.store_context'),
+      $container->get('commerce_store.current_store'),
       $container->get('current_user')
     );
   }
