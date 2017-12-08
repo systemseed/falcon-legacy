@@ -30,7 +30,7 @@ Headers of the file should be:
   ```
 
   You should see "done with 'falcon_event_codes_csv'" message from Migrate Tools.  
-2. Go to `/admin/cw/event_code`. You should see imported event codes.
+2. Go to `/admin/falcon/event_code`. You should see imported event codes.
 
 
 ### Clean up

@@ -145,10 +145,10 @@ class GiftsCheckoutPaypalCest {
     // Create paypal payment.
     $checkoutRequest['payment']['paymentID'] = $I->makeFakePaypalPayment(13.50 * 2, $currency);
 
-    $I->amGoingTo('Send POST request to /v1/donations/cw/checkout/gifts.');
+    $I->amGoingTo('Send POST request to /v1/donations/falcon/checkout/gifts.');
 
     $I->haveHttpHeader('Content-Type', 'application/json');
-    $I->sendPOST('/v1/donations/cw/checkout/gifts?_format=json', $checkoutRequest);
+    $I->sendPOST('/v1/donations/falcon/checkout/gifts?_format=json', $checkoutRequest);
 
     $I->expectTo('See JSON response with 200 OK.');
 
@@ -193,10 +193,10 @@ class GiftsCheckoutPaypalCest {
     // Create INVALID paypal payment.
     $checkoutRequest['payment']['paymentID'] = 'PAY-INVALID';
 
-    $I->amGoingTo('Send POST request to /v1/donations/cw/checkout/gifts.');
+    $I->amGoingTo('Send POST request to /v1/donations/falcon/checkout/gifts.');
 
     $I->haveHttpHeader('Content-Type', 'application/json');
-    $I->sendPOST('/v1/donations/cw/checkout/gifts?_format=json', $checkoutRequest);
+    $I->sendPOST('/v1/donations/falcon/checkout/gifts?_format=json', $checkoutRequest);
 
     $I->expectTo('See JSON response with 500.');
 

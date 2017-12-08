@@ -1,6 +1,6 @@
 
 falcon_commerce_checkout.checkout_controller_post:
-  path: '/cw/checkout/{serviceType}'
+  path: '/falcon/checkout/{serviceType}'
   defaults:
     _controller: '\Drupal\falcon_commerce_checkout\Controller\CheckoutController::post'
     _title: 'Post checkout form'
@@ -9,7 +9,7 @@ falcon_commerce_checkout.checkout_controller_post:
     _permission: 'access content'
     _format: 'json'
 falcon_commerce_checkout.checkout_controller_debug:
-  path: '/cw/checkout/debug'
+  path: '/falcon/checkout/debug'
   defaults:
     _controller: '\Drupal\falcon_commerce_checkout\Controller\CheckoutController::debug'
     _title: 'Debug'

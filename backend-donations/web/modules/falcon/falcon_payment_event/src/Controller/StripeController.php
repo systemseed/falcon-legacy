@@ -28,7 +28,7 @@ class StripeController extends ControllerBase {
     if ($lock->acquire($lock_name, 60)) {
 
       try {
-        $siteMode = \Drupal::config('cw_core.settings')
+        $siteMode = \Drupal::config('falcon.settings')
           ->get('test_mode_enabled') ? 'test' : 'live';
         $paymentGateway = 'gifts_' . $siteMode . '_stripe';
 
@@ -210,7 +210,7 @@ class StripeController extends ControllerBase {
    * security log on next API call.
    */
   public function resetStripeAuthentication() {
-    $siteMode = \Drupal::config('cw_core.settings')->get('test_mode_enabled') ? 'test' : 'live';
+    $siteMode = \Drupal::config('falcon.settings')->get('test_mode_enabled') ? 'test' : 'live';
     $paymentGateway = 'gifts_' . $siteMode . '_stripe';
 
     $cookieFilePath = "private://stripe/$paymentGateway.cookie_jar.txt";

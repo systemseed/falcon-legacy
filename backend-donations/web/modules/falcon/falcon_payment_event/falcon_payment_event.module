@@ -23,7 +23,7 @@ function falcon_payment_event_cron() {
  */
 function falcon_payment_event_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
   if ($view->id() == 'payment_security_report') {
-    $testMode = \Drupal::config('cw_core.settings')->get('test_mode_enabled') ? 'test' : 'live';
+    $testMode = \Drupal::config('falcon.settings')->get('test_mode_enabled') ? 'test' : 'live';
     $paymentGateway = 'gifts_' . $testMode . '_stripe';
 
     // Traverse through the 'where' part of the query.

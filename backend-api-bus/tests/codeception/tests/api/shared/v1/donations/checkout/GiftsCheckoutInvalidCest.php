@@ -145,10 +145,10 @@ class GiftsCheckoutInvalidCest {
     // invalid payment.
     $checkoutRequest['payment']['stripe_token'] = $I->getStipeToken();
 
-    $I->amGoingTo('Send POST request to /v1/donations/cw/checkout/gifts.');
+    $I->amGoingTo('Send POST request to /v1/donations/falcon/checkout/gifts.');
 
     $I->haveHttpHeader('Content-Type', 'application/json');
-    $I->sendPOST('/v1/donations/cw/checkout/gifts?_format=json', $checkoutRequest);
+    $I->sendPOST('/v1/donations/falcon/checkout/gifts?_format=json', $checkoutRequest);
 
     $I->expectTo('See JSON response with 500.');
 

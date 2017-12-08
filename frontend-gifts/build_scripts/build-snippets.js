@@ -30,7 +30,7 @@ snippet_zones.forEach((zone) => {
   }
 
   const dir = `./build_snippets/${zone}/`;
-  const files = fs.readdirSync(dir)
+  const files = fs.readdirSync(dir);
 
   const snippets = [
     // Include all snippets with .env.html suffix.

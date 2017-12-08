@@ -52,8 +52,8 @@ class Donations extends DrupalRoute {
       });
 
       // Custom checkount endpoint.
-      $app->post('/cw/checkout/gifts', Donations::class . ':proxy')
-        ->setArgument('proxy_path', '/cw/checkout/gifts');
+      $app->post('/falcon/checkout/gifts', Donations::class . ':proxy')
+        ->setArgument('proxy_path', '/falcon/checkout/gifts');
 
       // Internal auth token endpoint for backend-to-backend communication.
       $app->post('/internal/oauth/token', Donations::class . ':proxy')

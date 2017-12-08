@@ -115,7 +115,7 @@ export const getPaymentMethods = () => ({
 export const postCheckout = data => ({
   type: 'POST_CHECKOUT',
   payload: request
-    .post(`${config.backend}/v1/donations/cw/checkout/gifts?_format=json`)
+    .post(`${config.backend}/v1/donations/falcon/checkout/gifts?_format=json`)
     .set('Content-Type', 'application/json')
     .send(data)
 });
