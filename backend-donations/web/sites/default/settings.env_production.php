@@ -16,4 +16,4 @@ $config['system.performance']['js']['preprocess'] = TRUE;
 $config['falcon_thankq.config']['wsdl_uri'] = '';
 
 // Disable test mode for master environment.
-$config['cw_core.settings']['test_mode_enabled'] = FALSE;
+$config['falcon.settings']['test_mode_enabled'] = FALSE;

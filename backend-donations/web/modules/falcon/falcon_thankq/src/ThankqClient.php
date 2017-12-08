@@ -124,9 +124,6 @@ class ThankqClient {
   /**
    * Create a new contact in ThankQ.
    *
-   * See API details here:
-   * https://thankq.cwv2.net/TeleServiceCCNDtest/esitWS.asmx?op=doContactInsert.
-   *
    * @param array $contact
    *   New contact details.
    *
@@ -333,7 +330,6 @@ class ThankqClient {
   /**
    * Fetch trading data from ThankQ.
    *
-   * See details: https://thankq.cwv2.net/TeleServiceCCNDtest/esitWS.asmx?op=doTradingLookup
    * In fact, we can fetch Gifts products only.
    *
    * @return array
