@@ -6,7 +6,7 @@ services:
   ##########################
 
   fe_gifts:
-    image: node:6.9-alpine
+    image: node:8.2-alpine
     environment:
       VIRTUAL_HOST: gifts.flc.local
     depends_on:

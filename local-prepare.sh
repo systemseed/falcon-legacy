@@ -10,7 +10,7 @@ docker-compose run be_gifts composer install
 docker-compose run be_donations composer install
 
 # Install npm dependencies of Gifts Frontend.
-docker-compose run fe_gifts npm install
+docker-compose run fe_gifts yarn install
 
 # Do the necessary step to configure API bus initially.
 cp ./backend-api-bus/src/config/local.default.php ./backend-api-bus/src/config/local.php
