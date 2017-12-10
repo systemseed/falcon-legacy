@@ -17,7 +17,9 @@ if (!PLATFORM_ROUTES) {
   return;
 }
 
-const CW_REGION = process.env.CW_REGION;
+// TODO: get rid of CW_REGION variable and region specific components.
+// So far just set to IE so frontend can work without CW_REGION variable.
+const CW_REGION = process.env.CW_REGION ? process.env.CW_REGION : 'ie';
 console.log('Region: ' + CW_REGION);
 
 console.log('Branch: ' + PLATFORM_BRANCH);

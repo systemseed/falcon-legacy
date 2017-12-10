@@ -91,6 +91,7 @@ mounts:
     '/private': 'shared:files/private'
     '/drush-backups': 'shared:files/drush-backups'
     '/tests/codeception/tests/_output': 'shared:files/unit-tests_output'
+    '/certificates': 'shared:files/certificates'
 
 # The hooks executed at various points in the lifecycle of the application.
 hooks:
