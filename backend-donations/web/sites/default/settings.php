@@ -16,6 +16,8 @@ $settings['file_scan_ignore_directories'] = [
 // good reasons), Drupal will refuse to install a profile that is not defined
 // here.
 $settings['install_profile'] = 'config_installer';
+// Add hash_salt to be able to install on Platform. Can be removed later.
+$settings['hash_salt'] = '77P7A7KRNRLNG4V7YBT4WZ6MTY24YOBM5DTYDPIKBSWUQ2QEUVYQ====';
 
 // Auth settings on local env. See full path to certificates in your system.
 $config['simple_oauth.settings']['public_key'] = DRUPAL_ROOT . '/../certificates/public.key';
