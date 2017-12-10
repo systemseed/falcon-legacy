@@ -8,13 +8,13 @@ Update content on the site and run by drush:
 Examples:
 `drush --user=1 dcer node 3 --folder=modules/custom/shared/falcon_demo_content/content`
 
-`drush --user=1 dcer commerce_product 17 --folder=modules/custom/shared/falcon_demo_content/content`
+`drush --user=1 dcer commerce_product 17 --folder=modules/falcon/falcon_demo_content/content`
 
-`drush --user=1 dcer taxonomy_term 1 --folder=modules/custom/shared/falcon_demo_content/content`
+`drush --user=1 dcer taxonomy_term 1 --folder=modules/falcon/falcon_demo_content/content`
 
-`drush --user=1 dcer event_code 6 --folder=modules/custom/shared/falcon_demo_content/content`
+`drush --user=1 dcer event_code 6 --folder=modules/falcon/falcon_demo_content/content`
 
-`drush --user=1 dcer featured_image 1 --folder=modules/custom/shared/falcon_demo_content/content`
+`drush --user=1 dcer featured_image 1 --folder=modules/falcon/falcon_demo_content/content`
 
 ## Import
 Enable `falcon_demo_content` module, it will import content from `./falcon_demo_content/content` folder automatically.
