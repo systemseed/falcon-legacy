@@ -9,13 +9,13 @@ label: 'Stripe Live'
 weight: -8
 plugin: stripe
 configuration:
-  publishable_key: ''
-  secret_key: ''
+  publishable_key: 'pk_test_OqIdubjXi46nv3XD9WMv61EW'
+  secret_key: 'sk_test_BJNmE2vEPMAeLsxRIOxZrGIk'
   display_label: Stripe
-  mode: live
+  mode: test
   payment_method_types:
     - credit_card
-  secret_key_test: ''
-  publishable_key_test: ''
+  secret_key_test: 'sk_test_BJNmE2vEPMAeLsxRIOxZrGIk'
+  publishable_key_test: 'pk_test_OqIdubjXi46nv3XD9WMv61EW'
 conditions: {  }
 conditionOperator: AND

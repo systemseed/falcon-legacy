@@ -9,8 +9,8 @@ label: 'Paypal Test'
 weight: null
 plugin: paypal_button
 configuration:
-  client_id: ''
-  secret_key: ''
+  client_id: 'AfMRBuQ45gWBUjw0JMLmukZolTpFGmFNydE_6n2oRFXD9SoVJv6MM6FeTq9lrvnlJgtCGo46IEFO1kPX'
+  secret_key: 'EJjQmhUb1izZ5Yavbvsd71SqHImgXvsZSl4HFdcQdsL9TpxyMR8tJCGquC5mE3TKOyWOMN3EJA7McAp8'
   display_label: Paypal
   mode: test
   payment_method_types:
