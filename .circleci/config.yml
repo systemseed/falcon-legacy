@@ -52,43 +52,43 @@ jobs:
               platform snapshot:create --yes
             fi
 
-#      - run:
-#          name: Clone database if [db sync] is presented in commit message
-#          shell: /bin/bash
-#          command: |
-#            git log --format=%B -n 1 $CIRCLE_SHA1 | grep "\[db sync\]"
-#            if [ $? -ne 1 ] || [ $CIRCLE_BRANCH == "stage" ]; then
-#              platform sync data -y
-#            fi
-#
-#      - run:
-#          name: Push branch changes to platform's git repository
-#          command: git push --force platform $CIRCLE_BRANCH
-#          no_output_timeout: 20m
-#
-#      - run:
-#          name: Build a new environment on platform.sh using db/files from master environment
-#          command: platform environment:activate -y --project $PLATFORM_PROJECT_NAME --parent=master $CIRCLE_BRANCH
-#
-#      - run:
-#          name: Enable HTTP AUTH on frontend only
-#          command: |
-#            if [ $CIRCLE_BRANCH != "$PLATFORM_LIVE_BRANCH" ] && [ -v PLATFORM_HTTP_AUTH_USERNAME ] && [ -v PLATFORM_HTTP_AUTH_PASSWORD ]; then
-#              platform variable:set env:http_auth "$PLATFORM_HTTP_AUTH_USERNAME:$PLATFORM_HTTP_AUTH_PASSWORD"
-#            fi
-#
-#      - run:
-#          name: Enable SMTP on Platform
-#          command: |
-#            if [ $CIRCLE_BRANCH != "$PLATFORM_LIVE_BRANCH" ]; then
-#               platform environment:info enable_smtp true
-#            fi
-#
-#      # Fail the build if deploy of any app was not successful. This is required
-#      # because Platform deploys the app regardless of deploy hook result.
-#      - run: platform log deploy --app=backend-donations --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED"
-#      - run: platform log deploy --app=backend-gifts --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED"
-#      - run: platform log deploy --app=frontend-gifts --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED"
+      - run:
+          name: Clone database if [db sync] is presented in commit message
+          shell: /bin/bash
+          command: |
+            git log --format=%B -n 1 $CIRCLE_SHA1 | grep "\[db sync\]"
+            if [ $? -ne 1 ] || [ $CIRCLE_BRANCH == "stage" ]; then
+              platform sync data -y
+            fi
+
+      - run:
+          name: Push branch changes to platform's git repository
+          command: git push --force platform $CIRCLE_BRANCH
+          no_output_timeout: 20m
+
+      - run:
+          name: Build a new environment on platform.sh using db/files from master environment
+          command: platform environment:activate -y --project $PLATFORM_PROJECT_NAME --parent=master $CIRCLE_BRANCH
+
+      - run:
+          name: Enable HTTP AUTH on frontend only
+          command: |
+            if [ $CIRCLE_BRANCH != "$PLATFORM_LIVE_BRANCH" ] && [ -v PLATFORM_HTTP_AUTH_USERNAME ] && [ -v PLATFORM_HTTP_AUTH_PASSWORD ]; then
+              platform variable:set env:http_auth "$PLATFORM_HTTP_AUTH_USERNAME:$PLATFORM_HTTP_AUTH_PASSWORD"
+            fi
+
+      - run:
+          name: Enable SMTP on Platform
+          command: |
+            if [ $CIRCLE_BRANCH != "$PLATFORM_LIVE_BRANCH" ]; then
+               platform environment:info enable_smtp true
+            fi
+
+      # Fail the build if deploy of any app was not successful. This is required
+      # because Platform deploys the app regardless of deploy hook result.
+      - run: platform log deploy --app=backend-donations --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED"
+      - run: platform log deploy --app=backend-gifts --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED"
+      - run: platform log deploy --app=frontend-gifts --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED"
 
   ######################################
   ####### PREPARE & RUN TESTS ##########
@@ -230,9 +230,10 @@ workflows:
       - run_success_build_hook:
           requires:
             - run_tests_backend_gifts
-#            - run_tests_backend_donations
-#            - run_tests_api_bus
-#            - run_tests_frontend_gifts
+            # Jobs to be introduced.
+            #- run_tests_backend_donations
+            #- run_tests_api_bus
+            #- run_tests_frontend_gifts
 
   security_updates_scheduled:
     triggers:
