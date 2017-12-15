@@ -155,11 +155,11 @@ jobs:
             BACKEND_DONATIONS_URL="$(platform route:get -A backend-gifts -P url https://donations.api.\{default\}/)"
             FRONTEND_GIFTS_URL="$(platform route:get -A backend-gifts -P url https://www.\{default\}/)"
             ABI_BUS_URL="$(platform route:get -A backend-gifts -P url https://api.\{default\}/)"
-            echo "$BACKEND_GIFTS_URL $BACKEND_DONATIONS_URL $FRONTEND_GIFTS_URL $ABI_BUS_URL"
-            echo "BACKEND_GIFTS_URL=$BACKEND_GIFTS_URL" >> $BASH_ENV
-            echo "BACKEND_DONATIONS_URL=$BACKEND_DONATIONS_URL" >> $BASH_ENV
-            echo "FRONTEND_GIFTS_URL=$FRONTEND_GIFTS_URL" >> $BASH_ENV
-            echo "ABI_BUS_URL=$ABI_BUS_URL" >> $BASH_ENV
+            echo "export $BACKEND_GIFTS_URL $BACKEND_DONATIONS_URL $FRONTEND_GIFTS_URL $ABI_BUS_URL"
+            echo "export BACKEND_GIFTS_URL=$BACKEND_GIFTS_URL" >> $BASH_ENV
+            echo "export BACKEND_DONATIONS_URL=$BACKEND_DONATIONS_URL" >> $BASH_ENV
+            echo "export FRONTEND_GIFTS_URL=$FRONTEND_GIFTS_URL" >> $BASH_ENV
+            echo "export ABI_BUS_URL=$ABI_BUS_URL" >> $BASH_ENV
 
       - run: source /home/circleci/.bashrc && echo "$ABI_BUS_URL"
 
@@ -167,9 +167,6 @@ jobs:
           name: Run Codeception tests
           shell: /bin/bash
           command: |
-            source /home/circleci/.bashrc
-            echo "$BACKEND_GIFTS_URL"
-            tail /home/circleci/.bashrc
             ./vendor/bin/codecept run acceptance  -c ./backend-gifts/tests/codeception --debug --env=phantom-circle,chrome || true
 
       - run:
@@ -177,6 +174,7 @@ jobs:
           shell: /bin/bash
           command: |
             source /home/circleci/.bashrc
+            echo "$BACKEND_GIFTS_URL"
             ./vendor/bin/codecept run acceptance  -c ./backend-gifts/tests/codeception --debug --env=phantom-circle,chrome -g failed
 
       - store_artifacts:
