@@ -8,6 +8,8 @@
 version: 2
 # Default configs for all jobs.
 defaults: &defaults
+  environment:
+      BASH_ENV: ~/.bashrc
   working_directory: /home/circleci/flc
   docker:
     # TODO: consider using falcon/circle-php:7.1-cli-browsers with Platform CLI
