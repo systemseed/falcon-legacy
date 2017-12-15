@@ -39,17 +39,10 @@ jobs:
           <<: *install_platform_cli
 
       - run:
-          name: Execute custom pre-push script
+          name: Execute custom pre-push script (to make a backup for example)
           command: |
             if [[ -f .circleci/scripts/${CIRCLE_PROJECT_REPONAME}/pre-push-hook.sh ]]; then
               .circleci/scripts/${CIRCLE_PROJECT_REPONAME}/pre-push-hook.sh
-            fi
-
-      - run:
-          name: Make a snapshot of master branch
-          command: |
-            if [ $CIRCLE_BRANCH == "master" ]; then
-              platform snapshot:create --yes
             fi
 
       - run:
@@ -86,9 +79,16 @@ jobs:
 
       # Fail the build if deploy of any app was not successful. This is required
       # because Platform deploys the app regardless of deploy hook result.
-#      - run: platform log deploy --app=backend-donations --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED"
-#      - run: platform log deploy --app=backend-gifts --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED"
-#      - run: platform log deploy --app=frontend-gifts --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED"
+      - run:
+          name: First attempt to access the app. Ignore failure.
+          command: |
+            platform log deploy --app=backend-donations --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED" || true
+            platform log deploy --app=backend-gifts --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED" || true
+            platform log deploy --app=frontend-gifts --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED" || true
+
+      - run: platform log deploy --app=backend-donations --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED"
+      - run: platform log deploy --app=backend-gifts --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED"
+      - run: platform log deploy --app=frontend-gifts --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED"
 
   ######################################
   ####### PREPARE & RUN TESTS ##########
