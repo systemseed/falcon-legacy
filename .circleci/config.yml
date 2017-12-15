@@ -147,7 +147,7 @@ jobs:
             git pull
             GIT_CHANGES=$(git diff --name-only origin/master...$CIRCLE_BRANCH . | cut -d '/' -f1 | uniq | paste -sd ',' -)
             echo $GIT_CHANGES # Just debug outout.
-            echo "GIT_CHANGES=$GIT_CHANGES" >> $BASH_ENV
+            echo "export GIT_CHANGES=$GIT_CHANGES" >> $BASH_ENV
 
       - run:
           name: Expose app URLs as environment variables
