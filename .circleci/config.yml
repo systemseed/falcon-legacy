@@ -160,12 +160,14 @@ jobs:
             echo "FRONTEND_GIFTS_URL=$FRONTEND_GIFTS_URL" >> $BASH_ENV
             echo "ABI_BUS_URL=$ABI_BUS_URL" >> $BASH_ENV
 
+      - run: source /home/circleci/.bashrc
+
       - run:
           name: Run Codeception tests
           shell: /bin/bash
           command: |
             source /home/circleci/.bashrc
-            echo "$$BACKEND_GIFTS_URL"
+            echo "$BACKEND_GIFTS_URL"
             tail /home/circleci/.bashrc
             ./vendor/bin/codecept run acceptance  -c ./backend-gifts/tests/codeception --debug --env=phantom-circle,chrome || true
 
