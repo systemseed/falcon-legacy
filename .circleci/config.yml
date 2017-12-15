@@ -86,9 +86,9 @@ jobs:
 
       # Fail the build if deploy of any app was not successful. This is required
       # because Platform deploys the app regardless of deploy hook result.
-      - run: platform log deploy --app=backend-donations --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED"
-      - run: platform log deploy --app=backend-gifts --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED"
-      - run: platform log deploy --app=frontend-gifts --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED"
+#      - run: platform log deploy --app=backend-donations --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED"
+#      - run: platform log deploy --app=backend-gifts --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED"
+#      - run: platform log deploy --app=frontend-gifts --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED"
 
   ######################################
   ####### PREPARE & RUN TESTS ##########
