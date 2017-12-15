@@ -215,18 +215,18 @@ jobs:
 workflows:
   version: 2
   build_and_test:
-
     jobs:
       - prepare_platformsh
 
       - run_tests_backend_gifts:
           requires:
             - prepare_platformsh
-        filters:
-          branches:
-            ignore:
-              #- master
-              - production
+          filters:
+            branches:
+              ignore:
+                #- master
+                - production
+
       - run_success_build_hook:
           requires:
             - run_tests_backend_gifts
@@ -234,3 +234,13 @@ workflows:
 #            - run_tests_api_bus
 #            - run_tests_frontend_gifts
 
+  security_updates_scheduled:
+    triggers:
+      - schedule:
+          cron: "0 0 * * 4"
+          filters:
+            branches:
+              only: master
+    jobs:
+      - prepare_platformsh
+      - check_security_updates
