@@ -8,8 +8,6 @@
 version: 2
 # Default configs for all jobs.
 defaults: &defaults
-  environment:
-      BASH_ENV: /home/circleci/.bashrc
   working_directory: /home/circleci/flc
   docker:
     # TODO: consider using falcon/circle-php:7.1-cli-browsers with Platform CLI
@@ -98,8 +96,6 @@ jobs:
   ######################################
   run_tests_backend_gifts:
     <<: *defaults
-    environment:
-      BASH_ENV: /home/circleci/.bashrc
     steps:
       - checkout
 
@@ -147,7 +143,7 @@ jobs:
             git pull
             GIT_CHANGES=$(git diff --name-only origin/master...$CIRCLE_BRANCH . | cut -d '/' -f1 | uniq | paste -sd ',' -)
             echo $GIT_CHANGES # Just debug outout.
-            echo "export GIT_CHANGES=$GIT_CHANGES" >> $BASH_ENV
+            echo "GIT_CHANGES=$GIT_CHANGES" >> $BASH_ENV
 
       - run:
           name: Expose app URLs as environment variables
@@ -157,13 +153,12 @@ jobs:
             BACKEND_DONATIONS_URL="$(platform route:get -A backend-gifts -P url https://donations.api.\{default\}/)"
             FRONTEND_GIFTS_URL="$(platform route:get -A backend-gifts -P url https://www.\{default\}/)"
             ABI_BUS_URL="$(platform route:get -A backend-gifts -P url https://api.\{default\}/)"
-            echo "export $BACKEND_GIFTS_URL $BACKEND_DONATIONS_URL $FRONTEND_GIFTS_URL $ABI_BUS_URL"
-            echo "export BACKEND_GIFTS_URL=$BACKEND_GIFTS_URL" >> $BASH_ENV
-            echo "export BACKEND_DONATIONS_URL=$BACKEND_DONATIONS_URL" >> $BASH_ENV
-            echo "export FRONTEND_GIFTS_URL=$FRONTEND_GIFTS_URL" >> $BASH_ENV
-            echo "export ABI_BUS_URL=$ABI_BUS_URL" >> $BASH_ENV
-
-      - run: tail  /home/circleci/.bashrc && source /home/circleci/.bashrc && echo "$ABI_BUS_URL"
+            echo "$BACKEND_GIFTS_URL $BACKEND_DONATIONS_URL $FRONTEND_GIFTS_URL $ABI_BUS_URL"
+            echo "BACKEND_GIFTS_URL=$BACKEND_GIFTS_URL" >> $BASH_ENV
+            echo "BACKEND_DONATIONS_URL=$BACKEND_DONATIONS_URL" >> $BASH_ENV
+            echo "FRONTEND_GIFTS_URL=$FRONTEND_GIFTS_URL" >> $BASH_ENV
+            echo "ABI_BUS_URL=$ABI_BUS_URL" >> $BASH_ENV
+            source $BASH_ENV
 
       - run:
           name: Run Codeception tests
