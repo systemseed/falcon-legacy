@@ -1,5 +1,8 @@
 <?php
 
+// Example production settings.
+
+/**
 // Do not import development configs on production.
 $config['config_split.config_split.development']['status'] = FALSE;
 
@@ -9,3 +12,5 @@ $config['system.logging']['error_level'] = 'hide';
 // Enable css / js aggregation.
 $config['system.performance']['css']['preprocess'] = TRUE;
 $config['system.performance']['js']['preprocess'] = TRUE;
+
+ */

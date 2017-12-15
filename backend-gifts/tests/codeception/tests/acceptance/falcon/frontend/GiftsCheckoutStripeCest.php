@@ -134,20 +134,6 @@ class GiftsCheckoutStripeCest {
   }
 
   /**
-   * Push order to ThankQ and make sure it was created successfully.
-   *
-   * @param \Step\Acceptance\DonationsBackendTester $I
-   *
-   * @depends checkoutComplete
-   * @group backend-donations
-   */
-  public function checkOrderThankqSimple(DonationsBackendTester $I) {
-    $I->login('gifts_manager.test');
-
-    $I->runGiftsThankQSync($this->order_id, $this->basket, $this->profile_data, $this->currency);
-  }
-
-  /**
    * Place a complex order (multiple products).
    *
    * @param \Step\Acceptance\FrontendTester $I
@@ -199,21 +185,6 @@ class GiftsCheckoutStripeCest {
     $this->basket = $products;
     $this->profile_data = $profile;
     $this->currency = $currency;
-  }
-
-  /**
-   * Push order with multiple products to ThankQ and make sure it was created
-   * successfully.
-   *
-   * @param \Step\Acceptance\DonationsBackendTester $I
-   *
-   * @depends checkoutCompleteComplex
-   * @group backend-donations
-   */
-  public function checkOrderThankqComplex(DonationsBackendTester $I) {
-    $I->login('gifts_manager.test');
-
-    $I->runGiftsThankQSync($this->order_id, $this->basket, $this->profile_data, $this->currency);
   }
 
   /**

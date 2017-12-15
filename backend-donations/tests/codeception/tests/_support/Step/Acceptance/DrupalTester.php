@@ -10,7 +10,7 @@ class DrupalTester extends \AcceptanceTester
    * @param string $name
    * @param string $password
    */
-  public function login($name, $password = 'pass123') {
+  public function login($name, $password = 'password') {
     $I = $this;
     $I->amGoingTo("Login as $name");
     $I->amGoingTo('Submit login form');

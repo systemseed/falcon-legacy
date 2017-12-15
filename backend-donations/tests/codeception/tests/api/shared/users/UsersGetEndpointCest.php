@@ -15,7 +15,7 @@ class UsersGetEndpointCest {
     $I->haveHttpHeader('Content-Type', 'application/json');
     $I->sendPOST('/user/login?_format=json', [
       'name' => 'administrator.test',
-      'pass' => 'pass123',
+      'pass' => 'password',
     ]);
 
     $I->expectTo('See JSON response with 200 OK code.');

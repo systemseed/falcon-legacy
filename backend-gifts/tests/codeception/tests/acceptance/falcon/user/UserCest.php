@@ -13,7 +13,7 @@ class UserCest
    */
   public function loginAsGiftsManager(Tester $I) {
     $I->amGoingTo('Login as Gifts Manager and see admin toolbar');
-    $I->login('gifts_manager.test', 'pass123');
+    $I->login('gifts_manager.test', 'password');
   }
 
 }

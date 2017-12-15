@@ -23,6 +23,8 @@ class AcceptanceTester extends \Codeception\Actor
   /**
    * Get current region from Platform/Circle environment.
    *
+   * TODO: remove region specific tests.
+   *
    * @return string
    *  Either 'ie' or 'gb'. 'ie' is default.
    */

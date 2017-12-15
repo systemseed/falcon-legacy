@@ -79,17 +79,4 @@ class GiftsCheckoutPaypalCest {
     $I->checkOrderData($this->order_id, $this->basket, $this->profile_data, $this->currency);
   }
 
-  /**
-   * Push order to ThankQ and make sure it was created successfully.
-   *
-   * @param \Step\Acceptance\DonationsBackendTester $I
-   *
-   * @depends checkoutComplete
-   * @group backend-donations
-   */
-  public function checkOrderThankqSimple(DonationsBackendTester $I) {
-    $I->login('gifts_manager.test');
-
-    $I->runGiftsThankQSync($this->order_id, $this->basket, $this->profile_data, $this->currency);
-  }
 }

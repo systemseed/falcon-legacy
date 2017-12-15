@@ -14,7 +14,7 @@ class UserCest
    * @env phantom-circle
    */
 //  public function loginAsAdmin(Tester $I) {
-//    $I->login('administrator.test', 'pass123');
+//    $I->login('administrator.test', 'password');
 //    $I->seeLink('Configuration');
 //  }
 
