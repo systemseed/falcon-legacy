@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # TODO: Replace with your platform.sh project ID.
-PROJECT_ID="fsdfsdfsfdf"
+PROJECT_ID="fsdfsdfsfdfaaa"
 PSH_ENV=master
 DB_CONTAINERS=("be_donations_mariadb" "be_gifts_mariadb")
 
