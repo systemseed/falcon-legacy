@@ -148,11 +148,14 @@ jobs:
           name: Expose app URLs as environment variables
           command: |
             BACKEND_GIFTS_URL="$(platform route:get -A backend-gifts -P url https://gifts.api.\{default\}/)"
-            BACKEND_DONATIONS_URL="$(platform route:get -A backend-donations -P url https://donations.api.\{default\}/)"
-            FRONTEND_GIFTS_URL="$(platform route:get -A frontend-gifts -P url https://www.\{default\}/)"
+            BACKEND_DONATIONS_URL="$(platform route:get -A backend-gifts -P url https://donations.api.\{default\}/)"
+            FRONTEND_GIFTS_URL="$(platform route:get -A backend-gifts -P url https://www.\{default\}/)"
+            ABI_BUS_URL="$(platform route:get -A backend-gifts -P url https://api.\{default\}/)"
+            echo "$BACKEND_GIFTS_URL $BACKEND_DONATIONS_URL $FRONTEND_GIFTS_URL $ABI_BUS_URL"
             echo "BACKEND_GIFTS_URL=$BACKEND_GIFTS_URL" >> $BASH_ENV
             echo "BACKEND_DONATIONS_URL=$BACKEND_DONATIONS_URL" >> $BASH_ENV
             echo "FRONTEND_GIFTS_URL=$FRONTEND_GIFTS_URL" >> $BASH_ENV
+            echo "ABI_BUS_URL=$ABI_BUS_URL" >> $BASH_ENV
 
       - run:
           name: Run Codeception tests
@@ -161,7 +164,7 @@ jobs:
             ./vendor/bin/codecept run acceptance  -c ./backend-gifts/tests/codeception --debug --env=phantom-circle,chrome || true
 
       - run:
-          name: Re-run failed tests in Chrome
+          name: Re-run failed Codeception tests
           when: always
           command: |
             ./vendor/bin/codecept run acceptance  -c ./backend-gifts/tests/codeception --debug --env=phantom-circle,chrome -g failed

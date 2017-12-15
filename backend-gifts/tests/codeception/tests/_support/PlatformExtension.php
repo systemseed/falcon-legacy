@@ -9,6 +9,11 @@ class PlatformExtension extends \Codeception\Extension
 
   public function beforeTest(\Codeception\Event\TestEvent $event) {
 
+    codecept_debug('\PlatformExtension::beforeTest started...');
+    codecept_debug(getenv('BACKEND_GIFTS_URL'));
+    codecept_debug(getenv('BACKEND_DONATIONS_URL'));
+    codecept_debug(getenv('FRONTEND_GIFTS_URL'));
+
     // Get URL from CircleCI environment.
     // See circle.yml file to find how this var gets generated.
     $platform_url = getenv('BACKEND_GIFTS_URL');
