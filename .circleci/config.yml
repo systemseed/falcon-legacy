@@ -41,8 +41,8 @@ jobs:
       - run:
           name: Execute custom pre-push script
           command: |
-            if [[ -f .circle/scripts/${CIRCLE_PROJECT_REPONAME}/pre-push-hook.sh ]]; then
-              .circle/scripts/${CIRCLE_PROJECT_REPONAME}/pre-push-hook.sh
+            if [[ -f .circleci/scripts/${CIRCLE_PROJECT_REPONAME}/pre-push-hook.sh ]]; then
+              .circleci/scripts/${CIRCLE_PROJECT_REPONAME}/pre-push-hook.sh
             fi
 
       - run:
@@ -185,8 +185,8 @@ jobs:
       - run:
           name: Execute custom on post-tests hook
           command: |
-            if [[ -f .circle/scripts/${CIRCLE_PROJECT_REPONAME}/post-tests-hook.sh ]]; then
-              .circle/scripts/${CIRCLE_PROJECT_REPONAME}/post-tests-hook.sh
+            if [[ -f .circleci/scripts/${CIRCLE_PROJECT_REPONAME}/post-tests-hook.sh ]]; then
+              .circleci/scripts/${CIRCLE_PROJECT_REPONAME}/post-tests-hook.sh
             fi
 
 
