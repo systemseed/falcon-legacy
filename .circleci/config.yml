@@ -117,26 +117,22 @@ jobs:
             sudo apt-get install -y libzip-dev
             sudo docker-php-ext-install zip pcntl pdo_mysql
 
-      - run:
-          name: Install and prepare codeception
-          command: |
-            cd public/profiles/concern/tests/codeception/cnet
-            composer --no-interaction --prefer-dist install
-            # Command to set the default codeception configs.
-            sudo chmod +x use-local.sh
-            ./use-local.sh
-            # Prepare files for running the test suite.
-            ./vendor/bin/codecept build
+      - restore_cache:
+          keys:
+            - composer-cache-{{ arch }}-{{ .Branch }}
+            - composer-cache
 
       - run:
-          name: Add CNET ROI Domain URL into environment variables
+          name: Install test dependencies
           command: |
-            if [ $CIRCLE_BRANCH = "staging" ]; then
-              URL="https://staging.concern.net/"
-            else
-              URL=`platform route:get https://www.concern.net/ -P url`
-            fi
-            echo "DOMAIN=$URL" >> $BASH_ENV
+            composer require codeception/codeception:^2.3.5 drupal/coder flow/jsonpath
+            # Is not used now:
+            # composer require stripe/stripe-php paypal/rest-api-sdk-php
+
+      - save_cache:
+          key: composer-cache-{{ arch }}-{{ .Branch }}
+          paths:
+            - vendor
 
       # Get list of root folders changed in this branch in comparison to the master branch.
       # Later we're going to run tests and code reviews only for changed applications.
