@@ -88,3 +88,4 @@ docker-compose run fe_gifts sh
 ## Shutting down the environments
 
 To shut the environment run `docker-compose stop`. It's also possible to shut it using `docker-compose down`, but the latter option will drop mysql databases.
+
