@@ -165,6 +165,8 @@ jobs:
           shell: /bin/bash
           command: |
             source /home/circleci/.bashrc
+            echo "$$BACKEND_GIFTS_URL"
+            tail /home/circleci/.bashrc
             ./vendor/bin/codecept run acceptance  -c ./backend-gifts/tests/codeception --debug --env=phantom-circle,chrome || true
 
       - run:
