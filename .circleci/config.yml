@@ -9,7 +9,7 @@ version: 2
 # Default configs for all jobs.
 defaults: &defaults
   environment:
-      BASH_ENV: ~/.bashrc
+      BASH_ENV: /home/circleci/.bashrc
   working_directory: /home/circleci/flc
   docker:
     # TODO: consider using falcon/circle-php:7.1-cli-browsers with Platform CLI
@@ -167,7 +167,6 @@ jobs:
 
       - run:
           name: Re-run failed Codeception tests
-          when: always
           command: |
             ./vendor/bin/codecept run acceptance  -c ./backend-gifts/tests/codeception --debug --env=phantom-circle,chrome -g failed
 
