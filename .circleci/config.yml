@@ -214,11 +214,9 @@ jobs:
 
 workflows:
   version: 2
-  build-and-test:
-    jobs:
-      #- review_code_style_drupal
-      #- review_code_style_frontend
+  build_and_test:
 
+    jobs:
       - prepare_platformsh
 
       - run_tests_backend_gifts:
@@ -229,19 +227,6 @@ workflows:
             ignore:
               #- master
               - production
-
-#      - run_tests_backend_donations:
-#          requires:
-#            - prepare_platformsh
-#
-#      - run_tests_api_bus:
-#          requires:
-#            - prepare_platformsh
-#
-#      - run_tests_frontend_gifts:
-#          requires:
-#            - prepare_platformsh
-
       - run_success_build_hook:
           requires:
             - run_tests_backend_gifts
@@ -249,14 +234,3 @@ workflows:
 #            - run_tests_api_bus
 #            - run_tests_frontend_gifts
 
-
-  check-security-updates:
-    triggers:
-      - schedule:
-          cron: "0 0 * * 4"
-          filters:
-            branches:
-              only: master
-    jobs:
-      - prepare_platformsh
-      - check_security_updates
