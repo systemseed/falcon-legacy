@@ -148,6 +148,7 @@ jobs:
 
       - run:
           name: Expose app URLs as environment variables
+          shell: /bin/bash
           command: |
             BACKEND_GIFTS_URL="$(platform route:get -A backend-gifts -P url https://gifts.api.\{default\}/)"
             BACKEND_DONATIONS_URL="$(platform route:get -A backend-gifts -P url https://donations.api.\{default\}/)"
@@ -161,12 +162,13 @@ jobs:
 
       - run:
           name: Run Codeception tests
-          shell: /bin/sh
+          shell: /bin/bash
           command: |
             ./vendor/bin/codecept run acceptance  -c ./backend-gifts/tests/codeception --debug --env=phantom-circle,chrome || true
 
       - run:
           name: Re-run failed Codeception tests
+          shell: /bin/bash
           command: |
             ./vendor/bin/codecept run acceptance  -c ./backend-gifts/tests/codeception --debug --env=phantom-circle,chrome -g failed
 
