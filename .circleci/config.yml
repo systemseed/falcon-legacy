@@ -98,6 +98,8 @@ jobs:
   ######################################
   run_tests_backend_gifts:
     <<: *defaults
+    environment:
+      BASH_ENV: /home/circleci/.bashrc
     steps:
       - checkout
 
@@ -161,7 +163,7 @@ jobs:
             echo "export FRONTEND_GIFTS_URL=$FRONTEND_GIFTS_URL" >> $BASH_ENV
             echo "export ABI_BUS_URL=$ABI_BUS_URL" >> $BASH_ENV
 
-      - run: source /home/circleci/.bashrc && echo "$ABI_BUS_URL"
+      - run: tail  /home/circleci/.bashrc && source /home/circleci/.bashrc && echo "$ABI_BUS_URL"
 
       - run:
           name: Run Codeception tests
