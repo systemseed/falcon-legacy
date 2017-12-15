@@ -211,6 +211,7 @@ jobs:
           name: Check security updates for Gifts backend
           command: platform ssh -q -A backend-gifts "drush ups -r web --security-only --pipe" | wc -l | grep -q "\b0$"
 
+
 workflows:
   version: 2
   build-and-test:
