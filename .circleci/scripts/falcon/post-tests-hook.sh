@@ -5,6 +5,7 @@
 # FALCON_CI_TO_TRIGGER_PROJECT - the GitHub or Bitbucket project name used by CircleCI build.
 
 # Trigger other CircleCI build if all tests pass.
+# See CircleCI documentation for more information: https://circleci.com/docs/api/v1-reference/#new-build-branch
 if [ -v FALCON_BUILD_TO_TRIGGER_CI_TOKEN ] && [ -v FALCON_CI_TO_TRIGGER_USERNAME ] && [ -v FALCON_CI_TO_TRIGGER_PROJECT ]; then
   curl -X POST https://circleci.com/api/v1.1/project/github/${FALCON_CI_TO_TRIGGER_USERNAME}/${FALCON_CI_TO_TRIGGER_PROJECT}/tree/master?circle-token=${FALCON_BUILD_TO_TRIGGER_CI_TOKEN}
 fi
