@@ -14,7 +14,7 @@ if (process.env.PLATFORM_PROJECT) {
   // Override environment port.
   process.env.PORT = config.port;
   console.log('PORT: ' + process.env.PORT);
-  const handle = app.getRequestHandler()
+
   for (let url in config.routes) {
     let route = config.routes[url];
     if (route.original_url === 'https://main.{default}/') {
