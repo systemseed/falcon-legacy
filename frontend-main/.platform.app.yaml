@@ -11,6 +11,8 @@ web:
     # Run node server in pm2 process manager. Logs will be available in /app/run/logs.
     start: "NODE_ENV=production PM2_HOME=$PLATFORM_APP_DIR/run pm2 start server.js --no-daemon"
   locations:
+    "/":
+      passthru: true
     # Delegate static files to Nginx. Note that "/" is currently served by Node.
     "/static":
       passthru: false
