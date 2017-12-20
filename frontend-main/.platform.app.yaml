@@ -18,12 +18,7 @@ web:
       passthru: false
       root: "static"
       expires: 1d
-      allow: false
-        # Rules for specific URI patterns.
-        rules:
-          # Allow access to common static files.
-          '\.(jpe?g|png|gif|svgz?|css|txt|js|map|ico|bmp|eot|woff2?|otf|ttf)$':
-            allow: true
+      allow: true
 
 
 hooks:
