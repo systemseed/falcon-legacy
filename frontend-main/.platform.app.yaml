@@ -1,0 +1,36 @@
+name: frontend-gifts
+type: nodejs:8.2
+disk: 512
+
+dependencies:
+  nodejs:
+    yarn: "*"
+    pm2: "^2.4.4"
+web:
+  commands:
+    # Run node server in pm2 process manager. Logs will be available in /app/run/logs.
+    start: "NODE_ENV=production PM2_HOME=$PLATFORM_APP_DIR/run pm2 start server.js --no-daemon"
+  locations:
+    # Delegate static files to Nginx. Note that "/" is currently served by Node.
+    "/static":
+      passthru: false
+      root: "static"
+      expires: 1d
+      allow: false
+        # Rules for specific URI patterns.
+        rules:
+          # Allow access to common static files.
+          '\.(jpe?g|png|gif|svgz?|css|txt|js|map|ico|bmp|eot|woff2?|otf|ttf)$':
+            allow: true
+
+
+hooks:
+  build: |
+    yarn install
+    yarn run build
+
+  deploy: |
+    echo "DEPLOY SUCCESSFULLY COMPLETED"
+
+mounts:
+  '/run': 'shared:files/run'

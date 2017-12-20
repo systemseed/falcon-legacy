@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "compression": "^1.7.1",
+    "express": "^4.16.2",
+    "next": "^4.2.1",
+    "platformsh": "^1.0.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "scripts": {
+    "build": "next build",
+    "start": "PORT=3000 NODE_ENV=production node server.js",
+    "start:dev": "PORT=3000 NODE_ENV=development node server.js"
+  }
+}

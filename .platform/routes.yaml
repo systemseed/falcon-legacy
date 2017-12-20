@@ -1,5 +1,10 @@
 # Documentation https://docs.platform.sh/configuration/routes.html
 
+# Main frontend.
+"https://main.{default}/":
+    type: upstream
+    upstream: "frontend-main:http"
+
 # Gifts frontend.
 "https://www.{default}/":
     type: upstream
