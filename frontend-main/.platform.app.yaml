@@ -1,6 +1,6 @@
 name: frontend-main
 type: nodejs:8.2
-disk: 512
+disk: 256
 
 dependencies:
   nodejs:
