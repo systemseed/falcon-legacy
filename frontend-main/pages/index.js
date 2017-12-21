@@ -6,7 +6,7 @@ export default () =>
     <style global jsx>{`
       body {
         background-size: cover;
-        background: url(static/image.jpeg);
+        background: url(${process.env.BASE_URL}/static/image.jpeg);
       }
     `}</style>
   </div>
