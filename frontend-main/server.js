@@ -46,7 +46,7 @@ app.prepare()
     server.use(compression());
 
     // Enable logging.
-    app.use(morgan('combined'));
+    server.use(morgan('combined'));
 
     // Send robots.txt file from /static folder.
     const options = {
