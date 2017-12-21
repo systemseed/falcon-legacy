@@ -1,5 +1,6 @@
 const compression = require('compression');
 const express = require('express');
+const morgan = require('morgan');
 const nextjs = require('next');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -43,6 +44,9 @@ app.prepare()
 
     // Serve gzipped content where possible.
     server.use(compression());
+
+    // Enable logging.
+    app.use(morgan('combined'));
 
     // Send robots.txt file from /static folder.
     const options = {
