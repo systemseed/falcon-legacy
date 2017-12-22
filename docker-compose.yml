@@ -2,6 +2,23 @@ version: '2'
 services:
 
   ##########################
+  ### MAIN FRONTEND #######
+  ##########################
+
+  fe_main:
+    image: node:8.2-alpine
+    environment:
+      VIRTUAL_HOST: main.flc.local
+    depends_on:
+      - api_bus
+    ports:
+      - "3001:3000"
+    volumes:
+     - ./frontend-main:/app
+    working_dir: /app
+    command: ['yarn', 'start:dev']
+
+  ##########################
   ### GIFTS FRONTEND #######
   ##########################
 
