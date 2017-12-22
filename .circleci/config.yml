@@ -137,13 +137,13 @@ jobs:
 
       # Get list of root folders changed in this branch in comparison to the master branch.
       # Later we're going to run tests and code reviews only for changed applications.
-      - run:
-          name: Get list of changed apps in this build
-          command: |
-            git pull
-            GIT_CHANGES=$(git diff --name-only origin/master...$CIRCLE_BRANCH . | cut -d '/' -f1 | uniq | paste -sd ',' -)
-            echo $GIT_CHANGES # Just debug outout.
-            echo "GIT_CHANGES=$GIT_CHANGES" >> $BASH_ENV
+#      - run:
+#          name: Get list of changed apps in this build
+#          command: |
+#            git pull
+#            GIT_CHANGES=$(git diff --name-only origin/master...$CIRCLE_BRANCH . | cut -d '/' -f1 | uniq | paste -sd ',' -)
+#            echo $GIT_CHANGES # Just debug outout.
+#            echo "GIT_CHANGES=$GIT_CHANGES" >> $BASH_ENV
 
       - run:
           name: Expose app URLs as environment variables
