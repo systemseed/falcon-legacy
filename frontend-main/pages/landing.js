@@ -8,9 +8,11 @@ import MoneyHandles from '../components/MoneyHandles';
 import ListWithImages from '../components/ListWithImages';
 import ButtonWithHeader from '../components/ButtonWithHeader';
 import Subscriptions from '../components/Subscriptions';
+import HtmlHead from '../components/HtmlHead';
 
 export default () =>
   <div>
+    <HtmlHead/>
     <Header/>
     <HeroBlock/>
     <HeadlineWithCopy/>
