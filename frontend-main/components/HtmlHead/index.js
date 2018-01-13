@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 // import Package from '../../package';
-// import inlineCSS from '../../styles/theme.scss';
+import inlineCSS from '../../styles/theme.scss';
 // import GTM from '../../analytics/GoogleTagManager';
 // import GA from '../../analytics/GoogleAnalytics';
 // import YM from '../../analytics/YandexMetrika';
@@ -10,15 +10,15 @@ import Head from 'next/head';
 const HtmlHead = ({ metaData, analytics, favicon }) => {
 
   let stylesheets;
-  // if (process.env.NODE_ENV === 'production') {
-  //   // In production, serve pre-built CSS file from /assets/{version}/main.css
-  //   const pathToCSS = `/assets/${Package.version}/main.css`;
-  //   stylesheets = <link rel="stylesheet" type="text/css" href={pathToCSS} />;
-  // }
-  // else {
-  //   // eslint-disable-next-line react/no-danger
-  //   stylesheets = <style dangerouslySetInnerHTML={{ __html: inlineCSS }} />;
-  // }
+  if (process.env.NODE_ENV === 'production') {
+    // In production, serve pre-built CSS file from /assets/{version}/main.css
+    const pathToCSS = `/assets/${Package.version}/main.css`;
+    stylesheets = <link rel="stylesheet" type="text/css" href={pathToCSS} />;
+  }
+  else {
+    // eslint-disable-next-line react/no-danger
+    stylesheets = <style dangerouslySetInnerHTML={{ __html: inlineCSS }} />;
+  }
 
   return (
     <div>

@@ -1,6 +1,7 @@
 const compression = require('compression');
 const express = require('express');
 const morgan = require('morgan');
+const sass = require('node-sass');
 const nextjs = require('next');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -47,6 +48,16 @@ app.prepare()
 
     // Enable logging.
     server.use(morgan('combined'));
+
+    // Add route to serve compiled SCSS from /assets/{build id}/main.css
+    // Note: This is only used in production, in development css is inline.
+    const sassResult = sass.renderSync({ file: './styles/theme.scss', outputStyle: 'compressed' });
+    server.get('/assets/:id/main.css', (req, res) => {
+      res.setHeader('Content-Type', 'text/css');
+      res.setHeader('Cache-Control', 'public, max-age=2592000');
+      res.setHeader('Expires', new Date(Date.now() + 2592000000).toUTCString());
+      res.send(sassResult.css);
+    });
 
     // Send robots.txt file from /static folder.
     const options = {
