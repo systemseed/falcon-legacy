@@ -6,6 +6,7 @@
     "morgan": "^1.9.0",
     "next": "^4.2.1",
     "node-sass": "^4.7.2",
+    "node-sass-glob-importer": "^5.1.0",
     "platformsh": "^1.0.0",
     "raw-loader": "^0.5.1",
     "react": "^16.2.0",

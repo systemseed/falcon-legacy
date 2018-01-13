@@ -1,3 +1,5 @@
+const globImporter = require('node-sass-glob-importer');
+
 module.exports = {
   webpack: (config, { dev }) => {
     config.module.rules.push(
@@ -14,7 +16,16 @@ module.exports = {
       },
       {
         test: /\.s(a|c)ss$/,
-        use: ['babel-loader', 'raw-loader', 'sass-loader'],
+        use: [
+          'babel-loader',
+          'raw-loader',
+          {
+            loader: "sass-loader",
+            options: {
+              importer: globImporter()
+            }
+          }
+        ],
       }
     );
     return config;
