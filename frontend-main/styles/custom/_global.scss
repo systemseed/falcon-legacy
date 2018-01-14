@@ -4,7 +4,9 @@ body {
   line-height: 1.39;
   color: $black;
   background: $grey-light;
+  min-width: 320px;
 }
+
 /* Background colors */
 .bg-grey {
   background-color: $grey-light;
@@ -14,14 +16,4 @@ body {
 }
 .bg-white {
   background-color: $white;
-}
-
-/* Text colors */
-.text-white {
-  color: $white;
-}
-
-/* Text alignment */
-.text-right {
-  text-align: right;
 }

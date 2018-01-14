@@ -14,7 +14,7 @@ import PageTitleWithCopy from '../components/organisms/PageTitleWithCopy';
 export default () =>
   <OneColumn>
     <HtmlHead/>
-    <Header/>
+    <Header imageUrl="/static/images/logo.png" slogan="#TT2 #mumtomum <span className='d-none d-xl-block'>#giveahandtoamum</span>"/>
     {/*<HeroBlock/>*/}
     <PageTitleWithCopy/>
     {/*<Video/>*/}

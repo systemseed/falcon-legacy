@@ -1,4 +1,7 @@
 .site-slogan {
-  font-size: 20px;
+  font-size: 16px;
   color: $white;
+  @include media-breakpoint-up(xl) {
+    font-size: 20px;
+  }
 }

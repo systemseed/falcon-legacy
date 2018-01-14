@@ -12,8 +12,8 @@
       "type": "header",
       "order": 0,
       "data": {
-        "image_url": "/static/images/logo.png",
-        "slogan": "#TT2 #mumtomum #giveahandtoamum"
+        "logo_url": "/static/images/logo.png",
+        "slogan": "#TT2 #mumtomum <span class='d-none d-xl-block'>#giveahandtoamum</span>"
       },
       "styles": [
         "bg-green"
