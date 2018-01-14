@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 // import Package from '../../package';
-import inlineCSS from '../../styles/theme.scss';
+import inlineCSS from '../../../styles/theme.scss';
 // import GTM from '../../analytics/GoogleTagManager';
 // import GA from '../../analytics/GoogleAnalytics';
 // import YM from '../../analytics/YandexMetrika';
@@ -32,7 +32,6 @@ const HtmlHead = ({ metaData, analytics, favicon }) => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <link rel="stylesheet" type="text/css" href="/static/css/vendor/bootstrap-grid.min.css" />
         {!!favicon && <link rel="shortcut icon" href={favicon} type="image/vnd.microsoft.icon" />}
         {metaData.description && <meta name="description" content={metaData.description} />}
         {metaData.keywords && <meta name="keywords" content={metaData.keywords} />}

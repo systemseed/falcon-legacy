@@ -1,25 +1,26 @@
 import React from 'react';
-import Header from '../components/Header';
-import HeroBlock from '../components/HeroBlock';
-import HeadlineWithCopy from '../components/HeadlineWithCopy';
-import Video from '../components/Video';
-import TextBlock from '../components/TextBlock';
-import MoneyHandles from '../components/MoneyHandles';
-import ListWithImages from '../components/ListWithImages';
-import ButtonWithHeader from '../components/ButtonWithHeader';
-import Subscriptions from '../components/Subscriptions';
-import HtmlHead from '../components/HtmlHead';
+import Header from '../components/organisms/Header';
+import HeroBlock from '../components/organisms/HeroBlock';
+import Video from '../components/organisms/Video';
+import TextBlock from '../components/organisms/TextBlock';
+import MoneyHandles from '../components/organisms/MoneyHandles';
+import ListWithImages from '../components/organisms/ListWithImages';
+import ButtonWithHeader from '../components/organisms/ButtonWithHeader';
+import Subscriptions from '../components/tmp/Subscriptions';
+import HtmlHead from '../components/organisms/HtmlHead';
+import OneColumn from '../components/templates/OneColumn';
+import PageTitleWithCopy from '../components/organisms/PageTitleWithCopy';
 
 export default () =>
-  <div>
+  <OneColumn>
     <HtmlHead/>
     <Header/>
-    <HeroBlock/>
-    <HeadlineWithCopy/>
-    <Video/>
-    <TextBlock/>
-    <MoneyHandles/>
-    <ListWithImages/>
-    <ButtonWithHeader/>
-    <Subscriptions/>
-  </div>
+    {/*<HeroBlock/>*/}
+    <PageTitleWithCopy/>
+    {/*<Video/>*/}
+    {/*<TextBlock/>*/}
+    {/*<MoneyHandles/>*/}
+    {/*<ListWithImages/>*/}
+    {/*<ButtonWithHeader/>*/}
+    {/*<Subscriptions/>*/}
+  </OneColumn>

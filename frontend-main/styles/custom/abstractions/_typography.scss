@@ -1,0 +1,19 @@
+/* Text styles */
+
+@mixin heading1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: $green;
+}
+
+@mixin heading2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: $green;
+}
+
+@mixin subheading {
+  font-size: 24px;
+  font-weight: bold;
+  color: $black;
+}

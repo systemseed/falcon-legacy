@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "bootstrap-4-grid": "^2.2.0",
     "compression": "^1.7.1",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
