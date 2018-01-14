@@ -9,10 +9,10 @@
   },
   "components": [
     {
-      "type": "header",
+      "type": "SiteHeader",
       "order": 0,
       "data": {
-        "logo_url": "/static/images/logo.png",
+        "logoUrl": "/static/images/logo.png",
         "slogan": "#TT2 #mumtomum <span class='d-none d-xl-block'>#giveahandtoamum</span>"
       },
       "styles": [
