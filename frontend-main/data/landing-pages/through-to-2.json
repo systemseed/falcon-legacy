@@ -12,7 +12,7 @@
       "type": "header",
       "order": 0,
       "data": {
-        "logo_url": "/static/images/logo.png",
+        "image_url": "/static/images/logo.png",
         "slogan": "#TT2 #mumtomum #giveahandtoamum"
       },
       "styles": [

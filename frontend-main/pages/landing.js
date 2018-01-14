@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../components/organisms/Header';
+import Header from '../components/organisms/SiteHeader';
 import HeroBlock from '../components/organisms/HeroBlock';
 import Video from '../components/organisms/Video';
 import TextBlock from '../components/organisms/TextBlock';
