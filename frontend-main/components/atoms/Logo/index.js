@@ -1,4 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default (props) =>
-  <img src={props.imageUrl} title="Concern Worldwide" />
+const Logo = ({ imageUrl, imageTitle, imageAlt }) => {
+  return (
+    <img src={imageUrl} title={imageTitle} alt={imageAlt} />
+  );
+};
+
+Logo.propTypes = {
+  imageUrl: PropTypes.string,
+  imageTitle: PropTypes.string,
+  imageAlt: PropTypes.string,
+};
+
+Logo.defaultProps = {
+  imageUrl: '',
+  imageTitle: '',
+  imageAlt: ''
+};
+
+export default Logo;

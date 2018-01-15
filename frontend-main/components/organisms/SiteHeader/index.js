@@ -1,13 +1,39 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Slogan from '../../molecules/Slogan';
 import LogoLink from '../../molecules/LogoLink';
 
-export default (props) =>
-  <div className={"row site-header " + props.styles}>
-    <div className="col-4 site-header-logo">
-      <LogoLink imageUrl={props.logoUrl}/>
+const SiteHeader = ({ styles, slogan, linkUrl, linkTitle, imageUrl, imageTitle, imageAlt }) => {
+  return (
+    <div className={"row site-header " + styles}>
+      <div className="col-4 site-header-logo">
+        <LogoLink linkUrl={linkUrl} linkTitle={linkTitle} imageUrl={imageUrl} imageTitle={imageTitle} imageAlt={imageAlt}/>
+      </div>
+      <div className="col-8 site-header-slogan">
+        <Slogan>{slogan}</Slogan>
+      </div>
     </div>
-    <div className="col-8 site-header-slogan">
-      <Slogan>{props.slogan}</Slogan>
-    </div>
-  </div>
+  );
+};
+
+SiteHeader.propTypes = {
+  styles: PropTypes.string,
+  slogan: PropTypes.string,
+  linkUrl: PropTypes.string,
+  linkTitle: PropTypes.string,
+  imageUrl: PropTypes.string,
+  imageTitle: PropTypes.string,
+  imageAlt: PropTypes.string
+};
+
+SiteHeader.defaultProps = {
+  styles: '',
+  slogan: '',
+  linkUrl: '/',
+  linkTitle: '',
+  imageUrl: '',
+  imageTitle: '',
+  imageAlt: ''
+};
+
+export default SiteHeader;

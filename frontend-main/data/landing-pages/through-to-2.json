@@ -1,18 +1,22 @@
 {
   "meta": {
-    "page_title": "You could help babies like Abdulla through to 2",
+    "pageTitle": "You could help babies like Abdulla through to 2",
     "metatags": {
-      "title": "You could help babies like Abdulla through to 2",
-      "description": ""
+      "metaKeywords": "You could help babies like Abdulla through to 2",
+      "metaDescription": "The first 2 years of a child’s life are so important to healthy development and growth. Watch the video to learn more about how you can improve the lives of children in need."
     },
-    "template": "onecolumn"
+    "template": "OneColumnLayout"
   },
   "components": [
     {
       "type": "SiteHeader",
       "order": 0,
       "data": {
-        "logoUrl": "/static/images/logo.png",
+        "imageUrl": "/static/images/logo.png",
+        "imageTitle": "Concern Worldwide",
+        "linkUrl": "/",
+        "linkTitle": "Concern Worldwide",
+        "imageAlt": "Concern Worldwide",
         "slogan": "#TT2 #mumtomum <span class='d-none d-xl-inline'>#giveahandtoamum</span>"
       },
       "styles": ["bg-green"]
