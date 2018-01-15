@@ -1,3 +1,6 @@
 .h2 {
-  @include heading2;
+  @include font-size(24px);
+  font-weight: bold;
+  color: $green;
+  line-height: normal;
 }

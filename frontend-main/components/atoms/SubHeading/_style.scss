@@ -1,3 +1,14 @@
 .subheading {
-  @include subheading;
+  @include font-size(20px);
+  font-weight: bold;
+  color: $black;
+  line-height: 1.2em;
+  margin: 0.74em 0;
+  @include media-breakpoint-up(md) {
+    @include font-size(22px);
+    margin-bottom: 1.4em;
+  }
+  @include media-breakpoint-up(xl) {
+    @include font-size(24px);
+  }
 }

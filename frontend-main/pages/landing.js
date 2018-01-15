@@ -15,7 +15,7 @@ class LandingPage extends React.Component {
     const pageComponents = components.map((data, i) => {
         const Component = availableComponents[data.type];
         return (
-          <Component key={i} styles={data.styles} {...data.data} />
+          <Component key={i} styles={data.styles.join(' ')} {...data.data} />
         )
       })
 

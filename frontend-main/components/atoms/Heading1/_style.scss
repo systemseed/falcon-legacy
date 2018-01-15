@@ -1,3 +1,12 @@
 .h1 {
-  @include heading1;
+  @include font-size(24px);
+  font-weight: bold;
+  color: $green;
+  line-height: normal;
+  @include media-breakpoint-up(md) {
+    @include font-size(32px);
+  }
+  @include media-breakpoint-up(xl) {
+    @include font-size(48px);
+  }
 }
