@@ -31,6 +31,16 @@
         "copy": "<p>The first two years of a child’s life are so important for their future. If babies don’t have the proper food and care during this special time, the effects can be devastating. Nearly half of child deaths worldwide are linked to malnutrition. And even for those who do survive, many must live with the consequences: they are likely to be small for their age, perform less well at school and be more susceptible to illness.</p><p>Thats why your support is so important.</p>"
       },
       "styles": ["bg-grey", "mt-md-4", "mt-sm-2"]
+    },
+    {
+      "type": "TextBlockPane",
+      "order": 4,
+      "data": {
+        "heading": "The Through To 2 Project",
+        "subheading": "",
+        "copy": "<p>The first 2 years of a child’s life are so important to healthy development and growth. Watch the video to learn more about how you can improve the lives of children in need.</p>"
+      },
+      "styles": ["bg-grey", "mt-md-4", "mt-sm-2"]
     }
   ]
 }

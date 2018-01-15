@@ -6,6 +6,7 @@ import OneColumnLayout from '../components/templates/OneColumnLayout';
 const availableComponents = {
   'SiteHeader': dynamic(import('../components/organisms/SiteHeader')),
   'PageTitleWithCopy': dynamic(import('../components/organisms/PageTitleWithCopy')),
+  'TextBlockPane': dynamic(import('../components/organisms/TextBlockPane')),
 };
 
 class LandingPage extends React.Component {
