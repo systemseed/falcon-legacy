@@ -1,5 +1,29 @@
 .site-header {
+  .site-header-logo img {
+    max-width: 92px;
+    padding: 10px 0;
+    display: block;
+  }
   .site-header-slogan {
     text-align: right;
+    .site-slogan {
+      position: relative;
+      top: calc(50% - 11px);
+    }
+  }
+  @include media-breakpoint-up(md) {
+    .site-header-logo img {
+      max-width: 118px;
+      padding: 20px 0;
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    .site-header-logo img {
+      max-width: 147px;
+      padding: 25px 0;
+    }
+    .site-header-slogan .site-slogan {
+      @include font-size(20px);
+    }
   }
 }

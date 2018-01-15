@@ -1,19 +1,27 @@
-/* Text styles */
+/* Use REMs with a pixel fallback for font sizing. */
+@mixin font-size($font-size) {
+  font-size: $font-size;
+  font-size: ($font-size / $base-font-size)*1rem;
+}
 
+/* Text styles */
 @mixin heading1 {
-  font-size: 48px;
+  @include font-size(24px);
   font-weight: bold;
   color: $green;
+  line-height: normal;
 }
 
 @mixin heading2 {
-  font-size: 36px;
+  @include font-size(24px);
   font-weight: bold;
   color: $green;
+  line-height: normal;
 }
 
 @mixin subheading {
-  font-size: 24px;
+  @include font-size(20px);
   font-weight: bold;
   color: $black;
+  line-height: normal;
 }

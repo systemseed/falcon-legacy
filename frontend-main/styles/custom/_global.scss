@@ -1,10 +1,20 @@
+html {
+  font-size: 100%;
+}
+
 body {
+  @include font-size(16px);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
-  line-height: 1.39;
+  line-height: 22px;
   color: $black;
   background: $grey-light;
-  min-width: 320px;
+  @include media-breakpoint-up(md) {
+    line-height: 25px;
+  }
+  @include media-breakpoint-up(xl) {
+    @include font-size(18px);
+    line-height: 26px;
+  }
 }
 
 /* Background colors */

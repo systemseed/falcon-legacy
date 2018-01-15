@@ -3,7 +3,7 @@ import Heading1WithSubheadingAndCopy from '../../molecules/Heading1WithSubheadin
 
 export default (props) =>
   <div className={"row justify-content-center pagetitle-with-copy " + props.styles}>
-    <div className="col-6">
+    <div className="col-12 col-md-8 col-xl-6">
       <Heading1WithSubheadingAndCopy/>
     </div>
   </div>

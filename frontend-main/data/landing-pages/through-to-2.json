@@ -13,7 +13,7 @@
       "order": 0,
       "data": {
         "logoUrl": "/static/images/logo.png",
-        "slogan": "#TT2 #mumtomum <span class='d-none d-xl-block'>#giveahandtoamum</span>"
+        "slogan": "#TT2 #mumtomum <span class='d-none d-xl-inline'>#giveahandtoamum</span>"
       },
       "styles": [
         "bg-green"
