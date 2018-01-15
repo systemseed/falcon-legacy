@@ -7,6 +7,7 @@ const availableComponents = {
   'SiteHeader': dynamic(import('../components/organisms/SiteHeader')),
   'PageTitleWithCopy': dynamic(import('../components/organisms/PageTitleWithCopy')),
   'TextBlockPane': dynamic(import('../components/organisms/TextBlockPane')),
+  'MoneyHandlesWithButtonPane': dynamic(import('../components/organisms/MoneyHandlesWithButtonPane')),
 };
 
 class LandingPage extends React.Component {

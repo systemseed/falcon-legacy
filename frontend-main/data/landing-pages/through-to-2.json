@@ -41,6 +41,33 @@
         "copy": "<p>The first 2 years of a child’s life are so important to healthy development and growth. Watch the video to learn more about how you can improve the lives of children in need.</p>"
       },
       "styles": ["bg-grey", "mt-md-4", "mt-sm-2"]
+    },
+    {
+      "type": "MoneyHandlesWithButtonPane",
+      "order": 4,
+      "data": {
+        "moneyHandlesData": [
+          {
+            "description": "Provide children with a full course of life-saving therapeutic food.",
+            "iconUrl": "/static/images/money-handles-1.png",
+            "buttonText": "Give £5 a month",
+            "buttonUrl": "https://concern.net/donate"
+          },
+          {
+            "description": "Provide new mums with enough food for a month.",
+            "iconUrl": "/static/images/money-handles-1.png",
+            "buttonText": "Give £9 a month",
+            "buttonUrl": "https://concern.net/donate"
+          },
+          {
+            "description": "Provide cooking lessons for parents to prepare nutritious meals.",
+            "iconUrl": "/static/images/money-handles-1.png",
+            "buttonText": "Give £27 a month",
+            "buttonUrl": "https://concern.net/donate"
+          }
+        ]
+      },
+      "styles": ["bg-white", "mb-5"]
     }
   ]
 }
