@@ -2,6 +2,7 @@
   @include font-size(14px);
   color: $white;
   line-height: normal;
+  font-weight: bold;
   @include media-breakpoint-up(md) {
     @include font-size(20px);
   }

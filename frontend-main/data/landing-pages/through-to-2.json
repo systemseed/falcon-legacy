@@ -34,7 +34,7 @@
     },
     {
       "type": "TextBlockPane",
-      "order": 4,
+      "order": 5,
       "data": {
         "heading": "The Through To 2 Project",
         "subheading": "",
@@ -67,7 +67,18 @@
           }
         ]
       },
-      "styles": ["bg-white", "mb-5"]
+      "styles": ["bg-white"]
+    },
+    {
+      "type": "DonateButtonPane",
+      "order": 6,
+      "data": {
+        "heading": "Help Babies Through To 2",
+        "subheading": "",
+        "buttonText": "Donate Now",
+        "buttonUrl": "https://concern.net/donate"
+      },
+      "styles": ["bg-green", "mb-5"]
     }
   ]
 }

@@ -3,6 +3,9 @@
   font-weight: bold;
   color: $green;
   line-height: normal;
+  .bg-green & {
+    color: $white;
+  }
   @include media-breakpoint-up(md) {
     @include font-size(32px);
   }

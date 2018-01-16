@@ -8,13 +8,14 @@ const availableComponents = {
   'PageTitleWithCopy': dynamic(import('../components/organisms/PageTitleWithCopy')),
   'TextBlockPane': dynamic(import('../components/organisms/TextBlockPane')),
   'MoneyHandlesWithButtonPane': dynamic(import('../components/organisms/MoneyHandlesWithButtonPane')),
+  'DonateButtonPane': dynamic(import('../components/organisms/DonateButtonPane')),
 };
 
 class LandingPage extends React.Component {
   render() {
     const {components} = this.props.data;
 
-    const pageComponents = components.map((data, i) => {
+    const pageComponents = components.sort((a, b) => a.order > b.order).map((data, i) => {
         const Component = availableComponents[data.type];
         return (
           <Component key={i} styles={data.styles.join(' ')} {...data.data} />
