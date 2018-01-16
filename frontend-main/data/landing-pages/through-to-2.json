@@ -23,6 +23,26 @@
       "styles": ["bg-green"]
     },
     {
+      "type": "HeroWithDonationBlockPane",
+      "order": 1,
+      "data": {
+        "heroData": {
+          "imageUrl": "/static/images/content/through-to-2/hero-image.jpg",
+          "imageAlt": "Concern Worldwide",
+          "imageTitle": "Concern Worldwide"
+        },
+        "donationBlockData": {
+          "currencySymbol": "gbp",
+          "singleDonationUrl": "https://concern.net/donate",
+          "regularDonationUrl": "https://concern.net/donate",
+          "paypalDonationUrl": "https://concern.net/donate",
+          "predefinedValues": [10, 20, 40],
+          "buttonText": "Donate"
+        }
+      },
+      "styles": ["bg-white"]
+    },
+    {
       "type": "PageTitleWithCopy",
       "order": 2,
       "data": {

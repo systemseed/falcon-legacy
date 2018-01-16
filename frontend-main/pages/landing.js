@@ -12,6 +12,7 @@ const availableComponents = {
   'ImageWithTextPane': dynamic(import('../components/organisms/ImageWithTextPane')),
   'VideoPlayerPane': dynamic(import('../components/organisms/VideoPlayerPane')),
   'SingUpWithDescriptionPane': dynamic(import('../components/organisms/SingUpWithDescriptionPane')),
+  'HeroWithDonationBlockPane': dynamic(import('../components/organisms/HeroWithDonationBlockPane')),
 };
 
 class LandingPage extends React.Component {
