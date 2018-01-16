@@ -17,6 +17,10 @@ body {
   }
 }
 
+input, textarea, img {
+  max-width: 100%;
+}
+
 /* Background colors */
 .bg-grey {
   background-color: $grey-light;

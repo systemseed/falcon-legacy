@@ -1,0 +1,12 @@
+.h3 {
+  @include font-size(20px);
+  font-weight: bold;
+  color: $green;
+  line-height: normal;
+  .bg-green & {
+    color: $white;
+  }
+  @include media-breakpoint-up(xl) {
+    @include font-size(36px);
+  }
+}

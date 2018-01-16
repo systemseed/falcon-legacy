@@ -14,10 +14,10 @@
       "order": 0,
       "data": {
         "imageUrl": "/static/images/logo.png",
+        "imageAlt": "Concern Worldwide",
         "imageTitle": "Concern Worldwide",
         "linkUrl": "/",
         "linkTitle": "Concern Worldwide",
-        "imageAlt": "Concern Worldwide",
         "slogan": "#TT2 #mumtomum <span class='d-none d-xl-inline'>#giveahandtoamum</span>"
       },
       "styles": ["bg-green"]
@@ -34,7 +34,7 @@
     },
     {
       "type": "TextBlockPane",
-      "order": 5,
+      "order": 3,
       "data": {
         "heading": "The Through To 2 Project",
         "subheading": "",
@@ -49,21 +49,51 @@
         "moneyHandlesData": [
           {
             "description": "Provide children with a full course of life-saving therapeutic food.",
-            "iconUrl": "/static/images/money-handles-1.png",
+            "iconUrl": "/static/images/content/through-to-2/money-handles-1.png",
             "buttonText": "Give £5 a month",
             "buttonUrl": "https://concern.net/donate"
           },
           {
             "description": "Provide new mums with enough food for a month.",
-            "iconUrl": "/static/images/money-handles-1.png",
+            "iconUrl": "/static/images/content/through-to-2/money-handles-1.png",
             "buttonText": "Give £9 a month",
             "buttonUrl": "https://concern.net/donate"
           },
           {
             "description": "Provide cooking lessons for parents to prepare nutritious meals.",
-            "iconUrl": "/static/images/money-handles-1.png",
+            "iconUrl": "/static/images/content/through-to-2/money-handles-1.png",
             "buttonText": "Give £27 a month",
             "buttonUrl": "https://concern.net/donate"
+          }
+        ]
+      },
+      "styles": ["bg-white"]
+    },
+    {
+      "type": "ImageWithTextPane",
+      "order": 5,
+      "data": {
+        "imageWithTextData": [
+          {
+            "headline": "You’ll help mothers give birth to healthy children",
+            "copy": "If a mum doesn’t have enough to eat during pregnancy, it can lead to dangerous low birth weight and poor growth in their children. Your support could help provide antenatal care and nutrition for expectant mums.",
+            "imageUrl": "/static/images/content/through-to-2/mod-1.png",
+            "imageAlt": "You’ll help mothers give birth to healthy children",
+            "imageTitle": "You’ll help mothers give birth to healthy children"
+          },
+          {
+            "headline": "You’ll be helping children survive in times of crisis",
+            "copy": "When food is scarce due to poor harvests, tragically it’s the children who often suffer the most or die. Your gifts will help provide specially enriched food for malnourished children.",
+            "imageUrl": "/static/images/content/through-to-2/mod-2.png",
+            "imageAlt": "You’ll be helping children survive in times of crisis",
+            "imageTitle": "You’ll be helping children survive in times of crisis"
+          },
+          {
+            "headline": "You’ll help a baby  through to 2",
+            "copy": "Your support will, over the next two years, give very poor children like Sueva the chance to grow up healthy.",
+            "imageUrl": "/static/images/content/through-to-2/mod-3.png",
+            "imageAlt": "You’ll help a baby  through to 2",
+            "imageTitle": "You’ll help a baby  through to 2"
           }
         ]
       },

@@ -1,0 +1,39 @@
+.image-with-text {
+  img {
+    display: block;
+  }
+  .image-with-text__text {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    .h3 {
+      margin-top: 0;
+    }
+  }
+  @include media-breakpoint-up(sm) {
+    .image-with-text__text {
+      min-height: 0;
+    }
+  }
+  @include media-breakpoint-up(md) {
+    .image-with-text__text {
+      & > .inside {
+        width: 70%;
+      }
+      .plain-text {
+        @include font-size(14px);
+        line-height: 18px;
+      }
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    .image-with-text__text {
+      .plain-text {
+        @include font-size(18px);
+        line-height: 25px;
+      }
+    }
+  }
+}
