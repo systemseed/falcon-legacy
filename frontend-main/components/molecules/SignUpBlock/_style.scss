@@ -1,0 +1,22 @@
+.sign-up-block {
+
+  .subheading {
+    color: $green;
+  }
+
+  @include media-breakpoint-up(xl) {
+    .subheading {
+      margin-bottom: 0.74em;
+    }
+  }
+  @include media-breakpoint-up(md) {
+    .subheading {
+      @include font-size(20px);
+    }
+  }
+  @include media-breakpoint-up(md) {
+    .subheading {
+      @include font-size(24px);
+    }
+  }
+}

@@ -21,6 +21,17 @@ input, textarea, img {
   max-width: 100%;
 }
 
+a {
+
+}
+a.link-pink {
+  color: $pink;
+  text-decoration: none;
+  &:hover {
+    color: darken($pink, 8);
+  }
+}
+
 /* Background colors */
 .bg-grey {
   background-color: $grey-light;

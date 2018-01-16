@@ -1,0 +1,18 @@
+.sign-up-with-description-pane {
+
+  @include media-breakpoint-only(xs) {
+    .sign-up-with-description__description .subheading {
+      margin-bottom: 1.5em;
+    }
+  }
+  @include media-breakpoint-up(md) {
+    .sign-up-with-description__description .subheading {
+      @include font-size(20px);
+    }
+  }
+  @include media-breakpoint-up(md) {
+    .sign-up-with-description__description .subheading {
+      @include font-size(24px);
+    }
+  }
+}
