@@ -1,0 +1,11 @@
+.money-handles-description {
+  @include font-size(14px);
+  color: $white;
+  line-height: normal;
+  @include media-breakpoint-up(md) {
+    @include font-size(20px);
+  }
+  @include media-breakpoint-up(xl) {
+    @include font-size(24px);
+  }
+}

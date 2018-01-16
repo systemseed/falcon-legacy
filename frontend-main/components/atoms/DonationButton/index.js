@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const DonationButton = ({ type, size, block, active, disabled, onClick, children }) => {
-  let classes = ['btn'];
+const DonationButton = ({ type, textSize, block, active, disabled, onClick, children }) => {
+  let classes = ['btn', 'donation-btn'];
   if (type) {
     classes.push('btn-' + type);
   }
 
-  if (size) {
-    classes.push('btn-' + size);
+  if (textSize) {
+    classes.push('btn-text-' + textSize);
   }
 
   if (block) {

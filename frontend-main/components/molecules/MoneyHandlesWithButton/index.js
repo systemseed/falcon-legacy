@@ -6,12 +6,12 @@ import DonationButton from '../../atoms/DonationButton';
 
 const MoneyHandlesWithButton = ({ description, iconUrl, buttonText, buttonUrl }) => {
   return (
-    <div className="money-handles-with-button">
-      <div className="money-handles-with-button--description">
+    <div className="money-handles-with-button bg-green">
+      <div className="money-handles-with-button-description">
         <MoneyHandlesIcon imageUrl={iconUrl} />
         <MoneyHandlesDescription>{description}</MoneyHandlesDescription>
       </div>
-      <div className="money-handles-with-button--button">
+      <div className="money-handles-with-button-button">
         <DonationButton donationUrl={buttonUrl}>{buttonText}</DonationButton>
       </div>
     </div>

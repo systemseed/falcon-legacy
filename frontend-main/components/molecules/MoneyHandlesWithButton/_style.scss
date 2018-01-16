@@ -1,0 +1,46 @@
+.money-handles-with-button {
+  text-align: center;
+  margin-bottom: 10px;
+  .money-handles-with-button-description {
+    padding: 6% 20px;
+    .money-handles-icon {
+      margin-bottom: 4%;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    display: flex;
+    .money-handles-with-button-description {
+      width: 66%;
+      .money-handles-description {
+        max-width: 350px;
+        margin: 0 auto;
+      }
+    }
+    .money-handles-with-button-button {
+      width: 34%;
+      .donation-btn {
+        height: 100%;
+        border-radius: 0;
+        min-width: 0;
+        width: 100%;
+      }
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    padding: 10px 20px;
+    height: 416px;
+    position: relative;
+    .money-handles-with-button-button {
+      position: absolute;
+      bottom: 40px;
+      margin-left: -20px;
+      width: 100%;
+    }
+    .money-handles-icon {
+      position: absolute;
+      bottom: 160px;
+      left: calc(50% - 45px);
+    }
+  }
+}

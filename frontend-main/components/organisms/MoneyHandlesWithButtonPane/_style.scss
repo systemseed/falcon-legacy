@@ -1,0 +1,10 @@
+.money-handles-with-button-pane {
+  & > div {
+    padding: 0;
+  }
+  @include media-breakpoint-up(xl) {
+    & > div:nth-child(2) .money-handles-with-button {
+      background-color: lighten($green, 5);
+    }
+  }
+}

@@ -40,7 +40,7 @@
         "subheading": "",
         "copy": "<p>The first 2 years of a child’s life are so important to healthy development and growth. Watch the video to learn more about how you can improve the lives of children in need.</p>"
       },
-      "styles": ["bg-grey", "mt-md-4", "mt-sm-2"]
+      "styles": ["bg-grey", "mt-md-4", "mt-sm-2", "mb-5"]
     },
     {
       "type": "MoneyHandlesWithButtonPane",
