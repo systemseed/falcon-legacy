@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactPlayer from 'react-player';
 
 const VideoPlayer = ({ videoUrl }) => {
   return (
-    <div className="video-player">
-      <img src="/static/images/content/through-to-2/video.png" title={videoUrl} alt={videoUrl} />
-    </div>
+    <ReactPlayer
+      url={videoUrl}
+      className='video-player'
+      width='100%'
+      height='100%'
+      controls
+    />
   );
 };
 
