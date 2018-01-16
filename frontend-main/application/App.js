@@ -3,7 +3,7 @@ import HtmlHead from './HtmlHead';
 
 const App = ({ metaData, children }) => (
   <div>
-    <HtmlHead metaData={metaData} />
+    <HtmlHead metaData={metaData} favicon="/static/favicon.ico"/>
     { children }
   </div>
 );
