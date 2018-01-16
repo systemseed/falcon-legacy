@@ -32,7 +32,7 @@
           "imageTitle": "Concern Worldwide"
         },
         "donationBlockData": {
-          "currencySymbol": "gbp",
+          "currency": "gbp",
           "singleDonationUrl": "https://concern.net/donate",
           "regularDonationUrl": "https://concern.net/donate",
           "paypalDonationUrl": "https://concern.net/donate",

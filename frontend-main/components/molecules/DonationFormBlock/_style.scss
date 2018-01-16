@@ -1,0 +1,48 @@
+.donation-form-block {
+
+  padding: 10%;
+  .predefined-values {
+    input[type="radio"] {
+      position: absolute !important;
+      clip: rect(0, 0, 0, 0);
+      height: 1px;
+      width: 1px;
+      border: 0;
+      overflow: hidden;
+    }
+    input[type="radio"]:checked + label {
+      @extend .btn-with-border.active;
+    }
+    label {
+      @extend .btn-with-border;
+    }
+  }
+  .donate-monthly {
+    color: $grey;
+    @include font-size(13px);
+  }
+  .donate-by-paypal {
+    float: right;
+  }
+}
+.btn-with-border {
+  @include font-size(22px);
+  border-radius: 8px;
+  border: solid 2px $grey;
+  background-color: $white;
+  color: $grey;
+  padding: 5px 16px;
+  margin: 0;
+  text-align: center;
+
+  &:hover {
+    background-color: $white-grey;
+    cursor: pointer;
+  }
+  &.active,
+  &.active:hover {
+    background-color: darken($pink, 8);
+    color: $white;
+    border: solid 2px darken($pink, 8);
+  }
+}
