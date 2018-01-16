@@ -1,6 +1,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import HtmlHead from '../components/organisms/HtmlHead';
+import App from '../application/App';
 import OneColumnLayout from '../components/templates/OneColumnLayout';
 
 const availableComponents = {
@@ -13,9 +13,11 @@ const availableComponents = {
 
 class LandingPage extends React.Component {
   render() {
-    const {components} = this.props.data;
+    const {components, meta } = this.props.data;
 
-    const pageComponents = components.sort((a, b) => a.order > b.order).map((data, i) => {
+    const pageComponents = components
+      .sort((a, b) => a.order > b.order)
+      .map((data, i) => {
         const Component = availableComponents[data.type];
         return (
           <Component key={i} styles={data.styles.join(' ')} {...data.data} />
@@ -23,10 +25,11 @@ class LandingPage extends React.Component {
       })
 
     return (
-      <OneColumnLayout>
-        <HtmlHead/>
-        {pageComponents}
-      </OneColumnLayout>
+      <App metaData={meta.metatags}>
+        <OneColumnLayout>
+          {pageComponents}
+        </OneColumnLayout>
+      </App>
     )
   }
 
