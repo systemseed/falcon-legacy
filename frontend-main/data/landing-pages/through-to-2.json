@@ -33,8 +33,16 @@
       "styles": ["bg-grey", "mt-md-4", "mt-sm-2"]
     },
     {
-      "type": "TextBlockPane",
+      "type": "VideoPlayerPane",
       "order": 3,
+      "data": {
+        "videoUrl": "https://www.youtube.com/watch?v=ts6Vk566ozw"
+      },
+      "styles": ["bg-grey", "mb-5"]
+    },
+    {
+      "type": "TextBlockPane",
+      "order": 4,
       "data": {
         "heading": "The Through To 2 Project",
         "subheading": "",
@@ -44,7 +52,7 @@
     },
     {
       "type": "MoneyHandlesWithButtonPane",
-      "order": 4,
+      "order": 5,
       "data": {
         "moneyHandlesData": [
           {
@@ -71,7 +79,7 @@
     },
     {
       "type": "ImageWithTextPane",
-      "order": 5,
+      "order": 6,
       "data": {
         "imageWithTextData": [
           {
@@ -101,7 +109,7 @@
     },
     {
       "type": "DonateButtonPane",
-      "order": 6,
+      "order": 7,
       "data": {
         "heading": "Help Babies Through To 2",
         "subheading": "",
