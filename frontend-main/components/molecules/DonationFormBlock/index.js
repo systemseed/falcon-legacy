@@ -1,22 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DonationButton from '../../atoms/DonationButton';
-import { Button } from 'reactstrap';
+import { Button, ButtonGroup } from 'reactstrap';
 
 class DonationForm extends React.Component {
 
   constructor(props) {
-    const { currency, singleDonationUrl, regularDonationUrl, paypalDonationUrl, predefinedValues, buttonText } = props;
     super(props);
 
     this.state = {
       isSending: false,
       isRegular: true,
+      rSelected: null
     };
 
-    this.predefinedValue = [];
+    this.handleRadioBtnClick = this.handleRadioBtnClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleRadioBtnClick(event, rSelected) {
+    this.setState({ rSelected });
+    this.donationAmount.value = event.target.innerHTML.match(/\d+/g);
   }
 
   handleChange(event) {
@@ -28,12 +32,10 @@ class DonationForm extends React.Component {
         isRegular: event.target.checked
       });
     }
-    if (event.target.name == 'predefined_value') {
-      this.donationAmount.value = event.target.nextSibling.innerHTML.match(/\d+/g);
-    }
+
     if (event.target.name == 'donation_amount') {
-      this.predefinedValue.forEach((element) => {
-        element.checked = false;
+      this.setState({
+        rSelected: null
       });
     }
 
@@ -73,10 +75,11 @@ class DonationForm extends React.Component {
     return(
       <form className="donation-form-block" onSubmit={this.handleSubmit}>
         <div className="donation-form-block__predefined-values">
-          {/* Use ref here to uncheck radio buttons state in js. */}
-          <input type="radio" name="predefined_value" id="predefined_value_1" ref={input => { this.predefinedValue[0] = input; }} onChange={this.handleChange} /><label for="predefined_value_1">£10</label>
-          <input type="radio" name="predefined_value" id="predefined_value_2" ref={input => { this.predefinedValue[1] = input; }} onChange={this.handleChange} /><label for="predefined_value_2">£20</label>
-          <input type="radio" name="predefined_value" id="predefined_value_3" ref={input => { this.predefinedValue[2] = input; }} onChange={this.handleChange} /><label for="predefined_value_3">£30</label>
+          <ButtonGroup>
+            <Button outline color="grey" onClick={(event) => this.handleRadioBtnClick(event, 1)} active={this.state.rSelected === 1}>£10</Button>
+            <Button outline color="grey" onClick={(event) => this.handleRadioBtnClick(event, 2)} active={this.state.rSelected === 2}>£20</Button>
+            <Button outline color="grey" onClick={(event) => this.handleRadioBtnClick(event, 3)} active={this.state.rSelected === 3}>£30</Button>
+          </ButtonGroup>
         </div>
         <div className="donation-form-block__donation-amount">
           {/* Use ref here instead of state values to have an ability to get field value set by A/B tools (by js). */}
@@ -87,10 +90,10 @@ class DonationForm extends React.Component {
             <input type="checkbox" name="donate_monthly" id="donate-monthly" onChange={this.handleChange} checked={this.state.isRegular}/><label for="donate-monthly">Donate Monthly</label>
           </div>
           <div className="donate-paypal">
-            <button type="button" name="paypal" className="donate-by-paypal btn-with-border" onClick={this.handleSubmit}>Paypal</button>
+            <Button outline color="grey" name="donate" onClick={this.handleSubmit}>Paypal</Button>
           </div>
         </div>
-        <Button color="primary" name="donate" onClick={this.handleSubmit}>{buttonText}</Button>
+        <Button block color="secondary" size="lg" name="donate" onClick={this.handleSubmit}>{buttonText}</Button>
       </form>
     );
   }
@@ -100,7 +103,6 @@ DonationForm.propTypes = {
   currency: PropTypes.string,
   singleDonationUrl: PropTypes.string,
   regularDonationUrl: PropTypes.string,
-  paypalDonationUrl: PropTypes.string,
   predefinedValues: PropTypes.arrayOf(PropTypes.number),
   buttonText: PropTypes.string
 };
