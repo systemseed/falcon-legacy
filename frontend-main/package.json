@@ -1,4 +1,6 @@
 {
+  "name": "Falcon",
+  "version": "1.0.1",
   "dependencies": {
     "bootstrap-4-grid": "^2.2.0",
     "compression": "^1.7.1",

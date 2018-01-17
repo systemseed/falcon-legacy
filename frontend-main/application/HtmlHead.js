@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-// import Package from '../../package';
+import Package from '../package';
 import inlineCSS from '../styles/theme.scss';
 // import GTM from '../../analytics/GoogleTagManager';
 // import GA from '../../analytics/GoogleAnalytics';
