@@ -60,14 +60,6 @@ app.prepare()
       res.send(sassResult.css);
     });
 
-    // Send robots.txt file from /static folder.
-    const options = {
-      root: __dirname + '/static/',
-      headers: {
-        'Content-Type': 'text/plain;charset=UTF-8',
-      }
-    };
-
     // Set browser caching for all static files.
     server.use('/static', express.static(__dirname + '/static', {
       maxAge: '7d'
