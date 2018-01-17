@@ -2,6 +2,7 @@
 
   padding: 10%;
   .predefined-values {
+    margin-bottom: 10px;
     input[type="radio"] {
       position: absolute !important;
       clip: rect(0, 0, 0, 0);
@@ -15,6 +16,7 @@
     }
     label {
       @extend .btn-with-border;
+      display: inline-block;
     }
   }
   .donate-monthly {
@@ -24,6 +26,18 @@
   .donate-by-paypal {
     float: right;
   }
+
+  .donation-amount {
+    @include font-size(30px);
+    border: none;
+    border-bottom: solid 2px grey;
+    width: 100%;
+    color: $grey;
+    margin: 0;
+    padding: 6px 16px;
+    margin-bottom: 10px;
+  }
+
 }
 .btn-with-border {
   @include font-size(22px);

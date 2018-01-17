@@ -11,7 +11,7 @@ const DonationFormBlock = ({ currency, singleDonationUrl, regularDonationUrl, pa
         <input type="radio" name="predefined_value" id="predefined_value_3" /><label for="predefined_value_3">£30</label>
       </div>
       <div>
-        <input type="text" className="" aria-label="£0.00" />
+        <input type="text" className="donation-amount" aria-label="£0.00" />
       </div>
       <div>
         <div className="donate-monthly">
