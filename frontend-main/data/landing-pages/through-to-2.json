@@ -33,8 +33,8 @@
         },
         "donationBlockData": {
           "currency": "gbp",
-          "singleDonationUrl": "https://concern.net/donate",
-          "regularDonationUrl": "https://concern.net/donate",
+          "singleDonationUrl": "https://www.concern.org.uk/donate/appeal/882?country_code=GB",
+          "regularDonationUrl": "https://www.concern.org.uk/donate/regular/new?country_code=GB",
           "paypalDonationUrl": "https://concern.net/donate",
           "predefinedValues": [10, 20, 40],
           "buttonText": "Donate"

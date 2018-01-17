@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const DonationButton = ({ type, textSize, block, active, disabled, onClick, children }) => {
+const DonationButton = ({ name, type, textSize, block, active, disabled, onClick, children }) => {
   let classes = ['btn', 'donation-btn'];
   if (type) {
     classes.push('btn-' + type);
@@ -24,13 +24,14 @@ const DonationButton = ({ type, textSize, block, active, disabled, onClick, chil
   }
 
   return (
-    <button type="button" onClick={onClick} className={classes.join(' ')}>
+    <button type="button" name={name} onClick={onClick} className={classes.join(' ')}>
       {children}
     </button>
   );
 };
 
 DonationButton.propTypes = {
+  name: PropTypes.string,
   donationUrl: PropTypes.string,
   type: PropTypes.oneOf(['white', 'pink']),
   textSize: PropTypes.oneOf(['lg', 'md', 'sm', 'xs']),
