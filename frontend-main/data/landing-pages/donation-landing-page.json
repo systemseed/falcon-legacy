@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "url": "donation-landing-page",
+    "metatags": {
+      "title": "Donation page",
+      "keywords": "Donation page",
+      "description": "Donation page"
+    },
+    "template": "OneColumnLayout"
+  },
+  "components": [
+    {
+      "type": "SiteHeader",
+      "order": 0,
+      "data": {
+        "imageUrl": "/static/images/logo.png",
+        "imageAlt": "Falcon",
+        "imageTitle": "Falcon",
+        "linkUrl": "/",
+        "linkTitle": "Falcon",
+        "slogan": "#donatetoday"
+      },
+      "styles": ["bg-green"]
+    },
+    {
+      "type": "PageTitleWithCopy",
+      "order": 2,
+      "data": {
+        "heading": "Donate Today and Help",
+        "subheading": "You can give children the building blocks of a healthy, happy life.",
+        "copy": "<p>Your donation makes a difference. Together we are fighting cancer smarter, better and harder than we ever have before. Thank you for your support of the American Cancer Society.</p>"
+      },
+      "styles": ["bg-grey", "mt-md-4", "mt-sm-2", "mb-5"]
+    }
+  ]
+}

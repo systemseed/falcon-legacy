@@ -38,7 +38,7 @@ class LandingPage extends React.Component {
   }
 
   static getInitialProps = async function() {
-    const data = await import('../data/landing-pages/through-to-2.json');
+    const data = await import('../data/landing-pages/donation-landing-page.json');
     return { data }
   }
 }
