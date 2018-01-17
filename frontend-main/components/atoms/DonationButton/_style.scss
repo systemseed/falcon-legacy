@@ -1,42 +1,42 @@
-.donation-btn {
-  border-radius: 8px;
-  border: none;
-  text-align: center;
-  margin: 0;
-  padding: 15px;
-  height: 60px;
-  min-width: 300px;
-  font-weight: bold;
-
-  &.btn-pink {
-    background-color: $pink;
-    color: $white;
-    &:hover {
-      background-color: darken($pink, 10);
-    }
-  }
-
-  &.btn-white {
-    background-color: $white;
-    color: $pink;
-  }
-
-  &.btn-text-md {
-    @include font-size(20px);
-  }
-
-  @include media-breakpoint-up(md) {
-    height: 54px;
-    &.btn-text-md {
-      @include font-size(32px);
-    }
-  }
-
-  @include media-breakpoint-up(xl) {
-    height: 72px;
-    min-width: 360px;
-    &.btn-text-md {
-      @include font-size(36px);
-    }
-  }
-}
+//.donation-btn {
+//  border-radius: 8px;
+//  border: none;
+//  text-align: center;
+//  margin: 0;
+//  padding: 15px;
+//  height: 60px;
+//  min-width: 300px;
+//  font-weight: bold;
+//
+//  &.btn-pink {
+//    background-color: $pink;
+//    color: $white;
+//    &:hover {
+//      background-color: darken($pink, 10);
+//    }
+//  }
+//
+//  &.btn-white {
+//    background-color: $white;
+//    color: $pink;
+//  }
+//
+//  &.btn-text-md {
+//    @include font-size(20px);
+//  }
+//
+//  @include media-breakpoint-up(md) {
+//    height: 54px;
+//    &.btn-text-md {
+//      @include font-size(32px);
+//    }
+//  }
+//
+//  @include media-breakpoint-up(xl) {
+//    height: 72px;
+//    min-width: 360px;
+//    &.btn-text-md {
+//      @include font-size(36px);
+//    }
+//  }
+//}

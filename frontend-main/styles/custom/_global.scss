@@ -3,8 +3,8 @@ html {
 }
 
 body {
-  @include font-size(16px);
-  font-family: Helvetica, Arial, sans-serif;
+  font-size: $font-size-base;
+  font-family: $font-family-base;
   line-height: 22px;
   color: $black;
   background: $grey-light;

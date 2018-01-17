@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DonationButton from '../../atoms/DonationButton';
+import { Button } from 'reactstrap';
 
 class DonationForm extends React.Component {
 
@@ -89,8 +90,7 @@ class DonationForm extends React.Component {
             <button type="button" name="paypal" className="donate-by-paypal btn-with-border" onClick={this.handleSubmit}>Paypal</button>
           </div>
         </div>
-
-        <DonationButton name="donate" onClick={this.handleSubmit}>{buttonText}</DonationButton>
+        <Button color="primary" name="donate" onClick={this.handleSubmit}>{buttonText}</Button>
       </form>
     );
   }
