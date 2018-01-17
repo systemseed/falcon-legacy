@@ -7,7 +7,7 @@ const SignUpBlock = ({ heading, copy }) => {
   return (
     <div className="sign-up-block">
       <TextBlock subheading={heading} copy={copy} />
-      <SignUpForm />
+      {/*<SignUpForm />*/}
     </div>
   );
 };

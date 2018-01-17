@@ -27,17 +27,16 @@
     float: right;
   }
 
-  .donation-amount {
-    @include font-size(30px);
-    border: none;
-    border-bottom: solid 2px grey;
-    width: 100%;
-    color: $grey;
-    margin: 0;
-    padding: 6px 16px;
-    margin-bottom: 10px;
-  }
-
+}
+.donation-amount input {
+  @include font-size(30px);
+  border: none;
+  border-bottom: solid 2px grey;
+  width: 100%;
+  color: $grey;
+  margin: 0;
+  padding: 6px 16px;
+  margin-bottom: 10px;
 }
 .btn-with-border {
   @include font-size(22px);
