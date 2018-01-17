@@ -6,10 +6,10 @@ import Image from '../../atoms/Image';
 const HeroWithDonationBlockPane = ({ styles, heroData, donationBlockData }) => {
   return (
     <div className={"row hero-with-donation-block-pane " + styles}>
-      <div className="hero-with-donation-block-pane__image col-12 col-md-8 p-0">
+      <div className="hero-with-donation-block-pane__image col-12 col-md-7 col-lg-8 p-0">
         <Image {...heroData} />
       </div>
-      <div className="hero-with-donation-block-pane__form d-none d-md-block col-md-4 p-0">
+      <div className="hero-with-donation-block-pane__form d-none d-md-block col-md-5 col-lg-4 p-0">
         <DonationFormBlock {...donationBlockData} />
       </div>
     </div>
