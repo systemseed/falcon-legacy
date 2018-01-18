@@ -8,24 +8,34 @@ class SignUpForm extends React.Component {
     super(props);
 
     this.state = {
-      isSending: false,
+      email: '',
     };
 
-    this.submitForm.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  submitForm(event) {
-
+  handleChange(event) {
     this.setState({
-      isSending: true,
+      email: event.target.value
     });
+  }
+
+  handleSubmit(event) {
+    const { signUpUrl } = this.props;
+    event.preventDefault();
+
+    if (this.state.email) {
+      const symb = signUpUrl.indexOf('?') > -1 ? '&' : '?';
+      window.location = signUpUrl + symb + 'email=' + this.state.email;
+    }
   }
 
   render() {
     return(
-      <Form className="sign-up-form">
-        <Input className="email-address" type="email" name="email_address" placeholder="Your email address" />
-        <Button className="submit-button" color="primary">Sign me up</Button>
+      <Form className="sign-up-form" onSubmit={this.handleSubmit}>
+        <Input className="email-address" type="email" name="email_address" required onChange={this.handleChange} placeholder="Your email address" />
+        <Button className="submit-button" color="primary" >Sign me up</Button>
       </Form>
     );
   }

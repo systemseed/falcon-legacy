@@ -81,19 +81,19 @@
             "description": "Provide children with a full course of life-saving therapeutic food.",
             "iconUrl": "/static/images/content/through-to-2/money-handles-1.png",
             "buttonText": "Give £5 a&nbsp;month",
-            "buttonUrl": "https://concern.net/donate"
+            "buttonUrl": "https://www.concern.org.uk/donate/regular/new?country_code=GB"
           },
           {
             "description": "Provide new mums with enough food for a month.",
             "iconUrl": "/static/images/content/through-to-2/money-handles-1.png",
             "buttonText": "Give £9 a&nbsp;month",
-            "buttonUrl": "https://concern.net/donate"
+            "buttonUrl": "https://www.concern.org.uk/donate/regular/new?country_code=GB"
           },
           {
             "description": "Provide cooking lessons for parents to prepare nutritious meals.",
             "iconUrl": "/static/images/content/through-to-2/money-handles-1.png",
             "buttonText": "Give £27 a&nbsp;month",
-            "buttonUrl": "https://concern.net/donate"
+            "buttonUrl": "https://www.concern.org.uk/donate/regular/new?country_code=GB"
           }
         ]
       },
@@ -136,7 +136,7 @@
         "heading": "Help Babies Through To 2",
         "subheading": "",
         "buttonText": "Donate Now",
-        "buttonUrl": "https://concern.net/donate"
+        "buttonUrl": "https://www.concern.org.uk/donate/regular/new?country_code=GB"
       },
       "styles": ["bg-green", "mb-5"]
     },
@@ -146,11 +146,12 @@
       "data": {
         "descriptionData": {
           "heading": "Would you like to help, but can’t make a monthly donation?",
-          "copy": "<a href='/' class='link-pink'>Make a one-time donation here</a>"
+          "copy": "<a href='https://www.concern.org.uk/donate/appeal/882?country_code=GB' class='link-pink'>Make a one-time donation here</a>"
         },
         "signUpData": {
           "heading": "Find out how you can get involved",
-          "copy": "Get updates about our volunteering activities, events, campaigns and how you can take part."
+          "copy": "Get updates about our volunteering activities, events, campaigns and how you can take part.",
+          "signUpUrl": "https://www.concern.org.uk/newsletter/concernnet-uk/subscribe?country_code=GB"
         }
       },
       "styles": ["bg-grey", "mb-5"]

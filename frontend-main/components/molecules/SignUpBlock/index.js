@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import TextBlock from '../TextBlock';
 import SignUpForm from '../SignUpForm';
 
-const SignUpBlock = ({ heading, copy }) => {
+const SignUpBlock = ({ heading, copy, signUpUrl }) => {
   return (
     <div className="sign-up-block">
       <TextBlock subheading={heading} copy={copy} />
-      <SignUpForm />
+      <SignUpForm signUpUrl={signUpUrl} />
     </div>
   );
 };
@@ -15,10 +15,12 @@ const SignUpBlock = ({ heading, copy }) => {
 SignUpBlock.propTypes = {
   heading: PropTypes.string,
   copy: PropTypes.string,
+  signUpUrl: PropTypes.string,
 };
 
 SignUpBlock.defaultProps = {
   heading: '',
   copy: '',
+  signUpUrl: '',
 };
 export default SignUpBlock;
