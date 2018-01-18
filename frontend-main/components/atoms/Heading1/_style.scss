@@ -11,5 +11,6 @@
   }
   @include media-breakpoint-up(xl) {
     @include font-size(48px);
+    line-height: 1.25;
   }
 }
