@@ -1,0 +1,32 @@
+.btn {
+  @include font-size(16px);
+  font-family: $font-family-base;
+  font-weight: bold;
+  max-width: 100%;
+
+  @include media-breakpoint-up(xl) {
+    @include font-size(18px);
+    padding: 1.2rem 1.35rem;
+  }
+}
+.btn.btn-sm {
+  font-weight: normal;
+  @include media-breakpoint-up(xl) {
+    @include font-size(18px);
+    padding: 0.88rem 1.35rem;
+  }
+}
+.btn.btn-lg {
+  @include font-size(32px);
+  @include media-breakpoint-up(md) {
+    @include font-size(30px);
+    padding: 0.1rem 2.5rem;
+  }
+  @include media-breakpoint-up(xl) {
+    @include font-size(40px);
+    padding: 0.2rem 2.5rem;
+  }
+}
+a.btn {
+  text-decoration: none;
+}

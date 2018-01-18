@@ -64,7 +64,7 @@ class Heading1WithSubheadingAndCopy extends React.Component {
               <input type="checkbox" name="donate_monthly" id="donate-monthly" onChange={this.handleChange} checked={this.state.isRegular}/><label for="donate-monthly">Donate Monthly</label>
             </div>
             <div className="donate-paypal">
-              <Button outline color="grey" name="paypal" onClick={this.handleSubmit}>Paypal</Button>
+              <Button className="btn-paypal" outline size="sm" color="grey" name="paypal" onClick={this.handleSubmit}>Paypal</Button>
             </div>
           </div>
         </div>

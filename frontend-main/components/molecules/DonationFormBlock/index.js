@@ -76,9 +76,9 @@ class DonationForm extends React.Component {
       <form className="donation-form-block" onSubmit={this.handleSubmit}>
         <div className="donation-form-block__predefined-values">
           <ButtonGroup>
-            <Button outline color="grey" onClick={(event) => this.handleRadioBtnClick(event, 1)} active={this.state.rSelected === 1}>£10</Button>
-            <Button outline color="grey" onClick={(event) => this.handleRadioBtnClick(event, 2)} active={this.state.rSelected === 2}>£20</Button>
-            <Button outline color="grey" onClick={(event) => this.handleRadioBtnClick(event, 3)} active={this.state.rSelected === 3}>£30</Button>
+            <Button outline size="sm" className="btn-predefined-value" color="grey" onClick={(event) => this.handleRadioBtnClick(event, 1)} active={this.state.rSelected === 1}>£10</Button>
+            <Button outline size="sm" className="btn-predefined-value" color="grey" onClick={(event) => this.handleRadioBtnClick(event, 2)} active={this.state.rSelected === 2}>£20</Button>
+            <Button outline size="sm" className="btn-predefined-value" color="grey" onClick={(event) => this.handleRadioBtnClick(event, 3)} active={this.state.rSelected === 3}>£30</Button>
           </ButtonGroup>
         </div>
         <div className="donation-form-block__donation-amount">
@@ -90,7 +90,7 @@ class DonationForm extends React.Component {
             <input type="checkbox" name="donate_monthly" id="donate-monthly" onChange={this.handleChange} checked={this.state.isRegular}/><label for="donate-monthly">Donate Monthly</label>
           </div>
           <div className="donate-paypal">
-            <Button outline color="grey" name="donate" onClick={this.handleSubmit}>Paypal</Button>
+            <Button className="btn-paypal" outline size="sm" color="grey" name="paypal" onClick={this.handleSubmit}>Paypal</Button>
           </div>
         </div>
         <Button block color="secondary" size="lg" name="donate" onClick={this.handleSubmit}>{buttonText}</Button>
