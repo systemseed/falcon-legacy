@@ -3,10 +3,13 @@
   .subheading {
     color: $green;
   }
+  .copy-with-title-and-subtitle {
+    margin-bottom: 20px;
+  }
 
-  @include media-breakpoint-up(xl) {
-    .subheading {
-      margin-bottom: 0.74em;
+  @include media-breakpoint-up(sm) {
+    .copy-with-title-and-subtitle {
+      margin-bottom: 30px;
     }
   }
   @include media-breakpoint-up(md) {
@@ -14,9 +17,14 @@
       @include font-size(20px);
     }
   }
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     .subheading {
       @include font-size(24px);
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    .subheading {
+      margin-bottom: 0.74em;
     }
   }
 }

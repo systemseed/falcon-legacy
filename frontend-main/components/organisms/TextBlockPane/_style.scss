@@ -1,0 +1,10 @@
+.text-block-pane {
+
+  @include media-breakpoint-up(xl) {
+    .plain-text {
+      @include font-size(24px);
+      font-weight: bold;
+      line-height: 1.25;
+    }
+  }
+}

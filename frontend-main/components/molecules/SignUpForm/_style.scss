@@ -1,0 +1,25 @@
+.sign-up-form {
+  .email-address {
+    margin-bottom: 20px;
+    padding: 1.063rem 1.7rem;
+  }
+  .submit-button {
+    width: 100%;
+  }
+  @include media-breakpoint-up(md) {
+    display: flex;
+    .email-address {
+      margin-bottom: auto;
+      margin-right: 40px;
+    }
+    .submit-button {
+      width: auto;
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    .email-address {
+      @include font-size(18px);
+      padding: 1.282rem 1.7rem;
+    }
+  }
+}

@@ -1,8 +1,16 @@
 .sign-up-with-description-pane {
 
+  .sign-up-with-description__form {
+    margin-bottom: 24px;
+  }
   @include media-breakpoint-only(xs) {
     .sign-up-with-description__description .subheading {
       margin-bottom: 1.5em;
+    }
+  }
+  @include media-breakpoint-up(sm) {
+    .sign-up-with-description__form {
+      margin-bottom: 42px;
     }
   }
   @include media-breakpoint-up(md) {
@@ -10,7 +18,7 @@
       @include font-size(20px);
     }
   }
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     .sign-up-with-description__description .subheading {
       @include font-size(24px);
     }

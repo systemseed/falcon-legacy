@@ -1,23 +1,6 @@
 import React from 'react';
-import Form from '../../atoms/Form';
-import Button from '../../atoms/DonationButton';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-const schema = {
-  'type': 'object',
-  'required': ['email'],
-  'properties': {
-    'email': {
-      'type': 'string',
-      'title': 'Your email address',
-    },
-  }
-};
-
-const uiSchema = {
-  'email': {
-    'ui:placeholder': 'Your email address',
-  },
-};
 
 class SignUpForm extends React.Component {
 
@@ -26,32 +9,23 @@ class SignUpForm extends React.Component {
 
     this.state = {
       isSending: false,
-      formData: {},
     };
 
     this.submitForm.bind(this);
   }
 
-  submitForm({ formData }) {
+  submitForm(event) {
 
     this.setState({
       isSending: true,
-      formData,
     });
   }
 
   render() {
     return(
-      <Form
-        schema={schema}
-        uiSchema={uiSchema}
-        formData={this.state.formData}
-        autocomplete={'off'}
-        onSubmit={this.submitForm.bind(this)}
-      >
-        <Button block>
-          Login
-        </Button>
+      <Form className="sign-up-form">
+        <Input className="email-address" type="email" name="email_address" placeholder="Your email address" />
+        <Button className="submit-button" color="primary">Sign me up</Button>
       </Form>
     );
   }
