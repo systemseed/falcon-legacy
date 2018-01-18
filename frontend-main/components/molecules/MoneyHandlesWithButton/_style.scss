@@ -43,3 +43,37 @@
     }
   }
 }
+
+.money-handles-with-button {
+  height: 142px;
+  display: flex;
+  .money-handles-with-button__description {
+    padding: 16px;
+    width: 66%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .money-handles-icon {
+    margin-bottom: 6px;
+  }
+  .money-handles-with-button__button {
+    width: 34%;
+    .btn {
+      @include font-size(20px);
+      line-height: normal;
+      white-space: normal;
+      padding: 0;
+      display: flex;
+      height: 100%;
+      border-radius: 0;
+      align-items: center;
+      text-align: center;
+      span {
+        max-width: 130px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+

@@ -80,19 +80,19 @@
           {
             "description": "Provide children with a full course of life-saving therapeutic food.",
             "iconUrl": "/static/images/content/through-to-2/money-handles-1.png",
-            "buttonText": "Give £5 a month",
+            "buttonText": "Give £5 a&nbsp;month",
             "buttonUrl": "https://concern.net/donate"
           },
           {
             "description": "Provide new mums with enough food for a month.",
             "iconUrl": "/static/images/content/through-to-2/money-handles-1.png",
-            "buttonText": "Give £9 a month",
+            "buttonText": "Give £9 a&nbsp;month",
             "buttonUrl": "https://concern.net/donate"
           },
           {
             "description": "Provide cooking lessons for parents to prepare nutritious meals.",
             "iconUrl": "/static/images/content/through-to-2/money-handles-1.png",
-            "buttonText": "Give £27 a month",
+            "buttonText": "Give £27 a&nbsp;month",
             "buttonUrl": "https://concern.net/donate"
           }
         ]
