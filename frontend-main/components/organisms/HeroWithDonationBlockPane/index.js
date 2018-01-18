@@ -10,7 +10,9 @@ const HeroWithDonationBlockPane = ({ styles, heroData, donationBlockData }) => {
         <Image {...heroData} />
       </div>
       <div className="hero-with-donation-block-pane__form d-none d-md-block col-md-5 col-lg-4 p-0">
-        <DonationFormBlock {...donationBlockData} />
+        <div className="hero-with-donation-block-pane__form-wrapper">
+          <DonationFormBlock {...donationBlockData} />
+        </div>
       </div>
     </div>
   );

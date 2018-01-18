@@ -1,23 +1,6 @@
 .donation-form-block {
-  background-color: $white;
-  padding: 10%;
   .predefined-values {
     margin-bottom: 10px;
-    input[type="radio"] {
-      position: absolute !important;
-      clip: rect(0, 0, 0, 0);
-      height: 1px;
-      width: 1px;
-      border: 0;
-      overflow: hidden;
-    }
-    input[type="radio"]:checked + label {
-      @extend .btn-with-border.active;
-    }
-    label {
-      @extend .btn-with-border;
-      display: inline-block;
-    }
   }
   .donate-monthly {
     color: $grey;
@@ -26,7 +9,9 @@
   .donate-by-paypal {
     float: right;
   }
-
+  .donation-form-block__predefined-values {
+    margin-bottom: 10px;
+  }
 }
 .donation-amount {
   @include font-size(30px);
@@ -38,24 +23,23 @@
   padding: 6px 16px;
   margin-bottom: 10px;
 }
-.btn-with-border {
-  @include font-size(22px);
-  border-radius: 8px;
-  border: solid 2px $grey;
-  background-color: $white;
-  color: $grey;
-  padding: 5px 16px;
-  margin: 0;
-  text-align: center;
 
-  &:hover {
-    background-color: $white-grey;
-    cursor: pointer;
+.donation-form-block__predefined-values {
+  .btn-group {
+    display: flex;
+    justify-content: space-between;
   }
-  &.active,
-  &.active:hover {
-    background-color: darken($pink, 8);
-    color: $white;
-    border: solid 2px darken($pink, 8);
+  .btn-predefined-value {
+    width: 30%;
+    @include font-size(22px);
+    padding-bottom: 0.094rem;
+    padding-top: 0.094rem;
+  }
+  @include media-breakpoint-up(xl) {
+    .btn-predefined-value {
+      @include font-size(30px);
+      padding-bottom: 0.719rem;
+      padding-top: 0.719rem;
+    }
   }
 }
