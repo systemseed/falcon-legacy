@@ -4,8 +4,8 @@ import Heading1WithSubheadingAndCopy from '../../molecules/Heading1WithSubheadin
 
 const PageTitleWithCopy = ({ styles, heading, subheading, copy, singleDonationUrl, regularDonationUrl, buttonText }) => {
   return (
-    <div className={"row justify-content-center pagetitle-with-copy " + styles}>
-      <div className="col-12 col-md-8 col-xl-6">
+    <div className={"row justify-content-center pagetitle-with-copy limited-width " + styles}>
+      <div className="col-12 col-md-8 col-xl-7">
         <Heading1WithSubheadingAndCopy
           heading={heading}
           subheading={subheading}

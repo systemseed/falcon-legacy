@@ -4,8 +4,8 @@ import TextBlock from '../../molecules/TextBlock';
 
 const TextBlockPane = ({ styles, heading, subheading, copy }) => {
   return (
-    <div className={"row justify-content-center text-block-pane " + styles}>
-      <div className="col-12 col-md-8 col-xl-6">
+    <div className={"row justify-content-center text-block-pane limited-width " + styles}>
+      <div className="col-12 col-md-8 col-xl-7">
         <TextBlock heading={heading} subheading={subheading} copy={copy} />
       </div>
     </div>

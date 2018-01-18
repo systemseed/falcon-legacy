@@ -4,7 +4,7 @@ import ImageWithText from '../../molecules/ImageWithText';
 
 const ImageWithTextPane = ({ styles, imageWithTextData }) => {
   return (
-    <div className={"row image-with-text-pane " + styles}>
+    <div className={"row image-with-text-pane limited-width " + styles}>
       {
         imageWithTextData.map((data, i) => {
           return (

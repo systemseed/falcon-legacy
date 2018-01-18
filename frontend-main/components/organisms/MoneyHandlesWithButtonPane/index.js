@@ -4,7 +4,7 @@ import MoneyHandlesWithButton from '../../molecules/MoneyHandlesWithButton';
 
 const MoneyHandlesWithButtonPane = ({ styles, moneyHandlesData }) => {
   return (
-    <div className={"row money-handles-with-button-pane " + styles}>
+    <div className={"row money-handles-with-button-pane limited-width " + styles}>
 
       {
         moneyHandlesData.map((data, i) => {

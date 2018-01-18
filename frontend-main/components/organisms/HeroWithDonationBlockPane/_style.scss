@@ -28,6 +28,15 @@
   }
   @include media-breakpoint-up(lg) {
     height: 300px;
+    .hero-with-donation-block-pane__image {
+      position: relative;
+      img {
+        max-width: 120%;
+        max-height: 109%;
+        position: absolute;
+        bottom: 0;
+      }
+    }
     .hero-with-donation-block-pane__form-wrapper {
       padding: 24px;
     }
@@ -37,5 +46,8 @@
     .hero-with-donation-block-pane__form-wrapper {
       padding: 26px 44px;
     }
+  }
+  @include media-breakpoint-up(xxl, (xxl: $xxl)) {
+    height: 510px;
   }
 }

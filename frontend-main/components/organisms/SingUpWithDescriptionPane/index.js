@@ -5,7 +5,7 @@ import SignUpBlock from '../../molecules/SignUpBlock';
 
 const SingUpWithDescriptionPane = ({ styles, descriptionData, signUpData }) => {
   return (
-    <div className={"row sign-up-with-description-pane " + styles}>
+    <div className={"row sign-up-with-description-pane limited-width " + styles}>
       <div className="sign-up-with-description__form col-12 col-md-8 offset-md-2 col-xl-5 offset-xl-1 order-xl-2">
         <SignUpBlock heading={signUpData.heading} copy={signUpData.copy} />
       </div>

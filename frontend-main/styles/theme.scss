@@ -1,4 +1,4 @@
-@import "./custom/variables/*.scss";
+@import "custom/variables";
 @import "../node_modules/bootstrap-4-grid/scss/grid.scss";
 
 @import "../node_modules/bootstrap/scss/_variables.scss";
@@ -6,6 +6,6 @@
 @import "../node_modules/bootstrap/scss/_buttons.scss";
 @import "../node_modules/bootstrap/scss/_forms.scss";
 
-@import "./custom/abstractions/*.scss";
-@import "./custom/*.scss";
+@import "custom/abstractions/*.scss";
+@import "custom/*.scss";
 @import "../components/**/**/*.scss";

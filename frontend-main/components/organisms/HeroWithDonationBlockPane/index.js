@@ -5,7 +5,7 @@ import Image from '../../atoms/Image';
 
 const HeroWithDonationBlockPane = ({ styles, heroData, donationBlockData }) => {
   return (
-    <div className={"row hero-with-donation-block-pane " + styles}>
+    <div className={"row hero-with-donation-block-pane limited-width " + styles}>
       <div className="hero-with-donation-block-pane__image col-12 col-md-7 col-lg-8 p-0">
         <Image {...heroData} />
       </div>

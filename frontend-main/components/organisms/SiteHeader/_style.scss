@@ -1,4 +1,9 @@
 .site-header {
+  margin-right: -15px;
+  margin-left: -15px;
+  .row {
+    margin: 0;
+  }
   .site-header-logo img {
     max-width: 92px;
     padding: 10px 0;
