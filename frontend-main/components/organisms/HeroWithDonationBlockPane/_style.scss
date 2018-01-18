@@ -3,14 +3,20 @@
   img {
     display: block;
   }
-  .hero-with-donation-block-pane__form-wrapper {
-    padding: 26px;
-    box-shadow: -2px 9px 10px 6px rgba(0, 0, 0, 0.22);
-  }
 
   @include media-breakpoint-up(md) {
     height: 344px;
+    .hero-with-donation-block-pane__image {
+      overflow: hidden;
+      img {
+        max-width: initial;
+        max-height: 100%;
+      }
+    }
     .hero-with-donation-block-pane__form-wrapper {
+      background-color: $white;
+      padding: 26px;
+      box-shadow: -2px 9px 10px 6px rgba(0, 0, 0, 0.22);
       height: 100%;
       display: flex;
       justify-content: center;
@@ -22,8 +28,14 @@
   }
   @include media-breakpoint-up(lg) {
     height: 300px;
+    .hero-with-donation-block-pane__form-wrapper {
+      padding: 24px;
+    }
   }
   @include media-breakpoint-up(xl) {
     height: 400px;
+    .hero-with-donation-block-pane__form-wrapper {
+      padding: 26px 44px;
+    }
   }
 }

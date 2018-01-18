@@ -1,0 +1,11 @@
+.copy-with-title-and-subtitle {
+
+  .donation-form-block__monthly {
+    margin-top: 12px;
+  }
+  @include media-breakpoint-up(sm) {
+    .donation-form-block__monthly {
+      margin-top: 20px;
+    }
+  }
+}

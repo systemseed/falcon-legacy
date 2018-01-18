@@ -2,15 +2,32 @@
   .predefined-values {
     margin-bottom: 10px;
   }
-  .donate-monthly {
-    color: $grey;
-    @include font-size(13px);
-  }
-  .donate-by-paypal {
-    float: right;
-  }
   .donation-form-block__predefined-values {
-    margin-bottom: 10px;
+    margin-bottom: 13px;
+  }
+  .donation-form-block__donation-amount {
+    margin-bottom: 26px;
+  }
+  .donation-form-block__monthly {
+    margin-bottom: 26px;
+  }
+  @include media-breakpoint-up(lg) {
+    .donation-form-block__predefined-values {
+      margin-bottom: 10px;
+    }
+    .donation-form-block__monthly,
+    .donation-form-block__donation-amount {
+      margin-bottom: 20px;
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    .donation-form-block__predefined-values {
+      margin-bottom: 12px;
+    }
+    .donation-form-block__monthly,
+    .donation-form-block__donation-amount {
+      margin-bottom: 24px;
+    }
   }
 }
 .donation-amount {
@@ -21,7 +38,16 @@
   color: $grey;
   margin: 0;
   padding: 6px 16px;
-  margin-bottom: 10px;
+}
+.donation-form-block__monthly {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.donate-monthly {
+  color: $grey;
+  @include font-size(13px);
 }
 
 .donation-form-block__predefined-values {
@@ -30,8 +56,8 @@
     justify-content: space-between;
   }
   .btn-predefined-value {
-    width: 30%;
     @include font-size(22px);
+    width: 30%;
     padding-bottom: 0.094rem;
     padding-top: 0.094rem;
   }
