@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const MoneyHandlesIcon = ({ imageUrl, imageTitle, imageAlt }) => {
+  if (!imageUrl) {
+    return null;
+  }
   return (
     <img className="money-handles-icon" src={imageUrl} title={imageTitle} alt={imageAlt} />
   );

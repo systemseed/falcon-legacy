@@ -1,4 +1,10 @@
 import React from 'react';
 
-export default (props) =>
-  <div className="subheading" dangerouslySetInnerHTML={{__html: props.children}} />
+export default (props) => {
+  if (!props.children) {
+    return null;
+  }
+  return (
+    <div className="subheading" dangerouslySetInnerHTML={{__html: props.children}}/>
+  )
+}

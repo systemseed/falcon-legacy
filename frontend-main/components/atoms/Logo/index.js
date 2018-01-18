@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Logo = ({ imageUrl, imageTitle, imageAlt }) => {
+  if (!imageUrl) {
+    return null;
+  }
   return (
     <img src={imageUrl} title={imageTitle} alt={imageAlt} />
   );

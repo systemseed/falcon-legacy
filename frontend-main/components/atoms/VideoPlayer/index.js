@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
 
 const VideoPlayer = ({ videoUrl }) => {
+  if (!videoUrl) {
+    return null;
+  }
   return (
     <ReactPlayer
       url={videoUrl}
@@ -21,4 +24,5 @@ VideoPlayer.propTypes = {
 VideoPlayer.defaultProps = {
   videoUrl: '',
 };
+
 export default VideoPlayer;

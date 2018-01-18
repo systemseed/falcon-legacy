@@ -1,4 +1,10 @@
 import React from 'react';
 
-export default (props) =>
-  <h1 className="h1" dangerouslySetInnerHTML={{__html: props.children}} />
+export default (props) => {
+  if (!props.children) {
+    return null;
+  }
+  return (
+    <h1 className="h1" dangerouslySetInnerHTML={{__html: props.children}} />
+  )
+}
