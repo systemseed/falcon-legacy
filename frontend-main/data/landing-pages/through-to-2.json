@@ -32,7 +32,7 @@
           "imageTitle": "Concern Worldwide"
         },
         "donationBlockData": {
-          "currency": "gbp",
+          "currencyCode": "gbp",
           "singleDonationUrl": "https://www.concern.org.uk/donate/appeal/882?country_code=GB",
           "regularDonationUrl": "https://www.concern.org.uk/donate/regular/new?country_code=GB",
           "predefinedValues": [10, 20, 40],

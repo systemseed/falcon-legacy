@@ -30,15 +30,29 @@
     }
   }
 }
-.donation-amount {
-  @include font-size(30px);
-  border: none;
-  border-bottom: solid 2px grey;
-  width: 100%;
-  color: $grey;
-  margin: 0;
-  padding: 6px 16px;
+.donation-form-block__donation-amount {
+  position: relative;
+  .amount-with-currency__currency {
+    @include font-size(30px);
+    color: $grey;
+    content: '£';
+    position: absolute;
+    display: block;
+    top: 12px;
+    left: 23px;
+  }
+  input {
+    @include font-size(30px);
+    color: $grey;
+    border: none;
+    border-bottom: solid 2px grey;
+    width: 100%;
+    margin: 0;
+    padding: 6px 16px;
+    padding-left: 40px;
+  }
 }
+
 .donation-form-block__monthly {
   display: flex;
   justify-content: space-between;

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, ButtonGroup } from 'reactstrap';
+import AmountWithCurrency from '../../atoms/AmountWithCurrency';
 
 class DonationForm extends React.Component {
 
@@ -24,9 +25,6 @@ class DonationForm extends React.Component {
   }
 
   handleChange(event) {
-    console.log(this);
-    console.log(event.target);
-
     if (event.target.name == 'donate_monthly') {
       this.setState({
         isRegular: event.target.checked
@@ -42,12 +40,10 @@ class DonationForm extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(this.state);
     const { regularDonationUrl, singleDonationUrl } = this.props;
     let donationUrl = this.state.isRegular ? regularDonationUrl : singleDonationUrl;
 
     let queryParams = [];
-    console.log(this.donationAmount.value);
     if (this.donationAmount.value > 0) {
       queryParams.push('amount=' + this.donationAmount.value);
     }
@@ -63,17 +59,14 @@ class DonationForm extends React.Component {
       isSending: true
     });
 
-    console.log('donationUrl', donationUrl);
-    console.log('submitForm props', this.props);
-
-    //window.location = donationUrl;
+    window.location = donationUrl;
   }
 
   render() {
-    console.log('render', this.state);
-    const { buttonText } = this.props;
+    const { buttonText, currencyCode } = this.props;
     return(
       <form className="donation-form-block" onSubmit={this.handleSubmit}>
+
         <div className="donation-form-block__predefined-values">
           <ButtonGroup>
             <Button outline size="sm" className="btn-predefined-value" color="grey" onClick={(event) => this.handleRadioBtnClick(event, 1)} active={this.state.rSelected === 1}>£10</Button>
@@ -81,10 +74,12 @@ class DonationForm extends React.Component {
             <Button outline size="sm" className="btn-predefined-value" color="grey" onClick={(event) => this.handleRadioBtnClick(event, 3)} active={this.state.rSelected === 3}>£30</Button>
           </ButtonGroup>
         </div>
+
         <div className="donation-form-block__donation-amount">
           {/* Use ref here instead of state values to have an ability to get field value set by A/B tools (by js). */}
-          <input type="text" name="donation_amount" className="donation-amount" ref={input => { this.donationAmount = input; }} onChange={this.handleChange} />
+          <AmountWithCurrency name="donation_amount" currencyCode={currencyCode} innerRef={input => { this.donationAmount = input; }} onChange={this.handleChange} />
         </div>
+
         <div className="donation-form-block__monthly">
           <div className="donate-monthly">
             <input type="checkbox" name="donate_monthly" id="donate-monthly" onChange={this.handleChange} checked={this.state.isRegular}/><label for="donate-monthly">Donate Monthly</label>
@@ -93,6 +88,7 @@ class DonationForm extends React.Component {
             <Button className="btn-paypal" outline size="sm" color="grey" name="paypal" onClick={this.handleSubmit}>Paypal</Button>
           </div>
         </div>
+
         <Button block color="secondary" size="lg" name="donate" onClick={this.handleSubmit}>{buttonText}</Button>
       </form>
     );
@@ -100,7 +96,7 @@ class DonationForm extends React.Component {
 }
 
 DonationForm.propTypes = {
-  currency: PropTypes.string,
+  currencyCode: PropTypes.string,
   singleDonationUrl: PropTypes.string,
   regularDonationUrl: PropTypes.string,
   predefinedValues: PropTypes.arrayOf(PropTypes.number),
