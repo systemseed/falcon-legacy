@@ -52,7 +52,7 @@
         "regularDonationUrl": "https://www.concern.org.uk/donate/regular/new?country_code=GB",
         "buttonText": "Donate"
       },
-      "styles": ["bg-grey"]
+      "styles": ["bg-grey", "mt-md-4", "mt-sm-2", "mb-5"]
     },
     {
       "type": "VideoPlayerPane",
@@ -70,7 +70,7 @@
         "subheading": "",
         "copy": "<p>The first 2 years of a child’s life are so important to healthy development and growth. Watch the video to learn more about how you can improve the lives of children in need.</p>"
       },
-      "styles": ["bg-grey"]
+      "styles": ["bg-grey", "mt-md-4", "mt-sm-2", "mb-5"]
     },
     {
       "type": "MoneyHandlesWithButtonPane",
@@ -138,7 +138,7 @@
         "buttonText": "Donate Now",
         "buttonUrl": "https://www.concern.org.uk/donate/regular/new?country_code=GB"
       },
-      "styles": ["bg-green"]
+      "styles": ["bg-green", "mb-5"]
     },
     {
       "type": "SingUpWithDescriptionPane",
@@ -151,10 +151,10 @@
         "signUpData": {
           "heading": "Find out how you can get involved",
           "copy": "Get updates about our volunteering activities, events, campaigns and how you can take part.",
-          "signUpUrl": "https://www.concern.org.uk/newsletter/concernnet-uk/subscribe?country_code=GB"
+          "signUpLink": "https://www.concern.org.uk/newsletter/concernnet-uk/subscribe"
         }
       },
-      "styles": ["bg-grey"]
+      "styles": ["bg-grey", "mb-5"]
     }
   ]
 }

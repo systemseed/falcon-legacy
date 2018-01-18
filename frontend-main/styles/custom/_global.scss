@@ -31,7 +31,9 @@ a.link-pink {
     color: darken($pink, 8);
   }
 }
-
+p {
+  margin: 1.3em 0;
+}
 input[placeholder]          { font-style: italic; }
 input::-moz-placeholder     { font-style: italic; }
 input:-moz-placeholder      { font-style: italic; }

@@ -3,7 +3,7 @@
   font-weight: bold;
   color: $black;
   line-height: 1.2em;
-  margin: 0.74em 0;
+  margin: 0.7em 0;
   @include media-breakpoint-up(md) {
     @include font-size(22px);
     margin-bottom: 1.4em;
