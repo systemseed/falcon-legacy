@@ -75,7 +75,7 @@ class DonationForm extends React.Component {
               predefinedValues
                 .map((value, i) => {
                   return (
-                    <Button outline size="sm" className="btn-predefined-value" color="grey" onClick={(event) => this.handleRadioBtnClick(event, i)} active={this.state.rSelected === i}>£{value}</Button>
+                    <Button key={i} outline size="sm" className="btn-predefined-value" color="grey" onClick={(event) => this.handleRadioBtnClick(event, i)} active={this.state.rSelected === i}>£{value}</Button>
                   )
                 })
             }
@@ -89,7 +89,7 @@ class DonationForm extends React.Component {
 
         <div className="donation-form-block__monthly">
           <div className="donate-monthly">
-            <input type="checkbox" name="donate_monthly" id="donate-monthly" onChange={this.handleChange} checked={this.state.isRegular}/><label for="donate-monthly">Donate Monthly</label>
+            <input type="checkbox" name="donate_monthly" id="donate-monthly" onChange={this.handleChange} checked={this.state.isRegular}/><label htmlFor="donate-monthly">Donate Monthly</label>
           </div>
           <div className="donate-paypal">
             <PaypalButton outline size="sm" color="grey" onClick={this.handleSubmit} />

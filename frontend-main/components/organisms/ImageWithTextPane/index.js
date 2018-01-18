@@ -8,9 +8,8 @@ const ImageWithTextPane = ({ styles, imageWithTextData }) => {
       {
         imageWithTextData.map((data, i) => {
           return (
-            <div className="col-12 p-0">
+            <div className="col-12 p-0" key={i}>
               <ImageWithText
-                key={i}
                 reverseOrder={(i % 2) == 0}
                 headline={data.headline}
                 copy={data.copy}
@@ -28,7 +27,14 @@ const ImageWithTextPane = ({ styles, imageWithTextData }) => {
 
 ImageWithTextPane.propTypes = {
   styles: PropTypes.string,
-  imageWithTextData: PropTypes.arrayOf(PropTypes.instanceOf(ImageWithText)),
+  imageWithTextData: PropTypes.arrayOf(PropTypes.shape({
+    reverseOrder: PropTypes.bool,
+    headline: PropTypes.string,
+    copy: PropTypes.string,
+    imageUrl: PropTypes.string,
+    imageTitle: PropTypes.string,
+    imageAlt: PropTypes.string
+  })),
 };
 
 export default ImageWithTextPane;

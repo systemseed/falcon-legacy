@@ -9,9 +9,8 @@ const MoneyHandlesWithButtonPane = ({ styles, moneyHandlesData }) => {
       {
         moneyHandlesData.map((data, i) => {
           return (
-            <div className="col-12 col-xl-4">
+            <div className="col-12 col-xl-4" key={i}>
               <MoneyHandlesWithButton
-                key={i}
                 description={data.description}
                 iconUrl={data.iconUrl}
                 buttonUrl={data.buttonUrl}
@@ -27,7 +26,12 @@ const MoneyHandlesWithButtonPane = ({ styles, moneyHandlesData }) => {
 
 MoneyHandlesWithButtonPane.propTypes = {
   styles: PropTypes.string,
-  moneyHandlesData: PropTypes.arrayOf(PropTypes.instanceOf(MoneyHandlesWithButton)),
+  moneyHandlesData: PropTypes.arrayOf(PropTypes.shape({
+    description: PropTypes.string,
+    iconUrl: PropTypes.string,
+    buttonText: PropTypes.string,
+    buttonUrl: PropTypes.string,
+  })),
 };
 
 export default MoneyHandlesWithButtonPane;
