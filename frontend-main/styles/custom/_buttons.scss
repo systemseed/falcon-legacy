@@ -30,3 +30,23 @@
 a.btn {
   text-decoration: none;
 }
+
+.btn.btn-white:not([disabled]):not(.disabled):active,
+.btn.btn-white {
+  color: $pink;
+}
+.btn.btn-outline-grey:hover {
+  background-color: $white-grey;
+  color: $grey;
+}
+.btn.btn-outline-grey:not([disabled]):not(.disabled):active {
+  background-color: darken($white-grey, 7.5%);
+  color: $grey;
+}
+.btn.btn-outline-grey.btn-predefined-value.active,
+.btn.btn-outline-grey.btn-predefined-value.active:hover {
+  background-color: darken($pink, 8);
+  color: $white;
+  border: solid 2px darken($pink, 8);
+  box-shadow: none;
+}
