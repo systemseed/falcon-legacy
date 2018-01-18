@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, ButtonGroup } from 'reactstrap';
 import AmountWithCurrency from '../../atoms/AmountWithCurrency';
+import PaypalButton from '../../atoms/PaypalButton';
 
 class DonationForm extends React.Component {
 
@@ -42,6 +43,7 @@ class DonationForm extends React.Component {
   handleSubmit(event) {
     const { regularDonationUrl, singleDonationUrl } = this.props;
     let donationUrl = this.state.isRegular ? regularDonationUrl : singleDonationUrl;
+    event.preventDefault();
 
     let queryParams = [];
     if (this.donationAmount.value > 0) {
@@ -63,15 +65,20 @@ class DonationForm extends React.Component {
   }
 
   render() {
-    const { buttonText, currencyCode } = this.props;
+    const { buttonText, currencyCode, predefinedValues } = this.props;
     return(
       <form className="donation-form-block" onSubmit={this.handleSubmit}>
 
         <div className="donation-form-block__predefined-values">
           <ButtonGroup>
-            <Button outline size="sm" className="btn-predefined-value" color="grey" onClick={(event) => this.handleRadioBtnClick(event, 1)} active={this.state.rSelected === 1}>£10</Button>
-            <Button outline size="sm" className="btn-predefined-value" color="grey" onClick={(event) => this.handleRadioBtnClick(event, 2)} active={this.state.rSelected === 2}>£20</Button>
-            <Button outline size="sm" className="btn-predefined-value" color="grey" onClick={(event) => this.handleRadioBtnClick(event, 3)} active={this.state.rSelected === 3}>£30</Button>
+            {
+              predefinedValues
+                .map((value, i) => {
+                  return (
+                    <Button outline size="sm" className="btn-predefined-value" color="grey" onClick={(event) => this.handleRadioBtnClick(event, i)} active={this.state.rSelected === i}>£{value}</Button>
+                  )
+                })
+            }
           </ButtonGroup>
         </div>
 
@@ -85,7 +92,7 @@ class DonationForm extends React.Component {
             <input type="checkbox" name="donate_monthly" id="donate-monthly" onChange={this.handleChange} checked={this.state.isRegular}/><label for="donate-monthly">Donate Monthly</label>
           </div>
           <div className="donate-paypal">
-            <Button className="btn-paypal" outline size="sm" color="grey" name="paypal" onClick={this.handleSubmit}>Paypal</Button>
+            <PaypalButton outline size="sm" color="grey" onClick={this.handleSubmit} />
           </div>
         </div>
 

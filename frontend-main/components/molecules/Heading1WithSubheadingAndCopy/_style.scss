@@ -1,7 +1,23 @@
 .copy-with-title-and-subtitle {
-
+  .plain-text {
+    p:first-child {
+      margin-top: 0;
+    }
+  }
   .donation-form-block__monthly {
     margin-top: 12px;
+  }
+  @include media-breakpoint-only(sm) {
+    .copy-with-title-and-subtitle__donate-block {
+      display: flex;
+      .plain-text {
+        width: 60%;
+      }
+      .donation-form-short-block {
+        width: 40%;
+        padding: 2px 0 2px 15px;
+      }
+    }
   }
   @include media-breakpoint-up(sm) {
     .donation-form-block__monthly {

@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'reactstrap';
 import Heading1 from '../../atoms/Heading1';
 import SubHeading from '../../atoms/SubHeading';
 import PlainText from '../../atoms/PlainText';
-import { Button } from 'reactstrap';
+import PaypalButton from '../../atoms/PaypalButton';
 
 class Heading1WithSubheadingAndCopy extends React.Component {
 
@@ -57,14 +58,14 @@ class Heading1WithSubheadingAndCopy extends React.Component {
         <div className="copy-with-title-and-subtitle__donate-block">
           <PlainText>{copy}</PlainText>
 
-          <div className="donation-form-short-block">
+          <div className="donation-form-short-block d-md-none">
             <Button block color="secondary" size="lg" name="donate" onClick={this.handleSubmit}>{buttonText}</Button>
             <div className="donation-form-block__monthly">
               <div className="donate-monthly">
                 <input type="checkbox" name="donate_monthly" id="donate-monthly" onChange={this.handleChange} checked={this.state.isRegular}/><label for="donate-monthly">Donate Monthly</label>
               </div>
               <div className="donate-paypal">
-                <Button className="btn-paypal" outline size="sm" color="grey" name="paypal" onClick={this.handleSubmit}>Paypal</Button>
+                <PaypalButton outline size="sm" color="grey" onClick={this.handleSubmit} />
               </div>
             </div>
           </div>

@@ -14,7 +14,7 @@ const MoneyHandlesWithButton = ({ description, iconUrl, buttonText, buttonUrl })
       </div>
       <div className="money-handles-with-button-button">
         <DonationButton donationUrl={buttonUrl}>{buttonText}</DonationButton>
-        <Button color="secondary" size="lg" tag="a" href={buttonUrl}>{buttonText}</Button>
+        {/*<Button color="secondary" size="lg" tag="a" href={buttonUrl}>{buttonText}</Button>*/}
       </div>
     </div>
   );

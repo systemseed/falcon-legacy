@@ -22,34 +22,51 @@
   }
   @include media-breakpoint-up(xl) {
     .donation-form-block__predefined-values {
-      margin-bottom: 12px;
+      margin-bottom: 30px;
     }
     .donation-form-block__monthly,
     .donation-form-block__donation-amount {
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
   }
 }
 .donation-form-block__donation-amount {
   position: relative;
   .amount-with-currency__currency {
-    @include font-size(30px);
+    @include font-size(22px);
     color: $grey;
-    content: '£';
     position: absolute;
     display: block;
-    top: 12px;
-    left: 23px;
+    top: 7px;
+    left: 21px;
   }
   input {
-    @include font-size(30px);
+    @include font-size(22px);
     color: $grey;
     border: none;
     border-bottom: solid 2px grey;
     width: 100%;
     margin: 0;
     padding: 6px 16px;
-    padding-left: 40px;
+    padding-left: 34px;
+    padding-bottom: 8px;
+  }
+  @include media-breakpoint-up(lg) {
+    input {
+      padding-bottom: 8px;
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    input {
+       @include font-size(30px);
+       padding-left: 48px;
+       padding-bottom: 12px;
+     }
+    .amount-with-currency__currency {
+      @include font-size(30px);
+      top: 12px;
+      left: 30px;
+    }
   }
 }
 
@@ -60,8 +77,14 @@
 }
 
 .donate-monthly {
-  color: $grey;
   @include font-size(13px);
+  color: $grey;
+  label {
+    padding-left: 5px;
+  }
+  @include media-breakpoint-up(xl) {
+    @include font-size(14px);
+  }
 }
 
 .donation-form-block__predefined-values {

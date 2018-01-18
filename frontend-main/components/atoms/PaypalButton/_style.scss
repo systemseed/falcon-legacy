@@ -1,0 +1,32 @@
+.btn.btn-sm.btn-paypal {
+  width: 96px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  img {
+    width: 66px;
+    display: block;
+  }
+
+  @include media-breakpoint-up(md) {
+    width: 76px;
+    height: 40px;
+    img {
+      width: 50px;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: 90px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    width: 120px;
+    height: 60px;
+    img {
+      width: 76px;
+    }
+  }
+}
