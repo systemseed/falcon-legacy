@@ -1,79 +1,94 @@
 .money-handles-with-button {
-  text-align: center;
-  .money-handles-with-button-description {
-    padding: 6% 20px;
-    .money-handles-icon {
-      margin-bottom: 4%;
-    }
-  }
-
   @include media-breakpoint-down(lg) {
+    height: 142px;
     display: flex;
-    .money-handles-with-button-description {
+    text-align: center;
+
+    .money-handles-with-button__description {
+      padding: 16px;
       width: 66%;
-      .money-handles-description {
-        max-width: 350px;
-        margin: 0 auto;
-      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .money-handles-with-button-button {
+
+    .money-handles-icon {
+      margin-bottom: 6px;
+    }
+
+    .money-handles-with-button__button {
       width: 34%;
-      .donation-btn {
+      .btn {
+        @include font-size(20px);
+        line-height: normal;
+        white-space: normal;
+        padding: 0;
+        display: flex;
         height: 100%;
         border-radius: 0;
-        min-width: 0;
-        width: 100%;
+        align-items: center;
+        text-align: center;
+        span {
+          max-width: 130px;
+          margin: 0 auto;
+        }
       }
     }
   }
-  @include media-breakpoint-up(xl) {
-    padding: 10px 20px;
-    height: 416px;
-    position: relative;
-    .money-handles-with-button-button {
-      position: absolute;
-      bottom: 40px;
-      margin-left: -20px;
-      width: 100%;
+
+  @include media-breakpoint-only(sm) {
+    height: 202px;
+    .money-handles-icon {
+      margin-bottom: 34px;
+      margin-top: -20px;
     }
+  }
+
+  @include media-breakpoint-between(md, lg) {
+    height: 260px;
+
+    .money-handles-with-button__button .btn {
+      @include font-size(32px);
+    }
+
+    .money-handles-description {
+      max-width: 78%;
+      margin: 0 auto;
+    }
+
+    .money-handles-icon {
+      margin-bottom: 22px;
+      margin-top: -8px;
+      span {
+        max-width: 180px;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    text-align: center;
+    height: 416px;
+    padding: 38px 32px 50px 32px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center;
+    position: relative;
+
     .money-handles-icon {
       position: absolute;
-      bottom: 160px;
-      left: calc(50% - 45px);
+      bottom: 180px;
+      left: calc(50% - 50px);
     }
-  }
-}
 
-.money-handles-with-button {
-  height: 142px;
-  display: flex;
-  .money-handles-with-button__description {
-    padding: 16px;
-    width: 66%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .money-handles-icon {
-    margin-bottom: 6px;
-  }
-  .money-handles-with-button__button {
-    width: 34%;
-    .btn {
-      @include font-size(20px);
-      line-height: normal;
-      white-space: normal;
-      padding: 0;
-      display: flex;
-      height: 100%;
-      border-radius: 0;
-      align-items: center;
-      text-align: center;
-      span {
-        max-width: 130px;
-        margin: 0 auto;
+    .money-handles-with-button__button {
+      width: 100%;
+      .btn {
+        @include font-size(36px);
+        padding: 0.438rem 1.5rem;
+        width: 100%;
+        max-width: 410px;
       }
     }
   }
 }
-
