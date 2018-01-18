@@ -52,7 +52,7 @@
         "regularDonationUrl": "https://www.concern.org.uk/donate/regular/new?country_code=GB",
         "buttonText": "Donate"
       },
-      "styles": ["bg-grey", "mt-md-4", "mt-sm-2", "mb-5"]
+      "styles": ["bg-grey", "mt-md-4", "mt-sm-2", "mb-4"]
     },
     {
       "type": "VideoPlayerPane",
@@ -60,7 +60,7 @@
       "data": {
         "videoUrl": "https://www.youtube.com/watch?v=ts6Vk566ozw"
       },
-      "styles": ["bg-grey", "mb-5"]
+      "styles": ["bg-grey", "mb-3"]
     },
     {
       "type": "TextBlockPane",

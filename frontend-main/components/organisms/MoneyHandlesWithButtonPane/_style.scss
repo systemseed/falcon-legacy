@@ -1,9 +1,14 @@
 .money-handles-with-button-pane {
   & > div {
     padding: 0;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     &:last-child {
       margin-bottom: 0;
+    }
+  }
+  @include media-breakpoint-up(sm) {
+    & > div {
+      margin-bottom: 10px;
     }
   }
   @include media-breakpoint-up(xl) {

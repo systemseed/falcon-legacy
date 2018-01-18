@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
   }
-  h2 {
+  .h2 {
     margin-bottom: 38px;
     margin-top: -22px;
   }
@@ -18,7 +18,7 @@
   }
   @include media-breakpoint-up(sm) {
     height: 268px;
-    h2 {
+    .h2 {
       margin-top: -14px;
     }
   }
@@ -34,7 +34,7 @@
   }
   @include media-breakpoint-up(xl) {
     height: 500px;
-    h2 {
+    .h2 {
       margin-bottom: 54px;
       margin-top: -6px;
     }
