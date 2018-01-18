@@ -6,7 +6,7 @@ const AmountWithCurrency = ({ currencyCode, onChange, innerRef, ...attributes })
   return (
     <div className="amount-with-currency">
       <span className="amount-with-currency__currency">{ getCurrencySymbol(currencyCode) }</span>
-      <input type="text" name="donation_amount" ref={innerRef} onChange={onChange} {...attributes} />
+      <input type="number" min="0" name="donation_amount" ref={innerRef} onChange={onChange} {...attributes} />
     </div>
   );
 };
