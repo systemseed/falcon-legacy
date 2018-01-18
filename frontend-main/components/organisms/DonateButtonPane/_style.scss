@@ -1,4 +1,47 @@
 .donate-button-pane {
-  padding: 10% 20px;
   max-height: 500px;
+  height: 286px;
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  h2 {
+    margin-bottom: 38px;
+    margin-top: -22px;
+  }
+  .btn {
+    @include font-size(24px);
+    width: 300px;
+    max-width: 100%;
+    padding: 0.625rem 1.8rem;
+  }
+  @include media-breakpoint-up(sm) {
+    height: 268px;
+    h2 {
+      margin-top: -14px;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .btn {
+      @include font-size(32px);
+      padding: 0.063rem 1.8rem;
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    height: 354px;
+  }
+  @include media-breakpoint-up(xl) {
+    height: 500px;
+    h2 {
+      margin-bottom: 54px;
+      margin-top: -6px;
+    }
+    .btn {
+      @include font-size(48px);
+      width: 400px;
+      padding: 0 1.8rem;
+    }
+  }
 }
