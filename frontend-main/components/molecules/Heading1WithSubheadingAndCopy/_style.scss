@@ -3,6 +3,10 @@
     p:first-child {
       margin-top: 0;
     }
+    p:last-child {
+      margin-bottom: 0;
+    }
+    margin-bottom: 6px;
   }
   .donation-form-block__monthly {
     margin-top: 12px;
