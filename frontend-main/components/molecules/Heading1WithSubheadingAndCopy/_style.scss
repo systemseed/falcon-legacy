@@ -7,6 +7,20 @@
   .donation-form-block__monthly {
     margin-top: 12px;
   }
+
+  @include media-breakpoint-only(xs) {
+
+    .sticky-donation-button-wrapper {
+      height: 70px;
+    }
+    .sticky-donation-button {
+      padding: 10px 0 0;
+    }
+    .sticky-donation-button.sticky {
+      background-color: $grey-light;
+      padding: 10px 15px;
+    }
+  }
   @include media-breakpoint-only(sm) {
     .copy-with-title-and-subtitle__donate-block {
       display: flex;

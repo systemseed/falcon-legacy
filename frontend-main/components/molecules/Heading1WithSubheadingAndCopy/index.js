@@ -5,6 +5,7 @@ import Heading1 from '../../atoms/Heading1';
 import SubHeading from '../../atoms/SubHeading';
 import PlainText from '../../atoms/PlainText';
 import PaypalButton from '../../atoms/PaypalButton';
+import Sticky from '../../atoms/Sticky';
 
 class Heading1WithSubheadingAndCopy extends React.Component {
 
@@ -59,7 +60,15 @@ class Heading1WithSubheadingAndCopy extends React.Component {
           <PlainText>{copy}</PlainText>
 
           <div className="donation-form-short-block d-md-none">
-            <Button block color="secondary" size="lg" name="donate" onClick={this.handleSubmit}>{buttonText}</Button>
+
+            <div className="sticky-donation-button-wrapper d-sm-none">
+              <Sticky className="sticky-donation-button">
+                <Button block color="secondary" size="lg" name="donate" onClick={this.handleSubmit}>{buttonText}</Button>
+              </Sticky>
+            </div>
+
+            <Button block className="d-none d-sm-block" color="secondary" size="lg" name="donate" onClick={this.handleSubmit}>{buttonText}</Button>
+
             <div className="donation-form-block__monthly">
               <div className="donate-monthly">
                 <input type="checkbox" name="donate_monthly" id="donate-monthly" onChange={this.handleChange} checked={this.state.isRegular}/><label for="donate-monthly">Donate Monthly</label>
