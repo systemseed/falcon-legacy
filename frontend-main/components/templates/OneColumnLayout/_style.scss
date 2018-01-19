@@ -1,0 +1,94 @@
+.layout--onecol {
+  .pagetitle-with-copy {
+    margin-bottom: 20px;
+  }
+  .video-player-pane {
+    margin-bottom: 14px;
+  }
+  .text-block-pane {
+    margin-bottom: 44px;
+  }
+  .donate-button-pane {
+    margin-bottom: 38px;
+  }
+  .sign-up-with-description-pane {
+    margin-bottom: 40px;
+  }
+  @include media-breakpoint-up(sm) {
+    .pagetitle-with-copy {
+      margin-bottom: 52px;
+    }
+    .video-player-pane {
+      margin-bottom: 20px;
+    }
+    .text-block-pane {
+      margin-bottom: 75px;
+    }
+    .donate-button-pane {
+      margin-bottom: 48px;
+    }
+    .sign-up-with-description-pane {
+      margin-bottom: 60px;
+    }
+  }
+  @include media-breakpoint-up(md) {
+    .hero-with-donation-block-pane {
+      margin-bottom: 54px;
+    }
+    .pagetitle-with-copy {
+      margin-bottom: 74px;
+    }
+    .video-player-pane {
+      margin-bottom: 44px;
+    }
+    .text-block-pane {
+      margin-bottom: 104px;
+    }
+    .donate-button-pane {
+      margin-bottom: 48px;
+    }
+    .sign-up-with-description-pane {
+      margin-bottom: 60px;
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    .hero-with-donation-block-pane {
+      margin-bottom: 34px;
+    }
+    .pagetitle-with-copy {
+      margin-bottom: 56px;
+    }
+    .video-player-pane {
+      margin-bottom: 44px;
+    }
+    .text-block-pane {
+      margin-bottom: 82px;
+    }
+    .donate-button-pane {
+      margin-bottom: 34px;
+    }
+    .sign-up-with-description-pane {
+      margin-bottom: 78px;
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    .hero-with-donation-block-pane {
+      margin-bottom: 34px;
+    }
+    .pagetitle-with-copy {
+      margin-bottom: 56px;
+    }
+    .video-player-pane {
+      margin-bottom: 40px;
+    }
+    .text-block-pane {
+      margin-bottom: 114px;
+    }
+    .donate-button-pane {
+      margin-bottom: 102px;
+    }
+    .sign-up-with-description-pane {
+      margin-bottom: 78px;
+    }
+  }
+}
