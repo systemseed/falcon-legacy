@@ -22,11 +22,11 @@
   }
   @include media-breakpoint-up(xl) {
     .donation-form-block__predefined-values {
-      margin-bottom: 30px;
+      margin-bottom: 22px;
     }
     .donation-form-block__monthly,
     .donation-form-block__donation-amount {
-      margin-bottom: 26px;
+      margin-bottom: 24px;
     }
   }
 }
@@ -105,8 +105,8 @@
   @include media-breakpoint-up(xl) {
     .btn-predefined-value {
       @include font-size(30px);
-      padding-bottom: 0.719rem;
-      padding-top: 0.719rem;
+      padding-bottom: 0.344rem;
+      padding-top: 0.344rem;
     }
   }
 }

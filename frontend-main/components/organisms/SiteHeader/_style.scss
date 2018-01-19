@@ -23,6 +23,9 @@
     }
   }
   @include media-breakpoint-up(xl) {
+    .row {
+      padding: 0 15px;
+    }
     .site-header-logo img {
       max-width: 147px;
       padding: 25px 0;
