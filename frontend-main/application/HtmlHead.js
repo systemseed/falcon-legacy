@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import Package from '../package';
 import inlineCSS from '../styles/theme.scss';
-// import GTM from '../../analytics/GoogleTagManager';
-// import GA from '../../analytics/GoogleAnalytics';
-// import YM from '../../analytics/YandexMetrika';
+import GTM from '../analytics/GoogleTagManager';
 
 const HtmlHead = ({ metaData, analytics, favicon }) => {
 
@@ -24,8 +22,6 @@ const HtmlHead = ({ metaData, analytics, favicon }) => {
     <div>
       {/* Analytics scripts */}
       {!!analytics && !!analytics.GTM && <GTM analyticId={analytics.GTM} />}
-      {!!analytics && !!analytics.GA && <GA analyticId={analytics.GA} pageTitle={metaData.title} />}
-      {!!analytics && !!analytics.YM && <YM analyticId={analytics.YM} />}
 
       <Head>
         <title>{metaData.title}</title>

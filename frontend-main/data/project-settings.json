@@ -1,0 +1,11 @@
+{
+  "siteName": "Falcon",
+  "analytics": {
+    "GTM": "GTM-TEST"
+  },
+  "metatags": {
+    "title": "Donation page",
+    "keywords": "Donation page",
+    "description": "Donation page"
+  }
+}

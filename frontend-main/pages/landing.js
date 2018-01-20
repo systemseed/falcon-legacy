@@ -17,7 +17,8 @@ const availableComponents = {
 
 class LandingPage extends React.Component {
   render() {
-    const {components, meta } = this.props.data;
+    const { projectSettings, pageData } = this.props;
+    const {components, meta } = pageData;
 
     const pageComponents = components
       .sort((a, b) => a.order > b.order)
@@ -29,7 +30,7 @@ class LandingPage extends React.Component {
       })
 
     return (
-      <App metaData={meta.metatags}>
+      <App metaData={meta.metatags} projectSettings={projectSettings} >
         <OneColumnLayout>
           {pageComponents}
         </OneColumnLayout>
@@ -38,8 +39,9 @@ class LandingPage extends React.Component {
   }
 
   static getInitialProps = async function() {
-    const data = await import('../data/landing-pages/donation-landing-page.json');
-    return { data }
+    const pageData = await import('../data/landing-pages/donation-landing-page.json');
+    const projectSettings = await import('../data/project-settings.json');
+    return { pageData, projectSettings }
   }
 }
 
