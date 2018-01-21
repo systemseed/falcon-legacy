@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'reactstrap';
+import DonationButton from '../../atoms/DonationButton';
 import Heading1 from '../../atoms/Heading1';
 import SubHeading from '../../atoms/SubHeading';
 import PlainText from '../../atoms/PlainText';
@@ -63,11 +63,11 @@ class Heading1WithSubheadingAndCopy extends React.Component {
 
             <div className="sticky-donation-button-wrapper d-sm-none">
               <Sticky className="sticky-donation-button">
-                <Button block color="secondary" size="lg" name="donate" onClick={this.handleSubmit}>{buttonText}</Button>
+                <DonationButton block color="secondary" size="lg" name="donate" onClick={this.handleSubmit}>{buttonText}</DonationButton>
               </Sticky>
             </div>
 
-            <Button block className="d-none d-sm-block" color="secondary" size="lg" name="donate" onClick={this.handleSubmit}>{buttonText}</Button>
+            <DonationButton block className="d-none d-sm-block" color="secondary" size="lg" name="donate" onClick={this.handleSubmit}>{buttonText}</DonationButton>
 
             <div className="donation-form-block__monthly">
               <div className="donate-monthly">

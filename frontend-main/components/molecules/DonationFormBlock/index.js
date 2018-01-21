@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button, ButtonGroup } from 'reactstrap';
 import AmountWithCurrency from '../../atoms/AmountWithCurrency';
+import DonationButton from '../../atoms/DonationButton';
 import PaypalButton from '../../atoms/PaypalButton';
 
 class DonationForm extends React.Component {
@@ -96,7 +97,7 @@ class DonationForm extends React.Component {
           </div>
         </div>
 
-        <Button block color="secondary" size="lg" name="donate" onClick={this.handleSubmit}>{buttonText}</Button>
+        <DonationButton block color="secondary" size="lg" name="donate" onClick={this.handleSubmit}>{buttonText}</DonationButton>
       </Form>
     );
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'reactstrap';
+import DonationButton from '../../atoms/DonationButton';
 
 class ButtonWithAmount extends React.Component {
 
@@ -23,7 +23,7 @@ class ButtonWithAmount extends React.Component {
   render() {
     const { href, children, ...attributes } = this.props;
     return(
-      <Button href={href} onClick={this.handleClick} {...attributes}>{children}</Button>
+      <DonationButton href={href} onClick={this.handleClick} {...attributes}>{children}</DonationButton>
     );
   }
 }
