@@ -1,4 +1,5 @@
 import React from 'react';
+import Error from 'next/error';
 import dynamic from 'next/dynamic';
 import App from '../application/App';
 import GTMDataLayer from '../analytics/GoogleTagManagerDataLayer';
@@ -23,7 +24,7 @@ class LandingPage extends React.Component {
 
     // Redirect to 404 if there is no data for corresponding url in file.
     if (pageData[pageId] === undefined) {
-      window.location = '/404';
+      return <Error statusCode={404} />;
     }
     const { components, meta } = pageData[pageId];
 
