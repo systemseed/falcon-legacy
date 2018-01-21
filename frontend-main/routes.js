@@ -4,4 +4,4 @@ const routes = module.exports = require('next-routes')();
 // Additional dynamic routes.
 // 'route name', 'alias', 'page' to process in /pages folder.
 routes
-  .add('landing', '/through-to-two', 'landing');
+  .add('landing_demo', '/donation-landing-page', 'landing');

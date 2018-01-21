@@ -18,9 +18,16 @@ const availableComponents = {
 
 class LandingPage extends React.Component {
   render() {
-    const { projectSettings, pageData } = this.props;
-    const { components, meta } = pageData;
+    const { projectSettings, pageData, url } = this.props;
+    const pageId = url.asPath.substr(1); // Remove first "/" before alias name to get page ID.
 
+    // Redirect to 404 if there is no data for corresponding url in file.
+    if (pageData[pageId] === undefined) {
+      window.location = '/404';
+    }
+    const { components, meta } = pageData[pageId];
+
+    // Sort components data, load dinamically and output to the page.
     const pageComponents = components
       .sort((a, b) => a.order > b.order)
       .map((data, i) => {
@@ -47,18 +54,14 @@ class LandingPage extends React.Component {
   }
 
   static getInitialProps = async function() {
-    const pageData = await import('../data/landing-pages/donation-landing-page.json');
+    // @todo: Load pages data from backend by given params in url.
+    // "key" - url of the page defined in ./routes.js, "value" - path to the file with data.
+    const pageData = {
+      'donation-landing-page': await import('../data/landing-pages/donation-landing-page.json')
+    };
     const projectSettings = await import('../data/project-settings.json');
     return { pageData, projectSettings }
   }
 }
-
-LandingPage.defaultProps = {
-
-};
-
-LandingPage.propTypes = {
-
-};
 
 export default LandingPage;
