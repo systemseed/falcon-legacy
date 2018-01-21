@@ -1,5 +1,6 @@
 {
   "siteName": "Falcon",
+  "platformVersion": 2,
   "analytics": {
     "GTM": "GTM-TEST"
   },

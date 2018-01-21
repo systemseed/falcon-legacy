@@ -1,6 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import App from '../application/App';
+import GTMDataLayer from '../analytics/GoogleTagManagerDataLayer';
 import OneColumnLayout from '../components/templates/OneColumnLayout';
 
 const availableComponents = {
@@ -18,7 +19,7 @@ const availableComponents = {
 class LandingPage extends React.Component {
   render() {
     const { projectSettings, pageData } = this.props;
-    const {components, meta } = pageData;
+    const { components, meta } = pageData;
 
     const pageComponents = components
       .sort((a, b) => a.order > b.order)
@@ -27,10 +28,17 @@ class LandingPage extends React.Component {
         return (
           <Component key={i} styles={data.styles.join(' ')} {...data.data} />
         )
-      })
+      });
 
+    const GtmDataLayer = {
+      "contentTitle": meta.metatags.title,
+      "contentType": "cw_donation_landing_page",
+      "platformVersion": projectSettings.platformVersion,
+      "event": "event.contentView"
+    };
     return (
       <App metaData={meta.metatags} projectSettings={projectSettings} >
+        <GTMDataLayer dataLayer={GtmDataLayer} />
         <OneColumnLayout>
           {pageComponents}
         </OneColumnLayout>
