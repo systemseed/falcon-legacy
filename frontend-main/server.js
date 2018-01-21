@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const sass = require('node-sass');
 const nextjs = require('next');
+const routes = require('./routes');
 const globImporter = require('node-sass-glob-importer');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -38,7 +39,7 @@ else {
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = nextjs({ dev });
-const handler = app.getRequestHandler();
+const handler = routes.getRequestHandler(app);
 
 app.prepare()
   .then(() => {
