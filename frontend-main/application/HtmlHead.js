@@ -7,7 +7,7 @@ import GTM from '../analytics/GoogleTagManager';
 
 const HtmlHead = ({ metaData, analytics, favicon }) => {
 
-  const baseUrl = process.env.BASE_URL || window.BASE_URL;
+  const baseUrl = process.env.BASE_URL || window.BASE_URL || '';
   let stylesheets;
   if (process.env.NODE_ENV === 'production') {
     // In production, serve pre-built CSS file from /assets/{version}/main.css
