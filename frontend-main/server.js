@@ -22,7 +22,7 @@ if (process.env.PLATFORM_PROJECT) {
   for (let url in config.routes) {
     let route = config.routes[url];
     if (route.original_url === 'https://main.{default}/') {
-      process.env.BASE_URL = url;
+      process.env.BASE_URL = url.replace(/\/$/, ""); // Remove railing slash.
     }
   }
 
