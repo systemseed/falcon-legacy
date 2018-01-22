@@ -10,7 +10,8 @@ const HtmlHead = ({ metaData, analytics, favicon }) => {
   let stylesheets;
   if (process.env.NODE_ENV === 'production') {
     // In production, serve pre-built CSS file from /assets/{version}/main.css
-    const pathToCSS = `${process.env.BASE_URL}/assets/${Package.version}/main.css`;
+    const baseUrl = process.env.BASE_URL || window.BASE_URL;
+    const pathToCSS = `${baseUrl}/assets/${Package.version}/main.css`;
     stylesheets = <link rel="stylesheet" type="text/css" href={pathToCSS} />;
   }
   else {
