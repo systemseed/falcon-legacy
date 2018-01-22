@@ -1,4 +1,5 @@
 const globImporter = require('node-sass-glob-importer');
+const webpack = require('webpack');
 
 module.exports = {
   webpack: (config, { dev }) => {
@@ -27,6 +28,12 @@ module.exports = {
           }
         ],
       }
+    );
+    // To access process.env.BASE_URL from the frontend. See: https://github.com/zeit/next.js/issues/159#issuecomment-268476743
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env.BASE_URL': JSON.stringify(process.env.BASE_URL)
+      })
     );
     return config;
   },
