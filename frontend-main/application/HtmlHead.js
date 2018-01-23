@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Package from '../package';
 import inlineCSS from '../styles/theme.scss';
 import GTM from '../analytics/GoogleTagManager';
+import VWO from '../analytics/VWO';
 
 const HtmlHead = ({ metaData, analytics, favicon }) => {
 
@@ -22,6 +23,7 @@ const HtmlHead = ({ metaData, analytics, favicon }) => {
   return (
     <div>
       {/* Analytics scripts */}
+      {!!analytics && !!analytics.VWO && <VWO analyticId={analytics.VWO} />}
       {!!analytics && !!analytics.GTM && <GTM analyticId={analytics.GTM} />}
 
       <Head>
@@ -47,8 +49,7 @@ HtmlHead.propTypes = {
   }).isRequired,
   analytics: PropTypes.shape({
     GTM: PropTypes.string,
-    GA: PropTypes.string,
-    YM: PropTypes.string,
+    VWO: PropTypes.string,
   }),
 };
 

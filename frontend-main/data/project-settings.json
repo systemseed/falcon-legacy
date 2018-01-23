@@ -2,7 +2,8 @@
   "siteName": "Falcon",
   "platformVersion": 2,
   "analytics": {
-    "GTM": "GTM-TEST"
+    "GTM": "GTM-TEST",
+    "VWO": "11111"
   },
   "metatags": {
     "title": "Donation page",
