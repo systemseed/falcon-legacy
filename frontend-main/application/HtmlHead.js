@@ -31,8 +31,6 @@ const HtmlHead = ({ metaData, analytics, favicon }) => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        {/*Temporary solution to make video work in IE11*/}
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.20.0/polyfill.min.js' />
         {!!favicon && <link rel="shortcut icon" href={baseUrl + favicon} type="image/vnd.microsoft.icon" />}
         {metaData.description && <meta name="description" content={metaData.description} />}
         {metaData.keywords && <meta name="keywords" content={metaData.keywords} />}

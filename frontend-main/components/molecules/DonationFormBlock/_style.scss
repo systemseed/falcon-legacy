@@ -37,7 +37,7 @@
     color: $grey;
     position: absolute;
     display: block;
-    top: 7px;
+    top: 3px;
     left: 21px;
   }
   input {
@@ -68,7 +68,7 @@
      }
     .amount-with-currency__currency {
       @include font-size(30px);
-      top: 12px;
+      top: 4px;
       left: 30px;
     }
   }
