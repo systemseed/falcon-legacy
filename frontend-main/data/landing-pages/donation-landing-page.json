@@ -27,9 +27,7 @@
       "order": 1,
       "data": {
         "heroData": {
-          "imageUrl": "/static/images/content/donation-landing-page/hero-image.jpg",
-          "imageAlt": "",
-          "imageTitle": ""
+          "imageUrl": "/static/images/content/donation-landing-page/hero-image.jpg"
         },
         "donationBlockData": {
           "currencyCode": "gbp",

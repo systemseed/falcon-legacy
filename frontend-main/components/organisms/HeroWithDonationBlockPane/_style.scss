@@ -1,5 +1,6 @@
 .hero-with-donation-block-pane {
   background-color: $white;
+  height: 190px;
   img {
     display: block;
   }
@@ -27,7 +28,7 @@
     }
   }
   @include media-breakpoint-up(lg) {
-    height: 300px;
+    height: 304px;
     .hero-with-donation-block-pane__image {
       position: relative;
       img {

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DonationFormBlock from '../../molecules/DonationFormBlock';
-import Image from '../../atoms/Image';
+import HeroBackgroundImage from '../../atoms/HeroBackgroundImage';
 
 const HeroWithDonationBlockPane = ({ styles, heroData, donationBlockData }) => {
   return (
     <div className={"row hero-with-donation-block-pane limited-width " + styles}>
       <div className="hero-with-donation-block-pane__image col-12 col-md-7 col-lg-8 p-0">
-        <Image {...heroData} />
+        <HeroBackgroundImage {...heroData} />
       </div>
       <div className="hero-with-donation-block-pane__form d-none d-md-block col-md-5 col-lg-4 p-0">
         <div className="hero-with-donation-block-pane__form-wrapper">
@@ -20,9 +20,7 @@ const HeroWithDonationBlockPane = ({ styles, heroData, donationBlockData }) => {
 
 HeroWithDonationBlockPane.propTypes = {
   heroData: PropTypes.shape({
-    imageUrl: PropTypes.string,
-    imageAlt: PropTypes.string,
-    imageTitle: PropTypes.string
+    imageUrl: PropTypes.string
   }),
   donationBlockData: PropTypes.shape({
     currency: PropTypes.string,
