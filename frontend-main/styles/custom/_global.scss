@@ -5,15 +5,15 @@ html {
 body {
   font-size: $font-size-base;
   font-family: $font-family-base;
-  line-height: 22px;
+  line-height: 1.38;
   color: $black;
   background: $grey-light;
   @include media-breakpoint-up(md) {
-    line-height: 25px;
+    line-height: 1.56;
   }
   @include media-breakpoint-up(xl) {
     @include font-size(18px);
-    line-height: 26px;
+    line-height: 1.44;
   }
 }
 
