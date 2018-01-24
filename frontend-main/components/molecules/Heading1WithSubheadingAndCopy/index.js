@@ -35,7 +35,7 @@ class Heading1WithSubheadingAndCopy extends React.Component {
 
     let queryParams = [];
     if (event.target.name !== 'donate') {
-      queryParams.push('method=' + event.target.name);
+      queryParams.push('payment_menthod=' + event.target.name);
     }
     if (queryParams.length > 0) {
       const symb = donationUrl.indexOf('?') > -1 ? '&' : '?';

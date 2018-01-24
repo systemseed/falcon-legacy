@@ -51,7 +51,7 @@ class DonationForm extends React.Component {
       queryParams.push('amount=' + this.donationAmount.value);
     }
     if (event.target.name !== 'donate') {
-      queryParams.push('method=' + event.target.name);
+      queryParams.push('payment_menthod=' + event.target.name);
     }
     if (queryParams.length > 0) {
       const symb = donationUrl.indexOf('?') > -1 ? '&' : '?';

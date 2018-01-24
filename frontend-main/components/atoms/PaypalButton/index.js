@@ -5,7 +5,7 @@ import Image from '../../atoms/Image';
 
 const PaypalButton = ({ onClick, ...attributes }) => {
   return (
-    <DonationButton className="btn-paypal" name="paypal" onClick={onClick} {...attributes}><Image name="paypal" imageUrl="/static/images/paypal-logo-sm.png" imageTitle="Paypal" imageAlt="Paypal" /></DonationButton>
+    <DonationButton className="btn-paypal" name="cw_commerce_paypal" onClick={onClick} {...attributes}><Image name="cw_commerce_paypal" imageUrl="/static/images/paypal-logo-sm.png" imageTitle="Paypal" imageAlt="Paypal" /></DonationButton>
   );
 };
 
