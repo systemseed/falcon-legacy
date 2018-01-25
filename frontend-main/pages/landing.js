@@ -20,7 +20,7 @@ const availableComponents = {
 class LandingPage extends React.Component {
   render() {
     const { projectSettings, pageData, url } = this.props;
-    const pageId = url.asPath.substr(1); // Remove first "/" before alias name to get page ID.
+    const pageId = url.asPath.substr(1).split("?")[0]; // Remove first "/" and get params to get page ID.
 
     // Redirect to 404 if there is no data for corresponding url in file.
     if (pageData[pageId] === undefined) {
