@@ -36,7 +36,7 @@ const HtmlHead = ({ metaData, analytics, favicon }) => {
         {metaData.keywords && <meta name="keywords" content={metaData.keywords} />}
         {metaData.title && <meta property="og:title" content={metaData.title} />}
         {metaData.description && <meta property="og:description" content={metaData.keywords} />}
-        {metaData.image && <meta property="og:image" content={baseUrl + metaData.image} />}
+        {metaData.image && <meta property="og:image" content={metaData.image} />}
 
         {stylesheets}
       </Head>
