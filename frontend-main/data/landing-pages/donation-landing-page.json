@@ -19,7 +19,7 @@
         "imageTitle": "Falcon",
         "linkUrl": "/",
         "linkTitle": "Falcon",
-        "slogan": "#donatetoday"
+        "slogan": "<a href='https://www.instagram.com/explore/tags/donatenow' target='_blank'>#DonateNow</a>"
       },
       "styles": ["bg-green"]
     },
