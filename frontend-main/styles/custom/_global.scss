@@ -3,11 +3,7 @@ html {
 }
 
 body {
-  font-size: $font-size-base;
-  font-family: $font-family-base;
   line-height: 1.38;
-  color: $black;
-  background: $grey-light;
   @include media-breakpoint-up(md) {
     line-height: 1.56;
   }
@@ -22,11 +18,10 @@ input, textarea, img {
 }
 
 a {
-
+  transition: $link-transition;
 }
 a.link-pink {
   color: $pink;
-  text-decoration: none;
   &:hover {
     color: darken($pink, 8);
   }

@@ -1,6 +1,12 @@
 .site-header {
   margin-right: -15px;
   margin-left: -15px;
+  a {
+    color: $white;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
   .row {
     margin: 0;
   }

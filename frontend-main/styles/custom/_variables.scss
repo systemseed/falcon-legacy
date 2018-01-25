@@ -7,6 +7,9 @@ $grey: #666666;
 $grey-light: #f8f8f3;
 $white-grey: #ececec;
 
+$body-color: $black;
+$body-bg: $grey-light;
+
 
 $primary:       $green;
 $secondary:     $pink;
@@ -15,6 +18,20 @@ $theme-colors: (
         'white': $white,
         'grey': $grey,
 );
+
+
+
+// Links
+//
+// Style anchor elements.
+$link-decoration:           none;
+$link-hover-color:          lighten($green, 5%);
+$link-hover-decoration:     none;
+
+
+$link-transition:           color .15s ease-in-out;
+
+$line-height-base: 1.38;
 
 $xxl: 1930px;
 
