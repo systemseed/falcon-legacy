@@ -34,6 +34,10 @@ const HtmlHead = ({ metaData, analytics, favicon }) => {
         {!!favicon && <link rel="shortcut icon" href={baseUrl + favicon} type="image/vnd.microsoft.icon" />}
         {metaData.description && <meta name="description" content={metaData.description} />}
         {metaData.keywords && <meta name="keywords" content={metaData.keywords} />}
+        {metaData.title && <meta property="og:title" content={metaData.title} />}
+        {metaData.description && <meta property="og:description" content={metaData.keywords} />}
+        {metaData.image && <meta property="og:image" content={baseUrl + metaData.image} />}
+
         {stylesheets}
       </Head>
     </div>
@@ -46,6 +50,7 @@ HtmlHead.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
     keywords: PropTypes.string,
+    image: PropTypes.string,
   }).isRequired,
   analytics: PropTypes.shape({
     GTM: PropTypes.string,

@@ -4,7 +4,8 @@
     "metatags": {
       "title": "Donation page",
       "keywords": "Donation page",
-      "description": "Donation page"
+      "description": "Donation page",
+      "image": "/static/images/content/donation-landing-page/hero-image.jpg"
     },
     "template": "OneColumnLayout"
   },
