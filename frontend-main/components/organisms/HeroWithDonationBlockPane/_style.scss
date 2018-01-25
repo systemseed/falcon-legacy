@@ -22,6 +22,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
+      z-index: 999;
     }
     .donation-form-block {
       width: 100%;

@@ -1,6 +1,17 @@
 .site-header {
   margin-right: -15px;
   margin-left: -15px;
+  position: relative;
+  &:after {
+    content: '';
+    display: block;
+    height: 20px;
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+    bottom: 0;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.5);
+  }
   a {
     color: $white;
     &:hover {
