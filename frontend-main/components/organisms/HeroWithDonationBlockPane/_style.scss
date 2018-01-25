@@ -1,12 +1,12 @@
 .hero-with-donation-block-pane {
   background-color: $white;
-  //height: 190px;
+  height: 190px;
   img {
     display: block;
   }
 
   @include media-breakpoint-up(md) {
-    //height: 344px;
+    height: 344px;
     .hero-with-donation-block-pane__image {
       overflow: hidden;
       img {
@@ -30,7 +30,7 @@
     }
   }
   @include media-breakpoint-up(lg) {
-    //height: 304px;
+    height: 304px;
     .hero-with-donation-block-pane__image {
       position: relative;
       img {
@@ -45,12 +45,12 @@
     }
   }
   @include media-breakpoint-up(xl) {
-    //height: 400px;
+    height: 400px;
     .hero-with-donation-block-pane__form-wrapper {
       padding: 26px 44px;
     }
   }
   @include media-breakpoint-up(xxl, (xxl: $xxl)) {
-    //height: 510px;
+    height: 510px;
   }
 }
