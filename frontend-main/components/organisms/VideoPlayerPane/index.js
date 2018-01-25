@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import VideoPlayer from '../../atoms/VideoPlayer';
 
-const VideoPlayerPane = ({ styles, videoUrl }) => {
+const VideoPlayerPane = ({ styles, videoUrl, posterUrl }) => {
   return (
     <div className={"row justify-content-center limited-width video-player-pane " + styles}>
       <div className="col-12 col-xl-8 p-0">
-        <VideoPlayer videoUrl={videoUrl} />
+        <VideoPlayer videoUrl={videoUrl} posterUrl={posterUrl} />
       </div>
     </div>
   );
@@ -14,6 +14,7 @@ const VideoPlayerPane = ({ styles, videoUrl }) => {
 
 VideoPlayerPane.propTypes = {
   videoUrl: PropTypes.string,
+  posterUrl: PropTypes.string,
 };
 
 export default VideoPlayerPane;
