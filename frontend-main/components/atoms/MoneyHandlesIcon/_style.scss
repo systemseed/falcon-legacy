@@ -1,12 +1,12 @@
 .money-handles-icon {
-  width: 40px;
+  width: 60px;
   @include media-breakpoint-up(sm) {
-    width: 70px;
+    width: 104px;
   }
   @include media-breakpoint-up(md) {
-    width: 74px;
+    width: 112px;
   }
   @include media-breakpoint-up(xl) {
-    width: 100px;
+    width: 150px;
   }
 }

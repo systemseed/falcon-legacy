@@ -39,7 +39,7 @@
   @include media-breakpoint-only(sm) {
     height: 202px;
     .money-handles-icon {
-      margin-bottom: 34px;
+      margin-bottom: 20px;
       margin-top: -20px;
     }
   }
@@ -57,7 +57,7 @@
     }
 
     .money-handles-icon {
-      margin-bottom: 22px;
+      margin-bottom: 16px;
       margin-top: -8px;
       span {
         max-width: 180px;
@@ -77,8 +77,8 @@
 
     .money-handles-icon {
       position: absolute;
-      bottom: 180px;
-      left: calc(50% - 50px);
+      bottom: 156px;
+      left: calc(50% - 75px);
     }
 
     .money-handles-with-button__button {
