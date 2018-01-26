@@ -21,10 +21,15 @@
   .row {
     margin: 0;
   }
-  .site-header-logo img {
-    max-width: 92px;
-    padding: 10px 0;
-    display: block;
+  .site-header-logo {
+    a {
+      display: block;
+    }
+    img {
+      width: 94px;
+      padding: 6px 0;
+      display: block;
+    }
   }
   .site-header-slogan {
     text-align: right;
@@ -35,8 +40,8 @@
   }
   @include media-breakpoint-up(md) {
     .site-header-logo img {
-      max-width: 118px;
-      padding: 20px 0;
+      width: 129px;
+      padding: 14px 0;
     }
   }
   @include media-breakpoint-up(xl) {
@@ -44,8 +49,8 @@
       padding: 0 15px;
     }
     .site-header-logo img {
-      max-width: 147px;
-      padding: 25px 0;
+      width: 152px;
+      padding: 20px 0;
     }
     .site-header-slogan .site-slogan {
       @include font-size(20px);
