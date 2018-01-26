@@ -29,6 +29,15 @@
       margin-bottom: 24px;
     }
   }
+  @media (min-width: 1550px) {
+    .donation-form-block__predefined-values {
+      margin-bottom: 42px;
+    }
+    .donation-form-block__monthly,
+    .donation-form-block__donation-amount {
+      margin-bottom: 38px;
+    }
+  }
 }
 .donation-form-block__donation-amount {
   position: relative;
@@ -72,6 +81,18 @@
       left: 30px;
     }
   }
+  @media (min-width: 1550px) {
+    input {
+      @include font-size(32px);
+      padding-left: 48px;
+      padding-bottom: 6px;
+    }
+    .amount-with-currency__currency {
+      @include font-size(32px);
+      top: 6px;
+      left: 30px;
+    }
+  }
 }
 
 .donation-form-block__monthly {
@@ -107,6 +128,13 @@
       @include font-size(30px);
       padding-bottom: 0.344rem;
       padding-top: 0.344rem;
+    }
+  }
+  @media (min-width: 1550px) {
+    .btn-predefined-value {
+      @include font-size(32px);
+      padding-bottom: 0.625rem;
+      padding-top: 0.625rem;
     }
   }
 }

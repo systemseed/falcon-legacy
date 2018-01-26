@@ -26,6 +26,9 @@
     @include font-size(40px);
     padding: 0.2rem 2.5rem;
   }
+  @media (min-width: 1550px) {
+    @include font-size(44px);
+  }
 }
 a.btn {
   text-decoration: none;
