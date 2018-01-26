@@ -39,12 +39,18 @@
     }
   }
   @include media-breakpoint-up(md) {
+    .row {
+      padding: 0 11px;
+    }
     .site-header-logo img {
       width: 129px;
       padding: 14px 0;
     }
   }
   @include media-breakpoint-up(xl) {
+    .row {
+      padding: 0 29px;
+    }
     .site-header-slogan .site-slogan {
       @include font-size(18px);
     }
