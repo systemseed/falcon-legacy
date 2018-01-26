@@ -6,6 +6,10 @@ import inlineCSS from '../styles/theme.scss';
 import GTM from '../analytics/GoogleTagManager';
 import VWO from '../analytics/VWO';
 
+// Adds IE11 support for react-player.
+import "core-js/fn/symbol/iterator"
+import "core-js/fn/symbol"
+
 const HtmlHead = ({ metaData, analytics, favicon }) => {
   const baseUrl = process.env.BASE_URL || window.BASE_URL || '';
   let stylesheets;
