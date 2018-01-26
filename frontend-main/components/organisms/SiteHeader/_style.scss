@@ -45,15 +45,8 @@
     }
   }
   @include media-breakpoint-up(xl) {
-    .row {
-      padding: 0 15px;
-    }
-    .site-header-logo img {
-      width: 152px;
-      padding: 20px 0;
-    }
     .site-header-slogan .site-slogan {
-      @include font-size(20px);
+      @include font-size(18px);
     }
   }
 }
