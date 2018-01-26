@@ -25,12 +25,12 @@ class VideoPlayer extends React.Component {
       // Will hide poster with animation (opacity:0).
       setTimeout(() => {
         this.setState({loading: false})
-      }, 1500);
+      }, 1000);
 
       // Will completely hide poster with display:none.
       setTimeout(() => {
         this.setState({hidePoster: true})
-      }, 1700);
+      }, 1200);
     }
   }
 
