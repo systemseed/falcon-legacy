@@ -30,13 +30,15 @@
     justify-content: center;
     align-items: center;
 
+    .play-button {
+      width: 60px;
+    }
     .play-button--loading {
       display: none;
-      width: 118px;
+      width: 72px;
     }
     img {
       transition: opacity .15s ease-in-out;
-      width: 60px;
       opacity: 0.4;
     }
     &:hover img {
@@ -64,18 +66,27 @@
   }
 
   @include media-breakpoint-up(sm) {
-    .poster img {
+    .poster .play-button {
       width: 80px;
+    }
+    .poster .play-button--loading {
+      width: 94px;
     }
   }
   @include media-breakpoint-up(lg) {
-    .poster img {
+    .poster .play-button {
       width: 90px;
+    }
+    .poster .play-button--loading {
+      width: 106px;
     }
   }
   @include media-breakpoint-up(xl) {
-    .poster img {
+    .poster .play-button {
       width: 100px;
+    }
+    .poster .play-button--loading {
+      width: 118px;
     }
   }
 }
