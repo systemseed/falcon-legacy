@@ -47,7 +47,7 @@
     position: absolute;
     display: block;
     top: 6px;
-    left: 21px;
+    left: 18px;
   }
   input {
     @include font-size(22px);
@@ -57,7 +57,7 @@
     width: 100%;
     margin: 0;
     padding: 6px 16px;
-    padding-left: 34px;
+    padding-left: 30px;
     padding-bottom: 2px;
     outline: none;
     &:focus {
@@ -72,24 +72,22 @@
   @include media-breakpoint-up(xl) {
     input {
        @include font-size(30px);
-       padding-left: 48px;
+       padding-left: 32px;
        padding-bottom: 12px;
      }
     .amount-with-currency__currency {
       @include font-size(30px);
-      left: 30px;
+      left: 14px;
     }
   }
   @media (min-width: 1550px) {
     input {
       @include font-size(32px);
-      padding-left: 48px;
       padding-bottom: 6px;
     }
     .amount-with-currency__currency {
       @include font-size(32px);
       top: 6px;
-      left: 30px;
     }
   }
 }
@@ -113,6 +111,7 @@
   @media (min-width: 1550px) {
     label {
       @include font-size(15px);
+      margin-top: 1px;
     }
   }
 }
