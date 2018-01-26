@@ -13,7 +13,9 @@
   }
 
   @include media-breakpoint-only(xs) {
-
+    .copy-with-title-and-subtitle__donate-block {
+      margin-bottom: 20px;
+    }
     .sticky-donation-button-wrapper {
       height: 70px;
     }

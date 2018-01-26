@@ -57,7 +57,7 @@ class Heading1WithSubheadingAndCopy extends React.Component {
         <SubHeading>{subheading}</SubHeading>
 
         <div className="copy-with-title-and-subtitle__donate-block">
-          <PlainText>{copy}</PlainText>
+          <PlainText className="d-none d-sm-block">{copy}</PlainText>
 
           <div className="donation-form-short-block d-md-none">
 
@@ -79,6 +79,8 @@ class Heading1WithSubheadingAndCopy extends React.Component {
             </div>
           </div>
         </div>
+
+        <PlainText className="d-sm-none" >{copy}</PlainText>
       </div>
     );
   }

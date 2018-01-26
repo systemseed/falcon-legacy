@@ -4,7 +4,11 @@ export default (props) => {
   if (!props.children) {
     return null;
   }
+  let classes = "plain-text";
+  if (props.className !== undefined) {
+    classes += " " + props.className;
+  }
   return (
-    <div className="plain-text" dangerouslySetInnerHTML={{__html: props.children}} />
+    <div className={classes} dangerouslySetInnerHTML={{__html: props.children}} />
   )
 }
