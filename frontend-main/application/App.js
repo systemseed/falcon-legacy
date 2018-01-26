@@ -3,11 +3,11 @@ import HtmlHead from './HtmlHead';
 
 class App extends React.Component {
   render() {
-    const { metaData, projectSettings, children } = this.props;
+    const { metaData, projectSettings, pagePath, children } = this.props;
 
     return (
       <div>
-        <HtmlHead metaData={metaData} analytics={projectSettings.analytics} favicon="/static/favicon.ico"/>
+        <HtmlHead metaData={metaData} analytics={projectSettings.analytics} pagePath={pagePath} favicon="/static/favicon.ico"/>
         { children }
       </div>
     )

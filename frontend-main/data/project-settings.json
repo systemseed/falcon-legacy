@@ -3,7 +3,8 @@
   "platformVersion": 2,
   "analytics": {
     "GTM": "GTM-TEST",
-    "VWO": "11111"
+    "VWO": "11111",
+    "FacebookAppId": "1111"
   },
   "metatags": {
     "title": "Donation page",

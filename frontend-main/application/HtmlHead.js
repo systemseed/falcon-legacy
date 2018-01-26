@@ -6,7 +6,7 @@ import inlineCSS from '../styles/theme.scss';
 import GTM from '../analytics/GoogleTagManager';
 import VWO from '../analytics/VWO';
 
-const HtmlHead = ({ metaData, analytics, favicon }) => {
+const HtmlHead = ({ metaData, analytics, pagePath, favicon }) => {
 
   const baseUrl = process.env.BASE_URL || window.BASE_URL || '';
   let stylesheets;
@@ -37,6 +37,9 @@ const HtmlHead = ({ metaData, analytics, favicon }) => {
         {metaData.title && <meta property="og:title" content={metaData.title} />}
         {metaData.description && <meta property="og:description" content={metaData.keywords} />}
         {metaData.image && <meta property="og:image" content={metaData.image} />}
+        {!!analytics && !!analytics.GTM && <meta property="fb:app_id" content={analytics.FacebookAppId} />}
+        <meta property="og:url" content={baseUrl + pagePath} />
+        <meta property="og:type" content="non_profit" />
 
         {stylesheets}
       </Head>
@@ -55,6 +58,7 @@ HtmlHead.propTypes = {
   analytics: PropTypes.shape({
     GTM: PropTypes.string,
     VWO: PropTypes.string,
+    FacebookAppId: PropTypes.string,
   }),
 };
 
