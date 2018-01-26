@@ -33,7 +33,7 @@ class VideoPlayer extends React.Component {
       };
     }
     return(
-      <div>
+      <div className="video-player-block">
         <ReactPlayer
           url={videoUrl}
           className='video-player'

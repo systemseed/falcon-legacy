@@ -14,7 +14,7 @@
     height: 100%;
   }
 }
-.video-player-pane {
+.video-player-block {
   .poster {
     height: 100%;
     position: absolute;
@@ -29,13 +29,38 @@
       display: block;
       position: absolute;
       background-image: url('/static/images/video-play.png');
-      width: 223px;
-      height: 100px;
-      top: calc(50% - 50px);
-      left: calc(50% - 110px);
+      width: 140px;
+      height: 62px;
+      left: calc(50% - 70px);
+      top: calc(50% - 31px);
+      background-size: cover;
     }
     &:hover:after {
       opacity: 0.8;
+    }
+  }
+  @include media-breakpoint-up(sm) {
+    .poster:after {
+      width: 180px;
+      height: 80px;
+      left: calc(50% - 90px);
+      top: calc(50% - 40px);
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    .poster:after {
+      width: 200px;
+      height: 90px;
+      left: calc(50% - 100px);
+      top: calc(50% - 45px);
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    .poster:after {
+      width: 223px;
+      height: 100px;
+      left: calc(50% - 110px);
+      top: calc(50% - 50px);
     }
   }
 }
