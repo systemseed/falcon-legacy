@@ -6,8 +6,7 @@ import inlineCSS from '../styles/theme.scss';
 import GTM from '../analytics/GoogleTagManager';
 import VWO from '../analytics/VWO';
 
-const HtmlHead = ({ metaData, analytics, pagePath, favicon }) => {
-
+const HtmlHead = ({ metaData, analytics, favicon }) => {
   const baseUrl = process.env.BASE_URL || window.BASE_URL || '';
   let stylesheets;
   if (process.env.NODE_ENV === 'production') {
@@ -38,8 +37,7 @@ const HtmlHead = ({ metaData, analytics, pagePath, favicon }) => {
         {metaData.description && <meta property="og:description" content={metaData.keywords} />}
         {metaData.image && <meta property="og:image" content={metaData.image} />}
         {!!analytics && !!analytics.GTM && <meta property="fb:app_id" content={analytics.FacebookAppId} />}
-        <meta property="og:url" content={baseUrl + pagePath} />
-        <meta property="og:type" content="non_profit" />
+        <meta property="og:type" content="website" />
 
         {stylesheets}
       </Head>

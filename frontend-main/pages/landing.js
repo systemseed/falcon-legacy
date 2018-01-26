@@ -45,7 +45,7 @@ class LandingPage extends React.Component {
       "event": "event.contentView"
     };
     return (
-      <App metaData={meta.metatags} projectSettings={projectSettings} pagePath={url.asPath}>
+      <App metaData={meta.metatags} projectSettings={projectSettings}>
         <GTMDataLayer dataLayer={GtmDataLayer} />
         <OneColumnLayout>
           {pageComponents}
