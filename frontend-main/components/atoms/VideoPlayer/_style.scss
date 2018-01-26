@@ -15,7 +15,10 @@
   }
 }
 .video-player-block {
+  overflow: hidden;
   .poster {
+    transition: opacity .15s ease-in-out;
+    opacity: 1;
     height: 100%;
     position: absolute;
     top: 0;
@@ -27,6 +30,10 @@
     justify-content: center;
     align-items: center;
 
+    .play-button--loading {
+      display: none;
+      width: 118px;
+    }
     img {
       transition: opacity .15s ease-in-out;
       width: 60px;
@@ -36,6 +43,26 @@
       opacity: 0.9;
     }
   }
+  &.playing.loading {
+    .play-button {
+      display: none;
+    }
+    .play-button--loading {
+      display: block;
+    }
+  }
+  &.playing:not(.loading) {
+    .play-button {
+      display: none;
+    }
+    .poster {
+      opacity: 0;
+    }
+  }
+  &.hide-poster .poster {
+    display: none;
+  }
+
   @include media-breakpoint-up(sm) {
     .poster img {
       width: 80px;

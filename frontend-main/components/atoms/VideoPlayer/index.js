@@ -10,29 +10,48 @@ class VideoPlayer extends React.Component {
 
     this.state = {
       playing: false,
+      loading: false,
+      hidePoster: false
     };
 
-    this.playPause = this.playPause.bind(this);
+    this.playVideo = this.playVideo.bind(this);
   }
 
-  playPause = () => {
-    this.setState({ playing: !this.state.playing })
+  playVideo = () => {
+    if (!this.state.playing) {
+      // Will replace Play button to Loading.
+      this.setState({loading: true, playing: true});
+
+      // Will hide poster with animation (opacity:0).
+      setTimeout(() => {
+        this.setState({loading: false})
+      }, 1500);
+
+      // Will completely hide poster with display:none.
+      setTimeout(() => {
+        this.setState({hidePoster: true})
+      }, 1700);
+    }
   }
 
   render() {
     const { videoUrl, posterUrl } = this.props;
-    let posterStyle= {};
     if (!videoUrl) {
       return null;
     }
-    if (posterUrl !== undefined) {
-      posterStyle = {
-        backgroundImage: 'url(' + posterUrl + ')',
-        display: this.state.playing ? 'none' : 'flex'
-      };
+    let blockClasses = ['video-player-block'];
+    if (this.state.loading) {
+      blockClasses.push('loading');
     }
+    if (this.state.playing) {
+      blockClasses.push('playing');
+    }
+    if (this.state.hidePoster) {
+      blockClasses.push('hide-poster');
+    }
+
     return(
-      <div className="video-player-block">
+      <div className={blockClasses.join(' ')}>
         <ReactPlayer
           url={videoUrl}
           className='video-player'
@@ -41,7 +60,12 @@ class VideoPlayer extends React.Component {
           controls
           playing={this.state.playing}
         />
-        { posterUrl && <div className="poster" style={posterStyle} onClick={this.playPause}><img src="/static/images/play-button.svg" /></div> }
+        { posterUrl &&
+          <div className="poster" style={{ backgroundImage: 'url(' + posterUrl + ')' }} onClick={this.playVideo}>
+            <img className="play-button" src="/static/images/play-button.svg" />
+            <img className="play-button--loading" src="/static/images/loading-circle.svg" />
+          </div>
+        }
       </div>
     );
   }
