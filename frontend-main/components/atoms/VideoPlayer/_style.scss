@@ -23,44 +23,31 @@
     background-size: cover;
     background-position: center center;
     cursor: pointer;
-    &:after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
       transition: opacity .15s ease-in-out;
-      content: '';
-      display: block;
-      position: absolute;
-      background-image: url('/static/images/video-play.png');
-      width: 140px;
-      height: 62px;
-      left: calc(50% - 70px);
-      top: calc(50% - 31px);
-      background-size: cover;
+      width: 60px;
     }
-    &:hover:after {
+    &:hover img {
       opacity: 0.8;
     }
   }
   @include media-breakpoint-up(sm) {
-    .poster:after {
-      width: 180px;
-      height: 80px;
-      left: calc(50% - 90px);
-      top: calc(50% - 40px);
+    .poster img {
+      width: 80px;
     }
   }
   @include media-breakpoint-up(lg) {
-    .poster:after {
-      width: 200px;
-      height: 90px;
-      left: calc(50% - 100px);
-      top: calc(50% - 45px);
+    .poster img {
+      width: 90px;
     }
   }
   @include media-breakpoint-up(xl) {
-    .poster:after {
-      width: 223px;
-      height: 100px;
-      left: calc(50% - 110px);
-      top: calc(50% - 50px);
+    .poster img {
+      width: 100px;
     }
   }
 }

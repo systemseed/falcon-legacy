@@ -28,7 +28,7 @@ class VideoPlayer extends React.Component {
     if (posterUrl !== undefined) {
       posterStyle = {
         backgroundImage: 'url(' + posterUrl + ')',
-        display: this.state.playing ? 'none' : 'block'
+        display: this.state.playing ? 'none' : 'flex'
       };
     }
     return(
@@ -41,7 +41,7 @@ class VideoPlayer extends React.Component {
           controls
           playing={this.state.playing}
         />
-        { posterUrl && <div className="poster" style={posterStyle} onClick={this.playPause} /> }
+        { posterUrl && <div className="poster" style={posterStyle} onClick={this.playPause}><img src="/static/images/play-button.svg" /></div> }
       </div>
     );
   }
