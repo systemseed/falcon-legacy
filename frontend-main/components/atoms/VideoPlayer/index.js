@@ -26,9 +26,8 @@ class VideoPlayer extends React.Component {
       return null;
     }
     if (posterUrl !== undefined) {
-      const baseUrl = process.env.BASE_URL || window.BASE_URL || '';
       posterStyle = {
-        backgroundImage: 'url(' + baseUrl + posterUrl + ')',
+        backgroundImage: 'url(' + posterUrl + ')',
         display: this.state.playing ? 'none' : 'block'
       };
     }
