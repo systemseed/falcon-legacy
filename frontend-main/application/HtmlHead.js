@@ -10,7 +10,7 @@ import GTM from '../analytics/GoogleTagManager';
 import "core-js/fn/symbol/iterator"
 import "core-js/fn/symbol"
 
-const HtmlHead = ({ metaData, analytics, favicon }) => {
+const HtmlHead = ({ metaData, analytics }) => {
   // Use Base url defined in server rendering, or variable added by backend SSI.
   const baseUrl = process.env.BASE_URL || window.BASE_URL || '';
 
@@ -24,7 +24,6 @@ const HtmlHead = ({ metaData, analytics, favicon }) => {
     // eslint-disable-next-line react/no-danger
     stylesheets = <style dangerouslySetInnerHTML={{ __html: inlineCSS }} />;
   }
-
   return (
     <div>
       {/* Analytics scripts */}
@@ -35,8 +34,9 @@ const HtmlHead = ({ metaData, analytics, favicon }) => {
         <title>{metaData.title}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        {!!favicon && <link rel="shortcut icon" href={baseUrl + favicon} type="image/vnd.microsoft.icon" />}
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="MobileOptimized" content="width" />
+        <link rel="shortcut icon" href={baseUrl + "/static/favicon.ico"} type="image/vnd.microsoft.icon" />
         {metaData.description && <meta name="description" content={metaData.description} />}
         {metaData.keywords && <meta name="keywords" content={metaData.keywords} />}
         {metaData.title && <meta property="og:title" content={metaData.title} />}
@@ -45,6 +45,11 @@ const HtmlHead = ({ metaData, analytics, favicon }) => {
         {!!analytics && !!analytics.GTM && <meta property="fb:app_id" content={analytics.FacebookAppId} />}
         <meta property="og:type" content="website" />
 
+        <link rel="apple-touch-icon-precomposed" href={baseUrl + "/static/apple-touch-icon-precomposed.png"} />
+        <link rel="apple-touch-icon-precomposed" href={baseUrl + "/static/apple-touch-icon-72x72-precomposed.png"} sizes="72x72" />
+        <link rel="apple-touch-icon-precomposed" href={baseUrl + "/static/apple-touch-icon-144x144-precomposed.png"} sizes="144x144" />
+        <link rel="apple-touch-icon-precomposed" href={baseUrl + "/static/apple-touch-icon-114x114-precomposed.png"} sizes="114x114" />
+
         {stylesheets}
       </Head>
     </div>
@@ -52,7 +57,6 @@ const HtmlHead = ({ metaData, analytics, favicon }) => {
 };
 
 HtmlHead.propTypes = {
-  favicon: PropTypes.string,
   metaData: PropTypes.shape({
     title: PropTypes.string,
     description: PropTypes.string,

@@ -7,7 +7,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <HtmlHead metaData={metaData} analytics={projectSettings.analytics} favicon="/static/favicon.ico"/>
+        <HtmlHead metaData={metaData} analytics={projectSettings.analytics} />
         { children }
       </div>
     )
