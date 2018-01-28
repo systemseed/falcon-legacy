@@ -7,7 +7,7 @@ import PlainText from '../../atoms/PlainText';
 import PaypalButton from '../../atoms/PaypalButton';
 import Sticky from '../../atoms/Sticky';
 
-class Heading1WithSubheadingAndCopy extends React.Component {
+class PageTitleCopyDonateBlock extends React.Component {
 
   constructor(props) {
     super(props);
@@ -69,6 +69,7 @@ class Heading1WithSubheadingAndCopy extends React.Component {
 
             <DonationButton block className="d-none d-sm-block" color="secondary" size="lg" name="donate" onClick={this.handleSubmit}>{buttonText}</DonationButton>
 
+            {/* @todo: Move Regular checkbox and button to separate component */}
             <div className="donation-form-block__monthly">
               <div className="donate-monthly">
                 <input type="checkbox" name="donate_monthly" id="donate-monthly" onChange={this.handleChange} checked={this.state.isRegular}/><label htmlFor="donate-monthly">Donate Monthly</label>
@@ -77,22 +78,24 @@ class Heading1WithSubheadingAndCopy extends React.Component {
                 <PaypalButton outline size="sm" color="grey" onClick={this.handleSubmit} />
               </div>
             </div>
+
           </div>
         </div>
 
+        {/* Show copy after Donate block on Small screens */}
         <PlainText className="d-sm-none" >{copy}</PlainText>
       </div>
     );
   }
 }
 
-Heading1WithSubheadingAndCopy.propTypes = {
-  heading: PropTypes.string,
+PageTitleCopyDonateBlock.propTypes = {
+  heading: PropTypes.string.isRequired,
   subheading: PropTypes.string,
-  copy: PropTypes.string,
+  copy: PropTypes.string.isRequired,
   singleDonationUrl: PropTypes.string,
   regularDonationUrl: PropTypes.string,
   buttonText: PropTypes.string
 };
 
-export default Heading1WithSubheadingAndCopy;
+export default PageTitleCopyDonateBlock;

@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Heading1WithSubheadingAndCopy from '../../molecules/Heading1WithSubheadingAndCopy';
+import PageTitleCopyDonateBlock from '../../molecules/PageTitleCopyDonateBlock';
 
-const PageTitleWithCopy = ({ styles, heading, subheading, copy, singleDonationUrl, regularDonationUrl, buttonText }) => {
+const PageTitleCopyDonatePane = ({ styles, heading, subheading, copy, singleDonationUrl, regularDonationUrl, buttonText }) => {
   return (
     <div className={"row justify-content-center pagetitle-with-copy limited-width " + styles}>
       <div className="col-12 col-md-8 col-xl-7">
-        <Heading1WithSubheadingAndCopy
+        <PageTitleCopyDonateBlock
           heading={heading}
           subheading={subheading}
           copy={copy}
@@ -19,7 +19,7 @@ const PageTitleWithCopy = ({ styles, heading, subheading, copy, singleDonationUr
   );
 };
 
-PageTitleWithCopy.propTypes = {
+PageTitleCopyDonatePane.propTypes = {
   heading: PropTypes.string,
   subheading: PropTypes.string,
   copy: PropTypes.string,
@@ -28,4 +28,4 @@ PageTitleWithCopy.propTypes = {
   buttonText: PropTypes.string
 };
 
-export default PageTitleWithCopy;
+export default PageTitleCopyDonatePane;
