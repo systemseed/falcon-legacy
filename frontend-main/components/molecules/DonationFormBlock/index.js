@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form, Button, ButtonGroup } from 'reactstrap';
-import AmountWithCurrency from '../../atoms/AmountWithCurrency';
-import DonationButton from '../../atoms/DonationButton';
 import PaypalButton from '../../atoms/PaypalButton';
+import { Form, Button, ButtonGroup } from 'reactstrap';
+import DonationButton from '../../atoms/DonationButton';
+import { getCurrencySymbol } from '../../../utils/currency';
+import AmountWithCurrency from '../../atoms/AmountWithCurrency';
 
 class DonationForm extends React.Component {
 
@@ -11,9 +12,8 @@ class DonationForm extends React.Component {
     super(props);
 
     this.state = {
-      isSending: false,
       isRegular: true,
-      rSelected: null
+      rSelected: null // No radio buttons active by default.
     };
 
     this.handleRadioBtnClick = this.handleRadioBtnClick.bind(this);
@@ -23,16 +23,20 @@ class DonationForm extends React.Component {
 
   handleRadioBtnClick(event, rSelected) {
     this.setState({ rSelected });
+
+    // Read Button value from Button text and update Amount field. Used this way to get values updated by external js scripts (VWO).
     this.donationAmount.value = event.target.innerHTML.match(/\d+/g);
   }
 
   handleChange(event) {
+    // Donate monthly checkbox.
     if (event.target.name == 'donate_monthly') {
       this.setState({
         isRegular: event.target.checked
       });
     }
 
+    // Unselect all radio buttons if user updated value in Donation amount field.
     if (event.target.name == 'donation_amount') {
       this.setState({
         rSelected: null
@@ -48,19 +52,17 @@ class DonationForm extends React.Component {
 
     let queryParams = [];
     if (this.donationAmount.value > 0) {
+      // Adds amount value to the link url.
       queryParams.push('amount=' + this.donationAmount.value);
     }
     if (event.target.name !== 'donate') {
+      // Adds payment method to the link url.
       queryParams.push('payment_menthod=' + event.target.name);
     }
     if (queryParams.length > 0) {
       const symb = donationUrl.indexOf('?') > -1 ? '&' : '?';
       donationUrl += symb + queryParams.join('&');
     }
-
-    this.setState({
-      isSending: true
-    });
 
     window.location = donationUrl;
   }
@@ -76,7 +78,7 @@ class DonationForm extends React.Component {
               predefinedValues
                 .map((value, i) => {
                   return (
-                    <Button key={i} outline size="sm" className="btn-predefined-value" color="grey" onClick={(event) => this.handleRadioBtnClick(event, i)} active={this.state.rSelected === i}>£{value}</Button>
+                    <Button key={i} outline size="sm" className="btn-predefined-value" color="grey" onClick={(event) => this.handleRadioBtnClick(event, i)} active={this.state.rSelected === i}>{getCurrencySymbol(currencyCode) + value}</Button>
                   )
                 })
             }
@@ -85,7 +87,7 @@ class DonationForm extends React.Component {
 
         <div className="donation-form-block__donation-amount">
           {/* Use ref here instead of state values to have an ability to get field value set by A/B tools (by js). */}
-          <AmountWithCurrency name="donation_amount" currencyCode={currencyCode} ref={input => { this.donationAmount = input; }} onChange={this.handleChange} />
+          <AmountWithCurrency name="donation_amount" currencyCode={currencyCode} innerRef={input => { this.donationAmount = input; }} onChange={this.handleChange} />
         </div>
 
         <div className="donation-form-block__monthly">
@@ -105,9 +107,9 @@ class DonationForm extends React.Component {
 
 DonationForm.propTypes = {
   currencyCode: PropTypes.string,
-  singleDonationUrl: PropTypes.string,
-  regularDonationUrl: PropTypes.string,
-  predefinedValues: PropTypes.arrayOf(PropTypes.number),
+  singleDonationUrl: PropTypes.string.isRequired,
+  regularDonationUrl: PropTypes.string.isRequired,
+  predefinedValues: PropTypes.arrayOf(PropTypes.number).isRequired,
   buttonText: PropTypes.string
 };
 

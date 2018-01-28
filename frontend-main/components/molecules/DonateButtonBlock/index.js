@@ -17,14 +17,8 @@ const DonateButtonBlock = ({ heading, subheading, buttonText, buttonUrl }) => {
 DonateButtonBlock.propTypes = {
   heading: PropTypes.string,
   subheading: PropTypes.string,
-  buttonText: PropTypes.string,
-  buttonUrl: PropTypes.string,
+  buttonText: PropTypes.string.isRequired,
+  buttonUrl: PropTypes.string.isRequired,
 };
 
-DonateButtonBlock.defaultProps = {
-  heading: '',
-  subheading: '',
-  buttonText: '',
-  buttonUrl: '',
-};
 export default DonateButtonBlock;
