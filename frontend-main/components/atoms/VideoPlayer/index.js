@@ -19,7 +19,7 @@ class VideoPlayer extends React.Component {
 
   playVideo = () => {
     if (!this.state.playing) {
-      // Will replace Play button to Loading.
+      // Will replace Play button icon to Loading icon.
       this.setState({loading: true, playing: true});
 
       // Will hide poster with animation (opacity:0).
