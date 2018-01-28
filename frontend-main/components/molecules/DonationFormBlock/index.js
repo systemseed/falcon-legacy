@@ -85,7 +85,7 @@ class DonationForm extends React.Component {
 
         <div className="donation-form-block__donation-amount">
           {/* Use ref here instead of state values to have an ability to get field value set by A/B tools (by js). */}
-          <AmountWithCurrency name="donation_amount" currencyCode={currencyCode} innerRef={input => { this.donationAmount = input; }} onChange={this.handleChange} />
+          <AmountWithCurrency name="donation_amount" currencyCode={currencyCode} ref={input => { this.donationAmount = input; }} onChange={this.handleChange} />
         </div>
 
         <div className="donation-form-block__monthly">
