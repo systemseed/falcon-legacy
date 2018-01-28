@@ -37,8 +37,10 @@ const HtmlHead = ({ metaData, analytics }) => {
         <meta name="HandheldFriendly" content="true" />
         <meta name="MobileOptimized" content="width" />
         <link rel="shortcut icon" href={baseUrl + "/static/favicon.ico"} type="image/vnd.microsoft.icon" />
+
         {metaData.description && <meta name="description" content={metaData.description} />}
         {metaData.keywords && <meta name="keywords" content={metaData.keywords} />}
+
         {metaData.title && <meta property="og:title" content={metaData.title} />}
         {metaData.description && <meta property="og:description" content={metaData.keywords} />}
         {metaData.image && <meta property="og:image" content={metaData.image} />}
