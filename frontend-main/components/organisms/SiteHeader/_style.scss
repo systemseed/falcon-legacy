@@ -20,6 +20,9 @@
   }
   .row {
     margin: 0;
+    position: relative;
+    z-index: 999;
+    background-color: $green;
   }
   .site-header-logo {
     a {
