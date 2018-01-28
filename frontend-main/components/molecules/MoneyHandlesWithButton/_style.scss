@@ -18,6 +18,7 @@
 
     .money-handles-with-button__button {
       width: 34%;
+      height: 100%;
       .btn {
         @include font-size(20px);
         line-height: normal;

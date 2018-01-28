@@ -4,8 +4,11 @@
   img {
     display: block;
   }
-
+  .hero-with-donation-block-pane__form {
+    display: none;
+  }
   @include media-breakpoint-up(md) {
+    align-items: stretch;
     .hero-with-donation-block-pane__image {
       overflow: hidden;
       img {
@@ -13,16 +16,21 @@
         max-height: 100%;
       }
     }
+    .hero-with-donation-block-pane__form {
+      background-color: blue;
+      display: flex;
+      justify-items: stretch;
+    }
     .hero-with-donation-block-pane__form-wrapper {
       background-color: $white;
       padding: 26px;
       box-shadow: -2px 9px 10px 6px rgba(0, 0, 0, 0.22);
-      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
       z-index: 999;
+      width: 100%;
     }
     .donation-form-block {
       width: 100%;
