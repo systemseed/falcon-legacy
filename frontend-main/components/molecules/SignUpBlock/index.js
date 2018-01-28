@@ -18,9 +18,4 @@ SignUpBlock.propTypes = {
   signUpUrl: PropTypes.string,
 };
 
-SignUpBlock.defaultProps = {
-  heading: '',
-  copy: '',
-  signUpUrl: '',
-};
 export default SignUpBlock;

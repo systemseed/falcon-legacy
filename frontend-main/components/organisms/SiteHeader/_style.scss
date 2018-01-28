@@ -40,6 +40,10 @@
     align-items: center;
     justify-content: flex-end;
   }
+  .site-slogan {
+    @include font-size(16px);
+    color: $white;
+  }
   @include media-breakpoint-up(md) {
     .row {
       padding: 0 11px;
@@ -54,7 +58,7 @@
       padding: 0 29px;
     }
     .site-header-slogan .site-slogan {
-      @include font-size(18px);
+      @include font-size(20px);
     }
   }
 }
