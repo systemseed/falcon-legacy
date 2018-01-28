@@ -1,0 +1,7 @@
+.background-image {
+  width: 100%;
+  height: 100%; // Pay attention! You should define particular height for this block in parent element.
+  background-position: left bottom;
+  -webkit-background-size: cover;
+  background-size: cover;
+}

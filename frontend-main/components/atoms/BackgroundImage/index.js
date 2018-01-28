@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const HeroBackgroundImage = ({ imageUrl, ...attributes }) => {
+const BackgroundImage = ({ imageUrl, ...attributes }) => {
   if (!imageUrl) {
     return null;
   }
@@ -10,12 +10,12 @@ const HeroBackgroundImage = ({ imageUrl, ...attributes }) => {
     backgroundImage: 'url(' + baseUrl + imageUrl + ')'
   };
   return (
-    <div className="hero-background-image" style={compStyle} {...attributes} />
+    <div className="background-image" style={compStyle} {...attributes} />
   );
 };
 
-HeroBackgroundImage.propTypes = {
+BackgroundImage.propTypes = {
   imageUrl: PropTypes.string
 };
 
-export default HeroBackgroundImage;
+export default BackgroundImage;
