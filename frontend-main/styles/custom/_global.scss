@@ -16,6 +16,9 @@ body {
 input, textarea, img {
   max-width: 100%;
 }
+input:invalid {
+  box-shadow: none;
+}
 
 a {
   transition: $link-transition;

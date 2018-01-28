@@ -8,6 +8,7 @@
   img {
     width: 66px;
     display: block;
+    margin: 0 auto;
   }
 
   @include media-breakpoint-up(md) {
