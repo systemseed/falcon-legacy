@@ -43,5 +43,10 @@
     .donation-form-block__monthly {
       margin-top: 20px;
     }
+    .copy-with-title-and-subtitle__donate-block {
+      .plain-text {
+        width: auto;
+      }
+    }
   }
 }
