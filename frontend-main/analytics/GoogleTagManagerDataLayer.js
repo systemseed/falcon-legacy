@@ -7,6 +7,7 @@ class GoogleTagManagerDataLayer extends React.Component {
   render() {
     const { dataLayer } = this.props;
 
+    // Pushes variables to GTM DataLayer.
     return (
       <Head>
         <script dangerouslySetInnerHTML={{ __html: `var dataLayer = dataLayer || []; dataLayer.push(${JSON.stringify(dataLayer)});` }} />

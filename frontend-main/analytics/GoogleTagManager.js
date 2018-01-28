@@ -3,7 +3,6 @@ import Head from 'next/head';
 
 class GoogleTagManager extends React.Component {
   componentDidMount() {
-    //document.body.insertBefore(document.getElementById('GTM2'), document.body.children[0]);
     eval(document.getElementById('GTM1'));
   }
   render() {

@@ -1,17 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Head from 'next/head';
 import Package from '../package';
+import VWO from '../analytics/VWO';
+import PropTypes from 'prop-types';
 import inlineCSS from '../styles/theme.scss';
 import GTM from '../analytics/GoogleTagManager';
-import VWO from '../analytics/VWO';
 
 // Adds IE11 support for react-player.
 import "core-js/fn/symbol/iterator"
 import "core-js/fn/symbol"
 
 const HtmlHead = ({ metaData, analytics, favicon }) => {
+  // Use Base url defined in server rendering, or variable added by backend SSI.
   const baseUrl = process.env.BASE_URL || window.BASE_URL || '';
+
   let stylesheets;
   if (process.env.NODE_ENV === 'production') {
     // In production, serve pre-built CSS file from /assets/{version}/main.css
@@ -62,14 +64,6 @@ HtmlHead.propTypes = {
     VWO: PropTypes.string,
     FacebookAppId: PropTypes.string,
   }),
-};
-
-HtmlHead.defaultProps = {
-  metaData: {
-    title: '',
-    description: '',
-    keywords: '',
-  },
 };
 
 export default HtmlHead;
