@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MoneyHandlesDescription from '../../atoms/MoneyHandlesDescription';
-import MoneyHandlesIcon from '../../atoms/MoneyHandlesIcon';
 import ButtonWithAmount from '../../atoms/ButtonWithAmount';
 
 const MoneyHandlesWithButton = ({ description, iconUrl, buttonText, buttonUrl }) => {
@@ -10,8 +8,8 @@ const MoneyHandlesWithButton = ({ description, iconUrl, buttonText, buttonUrl })
     <div className="money-handles-with-button bg-green">
       <div className="money-handles-with-button__description">
         <div className="description-inner">
-          <MoneyHandlesIcon imageUrl={iconUrl} />
-          <MoneyHandlesDescription>{description}</MoneyHandlesDescription>
+          <img className="money-handles-icon" src={iconUrl} />
+          <div className="money-handles-description" dangerouslySetInnerHTML={{__html: description}} />
         </div>
       </div>
       <div className="money-handles-with-button__button">
@@ -22,10 +20,10 @@ const MoneyHandlesWithButton = ({ description, iconUrl, buttonText, buttonUrl })
 };
 
 MoneyHandlesWithButton.propTypes = {
-  description: PropTypes.string,
-  iconUrl: PropTypes.string,
-  buttonText: PropTypes.string,
-  buttonUrl: PropTypes.string,
+  description: PropTypes.string.isRequired,
+  iconUrl: PropTypes.string.isRequired,
+  buttonText: PropTypes.string.isRequired,
+  buttonUrl: PropTypes.string.isRequired,
 };
 
 export default MoneyHandlesWithButton;

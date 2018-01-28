@@ -92,4 +92,35 @@
       }
     }
   }
+
+  .money-handles-description {
+    @include font-size(14px);
+    color: $white;
+    line-height: normal;
+    font-weight: bold;
+    @include media-breakpoint-up(md) {
+      @include font-size(20px);
+    }
+    @include media-breakpoint-up(xl) {
+      @include font-size(24px);
+    }
+    @media (min-width: 1550px) {
+      line-height: 1.4;
+    }
+  }
+  .money-handles-icon {
+    width: 60px;
+    @include media-breakpoint-up(sm) {
+      width: 104px;
+    }
+    @include media-breakpoint-up(md) {
+      width: 112px;
+    }
+    @include media-breakpoint-up(xl) {
+      width: 150px;
+    }
+  }
 }
+
+
+
