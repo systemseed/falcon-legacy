@@ -24,7 +24,7 @@
     z-index: 999;
     background-color: $green;
   }
-  .site-header-logo {
+  .site-header__logo {
     a {
       display: block;
     }
@@ -34,7 +34,7 @@
       display: block;
     }
   }
-  .site-header-slogan {
+  .site-site-header__slogan {
     text-align: right;
     display: flex;
     align-items: center;
@@ -48,7 +48,7 @@
     .row {
       padding: 0 11px;
     }
-    .site-header-logo img {
+    .site-header__logo img {
       width: 129px;
       padding: 14px 0;
     }
@@ -57,7 +57,7 @@
     .row {
       padding: 0 29px;
     }
-    .site-header-slogan .site-slogan {
+    .site-site-header__slogan .site-slogan {
       @include font-size(20px);
     }
   }

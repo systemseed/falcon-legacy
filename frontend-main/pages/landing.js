@@ -7,7 +7,7 @@ import OneColumnLayout from '../components/templates/OneColumnLayout';
 
 // Define dynamic components.
 const availableComponents = {
-  'SiteHeader': dynamic(import('../components/organisms/SiteHeader')),
+  'SiteHeaderPane': dynamic(import('../components/organisms/SiteHeaderPane')),
   'PageTitleWithCopy': dynamic(import('../components/organisms/PageTitleWithCopy')),
   'TextBlockPane': dynamic(import('../components/organisms/TextBlockPane')),
   'MoneyHandlesWithButtonPane': dynamic(import('../components/organisms/MoneyHandlesWithButtonPane')),

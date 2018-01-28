@@ -20,9 +20,4 @@ TextBlock.propTypes = {
   copy: PropTypes.string,
 };
 
-TextBlock.defaultProps = {
-  heading: '',
-  subheading: '',
-  copy: '',
-};
 export default TextBlock;
