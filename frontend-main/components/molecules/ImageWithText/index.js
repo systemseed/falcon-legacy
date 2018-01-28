@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Image from '../../atoms/Image';
 import Heading3 from '../../atoms/Heading3';
 import PlainText from '../../atoms/PlainText';
 
@@ -8,7 +7,7 @@ const ImageWithText = ({ reverseOrder, headline, copy, imageUrl, imageTitle, ima
   return (
     <div className="row image-with-text no-gutters">
       <div className={"image-with-text__image col-sm-6" + (reverseOrder ? " order-sm-2" : "")}>
-        <Image imageUrl={imageUrl} imageTitle={imageTitle} imageAlt={imageAlt} />
+        <img src={imageUrl} title={imageTitle} alt={imageAlt} />
       </div>
       <div className={"image-with-text__text col-sm-6" + (reverseOrder ? " order-sm-1" : "")}>
         <div className="inside">
