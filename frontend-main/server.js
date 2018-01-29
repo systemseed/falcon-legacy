@@ -48,15 +48,15 @@ app.prepare()
     const server = express();
 
     // Support HTTP AUTH.
-    // const CW_AUTH = process.env.CW_AUTH;
-    // if (CW_AUTH && CW_AUTH !== '0') {
-    //   const httpAuth = CW_AUTH.split(':');
-    //
-    //   server.use(auth({
-    //     users: { [httpAuth[0]]: httpAuth[1] },
-    //     challenge: true
-    //   }));
-    // }
+    const CW_AUTH = process.env.CW_AUTH;
+    if (CW_AUTH && CW_AUTH !== '0') {
+      const httpAuth = CW_AUTH.split(':');
+
+      server.use(auth({
+        users: { [httpAuth[0]]: httpAuth[1] },
+        challenge: true
+      }));
+    }
 
     // Serve gzipped content where possible.
     server.use(compression());
