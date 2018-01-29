@@ -51,6 +51,7 @@
   }
   input {
     @include font-size(22px);
+    border-radius: 0;
     color: $grey;
     border: none;
     border-bottom: solid 2px $grey;
