@@ -38,3 +38,6 @@
     }
   }
 }
+
+// Added hack for safari browser on iOS 9.
+_:default:not(:root:root), .btn.btn-sm.btn-paypal img { margin: 0 auto; }
