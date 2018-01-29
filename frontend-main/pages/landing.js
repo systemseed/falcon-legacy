@@ -23,7 +23,7 @@ class LandingPage extends React.Component {
     const { projectSettings, pageData, url } = this.props;
 
     // Remove "/private/" from the begining of the path and remove _GET params to get page ID.
-    const pageId = url.asPath.replace('/private/', '').split("?")[0];
+    const pageId = url.asPath.substr(1).replace('private/', '').split("?")[0];
 
     // Redirect to 404 if there is no data for corresponding url in file.
     if (pageData[pageId] === undefined) {
