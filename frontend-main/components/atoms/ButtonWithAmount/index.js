@@ -18,7 +18,11 @@ class ButtonWithAmount extends React.Component {
     let donationUrl = this.props.href;
 
     // Gets an amount from Button text.
-    const amount = event.target.innerHTML.match(/\d+/g);
+    let amount = event.target.innerHTML.match(/\d+/g);
+    if (Array.isArray(amount) && amount !== undefined) {
+      amount = amount[0];
+    }
+
     if (amount !== undefined && amount > 0) {
       const symb = donationUrl.indexOf('?') > -1 ? '&' : '?';
 

@@ -25,7 +25,12 @@ class DonationForm extends React.Component {
     this.setState({ rSelected });
 
     // Read Button value from Button text and update Amount field. Used this way to get values updated by external js scripts (VWO).
-    this.donationAmount.value = event.target.innerHTML.match(/\d+/g);
+    let value = event.target.innerHTML.match(/\d+/g);
+    if (Array.isArray(value) && value !== undefined) {
+      value = value[0];
+    }
+
+    this.donationAmount.value = value;
   }
 
   handleChange(event) {
