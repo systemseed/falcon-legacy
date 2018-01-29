@@ -52,7 +52,7 @@ app.prepare()
     if (CW_AUTH && CW_AUTH !== '0') {
       const httpAuth = CW_AUTH.split(':');
 
-      app.use(auth({
+      server.use(auth({
         users: { [httpAuth[0]]: httpAuth[1] },
         challenge: true
       }));
