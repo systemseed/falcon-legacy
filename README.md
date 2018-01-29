@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/systemseed/falcon.svg?style=shield&circle-token=7736ea9ff7656c7025fb3727b27a4f9d0be0857d)](https://circleci.com/gh/systemseed/falcon)
+
 # Falcon
 
 This is the main repository for Falcon. You should start your journey by cloning this repo and following the instructions in this file.
