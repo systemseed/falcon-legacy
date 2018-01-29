@@ -1,5 +1,5 @@
 <?php
-namespace shared\frontend;
+namespace falcon;
 
 use Step\Acceptance\DonationsBackendTester;
 use Step\Acceptance\FrontendTester;

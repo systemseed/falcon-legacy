@@ -145,17 +145,17 @@ class GiftsBasketCest {
   public function swtichBasketType(FrontendTester $I) {
     $currency = $I->getCurrency();
     $gift = ContentConfig::getGiftData();
-    $corp_gift_title = $I->getCorporateGiftData('title');
+    $corp_gift = ContentConfig::getCorporateGiftData();
 
     $I->amGoingTo('Add corporate gift to basket.');
-    $I->addCorporateGiftToBasket();
+    $I->addCorporateGiftToBasket($corp_gift);
     $I->addGiftToBasket(TRUE);
 
     $I->click('.toolbar a[href="/basket"]');
 
     // Wait until basket loaded.
     $I->waitForText($gift['title'], 10);
-    $I->cantSee($corp_gift_title);
+    $I->cantSee($corp_gift['title']);
     $I->canSee($gift['price'][$currency]['formatted'], 'aside .amount');
     $I->canSee('CHECKOUT', '.btn-primary');
   }
