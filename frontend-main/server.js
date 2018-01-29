@@ -52,7 +52,9 @@ app.prepare()
     if (CW_AUTH && CW_AUTH !== '0') {
       const httpAuth = CW_AUTH.split(':');
 
-      server.use(auth({
+      // Hide any page starts with /private, so user can't see the page but other scripts are
+      // available to use by SSI.
+      server.use('/private', auth({
         users: { [httpAuth[0]]: httpAuth[1] },
         challenge: true
       }));
