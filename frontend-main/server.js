@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const sass = require('node-sass');
 const nextjs = require('next');
 const routes = require('./routes');
+const auth = require('express-basic-auth');
 const globImporter = require('node-sass-glob-importer');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -45,6 +46,17 @@ const handler = routes.getRequestHandler(app);
 app.prepare()
   .then(() => {
     const server = express();
+
+    // Support HTTP AUTH.
+    const CW_AUTH = process.env.CW_AUTH;
+    if (CW_AUTH && CW_AUTH !== '0') {
+      const httpAuth = CW_AUTH.split(':');
+
+      app.use(auth({
+        users: { [httpAuth[0]]: httpAuth[1] },
+        challenge: true
+      }));
+    }
 
     // Serve gzipped content where possible.
     server.use(compression());
