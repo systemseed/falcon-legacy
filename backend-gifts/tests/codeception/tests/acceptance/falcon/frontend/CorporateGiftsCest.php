@@ -1,5 +1,5 @@
 <?php
-namespace shared\frontend;
+namespace falcon;
 use Step\Acceptance\FrontendTester;
 
 /**
@@ -18,7 +18,7 @@ class CorporateGiftsCest {
    */
   public function corporatePage(FrontendTester $I) {
     $currency = $I->getCurrency();
-    $gift = $I->getCorporateGiftData();
+    $gift = ContentConfig::getCorporateGiftData();
 
     $I->amGoingTo('Visit corporate gifts section');
     $I->amOnPage('/corporate');
@@ -27,7 +27,7 @@ class CorporateGiftsCest {
     $I->canSeeElement('.featured-image');
 
     // Wait until products are loaded.
-    $I->waitForText('Concern Corporate Gifts - Give the gift of hope to children this year', 15);
+    $I->waitForText(ContentConfig::getProjectName() . ' Corporate Gifts - Give the gift of hope to children this year', 15);
 
     $I->canSee('How do Corporate Gifts work?');
     $I->canSee('1. Order');
