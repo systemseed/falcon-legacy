@@ -149,7 +149,7 @@ class GiftsBasketCest {
 
     $I->amGoingTo('Add corporate gift to basket.');
     $I->addCorporateGiftToBasket($corp_gift);
-    $I->addGiftToBasket(TRUE);
+    $I->addGiftToBasket($gift, TRUE);
 
     $I->click('.toolbar a[href="/basket"]');
 
