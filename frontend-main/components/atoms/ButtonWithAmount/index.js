@@ -15,7 +15,7 @@ class ButtonWithAmount extends React.Component {
 
   handleClick(event) {
     event.preventDefault();
-    let donationUrl = this.props.href;
+    let donationUrl = this.props.buttonUrl;
 
     // Gets an amount from Button text.
     let amount = event.target.innerHTML.match(/\d+/g);
@@ -33,15 +33,15 @@ class ButtonWithAmount extends React.Component {
   }
 
   render() {
-    const { href, children, ...attributes } = this.props;
+    const { children, buttonUrl, ...attributes } = this.props;
     return(
-      <DonationButton href={href} onClick={this.handleClick} {...attributes}>{children}</DonationButton>
+      <DonationButton onClick={this.handleClick} {...attributes}>{children}</DonationButton>
     );
   }
 }
 
 ButtonWithAmount.propTypes = {
-  href: PropTypes.string
+  buttonUrl: PropTypes.string
 };
 
 export default ButtonWithAmount;

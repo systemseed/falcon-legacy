@@ -13,7 +13,7 @@ const MoneyHandlesWithButton = ({ description, iconUrl, buttonText, buttonUrl })
         </div>
       </div>
       <div className="money-handles-with-button__button">
-        <ButtonWithAmount color="secondary" size="lg" tag="a" href={buttonUrl}>{buttonTextWrapped}</ButtonWithAmount>
+        <ButtonWithAmount color="secondary" size="lg" buttonUrl={buttonUrl}>{buttonTextWrapped}</ButtonWithAmount>
       </div>
     </div>
   );
