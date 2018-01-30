@@ -1,5 +1,5 @@
 <?php
-namespace shared\frontend;
+namespace falcon;
 use Step\Acceptance\FrontendTester;
 
 /**
@@ -18,9 +18,9 @@ class GiftsBasketCest {
    */
   public function reloadBasketPage(FrontendTester $I) {
     $currency = $I->getCurrency();
-    $gift = $I->getGiftData();
+    $gift = ContentConfig::getGiftData();
     $I->amGoingTo('Add gift to basket and reload the page.');
-    $I->addGiftToBasket();
+    $I->addGiftToBasket(ContentConfig::getGiftData());
     $I->click('.toolbar a[href="/basket"]');
 
     $I->waitForText($gift['title'], 10);
@@ -44,9 +44,9 @@ class GiftsBasketCest {
    */
   public function checkQuantity(FrontendTester $I) {
     $currency = $I->getCurrency();
-    $gift = $I->getGiftData();
+    $gift = ContentConfig::getGiftData();
     $I->amGoingTo('Add gift to basket.');
-    $I->addGiftToBasket();
+    $I->addGiftToBasket(ContentConfig::getGiftData());
     $I->click('.toolbar a[href="/basket"]');
 
     // Wait until basket loaded.
@@ -90,9 +90,9 @@ class GiftsBasketCest {
    * @param \Step\Acceptance\FrontendTester $I
    */
   public function removeItems(FrontendTester $I) {
-    $gift = $I->getGiftData();
+    $gift = ContentConfig::getGiftData();
     $I->amGoingTo('Add gift to basket.');
-    $I->addGiftToBasket();
+    $I->addGiftToBasket(ContentConfig::getGiftData());
     $I->click('.toolbar a[href="/basket"]');
 
     // Wait until basket loaded.
@@ -116,9 +116,9 @@ class GiftsBasketCest {
     $currency = $I->getCurrency();
     $custom_donation = 19.00;
 
-    $gift = $I->getGiftData();
+    $gift = ContentConfig::getGiftData();
     $I->amGoingTo('Add gift to basket.');
-    $I->addGiftToBasket();
+    $I->addGiftToBasket(ContentConfig::getGiftData());
     $I->click('.toolbar a[href="/basket"]');
 
     // Wait until basket loaded.
@@ -144,18 +144,18 @@ class GiftsBasketCest {
    */
   public function swtichBasketType(FrontendTester $I) {
     $currency = $I->getCurrency();
-    $gift = $I->getGiftData();
-    $corp_gift_title = $I->getCorporateGiftData('title');
+    $gift = ContentConfig::getGiftData();
+    $corp_gift = ContentConfig::getCorporateGiftData();
 
     $I->amGoingTo('Add corporate gift to basket.');
-    $I->addCorporateGiftToBasket();
-    $I->addGiftToBasket(TRUE);
+    $I->addCorporateGiftToBasket($corp_gift);
+    $I->addGiftToBasket($gift, TRUE);
 
     $I->click('.toolbar a[href="/basket"]');
 
     // Wait until basket loaded.
     $I->waitForText($gift['title'], 10);
-    $I->cantSee($corp_gift_title);
+    $I->cantSee($corp_gift['title']);
     $I->canSee($gift['price'][$currency]['formatted'], 'aside .amount');
     $I->canSee('CHECKOUT', '.btn-primary');
   }

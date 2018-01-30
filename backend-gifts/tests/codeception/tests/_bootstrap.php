@@ -1,2 +1,4 @@
 <?php
-// This is global bootstrap for autoloading
+
+// Load project specific content for tests.
+require "_support/Content/falcon/ContentConfig.php";

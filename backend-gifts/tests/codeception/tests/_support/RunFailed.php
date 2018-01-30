@@ -14,7 +14,7 @@ use Codeception\Test\Descriptor;
 class RunFailed extends \Codeception\Extension\RunFailed {
   public function saveFailed(PrintResultEvent $e)
   {
-    $file = $this->getLogDir() . $this->config['file'];
+    $file = $this->getLogDir() . $this->group;
     $result = $e->getResult();
     if ($result->wasSuccessful()) {
       if (is_file($file)) {

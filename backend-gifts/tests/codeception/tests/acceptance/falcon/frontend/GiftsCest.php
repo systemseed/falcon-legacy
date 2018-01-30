@@ -1,5 +1,5 @@
 <?php
-namespace shared\frontend;
+namespace falcon;
 use Step\Acceptance\FrontendTester;
 
 /**
@@ -25,23 +25,23 @@ class GiftsCest {
 
     // I see at least one product.
     $I->seeElement('.shop-item');
-    $I->canSeeLink($I->getGiftData('title'));
+    $I->canSeeLink(ContentConfig::getGiftData('title'));
 
     $I->amGoingTo('Filter gifts by "Health and Safety" category');
     $I->expect('Not to see test gift');
     $I->click('Health and Safety');
-    $I->dontSeeLink($I->getGiftData('title'));
+    $I->dontSeeLink(ContentConfig::getGiftData('title'));
 
-    $category = $I->getGiftData('category');
+    $category = ContentConfig::getGiftData('category');
     $I->amGoingTo('Filter gifts by '. $category .' category');
     $I->expect('To see test gift');
     $I->click($category);
-    $I->canSeeLink($I->getGiftData('title'));
+    $I->canSeeLink(ContentConfig::getGiftData('title'));
 
     $I->amGoingTo('Reset filters');
     $I->expect('To see test gift');
     $I->click('All');
-    $I->canSeeLink($I->getGiftData('title'));
+    $I->canSeeLink(ContentConfig::getGiftData('title'));
 
 
   }
@@ -53,7 +53,7 @@ class GiftsCest {
    */
   public function giftPage(FrontendTester $I) {
     $currency = $I->getCurrency();
-    $gift = $I->getGiftData();
+    $gift = ContentConfig::getGiftData();
 
     $I->amGoingTo('Visit frontpage and review ' . $gift['title'] . ' product data.');
     $I->amOnPage('/');

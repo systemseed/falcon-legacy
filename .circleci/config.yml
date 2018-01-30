@@ -10,7 +10,7 @@ version: 2
 defaults: &defaults
   working_directory: /home/circleci/flc
   docker:
-    # TODO: consider using falcon/circle-php:7.1-cli-browsers with Platform CLI
+    # TODO: consider using falcon/circle-php:7.1-cli-browsers with Platform CLI.
     # and codeception installed.
     - image: circleci/php:7.1-cli-browsers
 

@@ -2,67 +2,6 @@
 namespace Step\Acceptance;
 
 class FrontendTester extends \AcceptanceTester {
-  protected $gift = [
-    'id' => 13,
-    'uuid' => '355215cd-f4f2-4525-a29b-54c26f8cc1ac',
-    'title' => 'Piglet',
-    'path' => '/gifts/piglet',
-    'annotation' => 'This piglet goes to help a family in need',
-    'description' => 'When you buy this gift, you’ll receive a special card to pass on to your',
-    'category' => 'Animal',
-    'price' => [
-      'EUR' => ['number' => 10.00, 'formatted' => '€10.00'],
-      'GBP' => ['number' => 8.00, 'formatted' => '£9.00'],
-    ]
-  ];
-
-  protected $corporateGift = [
-    'id' => 46,
-    'uuid' => '663097a5-df42-4882-b8d5-20fc6674fa5f',
-    'title' => 'Corporate Koala (Test Suite)',
-    'path' => '/corporate/corporate-koala-test-suite',
-    'annotation' => 'Test suite corporate product.',
-    'description' => 'Compellingly engage process-centric users rather than',
-    'price' => [
-      'EUR' => ['number' => 570.00, 'formatted' => '€570.00'],
-      'GBP' => ['number' => 570.00, 'formatted' => '£570.00'],
-    ]
-  ];
-
-  protected $profileData = [
-    'root_field_profile_first_name' => 'Test',
-    'root_field_profile_last_name' => 'Suite',
-    'root_field_profile_email' => 'falcon.test-gifts.profile@systemseed.com',
-    'root_field_profile_phone' => '12345678',
-    'root_address_line1' => 'Address Line 1',
-    'root_address_line2' => 'Address Line 2',
-    'root_locality' => 'Dublin',
-    'root_postal_code' => 'ASCN 1ZZ',
-    'root_administrative_area' => 'Co. Dublin',
-    'root_country_code' => 'Republic of Ireland',
-    'optins' => [
-      'root_field_profile_prefs_sms' => TRUE,
-      'root_field_profile_prefs_phone' => TRUE,
-      'root_field_profile_prefs_post' => TRUE,
-      'root_field_profile_prefs_email' => FALSE,
-    ],
-  ];
-
-  public function getGiftData($prop = NULL) {
-    if (empty($prop)) {
-      return $this->gift;
-    }
-
-    return $this->gift[$prop];
-  }
-
-  public function getCorporateGiftData($prop = NULL) {
-    if (empty($prop)) {
-      return $this->corporateGift;
-    }
-
-    return $this->corporateGift[$prop];
-  }
 
   /**
    * Helper to add test gift to basket.
@@ -70,12 +9,12 @@ class FrontendTester extends \AcceptanceTester {
    * @param bool $force
    *   Force proceed if basket has corporate gifts.
    */
-  public function addGiftToBasket($force = FALSE) {
+  public function addGiftToBasket($gift, $force = FALSE) {
     $I = $this;
-    $I->amGoingTo('Open ' . $this->gift['title'] . ' detailed page.');
-    $I->amOnPage($this->gift['path']);
+    $I->amGoingTo('Open ' . $gift['title'] . ' detailed page.');
+    $I->amOnPage($gift['path']);
 
-    $I->waitForText($this->gift['title']);
+    $I->waitForText($gift['title']);
 
     $this->clickAddToBasket();
 
@@ -95,12 +34,12 @@ class FrontendTester extends \AcceptanceTester {
   /**
    * Helper to add test corporate gift to basket.
    */
-  public function addCorporateGiftToBasket() {
+  public function addCorporateGiftToBasket($corporate_gift) {
     $I = $this;
-    $I->amGoingTo('Open ' . $this->corporateGift['title'] . ' detailed page.');
-    $I->amOnPage($this->corporateGift['path']);
+    $I->amGoingTo('Open ' . $corporate_gift['title'] . ' detailed page.');
+    $I->amOnPage($corporate_gift['path']);
 
-    $I->waitForText($this->corporateGift['title']);
+    $I->waitForText($corporate_gift['title']);
 
     $this->clickAddToBasket();
   }
@@ -153,20 +92,21 @@ class FrontendTester extends \AcceptanceTester {
   /**
    * Helper to fill in checkout form.
    *
-   * @param array|null $profile
-   *   Array with form data in format of $this->profileData.
+   * @param array $profile
+   *   Array with form data in format of ConfigContent::profileData.
    *
    * @return array
    *   Profile data used for the form.
    */
-  public function fillCheckoutForm($profile = NULL) {
+  public function fillCheckoutForm(array $profile) {
     $I = $this;
     $region = $I->getRegion();
 
     // Prepare profile if it was not passed explicitly.
-    if (empty($profile)) {
-      $profile = $this->profileData;
+    if (empty($profile['root_field_profile_email'])) {
       $profile['root_field_profile_email'] = 'falcon.test-gifts.' . time() . '@systemseed.com';
+    }
+    if (empty($profile['root_field_event_code'])) {
       // Event code. Grab first value.
       $event_code_option = $I->grabTextFrom('select#root_field_event_code option:nth-child(2)');
       $profile['root_field_event_code'] = $event_code_option;
@@ -175,6 +115,7 @@ class FrontendTester extends \AcceptanceTester {
     $I->amGoingTo('Fill in checkout form');
 
     // Choose title.
+    // TODO: remove region specific code.
     if ($region == 'gb') {
       $I->selectOption('#root_field_profile_title', 'Mr');
     }
@@ -189,6 +130,7 @@ class FrontendTester extends \AcceptanceTester {
     $I->fillField('#root_locality', $profile['root_locality']);
 
     // Fill Postal code field for UK or County for ROI.
+    // TODO: remove region specific code.
     if ($region == 'gb') {
       $I->fillField('#root_postal_code', $profile['root_postal_code']);
     }
