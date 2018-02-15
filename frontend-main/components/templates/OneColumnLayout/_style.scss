@@ -69,16 +69,10 @@
       margin-bottom: 34px;
     }
     .sign-up-with-description-pane {
-      margin-bottom: 60px;
+      margin-bottom: 76px;
     }
   }
   @include media-breakpoint-up(xl) {
-    .hero-with-donation-block-pane {
-      margin-bottom: 34px;
-    }
-    .pagetitle-with-copy {
-      margin-bottom: 56px;
-    }
     .video-player-pane {
       margin-bottom: 40px;
     }
@@ -87,9 +81,6 @@
     }
     .donate-button-pane {
       margin-bottom: 102px;
-    }
-    .sign-up-with-description-pane {
-      margin-bottom: 60px;
     }
   }
 }

@@ -11,10 +11,10 @@
     .email-address {
       margin-bottom: auto;
       margin-right: 40px;
-      width: 70%;
+      width: calc(100% - 144px);
     }
     .submit-button {
-      width: auto;
+      width: 144px;
     }
   }
   @include media-breakpoint-up(xl) {
