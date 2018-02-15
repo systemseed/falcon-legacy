@@ -1,0 +1,38 @@
+.footer-data {
+  @include font-size(11px);
+  color: $brownish-grey;
+  border-top: 1px solid #979797;
+  padding-top: 22px;
+  margin-bottom: 32px;
+  line-height: 1.45;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 40px;
+    margin-bottom: 50px;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+  }
+
+  .copy {
+    @include font-size(12px);
+    margin-bottom: 18px;
+
+    @include media-breakpoint-up(lg) {
+      width: calc(100% - 90px);
+      display: inline-block;
+      padding-right: 20px;
+    }
+  }
+  .logo {
+    margin: 0 auto;
+    display: block;
+
+    @include media-breakpoint-up(lg) {
+      width: 90px;
+      margin-top: -20px;
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+}

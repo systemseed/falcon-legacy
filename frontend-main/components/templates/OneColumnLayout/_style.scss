@@ -29,7 +29,7 @@
       margin-bottom: 48px;
     }
     .sign-up-with-description-pane {
-      margin-bottom: 60px;
+      margin-bottom: 40px;
     }
   }
   @include media-breakpoint-up(md) {
@@ -49,7 +49,7 @@
       margin-bottom: 48px;
     }
     .sign-up-with-description-pane {
-      margin-bottom: 60px;
+      margin-bottom: 40px;
     }
   }
   @include media-breakpoint-up(lg) {
@@ -69,7 +69,7 @@
       margin-bottom: 34px;
     }
     .sign-up-with-description-pane {
-      margin-bottom: 78px;
+      margin-bottom: 60px;
     }
   }
   @include media-breakpoint-up(xl) {
@@ -89,7 +89,7 @@
       margin-bottom: 102px;
     }
     .sign-up-with-description-pane {
-      margin-bottom: 78px;
+      margin-bottom: 60px;
     }
   }
 }
