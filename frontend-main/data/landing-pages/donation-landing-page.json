@@ -11,7 +11,7 @@
   },
   "components": [
     {
-      "type": "SiteHeader",
+      "type": "SiteHeaderPane",
       "order": 0,
       "data": {
         "imageUrl": "/static/images/logo.png",
@@ -41,7 +41,7 @@
       "styles": ["bg-white"]
     },
     {
-      "type": "PageTitleWithCopy",
+      "type": "PageTitleCopyDonatePane",
       "order": 2,
       "data": {
         "heading": "Donate Today and Help",
