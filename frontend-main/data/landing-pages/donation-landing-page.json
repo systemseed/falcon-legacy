@@ -52,6 +52,31 @@
         "buttonText": "Donate"
       },
       "styles": ["bg-grey"]
+    },
+    {
+      "type": "SingUpWithDescriptionPane",
+      "order": 3,
+      "data": {
+        "descriptionData": {
+          "heading": "Would you like to help, but can’t make a monthly donation?",
+          "copy": "<a href='/donate/appeal/882?country_code=GB' class='link-pink'>Make a one-time donation here</a>"
+        },
+        "signUpData": {
+          "heading": "Find out how you can get involved",
+          "copy": "If you are happy to hear more about how you can help transform lives and tackle hunger through volunteering, our campaigns and appeals via email, please enter your address below.",
+          "signUpUrl": "/newsletter/concernnet-uk/subscribe?country_code=GB"
+        }
+      },
+      "styles": ["bg-grey"]
+    },
+    {
+      "type": "FooterDataPane",
+      "order": 10,
+      "data": {
+        "copy": "Concern Worldwide (UK) is a Company Limited By Guarantee And Not Having A Share Capital (Registered in England and Wales with registered number 4323646) which has been granted Charitable Status by The Charity Commission for England and Wales (Registered Number 1092236) and The Office of The Scottish Charity Regulator (Registered Number SCO38107). The Registered Offices of Concern Worldwide (UK) are 13/14 Calico House, Plantation Wharf, London, SW11 3TN. Concern Worldwide (UK) is a subsidiary organisation of Concern Worldwide an Irish Registered Charity.",
+        "imageUrl": "/static/images/tackling-hunger-logo.png"
+      },
+      "styles": ["bg-grey"]
     }
   ]
 }
