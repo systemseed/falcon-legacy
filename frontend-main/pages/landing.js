@@ -2,6 +2,7 @@ import React from 'react';
 import Error from 'next/error';
 import dynamic from 'next/dynamic';
 import App from '../application/App';
+import fetch from 'isomorphic-unfetch'
 import GTMDataLayer from '../analytics/GoogleTagManagerDataLayer';
 import OneColumnLayout from '../components/templates/OneColumnLayout';
 
@@ -21,16 +22,15 @@ const availableComponents = {
 
 class LandingPage extends React.Component {
   render() {
-    const { projectSettings, pageData, url } = this.props;
-
-    // Remove "/private/" from the begining of the path and remove _GET params to get page ID.
-    const pageId = url.asPath.substr(1).replace('private/', '').split("?")[0];
+    const { pageData } = this.props;
 
     // Redirect to 404 if there is no data for corresponding url in file.
-    if (pageData[pageId] === undefined) {
+    if (pageData === undefined) {
       return <Error statusCode={404} />;
     }
-    const { components, meta } = pageData[pageId];
+
+    // Redirect to 404 if there is no data for corresponding url in file.
+    const { components, meta, projectSettings } = pageData;
 
     // Sort components data, load dynamically and output to the page.
     const pageComponents = components
@@ -65,14 +65,22 @@ class LandingPage extends React.Component {
   }
 
   // Load Page data and project settings from file now, should be given from backend later.
-  static getInitialProps = async function() {
-    // @todo: Load pages data from backend by given params in url.
-    // "key" - url of the page defined in ./routes.js, "value" - path to the file with data.
-    const pageData = {
-      'donation-landing-page': await import('../data/landing-pages/donation-landing-page.json')
-    };
-    const projectSettings = await import('../data/project-settings.json');
-    return { pageData, projectSettings }
+  static getInitialProps = async function({ res, query }) {
+
+    if (query.file_data_url !== undefined) {
+      const result = await fetch(query.file_data_url);
+
+      if (result.status !== 200) {
+        res.statusCode = result.status;
+        res.end(result.statusText);
+        return;
+      }
+
+      const pageData = await result.json();
+      return { pageData };
+    }
+
+    return {};
   }
 }
 
