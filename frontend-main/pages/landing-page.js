@@ -67,6 +67,7 @@ class LandingPage extends React.Component {
   // Load Page data and project settings from file now, should be given from backend later.
   static getInitialProps = async function({ res, query }) {
 
+    // @todo: validate url
     if (query.file_data_url !== undefined) {
       const result = await fetch(query.file_data_url);
 
