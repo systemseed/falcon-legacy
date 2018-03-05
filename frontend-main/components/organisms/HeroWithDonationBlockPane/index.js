@@ -27,7 +27,7 @@ HeroWithDonationBlockPane.propTypes = {
     singleDonationUrl: PropTypes.string,
     regularDonationUrl: PropTypes.string,
     paypalDonationUrl: PropTypes.string,
-    predefinedValues: PropTypes.arrayOf(PropTypes.number),
+    predefinedValues: PropTypes.arrayOf(PropTypes.string),
     buttonText: PropTypes.string
   }),
 };

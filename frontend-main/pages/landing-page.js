@@ -39,12 +39,12 @@ class LandingPage extends React.Component {
         const Component = availableComponents[data.type];
         if (Component === undefined) {
           console.error(`"${data.type}" component is missed in availableComponents list.`);
-          return <Error statusCode={404} />;
         }
-
-        return (
-          <Component key={i} styles={data.styles.join(' ')} {...data.data} />
-        )
+        else {
+          return (
+            <Component key={i} styles={data.styles.join(' ')} {...data.data} />
+          )
+        }
       });
 
     // Push variables to GTM DataLayer.

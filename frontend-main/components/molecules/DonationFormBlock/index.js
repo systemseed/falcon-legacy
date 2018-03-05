@@ -114,7 +114,7 @@ DonationForm.propTypes = {
   currencyCode: PropTypes.string,
   singleDonationUrl: PropTypes.string.isRequired,
   regularDonationUrl: PropTypes.string.isRequired,
-  predefinedValues: PropTypes.arrayOf(PropTypes.number).isRequired,
+  predefinedValues: PropTypes.arrayOf(PropTypes.string).isRequired,
   buttonText: PropTypes.string
 };
 

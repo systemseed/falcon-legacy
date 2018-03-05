@@ -1,21 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const BackgroundImage = ({ imageUrl, ...attributes }) => {
+const BackgroundImage = ({ imageUrl, imageAlt, imageTitle, ...attributes }) => {
   if (!imageUrl) {
     return null;
   }
-  const baseUrl = process.env.BASE_URL || window.BASE_URL || '';
   const compStyle = {
-    backgroundImage: 'url(' + baseUrl + imageUrl + ')'
+    backgroundImage: 'url(' + imageUrl + ')'
   };
   return (
-    <div className="background-image" style={compStyle} {...attributes} />
+    <div className="background-image" alt={imageAlt} title={imageTitle} style={compStyle} {...attributes} />
   );
 };
 
 BackgroundImage.propTypes = {
-  imageUrl: PropTypes.string
+  imageUrl: PropTypes.string,
+  imageAlt: PropTypes.string,
+  imageTitle: PropTypes.string
 };
 
 export default BackgroundImage;
