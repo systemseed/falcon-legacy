@@ -33,9 +33,6 @@ HeroWithDonationBlockPane.propTypes = {
 };
 
 HeroWithDonationBlockPane.defaultProps = {
-  donationBlockData: {
-    buttonText: 'Donate'
-  },
   styles: 'bg-white',
 };
 

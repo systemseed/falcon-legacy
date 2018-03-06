@@ -118,4 +118,8 @@ DonationForm.propTypes = {
   buttonText: PropTypes.string
 };
 
+DonationForm.defaultProps = {
+  buttonText: 'Donate'
+};
+
 export default DonationForm;

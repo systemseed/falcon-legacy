@@ -18,4 +18,9 @@ SignUpBlock.propTypes = {
   signUpUrl: PropTypes.string,
 };
 
+SignUpBlock.defaultProps = {
+  heading: 'Find out how you can get involved',
+  copy: 'If you are happy to hear more about how you can help transform lives and tackle hunger through volunteering, our campaigns and appeals via email, please enter your address below.',
+};
+
 export default SignUpBlock;

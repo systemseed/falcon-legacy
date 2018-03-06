@@ -18,7 +18,7 @@ FooterDataPane.propTypes = {
 };
 
 FooterDataPane.defaultProps = {
-  imageUrl: '',
+  imageUrl: '/static/images/tackling-hunger-logo.png',
   styles: 'bg-grey',
 };
 
