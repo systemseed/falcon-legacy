@@ -42,7 +42,7 @@ class LandingPage extends React.Component {
         }
         else {
           return (
-            <Component key={i} styles={data.styles.join(' ')} {...data.data} />
+            <Component key={i} {...(data.styles && data.styles.count > 0 ? {styles: data.styles.join(' ')} : {})} {...data.data} />
           )
         }
       });

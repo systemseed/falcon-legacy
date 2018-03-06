@@ -35,7 +35,7 @@ MoneyHandlesWithButtonPane.propTypes = {
 };
 
 MoneyHandlesWithButtonPane.defaultProps = {
-  styles: ['bg-white'],
+  styles: 'bg-white',
 };
 
 export default MoneyHandlesWithButtonPane;

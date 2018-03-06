@@ -17,4 +17,9 @@ FooterDataPane.propTypes = {
   imageUrl: PropTypes.string,
 };
 
+FooterDataPane.defaultProps = {
+  imageUrl: '',
+  styles: 'bg-grey',
+};
+
 export default FooterDataPane;

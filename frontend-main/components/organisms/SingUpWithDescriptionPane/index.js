@@ -41,7 +41,7 @@ SingUpWithDescriptionPane.defaultProps = {
     copy: 'If you are happy to hear more about how you can help transform lives and tackle hunger through volunteering, our campaigns and appeals via email, please enter your address below.',
     signUpUrl: PropTypes.string
   },
-  styles: ['bg-grey'],
+  styles: 'bg-grey',
 };
 
 export default SingUpWithDescriptionPane;

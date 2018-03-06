@@ -30,7 +30,7 @@ SiteHeaderPane.propTypes = {
 SiteHeaderPane.defaultProps = {
   imageUrl: '/static/images/logo.png',
   linkUrl: '/',
-  styles: ['bg-green'],
+  styles: 'bg-green',
 };
 
 export default SiteHeaderPane;

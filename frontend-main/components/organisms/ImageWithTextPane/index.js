@@ -38,7 +38,7 @@ ImageWithTextPane.propTypes = {
 };
 
 ImageWithTextPane.defaultProps = {
-  styles: ['bg-white'],
+  styles: 'bg-white',
 };
 
 export default ImageWithTextPane;

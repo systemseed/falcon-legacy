@@ -18,7 +18,7 @@ VideoPlayerPane.propTypes = {
 };
 
 VideoPlayerPane.defaultProps = {
-  styles: ['bg-grey'],
+  styles: 'bg-grey',
 };
 
 export default VideoPlayerPane;

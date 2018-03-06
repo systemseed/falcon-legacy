@@ -22,7 +22,7 @@ DonateButtonPane.propTypes = {
 DonateButtonPane.defaultProps = {
   subheading: '',
   buttonText: 'Donate Now',
-  styles: ['bg-green'],
+  styles: 'bg-green',
 };
 
 export default DonateButtonPane;
