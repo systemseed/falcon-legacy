@@ -5,7 +5,7 @@
  * @returns string
  */
 export function getCurrencySymbol(currencyCode) {
-  if (currencyCode == 'gbp') {
+  if (currencyCode.toLowerCase() == 'gbp') {
     return '£';
   }
   return '€';
