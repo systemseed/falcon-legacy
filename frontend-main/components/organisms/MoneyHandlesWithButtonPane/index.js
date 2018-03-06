@@ -12,7 +12,7 @@ const MoneyHandlesWithButtonPane = ({ styles, moneyHandlesData }) => {
             <div className="col-12 col-xl-4" key={i}>
               <MoneyHandlesWithButton
                 description={data.description}
-                iconUrl={data.iconUrl}
+                iconType={data.iconType}
                 buttonUrl={data.buttonUrl}
                 buttonText={data.buttonText}
               />
@@ -28,7 +28,7 @@ MoneyHandlesWithButtonPane.propTypes = {
   styles: PropTypes.string,
   moneyHandlesData: PropTypes.arrayOf(PropTypes.shape({
     description: PropTypes.string,
-    iconUrl: PropTypes.string,
+    iconType: PropTypes.string,
     buttonText: PropTypes.string,
     buttonUrl: PropTypes.string,
   })),
