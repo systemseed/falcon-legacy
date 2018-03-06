@@ -28,4 +28,9 @@ PageTitleCopyDonatePane.propTypes = {
   buttonText: PropTypes.string
 };
 
+PageTitleCopyDonatePane.defaultProps = {
+  buttonText: 'Donate',
+  styles: ['bg-grey'],
+};
+
 export default PageTitleCopyDonatePane;

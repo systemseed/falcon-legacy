@@ -19,4 +19,10 @@ DonateButtonPane.propTypes = {
   buttonUrl: PropTypes.string,
 };
 
+DonateButtonPane.defaultProps = {
+  subheading: '',
+  buttonText: 'Donate Now',
+  styles: ['bg-green'],
+};
+
 export default DonateButtonPane;

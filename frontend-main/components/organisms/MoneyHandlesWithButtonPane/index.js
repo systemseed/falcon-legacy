@@ -34,4 +34,8 @@ MoneyHandlesWithButtonPane.propTypes = {
   })),
 };
 
+MoneyHandlesWithButtonPane.defaultProps = {
+  styles: ['bg-white'],
+};
+
 export default MoneyHandlesWithButtonPane;

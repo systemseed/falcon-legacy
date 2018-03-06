@@ -37,4 +37,8 @@ ImageWithTextPane.propTypes = {
   })),
 };
 
+ImageWithTextPane.defaultProps = {
+  styles: ['bg-white'],
+};
+
 export default ImageWithTextPane;
