@@ -18,4 +18,8 @@ TextBlockPane.propTypes = {
   copy: PropTypes.string,
 };
 
+TextBlockPane.defaultProps = {
+  styles: ['bg-grey'],
+};
+
 export default TextBlockPane;

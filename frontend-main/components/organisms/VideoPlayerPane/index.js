@@ -17,4 +17,8 @@ VideoPlayerPane.propTypes = {
   posterUrl: PropTypes.string,
 };
 
+VideoPlayerPane.defaultProps = {
+  styles: ['bg-grey'],
+};
+
 export default VideoPlayerPane;
