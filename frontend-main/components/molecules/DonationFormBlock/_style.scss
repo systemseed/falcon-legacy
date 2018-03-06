@@ -58,7 +58,7 @@
     width: 100%;
     margin: 0;
     padding: 6px 16px;
-    padding-left: 30px;
+    padding-left: 34px;
     padding-bottom: 2px;
     outline: none;
     &:focus {
@@ -73,7 +73,7 @@
   @include media-breakpoint-up(xl) {
     input {
        @include font-size(30px);
-       padding-left: 32px;
+       padding-left: 38px;
        padding-bottom: 12px;
      }
     .amount-with-currency__currency {
