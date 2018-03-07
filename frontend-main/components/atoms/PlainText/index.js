@@ -1,4 +1,5 @@
 import React from 'react';
+import sanitizeHtml from 'sanitize-html';
 
 export default (props) => {
   if (!props.children) {
@@ -9,6 +10,6 @@ export default (props) => {
     classes += " " + props.className;
   }
   return (
-    <div className={classes} dangerouslySetInnerHTML={{__html: props.children}} />
+    <div className={classes} dangerouslySetInnerHTML={{__html: sanitizeHtml(props.children)}} />
   )
 }

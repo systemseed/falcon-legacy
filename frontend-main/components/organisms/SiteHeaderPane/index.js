@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import sanitizeHtml from 'sanitize-html';
 import LogoLink from '../../molecules/LogoLink';
 
 const SiteHeaderPane = ({ styles, slogan, linkUrl, linkTitle, imageUrl, imageTitle, imageAlt }) => {
@@ -10,7 +11,7 @@ const SiteHeaderPane = ({ styles, slogan, linkUrl, linkTitle, imageUrl, imageTit
           <LogoLink linkUrl={linkUrl} linkTitle={linkTitle} imageUrl={imageUrl} imageTitle={imageTitle} imageAlt={imageAlt}/>
         </div>
         <div className="col-8 site-site-header__slogan">
-          <div className="site-slogan" dangerouslySetInnerHTML={{__html: slogan}} />
+          <div className="site-slogan" dangerouslySetInnerHTML={{__html: sanitizeHtml(slogan)}} />
         </div>
       </div>
     </div>
