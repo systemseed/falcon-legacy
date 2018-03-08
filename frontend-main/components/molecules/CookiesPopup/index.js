@@ -34,8 +34,8 @@ class CookiesPopup extends React.Component {
           By continuing to browse this site you are agreeing to our use of cookies in accordance with our <a href={policyUrl} target="_blank">Cookies Policy</a>.
         </div>
         <div className="buttons">
-          <Button className="button-yes" onClick={this.handleSubmit}>Yes, I agree</Button>
-          <Button className="button-no" href={policyUrl} target="_blank">No, I want to find out more</Button>
+          <Button className="button-yes" color="none" onClick={this.handleSubmit}>Yes, I agree</Button>
+          <Button className="button-no" color="none" href={policyUrl} target="_blank">No, I want to find out more</Button>
         </div>
       </div>
     );

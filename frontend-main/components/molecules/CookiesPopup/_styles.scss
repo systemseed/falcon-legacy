@@ -1,5 +1,57 @@
 .cookies-popup {
+  $grey: #efefef;
+  background-color: #959595;
+  color: $grey;
+  font-size: 11px;
+  padding: 12px 15px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  a:not(.btn) {
+    color: $grey;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .copy {
+    margin-bottom: 10px;
+  }
+  .btn {
+    font-size: 11px;
+    padding: 7px 10px;
+    background-color: transparent;
+    border: 1px solid $grey;
+    font-weight: normal;
+    color: $grey;
 
+    &:active {
+      background-color: darken(#959595, 7);
+      border-color: darken($grey, 7);
+      box-shadow: none;
+    }
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  .button-yes {
+    background-color: $grey;
+    color: #555555;
+    font-weight: bold;
+    &:active {
+      background-color: darken($grey, 7);
+    }
+  }
+  // Defines button positions.
+  .buttons {
+    .btn {
+      width: calc(50% - 7.5px);
+      display: inline-block;
+    }
+    .button-yes {
+      margin-right: 15px;
+    }
+  }
 
   @include media-breakpoint-up(lg) {
 
