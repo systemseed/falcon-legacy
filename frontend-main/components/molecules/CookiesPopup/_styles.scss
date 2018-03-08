@@ -7,6 +7,7 @@
   width: 100%;
   position: fixed;
   bottom: 0;
+
   a:not(.btn) {
     color: $grey;
     text-decoration: underline;
@@ -14,9 +15,11 @@
       text-decoration: none;
     }
   }
+
   .copy {
     margin-bottom: 10px;
   }
+
   .btn {
     font-size: 11px;
     padding: 7px 10px;
@@ -34,6 +37,7 @@
       box-shadow: none;
     }
   }
+
   .button-yes {
     background-color: $grey;
     color: #555555;
@@ -42,6 +46,7 @@
       background-color: darken($grey, 7);
     }
   }
+
   // Defines button positions.
   .buttons {
     .btn {
@@ -58,15 +63,39 @@
     display: flex;
     align-items: center;
     font-size: 13px;
+
     .btn {
       font-size: 13px;
     }
     .copy,
     .buttons {
       width: 50%;
+      margin-bottom: 0;
     }
     .copy {
       padding-right: 15px;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding: 12px 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+
+    .btn {
+      font-size: 14px;
+      min-width: 200px;
+    }
+    .copy,
+    .buttons {
+      width: auto;
+    }
+    .copy {
+      padding-right: 0;
+      margin-top: 6px;
+      margin-bottom: 6px;
+      margin-right: 30px;
     }
   }
 }
