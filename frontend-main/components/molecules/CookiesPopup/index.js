@@ -7,11 +7,17 @@ class CookiesPopup extends React.Component {
 
   constructor(props) {
     super(props);
-    let cookies = jsCookie.get();
     this.state = {
-      showPopup: cookies !== undefined && !cookies.hasOwnProperty(this.props.cookieName),
+      showPopup: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    let cookies = jsCookie.get();
+    this.setState({
+      showPopup: cookies !== undefined && !cookies.hasOwnProperty(this.props.cookieName)
+    });
   }
 
   handleSubmit(event) {
@@ -23,13 +29,13 @@ class CookiesPopup extends React.Component {
   }
 
   render () {
-    if (!this.state.showPopup) {
-      return null;
-    }
-
     const { policyUrl } = this.props;
+    let classes = ['cookies-popup'];
+    if (this.state.showPopup) {
+      classes.push('visible');
+    }
     return (
-      <div className="cookies-popup">
+      <div className={classes.join(' ')}>
         <div className="copy">
           By continuing to browse this site you are agreeing to our use of cookies in accordance with our <a href={policyUrl} target="_blank">Cookies Policy</a>.
         </div>

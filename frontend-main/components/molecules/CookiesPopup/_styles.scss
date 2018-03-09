@@ -6,8 +6,12 @@
   padding: 12px 15px;
   width: 100%;
   position: fixed;
-  bottom: 0;
+  bottom: -100px;
+  transition: bottom .3s ease-in-out;
 
+  &.visible {
+    bottom: 0;
+  }
   a:not(.btn) {
     color: $grey;
     text-decoration: underline;
