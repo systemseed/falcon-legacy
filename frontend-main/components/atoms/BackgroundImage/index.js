@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const BackgroundImage = ({ imageUrl, imageAlt, imageTitle, ...attributes }) => {
+const BackgroundImage = ({ imageUrl, imageTitle, ...attributes }) => {
   if (!imageUrl) {
     return null;
   }
@@ -9,13 +9,12 @@ const BackgroundImage = ({ imageUrl, imageAlt, imageTitle, ...attributes }) => {
     backgroundImage: 'url(' + imageUrl + ')'
   };
   return (
-    <div className="background-image" alt={imageAlt} title={imageTitle} style={compStyle} {...attributes} />
+    <div className="background-image" title={imageTitle} style={compStyle} {...attributes} />
   );
 };
 
 BackgroundImage.propTypes = {
   imageUrl: PropTypes.string,
-  imageAlt: PropTypes.string,
   imageTitle: PropTypes.string
 };
 
