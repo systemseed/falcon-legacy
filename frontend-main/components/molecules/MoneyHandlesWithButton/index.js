@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import sanitizeHtml from 'sanitize-html';
+import sanitizeHtml from '../../../utils/sanitizeHtml';
 import ButtonWithAmount from '../../atoms/ButtonWithAmount';
 
 const MoneyHandlesWithButton = ({ description, iconType, buttonText, buttonUrl }) => {

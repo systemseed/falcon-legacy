@@ -1,5 +1,5 @@
 import React from 'react';
-import sanitizeHtml from 'sanitize-html';
+import sanitizeHtml from '../../../utils/sanitizeHtml';
 
 export default (props) => {
   if (!props.children) {

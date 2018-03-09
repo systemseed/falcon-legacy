@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import sanitizeHtml from 'sanitize-html';
 import LogoLink from '../../molecules/LogoLink';
+import sanitizeHtml from '../../../utils/sanitizeHtml';
 
 const SiteHeaderPane = ({ styles, slogan, linkUrl, linkTitle, imageUrl, imageTitle, imageAlt }) => {
   return (
