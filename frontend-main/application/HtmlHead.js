@@ -42,7 +42,7 @@ const HtmlHead = ({ metaData, analytics }) => {
         {metaData.keywords && <meta name="keywords" content={metaData.keywords} />}
 
         {metaData.title && <meta property="og:title" content={metaData.title} />}
-        {metaData.description && <meta property="og:description" content={metaData.keywords} />}
+        {metaData.description && <meta property="og:description" content={metaData.description} />}
         {metaData.image && <meta property="og:image" content={metaData.image} />}
         {!!analytics && !!analytics.GTM && <meta property="fb:app_id" content={analytics.FacebookAppId} />}
         <meta property="og:type" content="website" />
