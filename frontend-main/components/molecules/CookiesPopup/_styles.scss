@@ -28,10 +28,14 @@
     font-weight: normal;
     color: $grey;
 
-    &:active {
+    &:hover {
       background-color: darken(#959595, 7);
       border-color: darken($grey, 7);
       box-shadow: none;
+    }
+    &:active {
+      background-color: darken(#959595, 12);
+      border-color: darken($grey, 12);
     }
     &:focus {
       box-shadow: none;
@@ -42,8 +46,11 @@
     background-color: $grey;
     color: #555555;
     font-weight: bold;
-    &:active {
+    &:hover {
       background-color: darken($grey, 7);
+    }
+    &:active {
+      background-color: darken($grey, 12);
     }
   }
 
