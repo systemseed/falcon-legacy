@@ -31,6 +31,8 @@ class CookiesPopup extends React.Component {
   render () {
     const { policyUrl } = this.props;
     let classes = ['cookies-popup'];
+
+    // Add `visible` class if popup should be shown.
     if (this.state.showPopup) {
       classes.push('visible');
     }
@@ -55,7 +57,7 @@ CookiesPopup.propTypes = {
 
 CookiesPopup.defaultProps = {
   policyUrl: '/privacy#cookies',
-  cookieName: 'cookie-agreed-en-1710'
+  cookieName: 'cookie-agreed-en-1710' //@todo: change this value to `cookie-agreed-ie` for ROI, consider to get these settings with project settings from the backend.
 };
 
 export default CookiesPopup;
