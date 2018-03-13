@@ -28,7 +28,7 @@ const HtmlHead = ({ metaData, analytics }) => {
     <div>
       {/* Analytics scripts */}
       {!!analytics && !!analytics.VWO && <VWO analyticId={analytics.VWO} />}
-      {!!analytics && !!analytics.GTM && <GTM analyticId={analytics.GTM} />}
+      {!!analytics && !!analytics.GTM && <GTM analyticId={analytics.GTM} analyticQuery={analytics.GTMQuery} />}
 
       <Head>
         <title>{metaData.title}</title>
@@ -44,7 +44,7 @@ const HtmlHead = ({ metaData, analytics }) => {
         {metaData.title && <meta property="og:title" content={metaData.title} />}
         {metaData.description && <meta property="og:description" content={metaData.description} />}
         {metaData.image && <meta property="og:image" content={metaData.image} />}
-        {!!analytics && !!analytics.GTM && <meta property="fb:app_id" content={analytics.FacebookAppId} />}
+        {!!analytics && !!analytics.FacebookAppId && <meta property="fb:app_id" content={analytics.FacebookAppId} />}
         <meta property="og:type" content="website" />
 
         <link rel="apple-touch-icon-precomposed" href={baseUrl + "/static/apple-touch-icon-precomposed.png"} />
