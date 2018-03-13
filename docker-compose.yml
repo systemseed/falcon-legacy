@@ -6,7 +6,7 @@ services:
   ##########################
 
   fe_main:
-    image: node:8.2-alpine
+    image: node:8.9-alpine
     environment:
       VIRTUAL_HOST: main.flc.local
     depends_on:
@@ -23,7 +23,7 @@ services:
   ##########################
 
   fe_gifts:
-    image: node:8.2-alpine
+    image: node:8.9-alpine
     environment:
       VIRTUAL_HOST: gifts.flc.local
     depends_on:
@@ -114,7 +114,7 @@ services:
   ##########################
 
   be_donations:
-    image: wodby/drupal-php:7.1
+    image: wodby/drupal-php:7.1-2.0.0
     environment:
       PHP_SITE_NAME: dev
       PHP_HOST_NAME: localhost

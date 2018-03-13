@@ -5,8 +5,8 @@ namespace Drupal\cw_gifts_cards;
 use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\Query\QueryFactory;
-use Drupal\cw_gifts_api\InternalClient;
 use Drupal\cw_gifts_cards\Entity\EcardItem;
+use Drupal\falcon_gifts_api\InternalClient;
 use Drupal\mailsystem\MailsystemManager;
 use Drupal\Core\Render\Renderer;
 use Drupal\Core\Language\LanguageManager;
@@ -183,7 +183,7 @@ class MailSender implements MailSenderInterface {
         'Content-Type' => 'text/html',
       ],
       'from' => $this->configFactory->get('system.site')->get('mail'),
-      'subject' => t('A friend has bought you a Concern Gift'),
+      'subject' => t('A friend has bought you a Gift'),
       'ecard_item' => $ecardItem,
     ];
 

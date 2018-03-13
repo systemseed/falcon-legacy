@@ -27,15 +27,15 @@ const app = express();
 app.use(compression());
 
 // Support HTTP AUTH.
-const CW_AUTH = process.env.CW_AUTH;
+const HTTP_AUTH = process.env.HTTP_AUTH;
 
-if (CW_AUTH && CW_AUTH !== '0') {
-  const httpAuth = CW_AUTH.split(':');
+if (HTTP_AUTH && HTTP_AUTH !== '0') {
+  const httpAuth = HTTP_AUTH.split(':');
 
   app.use(auth({
     users: { [httpAuth[0]]: httpAuth[1] },
     challenge: true,
-    realm: 'Concern Gifts'
+    realm: 'Gifts Frontend'
   }));
 }
 
