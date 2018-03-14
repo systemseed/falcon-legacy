@@ -385,7 +385,7 @@ class GiftsOrderProcessor {
     }
 
     // Prepares Email's subject and body.
-    $subject = t('Concern Gifts: ThankQ export process finished with errors');
+    $subject = t('Gifts: ThankQ export process finished with errors');
     $body = t('ThankQ export process finished with following errors') . ':<br />';
 
     // Attaches info with errors.

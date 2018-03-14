@@ -48,9 +48,9 @@ app.prepare()
     const server = express();
 
     // Support HTTP AUTH.
-    const CW_AUTH = process.env.CW_AUTH;
-    if (CW_AUTH && CW_AUTH !== '0') {
-      const httpAuth = CW_AUTH.split(':');
+    const HTTP_AUTH = process.env.HTTP_AUTH;
+    if (HTTP_AUTH && HTTP_AUTH !== '0') {
+      const httpAuth = HTTP_AUTH.split(':');
 
       // Hide any page starts with /private, so user can't see the page but other scripts are
       // available to use by SSI.

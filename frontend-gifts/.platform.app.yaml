@@ -1,5 +1,5 @@
 name: frontend-gifts
-type: nodejs:8.2
+type: nodejs:8.9
 
 dependencies:
   nodejs:
