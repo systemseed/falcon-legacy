@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Alert } from 'react-bootstrap';
 import * as checkoutActions from '../../actions/checkout';
 import * as messageActions from '../../actions/messageBar';
 import Stripe from './Stripe';
@@ -19,7 +18,7 @@ class PaymentButtons extends Component {
     const { dispatch, paymentMethods, order } = this.props;
 
     if (paymentMethods.isError) {
-      dispatch(messageActions.show('Cannot load payment methods.', {type: 'error', timeout: 20000}));
+      dispatch(messageActions.show('Cannot load payment methods.', { type: 'error', timeout: 20000 }));
       return null;
     }
     if (!paymentMethods.isFulfilled) {
@@ -27,7 +26,7 @@ class PaymentButtons extends Component {
     }
 
     if (order.isError && !order.isPending) {
-      dispatch(messageActions.show('We couldn’t complete your payment. Please <a href="/contact">contact support</a> or try another payment method.', {type: 'error', timeout: 16000}));
+      dispatch(messageActions.show('We couldn’t complete your payment. Please <a href="/contact">contact support</a> or try another payment method.', { type: 'error', timeout: 16000 }));
     }
 
     return (
@@ -36,7 +35,7 @@ class PaymentButtons extends Component {
           <h3 className="payment-options-label">Payment options:</h3>
           <Stripe paymentMethod={paymentMethods.stripe} />
           <p className="payment-options-or-label">or</p>
-          { typeof window !== 'undefined' &&
+          {typeof window !== 'undefined' &&
             <Paypal paymentMethod={paymentMethods.paypal_button} />
           }
         </div>
