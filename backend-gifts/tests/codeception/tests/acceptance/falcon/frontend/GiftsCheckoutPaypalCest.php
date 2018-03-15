@@ -24,7 +24,7 @@ class GiftsCheckoutPaypalCest {
    */
   private function prepareCheckout(FrontendTester $I) {
     $I->amGoingTo('Add gift to basket.');
-    $I->addGiftToBasket(ContentConfig::getGiftData());
+    $I->addGiftToBasket(\ContentConfig::getGiftData());
     $I->click('.toolbar a[href="/basket"]');
 
     $I->click('Checkout');
@@ -45,10 +45,10 @@ class GiftsCheckoutPaypalCest {
     $this->prepareCheckout($I);
 
     $currency = $I->getCurrency();
-    $gift = ContentConfig::getGiftData();
+    $gift = \ContentConfig::getGiftData();
 
     // Fill in the form with valid data. Buttons should be visible.
-    $profile = $I->fillCheckoutForm(ContentConfig::getProfileData());
+    $profile = $I->fillCheckoutForm(\ContentConfig::getProfileData());
     $I->seePaymentButtons();
 
     $I->payWithPayPal($gift['price'][$currency]['formatted']);

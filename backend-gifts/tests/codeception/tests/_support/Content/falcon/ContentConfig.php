@@ -1,14 +1,11 @@
 <?php
 
-namespace falcon;
-
 /**
  * Class ContentConfig
  *
  * Test content for content-sensitive Falcon tests. Extend this class in your
  * own namespace to overwrite demo content for your own Falcon setup.
  *
- * @package falcon
  */
 class ContentConfig {
 

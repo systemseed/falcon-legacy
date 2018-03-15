@@ -32,7 +32,7 @@ class NavigationCest
     // Basket widget.
     $I->canSeeElement('.cart-btn a[href="/basket"] span.count');
     // Products.
-    $I->canSee(ContentConfig::getGiftData('title'));
+    $I->canSee(\ContentConfig::getGiftData('title'));
     // Footer.
     $I->canSee('Need support?', '.footer');
     // Server side rendering.

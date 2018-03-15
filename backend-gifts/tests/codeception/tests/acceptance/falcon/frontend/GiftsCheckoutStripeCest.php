@@ -25,7 +25,7 @@ class GiftsCheckoutStripeCest {
    */
   private function prepareCheckout(FrontendTester $I) {
     $I->amGoingTo('Add gift to basket.');
-    $I->addGiftToBasket(ContentConfig::getGiftData());
+    $I->addGiftToBasket(\ContentConfig::getGiftData());
     $I->click('.toolbar a[href="/basket"]');
 
     $I->click('Checkout');
@@ -46,7 +46,7 @@ class GiftsCheckoutStripeCest {
     $this->prepareCheckout($I);
 
     $currency = $I->getCurrency();
-    $gift = ContentConfig::getGiftData();
+    $gift = \ContentConfig::getGiftData();
     $I->expectTo('See correct total amount');
     $I->canSee('Basket total:');
     $I->canSee($gift['price'][$currency]['formatted']);
@@ -59,7 +59,7 @@ class GiftsCheckoutStripeCest {
     $I->cantSeePaymentButtons();
 
     // Fill in the form with valid data. Buttons should be visible.
-    $profile = $I->fillCheckoutForm(ContentConfig::getProfileData());
+    $profile = $I->fillCheckoutForm(\ContentConfig::getProfileData());
     $I->seePaymentButtons();
 
     // Unset event code. Buttons should be hidden.
@@ -90,10 +90,10 @@ class GiftsCheckoutStripeCest {
     $this->prepareCheckout($I);
 
     $currency = $I->getCurrency();
-    $gift = ContentConfig::getGiftData();
+    $gift = \ContentConfig::getGiftData();
 
     // Fill in the form with valid data. Buttons should be visible.
-    $profile = $I->fillCheckoutForm(ContentConfig::getProfileData());
+    $profile = $I->fillCheckoutForm(\ContentConfig::getProfileData());
     $I->seePaymentButtons();
 
     $I->click('Pay With Card');
@@ -164,7 +164,7 @@ class GiftsCheckoutStripeCest {
     $I->waitForElement('#root_field_event_code');
 
     // Fill in the form with valid data. Buttons should be visible.
-    $profile = $I->fillCheckoutForm(ContentConfig::getProfileData());
+    $profile = $I->fillCheckoutForm(\ContentConfig::getProfileData());
     $I->seePaymentButtons();
 
     $I->click('Pay With Card');
@@ -196,11 +196,11 @@ class GiftsCheckoutStripeCest {
    */
   public function checkoutWithCards(FrontendTester $I) {
     $currency = $I->getCurrency();
-    $gift = ContentConfig::getGiftData();
+    $gift = \ContentConfig::getGiftData();
 
     $I->amGoingTo('Add two gifts to basket.');
-    $I->addGiftToBasket(ContentConfig::getGiftData());
-    $I->addGiftToBasket(ContentConfig::getGiftData());
+    $I->addGiftToBasket(\ContentConfig::getGiftData());
+    $I->addGiftToBasket(\ContentConfig::getGiftData());
 
     $total = $gift['price'][$currency]['number'] * 2;
     $total_formatted = number_format($total, 2);
@@ -219,7 +219,7 @@ class GiftsCheckoutStripeCest {
     $I->canSee($gift['title'], '.checkout-container .row.checkout-cards-list .row .col-xs-12:nth-of-type(2) .card-product');
 
     // Fill in the form with valid data. Buttons should be visible.
-    $profile = $I->fillCheckoutForm(ContentConfig::getProfileData());
+    $profile = $I->fillCheckoutForm(\ContentConfig::getProfileData());
     $I->seePaymentButtons();
 
     // Choose "Email" type for the first item.
