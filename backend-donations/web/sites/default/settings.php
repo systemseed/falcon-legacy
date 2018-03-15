@@ -39,7 +39,7 @@ $config['config_split.config_split.customizations']['status'] = TRUE;
 $config['config_split.config_split.development']['status'] = TRUE;
 
 // Enable test mode by default for all development environments, overridden for master in settings.platform.php.
-$config['cw_core.settings']['test_mode_enabled'] = TRUE;
+$config['falcon.settings']['test_mode_enabled'] = TRUE;
 
 /**
  * Settings for Platform.sh environments.

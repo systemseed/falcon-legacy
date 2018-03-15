@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
 
   ##########################
@@ -7,16 +7,15 @@ services:
 
   fe_main:
     image: node:8.9-alpine
-    environment:
-      VIRTUAL_HOST: main.flc.local
     depends_on:
       - api_bus
     ports:
       - "3001:3000"
-    volumes:
-     - ./frontend-main:/app
     working_dir: /app
-    command: yarn run start:dev
+    command: sh -c 'yarn install && yarn run start:dev'
+    labels:
+      - 'traefik.backend=fe_main'
+      - 'traefik.port=3000'
 
   ##########################
   ### GIFTS FRONTEND #######
@@ -24,16 +23,15 @@ services:
 
   fe_gifts:
     image: node:8.9-alpine
-    environment:
-      VIRTUAL_HOST: gifts.flc.local
     depends_on:
       - api_bus
     ports:
-      - "3000:3000"
-    volumes:
-     - ./frontend-gifts:/app
+      - "3000"
     working_dir: /app
-    command: ['npm', 'start']
+    command: sh -c 'yarn install && yarn run start'
+    labels:
+      - 'traefik.backend=fe_gifts'
+      - 'traefik.port=3000'
 
   ##########################
   ####### API BUS ##########
@@ -45,12 +43,11 @@ services:
       - be_gifts_nginx
       - be_donations_nginx
     environment:
-      WEB_ALIAS_DOMAIN: api.flc.local
       WEB_DOCUMENT_ROOT: /app/public
-      VIRTUAL_HOST: api.flc.local
-    volumes:
-      - ./backend-api-bus:/app
     working_dir: /app
+    labels:
+      - 'traefik.backend=api_bus'
+      - 'traefik.port=80'
 
   ##########################
   ### GIFTS BACKEND ########
@@ -63,14 +60,6 @@ services:
       PHP_HOST_NAME: localhost
       PHP_DOCROOT: web
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
-      # PHP_XDEBUG: 1
-      # PHP_XDEBUG_DEFAULT_ENABLE: 1
-      # PHP_XDEBUG_REMOTE_AUTOSTART: 1
-      # PHP_XDEBUG_REMOTE_CONNECT_BACK: 0         # This is needed to respect remote.host setting bellow
-      # PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"  # You will also need to 'sudo ifconfig lo0 alias 10.254.254.254'
-    volumes:
-      - ./backend-gifts:/var/www/html
-      # - d4d-unison-sync:/var/www/html:rw # Replace volume to this to use docker-sync for macOS users
 
   be_gifts_mariadb:
     image: wodby/mariadb:10.1
@@ -79,9 +68,6 @@ services:
       MYSQL_DATABASE: drupal
       MYSQL_USER: drupal
       MYSQL_PASSWORD: drupal
-    volumes:
-      - ./backend-gifts/mysql/init:/docker-entrypoint-initdb.d
-      - ./backend-gifts/mysql/data:/var/lib/mysql
 
   be_gifts_nginx:
     image: wodby/drupal-nginx:1.10-1.1.0
@@ -93,9 +79,9 @@ services:
       NGINX_UPSTREAM_NAME: be_gifts
       NGINX_DOCROOT: web
       DRUPAL_VERSION: 8
-      VIRTUAL_HOST: gifts.api.flc.local
-    volumes_from:
-      - be_gifts
+    labels:
+      - 'traefik.backend=be_gifts_nginx'
+      - 'traefik.port=80'
 
   be_gifts_pma:
     image: phpmyadmin/phpmyadmin
@@ -105,8 +91,9 @@ services:
       PMA_PASSWORD: drupal
       PHP_UPLOAD_MAX_FILESIZE: 1G
       PHP_MAX_INPUT_VARS: 1G
-    ports:
-     - "8001:80"
+    labels:
+      - 'traefik.backend=be_gifts_pma'
+      - 'traefik.port=80'
 
 
   ##########################
@@ -120,14 +107,6 @@ services:
       PHP_HOST_NAME: localhost
       PHP_DOCROOT: web
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
-      # PHP_XDEBUG: 1
-      # PHP_XDEBUG_DEFAULT_ENABLE: 1
-      # PHP_XDEBUG_REMOTE_AUTOSTART: 1
-      # PHP_XDEBUG_REMOTE_CONNECT_BACK: 0         # This is needed to respect remote.host setting bellow
-      # PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"  # You will also need to 'sudo ifconfig lo0 alias 10.254.254.254'
-    volumes:
-      - ./backend-donations:/var/www/html
-      #- d4d-unison-sync:/var/www/html:rw # Replace volume to this to use docker-sync for macOS users
 
   be_donations_mariadb:
     image: wodby/mariadb:10.1
@@ -136,9 +115,6 @@ services:
       MYSQL_DATABASE: drupal
       MYSQL_USER: drupal
       MYSQL_PASSWORD: drupal
-    volumes:
-      - ./backend-donations/mysql/init:/docker-entrypoint-initdb.d
-      - ./backend-donations/mysql/data:/var/lib/mysql
 
   be_donations_nginx:
     image: wodby/drupal-nginx:1.10-1.1.0
@@ -150,9 +126,9 @@ services:
       NGINX_UPSTREAM_NAME: be_donations
       NGINX_DOCROOT: web
       DRUPAL_VERSION: 8
-      VIRTUAL_HOST: donations.api.flc.local
-    volumes_from:
-      - be_donations
+    labels:
+      - 'traefik.backend=be_donations_nginx'
+      - 'traefik.port=80'
 
   be_donations_pma:
     image: phpmyadmin/phpmyadmin
@@ -162,38 +138,24 @@ services:
       PMA_PASSWORD: drupal
       PHP_UPLOAD_MAX_FILESIZE: 1G
       PHP_MAX_INPUT_VARS: 1G
-    ports:
-     - "8002:80"
-
-
-  ##########################
-  ### PHANTOM JS  ##########
-  ##########################
-
-  phantomjs:
-    image: rosenhouse/phantomjs2:latest
-    ports:
-        - 8910
-    entrypoint: phantomjs
-    command: "--webdriver=8910"
-
-
-  ##########################
-  ### NGINX PROXY ##########
-  ##########################
-  flc_nginx_proxy:
-    image: jwilder/nginx-proxy:0.5.0
-    container_name: flc-nginx-proxy
-    ports:
-      - "80:80"
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
+    labels:
+      - 'traefik.backend=be_gifts_pma'
+      - 'traefik.port=80'
 
   #########################
-  ### MAILHOG #############
-  ########################
+  ###### MAILHOG ##########
+  #########################
 
   mailhog:
     image: mailhog/mailhog
     ports:
       - "8025:8025"
+
+
+  traefik:
+    image: traefik
+    command: -c /dev/null --web --docker --logLevel=INFO
+    ports:
+      - '80:80'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
