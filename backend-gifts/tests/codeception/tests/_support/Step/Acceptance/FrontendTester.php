@@ -115,9 +115,8 @@ class FrontendTester extends \AcceptanceTester {
     $I->amGoingTo('Fill in checkout form');
 
     // Choose title.
-    // TODO: remove region specific code.
-    if ($region == 'gb') {
-      $I->selectOption('#root_field_profile_title', 'Mr');
+    if (!empty($profile['root_field_profile_title'])) {
+      $I->selectOption('#root_field_profile_title', $profile['root_field_profile_title']);
     }
 
     // Text fields.
@@ -129,9 +128,8 @@ class FrontendTester extends \AcceptanceTester {
     $I->fillField('#root_address_line2', $profile['root_address_line2']);
     $I->fillField('#root_locality', $profile['root_locality']);
 
-    // Fill Postal code field for UK or County for ROI.
-    // TODO: remove region specific code.
-    if ($region == 'gb') {
+    // Fill in postal code field.
+    if (!empty($profile['root_postal_code'])) {
       $I->fillField('#root_postal_code', $profile['root_postal_code']);
     }
     else {
