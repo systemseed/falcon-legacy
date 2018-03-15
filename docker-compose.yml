@@ -101,7 +101,7 @@ services:
   ##########################
 
   be_donations:
-    image: wodby/drupal-php:7.1-2.0.0
+    image: wodby/drupal-php:7.1-2.2.0
     environment:
       PHP_SITE_NAME: dev
       PHP_HOST_NAME: localhost

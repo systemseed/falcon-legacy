@@ -156,6 +156,7 @@ class GiftsCheckoutStripeCest {
 
     // Scroll back to top to make checkout button visible.
     $I->scrollTo('h1');
+    $I->see('Shopping Basket');
 
     $I->click('Checkout');
     $I->canSee('Checkout and save lives');
