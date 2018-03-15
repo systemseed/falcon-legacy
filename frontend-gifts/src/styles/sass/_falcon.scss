@@ -1,0 +1,6 @@
+// Falcon fixes for the theme.
+.form-element {
+  &.form-select:before {
+    pointer-events: none;
+  }
+}
