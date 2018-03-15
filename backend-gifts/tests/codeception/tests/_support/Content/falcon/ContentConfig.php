@@ -44,7 +44,6 @@ class ContentConfig {
     'root_address_line1' => 'Address Line 1',
     'root_address_line2' => 'Address Line 2',
     'root_locality' => 'Dublin',
-    'root_postal_code' => 'ASCN 1ZZ',
     'root_administrative_area' => 'Co. Dublin',
     'root_country_code' => 'Republic of Ireland',
     'optins' => [
