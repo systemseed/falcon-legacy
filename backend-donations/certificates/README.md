@@ -12,4 +12,3 @@ openssl rsa -in private.key -pubout > public.key
 ```
 
 Path to these keys should be stored in /admin/config/people/simple_oauth
-
