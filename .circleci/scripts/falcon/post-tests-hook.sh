@@ -27,13 +27,13 @@ do
   fi;
 
   # Fetch latest version of "falcon" branch from client repository.
-  git fetch cw2ie falcon
+  git fetch ${repo_var} falcon
 
   # Create new temporary branch on top of "falcon".
   git checkout -B ${repo_var}-falcon ${repo_var}/falcon
 
   # Merge Falcon's $CIRCLE_BRANCH into the new branch.
-  git merge --no-edit $CIRCLE_BRANCH
+  git merge --no-edit --no-ff $CIRCLE_BRANCH
 
   echo "push --force ${repo_var} ${repo_var}-falcon:falcon"
   # Uncomment after initial testing.
