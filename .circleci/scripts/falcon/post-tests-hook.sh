@@ -35,9 +35,7 @@ do
   # Merge Falcon's $CIRCLE_BRANCH into the new branch.
   git merge --no-edit --no-ff $CIRCLE_BRANCH
 
-  echo "push --force ${repo_var} ${repo_var}-falcon:falcon"
-  # Uncomment after initial testing.
-  #git push --force ${repo_var} ${repo_var}-falcon:falcon
+  git push --force ${repo_var} ${repo_var}-falcon:falcon
 
   # Get back to the original branch.
   git checkout $CIRCLE_BRANCH
