@@ -154,9 +154,8 @@ class GiftsCheckoutStripeCest {
       'price' => [$currency => ['number' => 50.00]],
     ];
 
-    // Scroll back to top to make checkout button visible.
-    $I->scrollTo('h1');
-    $I->see('Shopping Basket');
+    // Reload the page. You should be able to continue checkout process.
+    $I->reloadPage();
 
     $I->click('Checkout');
     $I->canSee('Checkout and save lives');
