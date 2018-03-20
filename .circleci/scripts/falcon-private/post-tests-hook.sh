@@ -9,6 +9,10 @@ fi
 git config --global user.email "circleci@systemseed.com"
 git config --global user.name "Falcon Circle CI"
 
+# Push to the public repo if tests are green.
+git remote add public git@github.com:systemseed/falcon.git
+git push --force public master
+
 # Find all variables set in CIRCLE CI starting with CLIENT_*.
 vars=$(env | awk -F '=' '{print $1}' | grep 'CLIENT_*') || true
 

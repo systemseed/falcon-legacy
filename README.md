@@ -53,32 +53,6 @@ You'll find more info about it at their [documentation](https://docs.platform.sh
 
 [http://api.flc.local](http://api.flc.local)
 
-## Making changes to Nodejs stack
-
-If you want to make a change to `package.json` inside of any frontend application, then make this change as desired, then run:
-
-```
-# Rebuilding docker image with latest changes in package.json
-docker-compose build
-
-# Tell Docker to use recently updated image.
-docker-compose up -d
-```
-
-## To fix Docker poor performance on macOS (OS X)
-More info:
-http://docs.docker4drupal.org/en/latest/macos/
-Installation:
-```
-gem install docker-sync
-brew install fswatch
-```
-
-Run:
-```
-docker-sync start -d
-docker-compose -f ./docker-compose-mac.yml up -d
-```
 
 ## Running ESLint for FrontEnd apps
 
@@ -89,4 +63,4 @@ docker-compose run fe_gifts sh
 
 ## Shutting down the environments
 
-To shut the environment run `docker-compose stop`. It's also possible to shut it using `docker-compose down`, but the latter option will drop mysql databases.
+To shut the environment run `docker-compose stop`.
