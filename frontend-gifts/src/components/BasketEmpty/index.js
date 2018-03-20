@@ -1,4 +1,5 @@
 import React from 'react';
+import Sticky from 'react-stickynode';
 import { Grid, Row, Col } from 'react-bootstrap';
 import BasketTotal from '../BasketTotal';
 
@@ -8,7 +9,7 @@ const BasketEmpty = ({ currentCurrency }) => (
 
     <Row className="padding-top">
 
-      <Col sm={8} className="padding-bottom-2x">
+      <Col sm={8} className="padding-bottom-2x sticky-bottom-boundary-basket">
         <p>
           Your basket is empty.
         </p>
@@ -17,13 +18,15 @@ const BasketEmpty = ({ currentCurrency }) => (
 
       <Col md={3} mdOffset={1} sm={4} className="padding-bottom-2x">
         <aside>
-          <h3 className="toolbar-title">Basket total:</h3>
-          <h4 className="amount">
-            <BasketTotal
-              total={0}
-              currentCurrency={currentCurrency}
-            />
-          </h4>
+          <Sticky top={114} bottomBoundary=".sticky-bottom-boundary-basket">
+            <h3 className="toolbar-title">Basket total:</h3>
+            <h4 className="amount">
+              <BasketTotal
+                total={0}
+                currentCurrency={currentCurrency}
+              />
+            </h4>
+          </Sticky>
         </aside>
       </Col>
 

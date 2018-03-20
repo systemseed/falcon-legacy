@@ -17,13 +17,13 @@ const CheckoutView = () => (
 
       <Row className="checkout-container padding-top">
 
-        <Col sm={8} className="padding-bottom-2x">
+        <Col sm={8} className="padding-bottom-2x sticky-bottom-boundary-checkout">
           <CheckoutContainer />
         </Col>
 
         <Col md={3} mdOffset={1} sm={4} className="padding-bottom-2x">
           <aside className="checkout-payment">
-            <Sticky enabled={true} top={114} bottomBoundary='.checkout-container-inner'>
+            <Sticky top={114} bottomBoundary=".sticky-bottom-boundary-checkout">
               <CheckoutBasketSummary />
               <CheckoutPaymentContainer />
             </Sticky>
