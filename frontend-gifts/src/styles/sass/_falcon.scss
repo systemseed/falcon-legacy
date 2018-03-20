@@ -1,6 +1,34 @@
 // Falcon fixes for the theme.
+
+// Make drop-down arrows to open select list.
 .form-element {
   &.form-select:before {
     pointer-events: none;
   }
+}
+
+// Add currency symbols to the inputs.
+.form-group.currency-EUR,
+.form-group.currency-GBP {
+  .form-group.field-integer {
+    position: relative;
+
+    input {
+      padding-left:32px;
+    }
+
+    &:before {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      pointer-events: none;
+    }
+  }
+}
+
+.form-group.currency-EUR .form-group.field-integer:before {
+  content:"€";
+}
+.form-group.currency-GBP .form-group.field-integer:before {
+  content:"£";
 }

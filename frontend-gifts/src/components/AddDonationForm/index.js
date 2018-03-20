@@ -1,7 +1,6 @@
 import React from 'react';
 import Form from 'react-jsonschema-form';
 import { Col, Button, Clearfix } from 'react-bootstrap';
-import * as currencyUtils from '../../utils/currencies';
 
 class AddDonationForm extends React.Component {
 
@@ -14,15 +13,15 @@ class AddDonationForm extends React.Component {
         'minimum': 1,
       }
     }
-  }
+  };
 
   uiSchema = {
-    'classNames': 'col-xs-3',
+    'classNames': 'col-xs-6 col-sm-3 currency-' + this.props.currentCurrency,
     'amount': {
       'ui:widget': 'updown',
-      'ui:placeholder': currencyUtils.getSymbolByCurrency(this.props.currentCurrency),
+      'ui:placeholder': 0,
     }
-  }
+  };
 
   render = () => {
     const { addDonationSubmit, buttonLabel, formData } = this.props;
@@ -36,7 +35,7 @@ class AddDonationForm extends React.Component {
           onSubmit={addDonationSubmit}
           formData={formData}
         >
-          <Col xs={9}>
+          <Col xs={6} sm={9}>
             <Button
               bsStyle="primary"
               type="submit"
