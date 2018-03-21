@@ -21,7 +21,7 @@ class GiftsCest {
     $I->amOnPage('/');
 
     // Wait until products are loaded.
-    $I->waitForText('HEALTH AND SAFETY', 15);
+    $I->waitForText('HEALTH AND SAFETY', 15, '.filters-bar');
 
     // I see at least one product.
     $I->seeElement('.shop-item');
@@ -29,21 +29,22 @@ class GiftsCest {
 
     $I->amGoingTo('Filter gifts by "Health and Safety" category');
     $I->expect('Not to see test gift');
-    $I->click('Health and Safety');
+    $I->click('Health and Safety', '.filters-bar');
+    $I->waitForText('HEALTH AND SAFETY', 15, '.filters-bar');
     $I->dontSeeLink(\ContentConfig::getGiftData('title'));
 
     $category = \ContentConfig::getGiftData('category');
     $I->amGoingTo('Filter gifts by '. $category .' category');
     $I->expect('To see test gift');
-    $I->click($category);
+    $I->click($category, '.filters-bar');
+    $I->waitForText('HEALTH AND SAFETY', 15, '.filters-bar');
     $I->canSeeLink(\ContentConfig::getGiftData('title'));
 
     $I->amGoingTo('Reset filters');
     $I->expect('To see test gift');
-    $I->click('All');
+    $I->click('All', '.filters-bar');
+    $I->waitForText('HEALTH AND SAFETY', 15, '.filters-bar');
     $I->canSeeLink(\ContentConfig::getGiftData('title'));
-
-
   }
 
   /**

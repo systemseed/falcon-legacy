@@ -1,0 +1,23 @@
+uuid: 181bd684-549e-48ae-8418-c89afd40256c
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: taxonomy_gift_category
+label: 'Taxonomy: Gift category'
+type: 'canonical_entities:taxonomy_term'
+pattern: '/category/[term:name]'
+selection_criteria:
+  f67b4262-03e2-45a9-897a-90222f38f51d:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      gift_category: gift_category
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: f67b4262-03e2-45a9-897a-90222f38f51d
+selection_logic: and
+weight: -5
+relationships: {  }

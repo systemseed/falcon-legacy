@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { routerReducer, LOCATION_CHANGE } from 'react-router-redux';
-import { gifts, giftsFilter, giftCustomPrice } from './gifts';
+import { gifts, giftCustomPrice } from './gifts';
 import { giftsCorporate, giftCorporateCustomPrice } from './gifts.corporate';
 import { giftsFree } from './gifts.free';
 import { currentCurrency } from './currencies';
@@ -41,7 +41,6 @@ export default combineReducers({
   eventcodes,
   featuredImages,
   gifts,
-  giftsFilter,
   giftsCorporate,
   giftsFree,
   giftCustomPrice,

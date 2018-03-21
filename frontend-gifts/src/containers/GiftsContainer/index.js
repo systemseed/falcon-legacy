@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withDone as withServerDone } from 'react-router-server';
+import _find from 'lodash/find';
 
 import * as giftsActions from '../../actions/gifts';
 import * as giftUtils from '../../utils/gifts';
@@ -24,26 +25,30 @@ class GiftsContainer extends React.Component {
     const {
       gifts,
       currentCurrency,
-      filter,
-      filterClick,
-      removeFilterClick
+      categoryName
     } = this.props;
 
-    if (gifts.isPending) {
+    const category = _find(gifts.categories, cat => cat.path === `/category/${categoryName}`);
+    let categoryId;
+    if (category) {
+      categoryId = category.id;
+    }
+
+    const giftsFiltered = giftUtils.filterByCategory(gifts, categoryId);
+
+    if (giftsFiltered.isPending) {
       return <Loading big />;
     }
 
-    if (gifts.isFulfilled && gifts.products) {
+    if (giftsFiltered.isFulfilled && giftsFiltered.products) {
       return (
         <div>
           <GiftsFilter
-            categories={gifts.categories}
-            filter={filter}
-            filterClick={filterClick}
-            removeFilterClick={removeFilterClick}
+            categories={giftsFiltered.categories}
+            categoryId={categoryId}
           />
           <GiftsGrid
-            gifts={gifts.products}
+            gifts={giftsFiltered.products}
             currentCurrency={currentCurrency}
           />
         </div>
@@ -56,6 +61,7 @@ class GiftsContainer extends React.Component {
 
 // Declare our props dependencies.
 GiftsContainer.propTypes = {
+  categoryName: React.PropTypes.string,
   gifts: React.PropTypes.shape({
     isPending: React.PropTypes.bool,
     isFulfilled: React.PropTypes.bool,
@@ -85,12 +91,6 @@ GiftsContainer.propTypes = {
     ),
   }),
   currentCurrency: React.PropTypes.string,
-  filter: React.PropTypes.shape({
-    isFiltered: React.PropTypes.bool,
-    categoryId: React.PropTypes.string,
-  }),
-  filterClick: React.PropTypes.func,
-  removeFilterClick: React.PropTypes.func,
   loadAllGifts: React.PropTypes.func,
   done: React.PropTypes.func,
 };
@@ -98,23 +98,16 @@ GiftsContainer.propTypes = {
 // Anything in the returned object below is merged in with the props of the
 // component, so we have access to store values but the component itself
 // does not have to be aware of the store.
-const mapStoreToProps = (store) => {
+const mapStoreToProps = store => ({
+  currentCurrency: store.currentCurrency,
   // Filter out products by the current site currency.
-  const gifts = giftUtils.filterByCurrency(
+  gifts: giftUtils.filterByCurrency(
     store.gifts,
     store.currentCurrency
-  );
-
-  return {
-    currentCurrency: store.currentCurrency,
-    gifts: giftUtils.filterByCategory(gifts, store.giftsFilter),
-    filter: store.giftsFilter,
-  };
-};
+  )
+});
 
 const mapDispatchToProps = {
-  filterClick: giftsActions.setFilterByCategory,
-  removeFilterClick: giftsActions.removeFilterByCategory,
   loadAllGifts: giftsActions.loadAll,
 };
 
