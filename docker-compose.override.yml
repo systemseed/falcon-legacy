@@ -14,9 +14,21 @@ services:
       - ./frontend-gifts:/app
       #- ./frontend-gifts:/app:cached
     # Uncomment to make changes in package.json.
-    #command: sh -c 'yarn add my-package'
+    #command: sh -c 'yarn install'
     labels:
       - 'traefik.frontend.rule=Host:gifts.flc.local'
+
+
+  # Uncomment to run app with Server Side Rendering enabled.
+  # Useful for debugging issues related to SSR.
+#  fe_gifts:
+#    command: sh -c 'yarn install && yarn run build && yarn run start:server'
+#    volumes:
+#      #- ./frontend-gifts:/app
+#      - ./frontend-gifts:/app:cached
+#    labels:
+#      - 'traefik.port=3001'
+#      - 'traefik.frontend.rule=Host:gifts.flc.local'
 
   api_bus:
     image: webdevops/php-nginx:alpine-3-php7

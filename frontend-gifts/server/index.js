@@ -1,8 +1,10 @@
 const app = require('./app');
-// Load the Platform.sh configuration.
-const config = require('platformsh').config();
 
-const PORT = config ? config.port : 3001;
+let PORT = 3001;
+if (process.env.PLATFORM_PROJECT) {
+  // Load the Platform.sh configuration.
+  PORT = require('platformsh').config().port;
+}
 
 app.listen(PORT, (error) => {
   const boldBlue = text => `\u001b[1m\u001b[34m${text}\u001b[39m\u001b[22m`;

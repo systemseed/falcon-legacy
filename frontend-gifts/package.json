@@ -48,7 +48,7 @@
     "react-router-dom": "^4.0.0",
     "react-router-redux": "^5.0.0-alpha.8",
     "react-router-server": "^4.2.1",
-    "react-router-transition": "0.0.6",
+    "react-router-transition": "^1.2.1",
     "react-stickynode": "^1.4.0",
     "react-stripe-checkout": "^2.6.3",
     "react-tabs": "^0.8.2",
@@ -73,6 +73,6 @@
     "build:snippets": "node build_scripts/build-snippets.js",
     "build:gzip": "gzip -k build/static/js/*.js && gzip -k build/static/css/*.css",
     "build:platform": "npm run build:css && react-scripts build && npm run build:gzip && mv build build-platform && mkdir build",
-    "build": "npm run build:css && react-scripts build && npm run build:snippets && npm run build:gzip"
+    "build": "npm run build:css && react-scripts build && npm run build:snippets"
   }
 }

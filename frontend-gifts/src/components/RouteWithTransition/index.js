@@ -1,33 +1,21 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import { RouteTransition } from 'react-router-transition';
 import PopupContainer from '../../containers/PopupContainer';
 import GlobalFooter from '../../components/GlobalFooter';
 
-const RouteWithTransition = ({ component: Component, ...rest }) => (
-  <div className="page-content">
-    <Route
-      {...rest} render={props => (
-      <RouteTransition
-        pathname={rest.path}
-        atEnter={{ opacity: 0 }}
-        atLeave={{ opacity: 2 }}
-        atActive={{ opacity: 1 }}
-        mapStyles={(styles) => {
-          if (styles.opacity > 1) {
-            return { display: 'none' };
-          }
-          return { opacity: styles.opacity };
-        }}
-      >
+// <Route /> with global page elements rendered.
+const PageRoute = ({ component: Component, ...props }) => (
+  <Route
+    {...props}
+    render={props => (
+      <div className="page-content">
         <Component {...props} />
         <GlobalFooter />
         {/* POPUP CONTAINER SITS HERE AND WAITS FOR YOU TO OPEN IT */}
         <PopupContainer />
-      </RouteTransition>
+      </div>
     )}
-    />
-  </div>
+  />
 );
 
-export default RouteWithTransition;
+export default PageRoute;

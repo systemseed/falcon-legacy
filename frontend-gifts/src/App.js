@@ -1,7 +1,8 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
-import RouteWithTransition from './components/RouteWithTransition';
+import { Route } from 'react-router-dom';
+import { AnimatedSwitch } from 'react-router-transition';
+import PageRoute from './components/RouteWithTransition';
 import FrontPageView from './views/FrontPageView';
 import AboutPageView from './views/AboutPageView';
 import FaqPageView from './views/FaqPageView';
@@ -13,12 +14,12 @@ import CorporateGiftView from './views/CorporateGiftView';
 import CorporateGiftsView from './views/CorporateGiftsView';
 import CheckoutView from './views/CheckoutView';
 import ThankYouView from './views/ThankYouView';
-import LoginContainer from './containers/LoginContainer';
 import MessageBarContainer from './containers/MessageBarContainer';
-import ProductAdminContainer from './containers/ProductAdminContainer';
 import GlobalHeader from './components/GlobalHeader';
 import ScrollToTop from './components/ScrollToTop';
 import GiftsLegacyRedirect from './containers/GiftsLegacyRedirect';
+import PopupContainer from './containers/PopupContainer';
+import GlobalFooter from './components/GlobalFooter';
 
 // Importing pre-defined css.
 import './styles/css/vendors/bootstrap.min.css';
@@ -35,33 +36,35 @@ const App = () => (
         <GlobalHeader />
         <MessageBarContainer />
 
-        <Switch>
+        <AnimatedSwitch
+          atEnter={{ opacity: 0 }}
+          atLeave={{ opacity: 2 }}
+          atActive={{ opacity: 1 }}
+          className="switch-wrapper"
+          mapStyles={styles => styles.opacity > 1 ? { display: 'none' } : { opacity: styles.opacity }}
+        >
           {/* ROUTES FROM THE MAIN MENU */}
-          <RouteWithTransition exact path="/" component={FrontPageView} />
-          <RouteWithTransition exact path="/corporate" component={CorporateGiftsView} />
-          <RouteWithTransition exact path="/faq" component={FaqPageView} />
-          <RouteWithTransition exact path="/how-gifts-work" component={AboutPageView} />
-          <RouteWithTransition path="/contact" component={ContactPageView} />
+          <PageRoute exact path="/" component={FrontPageView} />
+          <PageRoute exact path="/corporate" component={CorporateGiftsView} />
+          <PageRoute exact path="/faq" component={FaqPageView} />
+          <PageRoute exact path="/how-gifts-work" component={AboutPageView} />
+          <PageRoute path="/contact" component={ContactPageView} />
           {/* GIFTS AND CORPORATE GIFTS FULL VIEW PAGES */}
-          <RouteWithTransition exact path="/gifts/:path" component={GiftView} />
-          <RouteWithTransition exact path="/corporate/:path" component={CorporateGiftView} />
+          <PageRoute exact path="/gifts/:path" component={GiftView} />
+          <PageRoute exact path="/corporate/:path" component={CorporateGiftView} />
           {/* COMMERCE BASKET & CHECKOUT PAGES */}
-          <RouteWithTransition exact path="/checkout" component={CheckoutView} />
-          <RouteWithTransition path="/checkout/:orderId/complete" component={ThankYouView} />
-          <RouteWithTransition exact path="/basket" component={BasketView} />
-          {/* ADMIN ZONE
-          <RouteWithTransition exact path="/login" component={LoginContainer} />
-          <RouteWithTransition path="/admin" component={ProductAdminContainer} />
-          * ADMIN ZONE */}
+          <PageRoute exact path="/checkout" component={CheckoutView} />
+          <PageRoute path="/checkout/:orderId/complete" component={ThankYouView} />
+          <PageRoute exact path="/basket" component={BasketView} />
           {/* CARD POPUP. CONTAINS FRONTPAGE ON THE BACKGROUND */}
-          <RouteWithTransition path="/gift-card/:giftCard" component={FrontPageView} />
+          <PageRoute path="/gift-card/:giftCard" component={FrontPageView} />
 
           {/* Redirect from legacy Gift URLs */}
           <Route path="/charity-gift/:code/:name" component={GiftsLegacyRedirect} />
 
           {/* 404 PAGE IF NON OF THE ABOVE ROUTE MATCHES */}
-          <RouteWithTransition component={NotFoundView} />
-        </Switch>
+          <PageRoute component={NotFoundView} />
+        </AnimatedSwitch>
       </div>
     </ScrollToTop>
   </IntlProvider>

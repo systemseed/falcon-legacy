@@ -15,7 +15,7 @@ const GiftBody = ({ gift, currentCurrency }) => (
             currentCurrency={currentCurrency}
           />
         </h2>
-        <p className="text-sm text-gray" dangerouslySetInnerHTML={{ __html: gift.annotation }} />
+        <div className="text-sm text-gray" dangerouslySetInnerHTML={{ __html: gift.annotation }} />
 
         <div className="product-tools shop-item">
           <AddToBasketButton product={gift} />

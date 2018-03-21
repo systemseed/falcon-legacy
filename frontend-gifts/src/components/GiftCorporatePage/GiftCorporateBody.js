@@ -18,7 +18,7 @@ const GiftCorporate = ({ gift, currentCurrency }) => (
           />
           }
         </h2>
-        <p className="text-sm text-gray" dangerouslySetInnerHTML={{ __html: gift.annotation }} />
+        <div className="text-sm text-gray" dangerouslySetInnerHTML={{ __html: gift.annotation }} />
 
         <div className="product-tools shop-item">
           { !productUtils.isCustomPrice(gift) &&
