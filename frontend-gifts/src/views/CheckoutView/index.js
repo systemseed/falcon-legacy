@@ -8,7 +8,7 @@ import CheckoutPaymentContainer from '../../containers/CheckoutPaymentContainer'
 
 const CheckoutView = () => (
   <div>
-    <Metatags metatags={{"title": {"attributes": {"content": "Checkout and save lives | Falcon Gifts"}}}} />
+    <Metatags metatags={{ 'title': { 'attributes': { 'content': 'Checkout and save lives | Falcon Gifts' } } }} />
     <Grid className="padding-top-3x padding-bottom-2x">
 
       <h1 className="space-top-half">
