@@ -3,7 +3,6 @@
 # - PLATFORM_PROJECT_NAME (machine name of your project. Looks like "dwnzfswdl2o3e").
 # - PLATFORM_HTTP_AUTH_USERNAME (http auth username to protect environments)
 # - PLATFORM_HTTP_AUTH_PASSWORD (http auth password to protect environments)
-# - PLATFORM_LIVE_BRANCH (special handling of the live branch)
 
 version: 2
 # Default configs for all jobs.
@@ -66,14 +65,14 @@ jobs:
       - run:
           name: Enable HTTP AUTH on frontend only
           command: |
-            if [ $CIRCLE_BRANCH != "$PLATFORM_LIVE_BRANCH" ] && [ -v PLATFORM_HTTP_AUTH_USERNAME ] && [ -v PLATFORM_HTTP_AUTH_PASSWORD ]; then
+            if [ $CIRCLE_BRANCH != "master" ] && [ -v PLATFORM_HTTP_AUTH_USERNAME ] && [ -v PLATFORM_HTTP_AUTH_PASSWORD ]; then
               platform variable:set env:http_auth "$PLATFORM_HTTP_AUTH_USERNAME:$PLATFORM_HTTP_AUTH_PASSWORD"
             fi
 
       - run:
           name: Enable SMTP on Platform
           command: |
-            if [ $CIRCLE_BRANCH != "$PLATFORM_LIVE_BRANCH" ]; then
+            if [ $CIRCLE_BRANCH != "master" ]; then
                platform environment:info enable_smtp true
             fi
 
