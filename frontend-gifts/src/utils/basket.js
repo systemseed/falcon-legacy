@@ -73,13 +73,10 @@ export const getItemsCount = (products, currentCurrency) => {
 /**
  * Checks if the current product has delete button.
  */
-export const hasDeleteButton = (product) => {
-  return !productUtils.isFreeProduct(product);
-};
+export const hasDeleteButton = product => !productUtils.isFreeProduct(product);
 
 /**
  * Checks if the current product has Quantity widget.
  */
-export const hasQuantityWidget = (product) => {
-  return !productUtils.isCustomPrice(product) && !productUtils.isFreeProduct(product);
-};
+export const hasQuantityWidget = product =>
+  !productUtils.isCustomPrice(product) && !productUtils.isFreeProduct(product);

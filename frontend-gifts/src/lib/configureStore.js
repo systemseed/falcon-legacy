@@ -1,5 +1,6 @@
 import thunkMiddleware from 'redux-thunk';
 import { autoRehydrate } from 'redux-persist';
+import createMigration from 'redux-persist-migrate';
 import promiseMiddleware from 'redux-promise-middleware';
 import { createMiddleware } from 'redux-beacon';
 import { GoogleTagManager } from 'redux-beacon/targets/google-tag-manager';
@@ -39,7 +40,7 @@ const configureStore = (initialState = {}) => {
   }
   else {
     // Initialize without GTM.
-    if (config.mode === 'test') {
+    if (config.mode === 'test') { // eslint-disable-line no-lonely-if
       middleware = applyMiddleware(promiseMiddleware(), thunkMiddleware, logger);
     }
     else {
@@ -47,11 +48,25 @@ const configureStore = (initialState = {}) => {
     }
   }
 
+  const migrationsManifest = {
+    // Migration 1: wipe stale baskets after gifts cards code refactoring.
+    1: (state) => {
+      if (state.app && state.app.version) {
+        // Do nothing for already migrated apps.
+        return state;
+      }
+      return { ...state, basket: undefined, cards: undefined };
+    }
+  };
+
+  const migration = createMigration(migrationsManifest, 'app');
+
   const store = createStore(
     reducers,
     initialState,
     compose(
       middleware,
+      migration,
       autoRehydrate()
     )
   );

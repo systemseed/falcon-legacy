@@ -18,4 +18,3 @@ permissions:
   - 'search content'
   - 'view any featured_image entities'
   - 'view e-card item entities'
-  - 'view gifts card configuration entities'

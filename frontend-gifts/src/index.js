@@ -4,8 +4,6 @@ import { Provider } from 'react-redux';
 import { persistStore } from 'redux-persist';
 import { ConnectedRouter } from 'react-router-redux';
 
-import history from './lib/history';
-
 // Add support of Internationalization API for safari browser https://github.com/andyearnshaw/Intl.js.
 import 'intl';
 import 'intl/locale-data/jsonp/en';
@@ -13,6 +11,7 @@ import 'intl/locale-data/jsonp/en';
 // To fix `Can't find variable: Symbol issue`: https://github.com/babel/babel/issues/711#issuecomment-141398678
 import 'babel-polyfill';
 
+import history from './lib/history';
 import configureStore from './lib/configureStore';
 import App from './App';
 
@@ -23,10 +22,10 @@ const store = configureStore(initialState);
 // Make some parts of store persistent.
 persistStore(store, {
   whitelist: [
-    'auth',
+    'app',
     'basket',
+    'cards',
     'currentCurrency',
-    'isPersistentReady',
   ]
 });
 

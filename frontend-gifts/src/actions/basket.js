@@ -1,6 +1,6 @@
 import React from 'react';
-import * as popup from './popup';
 import _isEmpty from 'lodash/isEmpty';
+import * as popup from './popup';
 import * as message from './messageBar';
 import ConfirmChangeProduct from '../components/ConfirmChangeProduct';
 

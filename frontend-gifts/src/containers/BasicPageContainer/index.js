@@ -51,6 +51,7 @@ BasicPageContainer.propTypes = {
   }),
   isPending: React.PropTypes.bool,
   isFulfilled: React.PropTypes.bool,
+  done: React.PropTypes.func
 };
 
 const mapStateToProps = (state, ownProps) => ({

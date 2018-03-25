@@ -15,8 +15,7 @@ export const giftsCorporate = (state = {
         isPending: true,
       };
 
-    case 'GET_PRODUCTS_GIFT_CORPORATE_FULFILLED':
-
+    case 'GET_PRODUCTS_GIFT_CORPORATE_FULFILLED': {
       const products = action.payload.body.data;
       const mappedProducts = [];
 
@@ -49,7 +48,7 @@ export const giftsCorporate = (state = {
         isFulfilled: true,
         products: mappedProducts,
       };
-
+    }
     case 'GET_PRODUCTS_GIFT_CORPORATE_REJECTED':
       return {
         ...state,
@@ -57,18 +56,6 @@ export const giftsCorporate = (state = {
         isRejected: true,
       };
 
-    case 'PATCH_PRODUCT_GIFT_FULFILLED':
-      const product = mappedProductItem(action.payload.body.data);
-      const foundIndex = state.products.findIndex(item => item.id === product.id);
-
-      return {
-        ...state,
-        products: [
-          ...state.products.slice(0, foundIndex),
-          product,
-          ...state.products.slice(foundIndex + 1)
-        ]
-      };
     default:
       return state;
   }
@@ -88,8 +75,7 @@ export const giftCorporateCustomPrice = (state = {
         isPending: true,
       };
 
-    case 'GET_CUSTOM_PRICE_GIFT_CORPORATE_FULFILLED':
-
+    case 'GET_CUSTOM_PRICE_GIFT_CORPORATE_FULFILLED': {
       const product = action.payload.body.data[0];
       if (_isEmpty(product)) {
         return {
@@ -105,7 +91,7 @@ export const giftCorporateCustomPrice = (state = {
         isFulfilled: true,
         product: mappedProductItem(product)
       };
-
+    }
     case 'GET_CUSTOM_PRICE_GIFT_CORPORATE_REJECTED':
       return {
         ...state,

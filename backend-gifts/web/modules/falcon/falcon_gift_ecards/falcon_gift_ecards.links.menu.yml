@@ -1,0 +1,27 @@
+# Main admin page
+falcon_gift_ecards.admin_index:
+  title: Gift Cards
+  route_name: falcon_gift_ecards.admin_index
+  parent: system.admin_structure
+  description: 'Configure Gift Cards.'
+  position: left
+  weight: -20
+
+# E-Card Item menu items definition
+entity.ecard_item.collection:
+  title: 'All E-Card Items'
+  route_name: entity.ecard_item.collection
+  description: 'List E-Card Item entities'
+  parent: falcon_gift_ecards.admin_index
+  weight: 10
+
+# E-Card Item type menu items definition
+entity.ecard_item_type.collection:
+  title: 'E-Card Item bundles'
+  route_name: entity.ecard_item_type.collection
+  description: 'List E-Card Item type (bundles)'
+  parent: falcon_gift_ecards.admin_index
+  weight: 40
+
+
+

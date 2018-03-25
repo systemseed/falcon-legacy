@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'react-bootstrap';
 import CwButton from '../../components/CwButton';
 import * as basketActions from '../../actions/basket';
 import * as messageActions from '../../actions/messageBar';
@@ -15,7 +14,7 @@ class AddToBasketButton extends React.Component {
     // product type. Otherwise popup with basket clear confirmation
     // will be shown, so no message needed.
     if (basketType === product.type || !basketType) {
-      dispatch(messageActions.show('Added to basket', {link: '/basket'}));
+      dispatch(messageActions.show('Added to basket', { link: '/basket' }));
     }
   };
 

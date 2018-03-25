@@ -17,8 +17,7 @@ export const gifts = (state = {
         isPending: true
       };
 
-    case 'GET_PRODUCTS_GIFT_FULFILLED':
-
+    case 'GET_PRODUCTS_GIFT_FULFILLED': {
       const products = action.payload.body.data;
       const mappedProducts = [];
       const categories = [];
@@ -54,25 +53,12 @@ export const gifts = (state = {
         products: mappedProducts,
         categories,
       };
-
+    }
     case 'GET_PRODUCTS_GIFT_REJECTED':
       return {
         ...state,
         isPending: false,
         isError: true,
-      };
-
-    case 'PATCH_PRODUCT_GIFT_FULFILLED':
-      const product = mappedProductItem(action.payload.body.data);
-      const foundIndex = state.products.findIndex(item => item.id === product.id);
-
-      return {
-        ...state,
-        products: [
-          ...state.products.slice(0, foundIndex),
-          product,
-          ...state.products.slice(foundIndex + 1)
-        ]
       };
 
     default:
@@ -94,8 +80,7 @@ export const giftCustomPrice = (state = {
         isPending: true,
       };
 
-    case 'GET_CUSTOM_PRICE_GIFT_FULFILLED':
-
+    case 'GET_CUSTOM_PRICE_GIFT_FULFILLED': {
       const product = action.payload.body.data[0];
       if (_isEmpty(product)) {
         return {
@@ -111,8 +96,7 @@ export const giftCustomPrice = (state = {
         isFulfilled: true,
         product: mappedProductItem(product)
       };
-
-
+    }
     case 'GET_CUSTOM_PRICE_GIFT_REJECTED':
       return {
         ...state,

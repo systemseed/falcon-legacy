@@ -102,6 +102,10 @@ jobs:
           <<: *install_platform_cli
 
       - run:
+          name: Run ESLint for the frontend Gifts application.
+          command: platform ssh --app=frontend-gifts "./node_modules/.bin/eslint ./src/ --quiet"
+
+      - run:
           name: Start PhantomJS webdriver
           command: phantomjs --webdriver=4445 --ignore-ssl-errors=true
           background: true

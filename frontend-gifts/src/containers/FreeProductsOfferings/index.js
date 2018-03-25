@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import * as basketUtils from '../../utils/basket';
 import * as freeGiftsUtils from '../../utils/gifts.free';
 
 const FreeProductsOfferings = ({ activeOfferings, className }) => (
@@ -16,5 +15,10 @@ const FreeProductsOfferings = ({ activeOfferings, className }) => (
 const mapStateToProps = state => ({
   activeOfferings: freeGiftsUtils.getOfferings(state)
 });
+
+FreeProductsOfferings.propTypes = {
+  activeOfferings: PropTypes.array,
+  className: PropTypes.string.isRequired
+};
 
 export default connect(mapStateToProps)(FreeProductsOfferings);

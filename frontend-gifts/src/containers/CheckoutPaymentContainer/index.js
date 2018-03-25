@@ -17,15 +17,15 @@ class CheckoutPaymentContainer extends Component {
     return (
       <div>
         {validated !== true &&
-        <div>
-          <button
-            className="btn btn-primary btn-block space-top-none"
-            onClick={this.onFakeSubmit.bind(this)}
-          >Continue to payment</button>
-          {showErrors &&
-            <p>Please fill in all required fields to continue.</p>
-          }
-        </div>
+          <div>
+            <button
+              className="btn btn-primary btn-block space-top-none"
+              onClick={this.onFakeSubmit.bind(this)}
+            >Continue to payment</button>
+            {showErrors &&
+              <p>Please fill in all required fields to continue.</p>
+            }
+          </div>
         }
         <PaymentButtons show={validated} />
       </div>
@@ -34,7 +34,9 @@ class CheckoutPaymentContainer extends Component {
 }
 
 CheckoutPaymentContainer.propTypes = {
-  validated: PropTypes.bool.isRequired
+  validated: PropTypes.bool.isRequired,
+  showErrors: PropTypes.bool,
+  dispatch: PropTypes.func
 };
 
 const mapStateToProps = state => ({

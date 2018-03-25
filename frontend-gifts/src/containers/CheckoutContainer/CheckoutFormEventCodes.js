@@ -36,8 +36,7 @@ class CheckoutFormEventCodes extends Component {
 
 CheckoutFormEventCodes.propTypes = {
   codes: PropTypes.array.isRequired,
-  labels: PropTypes.array.isRequired,
-  onFormValidate: PropTypes.func.isRequired
+  labels: PropTypes.array.isRequired
 };
 
 export default CheckoutFormEventCodes;

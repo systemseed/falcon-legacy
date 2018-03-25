@@ -58,8 +58,8 @@ class GiftContainer extends React.Component {
 }
 
 GiftContainer.propTypes = {
-  productUrl: React.PropTypes.string.isRequired,
   dispatch: React.PropTypes.func,
+  done: React.PropTypes.func,
   currentCurrency: React.PropTypes.string,
   gifts: React.PropTypes.shape({
     isPending: React.PropTypes.bool,

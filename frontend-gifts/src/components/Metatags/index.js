@@ -1,5 +1,5 @@
 import React from 'react';
-import {Helmet} from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import _isEmpty from 'lodash/isEmpty';
 
 const Metatags = ({ metatags }) => {
@@ -14,7 +14,7 @@ const Metatags = ({ metatags }) => {
 
   const tagsList = Object.keys(metatags).map((tagName) => {
     metatags[tagName].attributes.key = tagName;
-    let tag = metatags[tagName].tag || 'meta';
+    const tag = metatags[tagName].tag || 'meta';
     return React.createElement(
       tag,
       metatags[tagName].attributes
@@ -30,7 +30,7 @@ const Metatags = ({ metatags }) => {
 };
 
 Metatags.propTypes = {
-  metatags:React.PropTypes.object.isRequired
+  metatags: React.PropTypes.object.isRequired
 };
 
 export default Metatags;

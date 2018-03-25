@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import CheckoutFormContainer from '../CheckoutFormContainer';
 import * as addressUtils from '../../utils/address';
 
@@ -14,7 +14,8 @@ class CheckoutFormAddress extends Component {
       address_line1: { title: 'Address Line 1', type: 'string' },
       address_line2: { title: 'Address Line 2', type: 'string' },
       locality: { title: 'Town', type: 'string' },
-      administrative_area: { title: 'County',
+      administrative_area: {
+        title: 'County',
         type: 'string',
         enum: addressUtils.getIrelandCounties()
       },
@@ -79,5 +80,8 @@ class CheckoutFormAddress extends Component {
   }
 }
 
+CheckoutFormAddress.propTypes = {
+  region: PropTypes.string
+};
 
 export default CheckoutFormAddress;

@@ -139,7 +139,9 @@ CheckoutContainer.propTypes = {
   eventcodes: PropTypes.object.isRequired,
   showErrors: PropTypes.bool.isRequired,
   processing: PropTypes.bool.isRequired,
-  isEmpty: PropTypes.bool.isRequired
+  isEmpty: PropTypes.bool.isRequired,
+  dispatch: PropTypes.func,
+  done: PropTypes.func
 };
 
 const mapStateToProps = state => ({

@@ -4,6 +4,13 @@ import _isEmpty from 'lodash/isEmpty';
 import { Link } from 'react-router-dom';
 import * as messageActions from '../../actions/messageBar';
 
+// Map message type with material-icons class.
+const typeClasses = {
+  status: 'check',
+  warning: 'warning',
+  error: 'error_outline',
+};
+
 class MessageBarContainer extends React.Component {
 
   componentDidUpdate() {
@@ -20,17 +27,11 @@ class MessageBarContainer extends React.Component {
     const iconClasses = `material-icons ${typeClasses[type]}`;
 
     if (!_isEmpty(link)) {
-      return <Link className={wrapperClasses} to={link}><span className={iconClasses}/><span dangerouslySetInnerHTML={{ __html: this.props.message }} /></Link>;
+      return <Link className={wrapperClasses} to={link}><span className={iconClasses} /><span dangerouslySetInnerHTML={{ __html: this.props.message }} /></Link>;
     }
     return <div className={wrapperClasses}><span className={iconClasses} /><span dangerouslySetInnerHTML={{ __html: this.props.message }} /></div>;
   };
 }
-// Map message type with material-icons class.
-const typeClasses = {
-  status: 'check',
-  warning: 'warning',
-  error: 'error_outline',
-};
 
 MessageBarContainer.propTypes = {
   dispatch: React.PropTypes.func,

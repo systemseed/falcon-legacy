@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as checkoutActions from '../../actions/checkout';
 import * as basketUtils from '../../utils/basket';
 
+/* eslint-disable */
 // TODO: Rework when https://github.com/paypal/paypal-checkout/issues/149 is released.
 
 // Paypal Express Checkout button.

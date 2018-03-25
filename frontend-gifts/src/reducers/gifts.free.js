@@ -14,8 +14,7 @@ export const giftsFree = (state = {
         isPending: true
       };
 
-    case 'GET_PRODUCTS_GIFT_FREE_FULFILLED':
-
+    case 'GET_PRODUCTS_GIFT_FREE_FULFILLED': {
       const products = action.payload.body.data;
       const mappedProducts = [];
 
@@ -30,14 +29,14 @@ export const giftsFree = (state = {
         isFulfilled: true,
         products: mappedProducts,
       };
-
-    case 'GET_PRODUCTS_GIFT_FREE_REJECTED':
+    }
+    case 'GET_PRODUCTS_GIFT_FREE_REJECTED': {
       return {
         ...state,
         isPending: false,
         isError: true,
       };
-
+    }
     default:
       return state;
   }

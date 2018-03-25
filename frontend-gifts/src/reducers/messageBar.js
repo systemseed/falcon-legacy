@@ -1,3 +1,10 @@
+// Defines default options.
+const defaultOptions = {
+  type: 'status',
+  timeout: 2000,
+  link: '',
+};
+
 /**
  * @public
  * Message Bar reducer.
@@ -13,7 +20,7 @@ export const messageBar = (state = {
       return {
         isVisible: true,
         message: action.message,
-        options: {...defaultOptions, ...action.options},
+        options: { ...defaultOptions, ...action.options },
       };
 
     case 'MESSAGE_HIDE':
@@ -25,11 +32,4 @@ export const messageBar = (state = {
     default:
       return state;
   }
-};
-
-// Defines default options.
-const defaultOptions = {
-  type: 'status',
-  timeout: 2000,
-  link: '',
 };

@@ -28,16 +28,16 @@ const BasketItem = ({ product, currentCurrency }) => (
         />
       </h4>
 
-      { basketUtils.hasQuantityWidget(product.data) &&
-      <BasketQuantityWidget
-        quantity={basketUtils.getProductQuantity(product)}
-        productId={product.id}
-      />
+      {basketUtils.hasQuantityWidget(product.data) &&
+        <BasketQuantityWidget
+          quantity={basketUtils.getProductQuantity(product)}
+          productId={product.id}
+        />
       }
     </div>
 
-    { basketUtils.hasDeleteButton(product.data) &&
-    <BasketItemRemoveBtn productId={product.id}/>
+    {basketUtils.hasDeleteButton(product.data) &&
+      <BasketItemRemoveBtn productId={product.id} />
     }
   </div>
 );

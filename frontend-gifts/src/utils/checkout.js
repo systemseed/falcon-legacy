@@ -2,11 +2,14 @@ import * as basketUtils from './basket';
 
 // Get all checkout Gift cards items as an array.
 export const getGiftCardItems = (state) => {
-  if (state.checkout.cards) {
-    return Object.keys(state.checkout.cards).map(cardIndex => state.checkout.cards[cardIndex]);
+  if (!state.cards.items) {
+    return [];
   }
 
-  return [];
+  return Object.keys(state.cards.items).reduce((flattenArray, productId) => [
+    ...flattenArray,
+    ...state.cards.items[productId]
+  ], []);
 };
 
 // Checks is Gift cards part of the checkout form is validated.
@@ -40,7 +43,7 @@ export const isCheckoutValidated = state =>
 // Determine if checkout process is competed.
 export const isCheckoutComplete = (state) => {
   if (state.basket.type === 'gift') {
-    return !!state.checkout.order.order_id && state.checkout.cardsSent;
+    return !!state.checkout.order.order_id && state.cards.sent;
   }
 
   return !!state.checkout.order.order_id;

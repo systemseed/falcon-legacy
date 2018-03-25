@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - cw_gifts_cards
+    - falcon_gift_ecards
 _core:
   default_config_hash: L1VymgF6uWsz8dgSYbt7swz6C-OamVphzzjQOXImpgE
 id: ecard_item.field_friends_name

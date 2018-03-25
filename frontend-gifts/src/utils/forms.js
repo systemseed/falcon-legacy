@@ -4,7 +4,7 @@ import React from 'react';
 // 1. https://github.com/mozilla-services/react-jsonschema-form#field-template
 // 2. https://github.com/tonystar/bootstrap-float-label
 export const FieldTemplateCheckout = (props) => {
-  const { id, classNames, label, help, required, description, children, schema, uiSchema } = props;
+  const { id, classNames, label, help, required, description, children, schema, uiSchema } = props; // eslint-disable-line react/prop-types
 
   // Add extra classes.
   let extraClassNames = '';
@@ -18,7 +18,7 @@ export const FieldTemplateCheckout = (props) => {
     <div className={`${classNames} ${extraClassNames}`}>
       {children}
       {schema.type !== 'boolean' &&
-      <label htmlFor={id}>{label}{required ? '*' : null}</label>
+        <label htmlFor={id}>{label}{required ? '*' : null}</label>
       }
       {description}
       {help}

@@ -18,7 +18,7 @@ $settings['file_private_path'] = preg_replace('~/web$~', '/private', $app_root);
 
 // TODO: set up correct Docker local urls.
 $config['routes'] = [
-  'backend-api-bus' => ['url' => 'http://api.flc.local/'],
+  'backend-api-bus' => ['url' => 'http://api_bus/'],
   'backend-donations' => ['url' => 'http://donations.api.flc.local/'],
   'frontend-gifts' => ['url' => 'http://gifts.flc.local/'],
 ];

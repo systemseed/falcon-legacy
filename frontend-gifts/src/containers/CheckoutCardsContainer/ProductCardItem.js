@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Form from 'react-jsonschema-form';
 import { Button, Col, Row } from 'react-bootstrap';
 
@@ -18,7 +18,7 @@ class ProductCardItem extends Component {
   }
 
   state = {
-    type: 'physical'
+    type: this.props.cardItem.type
   }
 
   onChangeType({ formData }) {
@@ -58,5 +58,11 @@ class ProductCardItem extends Component {
     );
   }
 }
+
+ProductCardItem.propTypes = {
+  cardItem: PropTypes.object.isRequired,
+  onChangeType: PropTypes.func.isRequired,
+  onPreviewOpen: PropTypes.func.isRequired,
+};
 
 export default ProductCardItem;

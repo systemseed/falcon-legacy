@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import * as checkoutActions from '../../actions/checkout';
 import * as messageActions from '../../actions/messageBar';
@@ -43,6 +43,13 @@ class PaymentButtons extends Component {
     );
   }
 }
+
+PaymentButtons.propTypes = {
+  paymentMethods: PropTypes.object,
+  order: PropTypes.object,
+  show: PropTypes.bool,
+  dispatch: PropTypes.func,
+};
 
 const mapStateToProps = state => ({
   paymentMethods: state.checkout.paymentMethods,

@@ -8,8 +8,7 @@ const basketProducts = (state = [], action) => {
 
   switch (action.type) {
 
-    case 'BASKET_ADD_PRODUCT':
-
+    case 'BASKET_ADD_PRODUCT': {
       const { product } = action;
 
       // Search for the product being added in the basket.
@@ -39,7 +38,7 @@ const basketProducts = (state = [], action) => {
           data: product
         }
       ];
-
+    }
     case 'BASKET_REMOVE_PRODUCT':
 
       // Search for the product being added in the basket.
@@ -120,16 +119,17 @@ const basketProducts = (state = [], action) => {
         }
       ];
 
-    case 'BASKET_UPDATE_FREE_PRODUCT':
-      const basketProducts = basketUtils.getProducts(state, action.currentCurrency);
-      const total = basketUtils.getTotal(basketProducts, action.currentCurrency);
-      let newState = [...state];
+    case 'BASKET_UPDATE_FREE_PRODUCT': {
+      const total = basketUtils.getTotal(
+        basketUtils.getProducts(state, action.currentCurrency),
+        action.currentCurrency
+      );
+      const newState = [...state];
 
       action.products.forEach((product) => {
         index = newState.findIndex(element => element.id === product.id);
 
         if (product.amount.currency === action.currentCurrency && total >= product.amount.value) {
-
           // Add product to the basket If it doesn't exist there.
           if (index === -1) {
             storedProduct = _cloneDeep(product);
@@ -147,7 +147,7 @@ const basketProducts = (state = [], action) => {
       });
 
       return newState;
-
+    }
     default:
       return state;
   }

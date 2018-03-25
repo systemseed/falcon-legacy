@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import * as basketUtils from '../../utils/basket';
@@ -6,26 +6,17 @@ import * as checkoutUtils from '../../utils/checkout';
 import CheckoutCardsList from './CheckoutCardsList';
 import * as checkoutActions from '../../actions/checkout';
 import api from '../../lib/api';
-import Loading from '../../components/Loading';
 
 // Manage Gift cards configuration on checkout form.
 // TODO: this component is now a mix of old/new approaches to redux.
 class CheckoutCardsContainer extends Component {
 
   componentWillReceiveProps(newProps) {
-    // If there are products in basket and no card items yet then initialize process of preparing cards.
-    this.initCardItems(newProps);
-
     // Perform API call as soon as store informs about successful payment.
     if (this.props.orderUuid === '' && newProps.orderUuid !== '') {
       // TODO: rework with dispatch.
       this.sendEmailCards(newProps.orderUuid, newProps.cardItems.filter(card => card.type === 'email'));
     }
-  }
-
-  componentDidMount() {
-    // If there are products in basket and no card items yet then initialize process of preparing cards.
-    this.initCardItems(this.props);
   }
 
   // TODO: refactor with redux-promise-middleware.
@@ -40,8 +31,6 @@ class CheckoutCardsContainer extends Component {
         donations_product_uuid: card.product.id,
         field_sender_first_name: senderFirstName,
         field_sender_last_name: senderLastName,
-        // This param is currently disabled.
-        // ending_timestamp: moment.utc(card.emailFormData.sending_date, 'YYYY-MM-DD').format('X')
       };
 
       // Remove virtual fields.
@@ -70,70 +59,22 @@ class CheckoutCardsContainer extends Component {
       });
   }
 
-  // Prepare card item objects for each product item.
-  // Card items are stored in redux store and used in child components to view / edit / preview cards.
-  initCardItems(props) {
-    const { basketType, products, cardConfigs, dispatch } = props;
-    const cardItems = {};
-
-    const configsIsNotLoaded = !cardConfigs.isPending && !cardConfigs.isFulfilled && !cardConfigs.isError;
-
-    // Init API call for card configs.
-    if (configsIsNotLoaded && products.length > 0) {
-      dispatch(checkoutActions.loadProductCardConfigs(
-        products.map(product => product.id)
-      ));
-    }
-
-    // All required data is loaded. Prepare card items.
-    // TODO: move to reducer.
-    if (cardConfigs.isFulfilled && props.cardItems.length === 0 && products.length > 0) {
-      products.forEach((product) => {
-        if (product.data.variantType === 'normal' || product.data.variantType === 'bundle') {
-          for (let i = 0; i < product.quantity; i += 1) {
-            const cardIndex = `${product.id}.${i}`;
-            cardItems[cardIndex] = {
-              cardIndex,
-              product: product.data,
-              cardConfigs: cardConfigs.byProductId[product.id] ? cardConfigs.byProductId[product.id] : {},
-              type: 'physical',
-              emailFormData: {
-                // This param is currently disabled.
-                // sending_date: moment().format('YYYY-MM-DD')
-              },
-              validated: false
-            };
-          }
-        }
-      });
-      dispatch(checkoutActions.checkoutCardsInit(basketType, cardItems));
-    }
-  }
-
   render() {
     const { basketType, cardItems, dispatch } = this.props;
 
     // Do not render pane for corporate gifts.
-    if (basketType !== 'gift') {
+    if (basketType !== 'gift' || cardItems.length === 0) {
       return null;
     }
     return (
       <Row className="checkout-cards-list">
-        {cardItems.length === 0 &&
-          <Col xs={12}>
-            <h3>Step 2 - Loading your cards...</h3>
-            <Loading />
-          </Col>
-        }
-        {cardItems.length > 0 &&
-          <Col xs={12}>
-            <h3>Step 2 - Choose a card to go with your gifts</h3>
-            <p className="text-gray text-sm">
-              <strong>Each gift comes with either an e-card or a postal card</strong>. All you have to do is choose which one you want your relative or friend to receive. If you choose to send an e-card, we’ll send it directly on your behalf. If you would prefer to give a postal card, we will post it to you and you’ll be able to deliver it in person.
-          </p>
-            <CheckoutCardsList cards={cardItems} dispatch={dispatch} />
-          </Col>
-        }
+        <Col xs={12}>
+          <h3>Step 2 - Choose a card to go with your gifts</h3>
+          <p className="text-gray text-sm">
+            <strong>Each gift comes with either an e-card or a postal card</strong>. All you have to do is choose which one you want your relative or friend to receive. If you choose to send an e-card, we’ll send it directly on your behalf. If you would prefer to give a postal card, we will post it to you and you’ll be able to deliver it in person.
+      </p>
+          <CheckoutCardsList cards={cardItems} dispatch={dispatch} />
+        </Col>
       </Row>
     );
   }
@@ -145,13 +86,21 @@ CheckoutCardsContainer.defaultProps = {
   orderUuid: ''
 };
 
+CheckoutCardsContainer.propTypes = {
+  orderUuid: PropTypes.string,
+  senderFirstName: PropTypes.string,
+  senderLastName: PropTypes.string,
+  basketType: PropTypes.string,
+  cardItems: PropTypes.array,
+  dispatch: PropTypes.func,
+};
+
 const mapStateToProps = state => ({
   products: basketUtils.getProducts(state.basket.products, state.currentCurrency),
   basketType: state.basket.type,
-  // One card item per product item. It stores all necessary configuration for sending card to the backend.
+  // One card item per product item. It stores all necessary configuration for
+  // sending card to the backend.
   cardItems: checkoutUtils.getGiftCardItems(state),
-  // Card configs are stored in Gifts backend. Each product MAY have configuration for physical and/or email cards.
-  cardConfigs: state.checkout.cardConfigs,
   // Order id is now used as an indicator of successful payment.
   orderUuid: state.checkout.order.order_uuid,
   // Data from profile form is used in E-Card preview.

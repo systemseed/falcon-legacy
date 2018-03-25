@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as analyticsActions from '../../actions/analytics';
@@ -12,5 +12,9 @@ const CheckoutButton = ({ dispatch }) => (
     Checkout
   </Link>
 );
+
+CheckoutButton.propTypes = {
+  dispatch: PropTypes.func
+};
 
 export default connect()(CheckoutButton);

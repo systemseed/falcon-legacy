@@ -34,7 +34,7 @@ FeaturedImageContainer.propTypes = {
   dispatch: React.PropTypes.func,
   imageUrl: React.PropTypes.string,
   imageAlt: React.PropTypes.string,
-  uuid: React.PropTypes.string.isRequired,
+  done: React.PropTypes.func,
 };
 
 const mapStateToProps = (state, ownProps) => {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Redirect } from 'react-router';
 import { Modal } from 'react-bootstrap';
 import api from '../../lib/api';
@@ -14,11 +14,11 @@ class ModalGiftCard extends Component {
   }
 
   componentDidMount() {
-    this.fetchCard();
+    const { cardId, done } = this.props;
+    this.fetchCard(cardId, done);
   }
 
-  fetchCard() {
-    const { cardId } = this.props;
+  async fetchCard(cardId, done) {
     // Already fetching.
     if (this.state.is_fetching) {
       return;
@@ -26,45 +26,27 @@ class ModalGiftCard extends Component {
 
     this.setState({ is_fetching: true });
 
-    api.getEcardItem(cardId)
-      .then((cardItemResponse) => {
-        const cardItemData = cardItemResponse.body.data;
-        if (cardItemData && cardItemData.donationsProductUuid) {
-          this.setState({ card: cardItemData });
-        }
-        else {
-          throw new Error('Cannot load card item by uuid.');
-        }
+    // Simpe async...await approach without server side rendering.
+    try {
+      const card = await api.getEcardItem(cardId);
+      const product = await api.getProduct('gift', card.donationsProductUuid);
 
-        const productId = cardItemData.donationsProductUuid;
-        const promiseCardConfig = api.getProductCardConfigs(productId, 'email');
-        const promiseProduct = api.getProduct('gift', productId);
-
-        return Promise.all([promiseCardConfig, promiseProduct]);
-      })
-      .then((dataArray) => {
-        let product;
-        let cardConfig;
-        dataArray.forEach((data) => {
-          if (data.statusCode && data.body.data.id) {
-            product = data.body.data;
-          }
-          else {
-            cardConfig = data.card;
-          }
-        });
-
-        product.imageUrl = api.getImageUrl('donations', product.fieldGiftImage);
-        if (cardConfig.fieldImage) {
-          cardConfig.imageUrl = api.getImageUrl('gifts', cardConfig.fieldImage.fieldImage);
-        }
-
-        this.setState({ is_fetching: false, is_ready: true, product, cardConfig });
-      })
-      .catch((err) => {
-        console.log(err);
-        this.setState({ error_message: 'Can’t load this Gift card.', is_fetching: false });
+      this.setState({
+        is_fetching: false,
+        is_ready: true,
+        card,
+        product
       });
+    }
+    catch (error) {
+      this.setState({
+        is_fetching: false,
+        error_message: 'Error occured while loading your Gift card.'
+      });
+    }
+    finally {
+      done();
+    }
   }
 
   onClose() {
@@ -84,19 +66,24 @@ class ModalGiftCard extends Component {
           <Modal.Title>Gift Card</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          { this.state.error_message &&
+          {this.state.error_message &&
             <p>{this.state.error_message}</p>
           }
-          { this.state.is_ready === true &&
-          <EmailGiftCard product={this.state.product} card={this.state.card} cardConfig={this.state.cardConfig} />
+          {this.state.is_ready === true &&
+            <EmailGiftCard product={this.state.product} card={this.state.card} />
           }
-          { this.state.is_ready === false && !this.state.error_message &&
-          <Loading />
+          {this.state.is_ready === false && !this.state.error_message &&
+            <Loading />
           }
         </Modal.Body>
       </Modal>
     );
   }
 }
+
+ModalGiftCard.propTypes = {
+  cardId: PropTypes.string.isRequired,
+  done: PropTypes.func
+};
 
 export default ModalGiftCard;

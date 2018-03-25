@@ -14,7 +14,6 @@ module:
   contact: 0
   contact_message_rest: 0
   contextual: 0
-  cw_gifts_cards: 0
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
@@ -22,6 +21,7 @@ module:
   editor: 0
   editor_advanced_link: 0
   entity: 0
+  falcon_gift_ecards: 0
   falcon_gifts_api: 0
   falcon_mail: 0
   falcon_metatag: 0

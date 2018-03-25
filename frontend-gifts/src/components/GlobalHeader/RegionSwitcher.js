@@ -44,7 +44,7 @@ class RegionSwitcher extends React.Component {
       ));
 
     return (
-      <div
+      <div // eslint-disable-line jsx-a11y/no-static-element-interactions
         className={`lang-switcher${this.state.isCollapsed ? '' : ' open'}`}
         onClick={this.toggleDropDown}
       >

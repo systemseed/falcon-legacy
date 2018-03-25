@@ -12,14 +12,14 @@ export const popup = (state = {
 }, action) => {
   switch (action.type) {
 
-    case 'POPUP_OPEN':
+    case 'POPUP_OPEN': {
       const { title, body } = action;
       return {
         isOpened: true,
         title,
         body,
       };
-
+    }
     case 'POPUP_CLOSE':
       return {
         isOpened: false

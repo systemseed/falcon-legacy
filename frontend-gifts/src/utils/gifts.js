@@ -5,7 +5,9 @@ export const filterByCategory = (gifts, filter) => {
     return gifts;
   }
 
-  const filteredProducts = gifts.products.filter(product => product.categoryId === filter.categoryId);
+  const filteredProducts = gifts.products.filter(
+    product => product.categoryId === filter.categoryId
+  );
 
   // If there are no filtered list of products it means
   // that this filter was selected on another currency
@@ -27,21 +29,25 @@ export const filterByCategory = (gifts, filter) => {
  * by the current site currency.
  */
 export const filterByCurrency = (products, currentCurrency) => {
-  const filteredProducts = products.products.filter(product => product.price[currentCurrency] !== undefined);
-  const filteredCategoryIds = filteredProducts.map(product => product.categoryId);
+  const filteredProducts = products.products.filter(
+    product => product.price[currentCurrency] !== undefined
+  );
+  const filteredCategoryIds = filteredProducts.map(
+    product => product.categoryId
+  );
 
-  const filteredCategories = products.categories.filter(category => (
-    // There is at least one product in this category.
-    filteredCategoryIds.indexOf(category.id) !== -1
-  ));
+  const filteredCategories = products.categories.filter(
+    category =>
+      // There is at least one product in this category.
+      filteredCategoryIds.indexOf(category.id) !== -1
+  );
 
   return {
     ...products,
     categories: filteredCategories,
-    products: filteredProducts,
+    products: filteredProducts
   };
 };
-
 
 /**
  * Helper to map product response data to store.
@@ -69,8 +75,31 @@ export const mappedProductItem = (responseItem) => {
   });
 
   if (responseItem.fieldGiftVariantType === 'bundle') {
-    giftsInBundle = responseItem.fieldGiftsInBundle.map(item => mappedProductItem(item));
+    giftsInBundle = responseItem.fieldGiftsInBundle.map(item =>
+      mappedProductItem(item)
+    );
   }
+
+  const whatYouGetImage = {
+    src: api.getImageUrl('donations', responseItem.fieldGiftWhatYouGetImage),
+    alt: api.getImageAlt(
+      responseItem.relationships.field_gift_what_you_get_image
+    ),
+  };
+
+  const postalPreviewImage = {
+    src: api.getImageUrl('donations', responseItem.fieldGiftPostalPreviewImage),
+    alt: responseItem.relationships.field_gift_postal_preview_image.data
+      ? responseItem.relationships.field_gift_postal_preview_image.data.meta.alt
+      : '',
+  };
+
+  const ecardPreviewImage = {
+    src: api.getImageUrl('donations', responseItem.fieldGiftEcardPreviewImage),
+    alt: responseItem.relationships.field_gift_ecard_preview_image.data
+      ? responseItem.relationships.field_gift_ecard_preview_image.data.meta.alt
+      : '',
+  };
 
   return {
     id: responseItem.id,
@@ -79,20 +108,38 @@ export const mappedProductItem = (responseItem) => {
     type: 'gift',
     title: responseItem.title,
     variantType: responseItem.fieldGiftVariantType,
-    annotation: responseItem.fieldGiftAnnotation ? responseItem.fieldGiftAnnotation.value : '',
-    description: responseItem.fieldGiftDescription ? responseItem.fieldGiftDescription.value : '',
-    categoryId: responseItem.fieldGiftCategory !== undefined ? responseItem.fieldGiftCategory.id : null,
+    annotation: responseItem.fieldGiftAnnotation
+      ? responseItem.fieldGiftAnnotation.value
+      : '',
+    description: responseItem.fieldGiftDescription
+      ? responseItem.fieldGiftDescription.value
+      : '',
+    categoryId:
+      responseItem.fieldGiftCategory !== undefined
+        ? responseItem.fieldGiftCategory.id
+        : null,
     price,
     imageUrl: api.getImageUrl('donations', responseItem.fieldGiftImage),
     imageAlt: responseItem.relationships.field_gift_image.data.meta.alt,
-    // What you get image field.
-    whatYouGetImageUrl: api.getImageUrl('donations', responseItem.fieldGiftWhatYouGetImage),
-    whatYouGetImageAlt: api.getImageAlt(responseItem.relationships.field_gift_what_you_get_image),
     // "Gift in action" fields.
-    actionImageUrl: api.getImageUrl('donations', responseItem.fieldGiftActionImage),
-    actionImageAlt: responseItem.relationships.field_gift_action_image.data.meta.alt,
-    actionDescription: responseItem.fieldGiftActionDescription ? responseItem.fieldGiftActionDescription.value : '',
-    fieldMetatags: responseItem.fieldMetatags !== undefined ? responseItem.fieldMetatags : {},
-    giftsInBundle
+    actionImageUrl: api.getImageUrl(
+      'donations',
+      responseItem.fieldGiftActionImage
+    ),
+    actionImageAlt:
+      responseItem.relationships.field_gift_action_image.data.meta.alt,
+    actionDescription: responseItem.fieldGiftActionDescription
+      ? responseItem.fieldGiftActionDescription.value
+      : '',
+    fieldMetatags:
+      responseItem.fieldMetatags !== undefined
+        ? responseItem.fieldMetatags
+        : {},
+    giftsInBundle,
+    whatYouGetImage,
+    postalPreviewImage,
+    ecardPreviewImage,
+    fieldPostalPreviewBody: responseItem.fieldGiftPostalPreviewBody,
+    fieldEcardPreviewBody: responseItem.fieldGiftEcardPreviewBody,
   };
 };

@@ -100,3 +100,7 @@ if (isset($_ENV['PLATFORM_VARIABLES'])) {
 if (isset($_ENV['PLATFORM_PROJECT_ENTROPY']) && empty($settings['hash_salt'])) {
   $settings['hash_salt'] = $_ENV['PLATFORM_PROJECT_ENTROPY'];
 }
+
+// Set Simple OAuth key for internal API client.
+$config['routes']['backend-donations']['client_id'] = $_ENV['API_GIFTS_MANAGER_CLIENT_ID'];
+$config['routes']['backend-donations']['client_secret'] = $_ENV['API_GIFTS_MANAGER_CLIENT_SECRET'];

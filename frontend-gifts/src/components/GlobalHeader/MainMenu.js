@@ -1,60 +1,15 @@
 import React from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
-const MainMenu = ({ isMenuCollapsed, onMenuClick }) => (
+const MainMenu = ({ isMenuCollapsed, onMenuClick, location }) => (
   <nav className={`main-navigation text-center ${isMenuCollapsed ? '' : 'open'}`}>
     <ul className="menu">
-
-      <Route
-        path="/" exact children={({ match }) => (
-          <li className={match ? 'current-menu-item' : ''}>
-            <NavLink to="/" exact onClick={onMenuClick}>
-              Browse Gifts
-            </NavLink>
-          </li>
-      )}
-      />
-
-      <Route
-        path="/corporate" children={({ match }) => (
-          <li className={match ? 'current-menu-item' : ''}>
-            <NavLink to="/corporate" onClick={onMenuClick}>
-              Corporate Gifts
-            </NavLink>
-          </li>
-      )}
-      />
-
-      <Route
-        path="/faq" children={({ match }) => (
-          <li className={match ? 'current-menu-item' : ''}>
-            <NavLink to="/faq" onClick={onMenuClick}>
-              FAQs
-            </NavLink>
-          </li>
-      )}
-      />
-
-      <Route
-        path="/how-gifts-work" children={({ match }) => (
-          <li className={match ? 'current-menu-item' : ''}>
-            <NavLink to="/how-gifts-work" onClick={onMenuClick}>
-              How Gifts Work
-            </NavLink>
-          </li>
-      )}
-      />
-
-      <Route
-        path="/contact" children={({ match }) => (
-          <li className={match ? 'current-menu-item' : ''}>
-            <NavLink to="/contact" onClick={onMenuClick}>
-              Contact
-            </NavLink>
-          </li>
-      )}
-      />
-
+      <li><NavLink to="/" exact onClick={onMenuClick} location={location}>Browse Gifts</NavLink></li>
+      <li><NavLink to="/corporate" exact onClick={onMenuClick} location={location}>Corporate Gifts</NavLink></li>
+      <li><NavLink to="/how-gifts-work" exact onClick={onMenuClick} location={location}>How Gifts Work</NavLink></li>
+      <li><NavLink to="/faq" exact onClick={onMenuClick} location={location}>FAQs</NavLink></li>
+      <li><NavLink to="/contact" exact onClick={onMenuClick} location={location}>Contact</NavLink></li>
     </ul>
   </nav>
 );
@@ -62,6 +17,13 @@ const MainMenu = ({ isMenuCollapsed, onMenuClick }) => (
 MainMenu.propTypes = {
   isMenuCollapsed: React.PropTypes.bool.isRequired,
   onMenuClick: React.PropTypes.func.isRequired,
+  location: React.PropTypes.object.isRequired,
 };
 
-export default MainMenu;
+// Pass location prop to NavLink explicitly.
+// See https://github.com/ReactTraining/react-router/issues/4638
+const mapStateToProps = state => ({
+  location: state.router.location
+});
+
+export default connect(mapStateToProps)(MainMenu);

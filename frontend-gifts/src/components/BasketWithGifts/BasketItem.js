@@ -43,16 +43,16 @@ const BasketItem = ({ product, currentCurrency }) => (
           currentCurrency={currentCurrency}
         />
       </h4>
-      { basketUtils.hasQuantityWidget(product.data) &&
-      <BasketQuantityWidget
-        quantity={basketUtils.getProductQuantity(product)}
-        productId={product.id}
-      />
+      {basketUtils.hasQuantityWidget(product.data) &&
+        <BasketQuantityWidget
+          quantity={basketUtils.getProductQuantity(product)}
+          productId={product.id}
+        />
       }
       {/* Display child products if it's a bundle. */}
-      <BundleProductsInBasket bundle={product.data} currency={currentCurrency} />
+      <BundleProductsInBasket bundle={product.data} />
     </div>
-    { basketUtils.hasDeleteButton(product.data) &&
+    {basketUtils.hasDeleteButton(product.data) &&
       <BasketItemRemoveBtn productId={product.id} />
     }
 

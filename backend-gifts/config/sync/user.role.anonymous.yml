@@ -16,5 +16,4 @@ permissions:
   - 'restful post contact_message'
   - 'view any featured_image entities'
   - 'view e-card item entities'
-  - 'view gifts card configuration entities'
   - 'view media'

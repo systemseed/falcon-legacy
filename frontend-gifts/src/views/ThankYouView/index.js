@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-bootstrap';
 import Metatags from '../../components/Metatags';
@@ -50,5 +50,11 @@ class ThankYouView extends Component {
 const mapStateToProps = state => ({
   orderId: state.checkout.order.order_id
 });
+
+ThankYouView.propTypes = {
+  orderId: PropTypes.string,
+  match: PropTypes.object,
+  dispatch: PropTypes.func,
+};
 
 export default connect(mapStateToProps)(ThankYouView);

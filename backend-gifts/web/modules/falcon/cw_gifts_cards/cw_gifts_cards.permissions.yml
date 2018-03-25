@@ -28,22 +28,3 @@ revert all gifts card configuration revisions:
 delete all gifts card configuration revisions:
   title: 'Delete all revisions'
   description: 'Role requires permission to <em>view Gifts Card Configuration revisions</em> and <em>delete rights</em> for gifts card configuration entities in question or <em>administer gifts card configuration entities</em>.'
-add e-card item entities:
-  title: 'Create new E-Card Item entities'
-
-administer e-card item entities:
-  title: 'Administer E-Card Item entities'
-  description: 'Allow to access the administration form to configure E-Card Item entities.'
-  restrict access: true
-
-delete e-card item entities:
-  title: 'Delete E-Card Item entities'
-
-edit e-card item entities:
-  title: 'Edit E-Card Item entities'
-
-access e-card item overview:
-  title: 'Access the E-Card Item overview page'
-
-view e-card item entities:
-  title: 'View E-Card Item entities'

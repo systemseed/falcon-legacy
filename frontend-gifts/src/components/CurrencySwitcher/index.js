@@ -24,7 +24,7 @@ const CurrencySwitcher = ({ currencies, currentCurrency, handleChangeCurrency })
         .filter(currency => (currency !== currentCurrency))
         .map(currency => (
           <li style={style.li} key={currency}>
-            <a href="#" onClick={handleChangeCurrency(currency)}>
+            <a href={`#${currency}`} onClick={handleChangeCurrency(currency)}>
               Change to {currencies[currency]}</a>
           </li>
         ))

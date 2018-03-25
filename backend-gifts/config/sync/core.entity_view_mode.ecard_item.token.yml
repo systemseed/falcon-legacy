@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - cw_gifts_cards
+    - falcon_gift_ecards
 id: ecard_item.token
 label: Token
 targetEntityType: ecard_item

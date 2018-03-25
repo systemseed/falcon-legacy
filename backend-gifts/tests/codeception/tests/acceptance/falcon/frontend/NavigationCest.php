@@ -36,6 +36,6 @@ class NavigationCest
     // Footer.
     $I->canSee('Need support?', '.footer');
     // Server side rendering.
-    $I->canSeeInPageSource('<script>window.__INITIAL_STATE__ = {"admin"');
+    $I->canSeeInPageSource('<script>window.__INITIAL_STATE__ = {"app"');
   }
 }

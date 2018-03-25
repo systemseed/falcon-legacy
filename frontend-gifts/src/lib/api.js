@@ -1,6 +1,7 @@
 import request from 'superagent';
 import superagentJsonapify from 'superagent-jsonapify';
 import config from '../config';
+import * as giftUtils from '../utils/gifts';
 
 // Add support of JSON API.
 superagentJsonapify(request);
@@ -65,72 +66,19 @@ const getDataModel = (backend, entity, bundle) => new Promise((resolve, reject) 
     url += `/${bundle}`;
   }
   request
-      .get(url)
-      .end((err, res) => {
-        if (err) {
-          reject(err);
-        }
-        else if (res.statusCode === 200 && res.body) {
-          resolve(res.body);
-        }
-        else {
-          reject('No body set');
-        }
-      });
-});
-
-/**
- * POST/PATCH gift card configurations.
- *
- * @param {*} accessToken
- * @param {*} card
- * @param {*} attributes
- * @param {*} relationships
- */
-const saveGiftsCardConfig = (accessToken, card, attributes, relationships = null) => {
-  const { type, id } = card;
-
-  const data = {
-    'data': {
-      type: `gift_card_config--${type}`,
-      attributes
-    }
-  };
-
-  if (relationships) {
-    data.data.relationships = relationships;
-  }
-
-  return new Promise((resolve, reject) => {
-    var requestInstance;
-
-    if (id) {
-      // Update existing card.
-      data.data.id = id;
-      requestInstance = request.patch(`${config.backend}/v1/gifts/jsonapi/gift_card_config/${type}/${id}`);
-    }
-    else {
-      // Create new card.
-      requestInstance = request.post(`${config.backend}/v1/gifts/jsonapi/gift_card_config/${type}`);
-    }
-
-    requestInstance
-    .set('Content-Type', 'application/vnd.api+json')
-    .set('Authorization', `Bearer ${accessToken}`)
-    .send(data)
+    .get(url)
     .end((err, res) => {
       if (err) {
         reject(err);
       }
-      else if (res.body && res.body.data) {
-        resolve(res.body.data);
+      else if (res.statusCode === 200 && res.body) {
+        resolve(res.body);
       }
       else {
-        reject(res.statusCode);
+        reject('No body set');
       }
     });
-  });
-};
+});
 
 /**
  * TODO: refactor with redux-promise-middleware.
@@ -245,10 +193,14 @@ const postEmailCard = (card, attributes) => {
     .send(data);
 };
 
-// TODO: refactor with redux-promise-middleware.
-const getEcardItem = cardId =>
-  request
+
+const getEcardItem = async (cardId) => {
+  const { body } = await request
     .get(`${config.backend}/v1/gifts/jsonapi/ecard_item/gift/${cardId}`);
+
+  return body.data;
+};
+
 
 // TODO: rework image handling.
 const getImageUrl = (type, imageField) => {
@@ -269,9 +221,8 @@ const getImageAlt = (relationship, defaultAlt = '') => {
 };
 
 
-// TODO: refactor with redux-promise-middleware.
-const getProduct = (type, productId) =>
-  request
+const getProduct = async (type, productId) => {
+  const { body } = await request
     .get(`${config.backend}/v1/donations/jsonapi/commerce_product/${type}/${productId}`)
     .query({
       'include': 'variations,field_gift_category,field_gift_image',
@@ -280,12 +231,14 @@ const getProduct = (type, productId) =>
       'fields[file--file]': 'url'
     });
 
+  return giftUtils.mappedProductItem(body.data);
+};
+
 
 // todo: Use named exports, this cluters the name space and injects more code than needs to be.
 export default {
   postOAuthToken,
   getDataModel,
-  saveGiftsCardConfig,
   getProductCardConfigs,
   postEmailCard,
   getEcardItem,

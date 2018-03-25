@@ -1,0 +1,19 @@
+uuid: 392b38c9-d0e1-43bd-899f-1adafeb27c71
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - text
+id: commerce_product.field_gift_ecard_preview_body
+field_name: field_gift_ecard_preview_body
+entity_type: commerce_product
+type: text_with_summary
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

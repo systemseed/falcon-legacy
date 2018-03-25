@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-bootstrap';
 import GiftsGridItem from '../../components/GiftsGridItem';
@@ -22,5 +22,10 @@ const BundleProductsViewContainer = ({ bundle, currency }) => (
 const mapStoreToProps = store => ({
   currency: store.currentCurrency
 });
+
+BundleProductsViewContainer.propTypes = {
+  bundle: PropTypes.string.isRequired,
+  currency: PropTypes.string.isRequired
+};
 
 export default connect(mapStoreToProps)(BundleProductsViewContainer);

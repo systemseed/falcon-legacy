@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import ProductCardItem from './ProductCardItem';
 import EmailCardForm from './EmailCardForm';
@@ -51,7 +51,11 @@ class CheckoutCardsList extends Component {
             <Col xs={12} key={card.cardIndex}>
               <ProductCardItem cardItem={card} onChangeType={this.onChangeType.bind(this)} onPreviewOpen={this.onPreviewOpen.bind(this)} />
               <EmailCardForm card={card} expanded={this.state.openedCardIndex === card.cardIndex} onChangeEmailForm={this.onChangeEmailForm.bind(this)} onPreviewOpen={this.onPreviewOpen.bind(this)} />
-              <ModalPreviewGiftCard show={this.state.openedPreview === card.cardIndex} card={card} onHide={this.onPreviewClose.bind(this)} />
+              <ModalPreviewGiftCard
+                show={this.state.openedPreview === card.cardIndex}
+                card={card}
+                onHide={this.onPreviewClose.bind(this)}
+              />
             </Col>
           ))
         }
@@ -59,5 +63,10 @@ class CheckoutCardsList extends Component {
     );
   }
 }
+
+CheckoutCardsList.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  cards: PropTypes.array.isRequired
+};
 
 export default CheckoutCardsList;

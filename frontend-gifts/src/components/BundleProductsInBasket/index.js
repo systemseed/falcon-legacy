@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 // Output products in bundle on basket page.
-const BundleProductsInBasket = ({ bundle, currency }) => {
+const BundleProductsInBasket = ({ bundle }) => {
   // Make sure it is a bundle.
   if (bundle.variantType !== 'bundle') {
     return null;
@@ -22,6 +22,10 @@ const BundleProductsInBasket = ({ bundle, currency }) => {
       </div>
     </div>
   );
+};
+
+BundleProductsInBasket.propTypes = {
+  bundle: PropTypes.string.isRequired
 };
 
 export default BundleProductsInBasket;

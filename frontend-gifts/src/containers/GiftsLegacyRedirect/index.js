@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import _find from 'lodash/find';
@@ -38,6 +38,11 @@ class GiftsLegacyRedirect extends React.Component {
   }
 }
 
+GiftsLegacyRedirect.propTypes = {
+  gifts: PropTypes.object,
+  currentGift: PropTypes.object,
+  dispatch: PropTypes.func
+};
 
 const mapStateToProps = (store, ownProps) => ({
   gifts: store.gifts,

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import CheckoutFormContainer from '../../CheckoutFormContainer';
 
@@ -52,5 +52,8 @@ class CheckoutFormOptins extends Component {
   }
 }
 
+CheckoutFormOptins.propTypes = {
+  onFormValidate: PropTypes.func.isRequired
+};
 
 export default CheckoutFormOptins;

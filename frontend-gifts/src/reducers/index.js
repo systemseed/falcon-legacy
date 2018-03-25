@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
-import { LOCATION_CHANGE } from 'react-router-redux';
+import { routerReducer, LOCATION_CHANGE } from 'react-router-redux';
 import { gifts, giftsFilter, giftCustomPrice } from './gifts';
 import { giftsCorporate, giftCorporateCustomPrice } from './gifts.corporate';
 import { giftsFree } from './gifts.free';
@@ -11,22 +10,11 @@ import { featuredImages } from './featuredImages';
 import { basicPage } from './basicPage';
 import { siteContentSettings } from './siteContentSettings';
 import { customPageMetatags } from './customPageMetatags';
-import authentication from './authentication';
-import admin from './admin';
 import basket from './basket';
+import cards from './cards';
 import checkout from './checkout';
 import { popup } from './popup';
 import eventcodes from './eventcodes';
-
-// This flag is used by ProductAdminContainer to properly display Loading / 403 messages.
-const isPersistentReady = (state = false, action) => {
-  switch (action.type) {
-    case 'persist/REHYDRATE':
-      return true;
-    default:
-      return state;
-  }
-};
 
 // THIS IS AN ANTI-PATTERN.
 // TODO: find out a way to trigger a function on route change.
@@ -42,10 +30,10 @@ const routerChanged = (state = {}, action) => {
 };
 
 export default combineReducers({
-  admin,
-  auth: authentication,
+  app: (state = {}) => state,
   basket,
   basicPage,
+  cards,
   customPageMetatags,
   checkout,
   contactForm,
@@ -58,7 +46,6 @@ export default combineReducers({
   giftsFree,
   giftCustomPrice,
   giftCorporateCustomPrice,
-  isPersistentReady,
   messageBar,
   siteContentSettings,
   popup,

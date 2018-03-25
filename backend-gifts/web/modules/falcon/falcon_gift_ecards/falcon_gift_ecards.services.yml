@@ -1,0 +1,13 @@
+services:
+  falcon_gift_ecards.mail_sender:
+    class: Drupal\falcon_gift_ecards\MailSender
+    arguments: ['@entity.query', '@entity_type.manager', '@plugin.manager.mail', '@renderer', '@language_manager', '@config.factory', '@logger.channel.falcon_gift_ecards']
+  logger.channel.falcon_gift_ecards:
+    parent: logger.channel_base
+    arguments: ['falcon_gift_ecards']
+  falcon_gift_ecards.route_subscriber:
+    class: Drupal\falcon_gift_ecards\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
+
+

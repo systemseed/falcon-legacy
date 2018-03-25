@@ -92,6 +92,7 @@ GiftsContainer.propTypes = {
   filterClick: React.PropTypes.func,
   removeFilterClick: React.PropTypes.func,
   loadAllGifts: React.PropTypes.func,
+  done: React.PropTypes.func,
 };
 
 // Anything in the returned object below is merged in with the props of the

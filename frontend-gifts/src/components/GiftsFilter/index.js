@@ -7,7 +7,7 @@ const GiftsFilter = ({ categories, filter, filterClick, removeFilterClick }) => 
       className={filter.categoryId === category.id ? 'active' : ''}
     >
       <a
-        href="#"
+        href="#legacy"
         onClick={(e) => {
           e.preventDefault();
           filterClick(category.id);
@@ -25,7 +25,7 @@ const GiftsFilter = ({ categories, filter, filterClick, removeFilterClick }) => 
           <ul className="nav-filters">
             <li className={filter.isFiltered ? '' : 'active'}>
               <a
-                href="#"
+                href="#legacy"
                 onClick={(e) => {
                   e.preventDefault();
                   removeFilterClick();
@@ -34,7 +34,7 @@ const GiftsFilter = ({ categories, filter, filterClick, removeFilterClick }) => 
                 All
               </a>
             </li>
-            { categoriesList }
+            {categoriesList}
           </ul>
         </div>
         <div className="column" />

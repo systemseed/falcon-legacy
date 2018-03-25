@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import GiftsContainer from '../../containers/GiftsContainer';
 import ModalGiftCard from '../../components/ModalGiftCard';
 import FrontPageCopy from '../../components/FrontPageCopy';
@@ -20,5 +20,9 @@ const FrontPageView = ({ match }) => (
     }
   </div>
 );
+
+FrontPageView.propTypes = {
+  match: PropTypes.object
+};
 
 export default FrontPageView;

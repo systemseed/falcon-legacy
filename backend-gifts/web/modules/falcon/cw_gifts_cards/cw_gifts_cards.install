@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Rename ecard_item entity type config before uninstalling this module.
+ */
+function cw_gifts_cards_update_8001() {
+  db_update('config')
+    ->fields(['name' => 'falcon_gift_ecards.ecard_item_type.gift'])
+    ->condition('name', 'cw_gifts_cards.ecard_item_type.gift')
+    ->execute();
+}

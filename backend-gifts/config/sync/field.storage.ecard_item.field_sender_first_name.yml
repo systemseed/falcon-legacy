@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - cw_gifts_cards
+    - falcon_gift_ecards
 id: ecard_item.field_sender_first_name
 field_name: field_sender_first_name
 entity_type: ecard_item

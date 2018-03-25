@@ -1,0 +1,107 @@
+<?php
+
+/**
+ * @file
+ * Contains falcon_gift_ecards.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function falcon_gift_ecards_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the falcon_gift_ecards module.
+    case 'help.page.falcon_gift_ecards':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Postal and E-cards for Gifts.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function falcon_gift_ecards_cron() {
+  \Drupal::service('falcon_gift_ecards.mail_sender')->sendScheduled();
+}
+
+/**
+ * Implements hook_theme().
+ */
+function falcon_gift_ecards_theme() {
+  $theme = [];
+  $theme['ecard_item'] = array(
+    'render element' => 'elements',
+    'file' => 'ecard_item.page.inc',
+    'template' => 'ecard_item',
+  );
+  $theme['ecard_item_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'ecard_item.page.inc',
+  ];
+  $theme['ecard_item_mail'] = [
+    'variables' => [
+      'ecard_item_entity' => NULL,
+      'friends_name' => NULL,
+      'sender_name' => NULL,
+      'button_url' => NULL,
+    ],
+  ];
+
+  return $theme;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function falcon_gift_ecards_theme_suggestions_ecard_item(array $variables) {
+  $suggestions = array();
+  $entity = $variables['elements']['#ecard_item'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'ecard_item__' . $sanitized_view_mode;
+  $suggestions[] = 'ecard_item__' . $entity->bundle();
+  $suggestions[] = 'ecard_item__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'ecard_item__' . $entity->id();
+  $suggestions[] = 'ecard_item__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
+}
+
+/**
+ * Implements hook_mail().
+ *
+ * Captures the outgoing mail and sets appropriate message body and headers.
+ */
+function falcon_gift_ecards_mail($key, &$message, $params) {
+  if (isset($params['headers'])) {
+    $message['headers'] = array_merge($message['headers'], $params['headers']);
+  }
+
+  $message['from'] = $params['from'];
+  $message['subject'] = $params['subject'];
+  $message['body'][] = $params['body'];
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function falcon_gift_ecards_ecard_item_insert(\Drupal\falcon_gift_ecards\Entity\EcardItem $ecardItem) {
+  // Only normal gifts are supported.
+  if ($ecardItem->bundle() != 'gift') {
+    return FALSE;
+  }
+
+  if (!$ecardItem->canSendNow()) {
+    return FALSE;
+  }
+
+  // Sender service will determine if email should be send immediately
+  // and will send it if the order is valid.
+  \Drupal::service('falcon_gift_ecards.mail_sender')->send($ecardItem);
+}

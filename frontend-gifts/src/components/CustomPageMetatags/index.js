@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withDone as withServerDone } from 'react-router-server';
-
+import _isEmpty from 'lodash/isEmpty';
 import Metatags from '../../components/Metatags';
 import * as metatagActions from '../../actions/metatag';
 import * as metatagUtils from '../../utils/metatags';
-import _isEmpty from 'lodash/isEmpty';
 
 class CustomPageMetatags extends React.Component {
 
@@ -25,7 +24,7 @@ class CustomPageMetatags extends React.Component {
     if (_isEmpty(customPageMetatags)) {
       return null;
     }
-    let pageMetatags = metatagUtils.getCustomPageMetatagsById(customPageMetatags, id);
+    const pageMetatags = metatagUtils.getCustomPageMetatagsById(customPageMetatags, id);
 
     return (
       <Metatags metatags={pageMetatags.tags} />
@@ -38,17 +37,15 @@ CustomPageMetatags.propTypes = {
   id: React.PropTypes.string,
   customPageMetatags: React.PropTypes.array,
   getCustomPageMetatags: React.PropTypes.func,
-  pageMetatags: React.PropTypes.object,
+  done: React.PropTypes.func,
 };
 
 // Anything in the returned object below is merged in with the props of the
 // component, so we have access to store values but the component itself
 // does not have to be aware of the store.
-const mapStoreToProps = (store) => {
-  return {
-    customPageMetatags: store.customPageMetatags.metatags,
-  };
-};
+const mapStoreToProps = store => ({
+  customPageMetatags: store.customPageMetatags.metatags,
+});
 
 const mapDispatchToProps = {
   getCustomPageMetatags: metatagActions.getCustomPageMetatags,

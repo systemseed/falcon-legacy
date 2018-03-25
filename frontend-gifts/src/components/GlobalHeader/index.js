@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
+import _isEmpty from 'lodash/isEmpty';
+import { withDone as withServerDone } from 'react-router-server';
 import Logo from './Logo';
 import TopBar from './TopBar';
 import MainMenu from './MainMenu';
-import RegionSwitcher from './RegionSwitcher';
 import BasketWidget from '../../containers/BasketWidgetContainer';
 import * as siteContentSettingsActions from '../../actions/siteContentSettings';
-import _isEmpty from 'lodash/isEmpty';
 
 class GlobalHeader extends React.Component {
 
@@ -80,17 +80,18 @@ class GlobalHeader extends React.Component {
 GlobalHeader.propTypes = {
   siteContentSettings: React.PropTypes.object,
   getSiteContentSettings: React.PropTypes.func,
+  done: React.PropTypes.func,
 };
 
 // Anything in the returned object below is merged in with the props of the
 // component, so we have access to store values but the component itself
 // does not have to be aware of the store.
-const mapStoreToProps = (store) => ({
-    siteContentSettings: store.siteContentSettings.data,
-  });
+const mapStoreToProps = store => ({
+  siteContentSettings: store.siteContentSettings.data,
+});
 
 const mapDispatchToProps = {
   getSiteContentSettings: siteContentSettingsActions.load,
 };
 
-export default connect(mapStoreToProps, mapDispatchToProps)(GlobalHeader);
+export default withServerDone(connect(mapStoreToProps, mapDispatchToProps)(GlobalHeader));

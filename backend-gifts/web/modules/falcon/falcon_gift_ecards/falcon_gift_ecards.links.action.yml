@@ -1,0 +1,11 @@
+entity.ecard_item.add_form:
+  route_name: 'entity.ecard_item.add_page'
+  title: 'Add E-Card Item'
+  appears_on:
+    - entity.ecard_item.collection
+entity.ecard_item_type.add_form:
+  route_name: 'entity.ecard_item_type.add_form'
+  title: 'Add E-Card Item type'
+  appears_on:
+    - entity.ecard_item_type.collection
+

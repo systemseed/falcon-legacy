@@ -3,8 +3,8 @@ import Carousel from 'nuka-carousel';
 import HeroSliderItem from './HeroSliderItem';
 
 const HeroSlider = ({ slides }) => {
-  const items = slides.map((slide, index) =>
-    <HeroSliderItem key={index} {...slide} />
+  const items = slides.map(slide =>
+    <HeroSliderItem {...slide} />
   );
 
   return (

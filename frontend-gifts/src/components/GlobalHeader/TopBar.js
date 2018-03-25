@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const TopBar = ({headerLeftText, headerRightText}) => (
+const TopBar = ({ headerLeftText, headerRightText }) => (
   <div className="top-bar">
     <span className="message hidden-xs" dangerouslySetInnerHTML={{ __html: headerLeftText }} />
     <span className="phone" dangerouslySetInnerHTML={{ __html: headerRightText }} />

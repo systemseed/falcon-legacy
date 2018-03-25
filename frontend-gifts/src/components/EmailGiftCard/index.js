@@ -1,30 +1,42 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+import { Image } from 'react-bootstrap';
 
-const EmailGiftCard = ({ product, cardConfig, card }) => {
+const EmailGiftCard = ({ product, card }) => {
   const friendName = card.fieldFriendsName ? card.fieldFriendsName : '...';
-  const imageUrl = cardConfig.imageUrl ? cardConfig.imageUrl : product.imageUrl;
-  const intro = cardConfig.fieldIntroText ? cardConfig.fieldIntroText.value : `I've got you a very special gift - ${product.title}!`;
-  const productMessage = cardConfig.fieldCardMessage ? cardConfig.fieldCardMessage.value : '';
-  const message = card.fieldMessage;
-  // const senderName = card.fieldSenderFirstName ? card.fieldSenderFirstName : '...';
+  // Fallback to default copy if e-card is not configured for this gift.
+  const summary = (product.fieldEcardPreviewBody && product.fieldEcardPreviewBody.summary)
+    ? product.fieldEcardPreviewBody.summary
+    : `I've got you a very special gift - ${product.title}!`;
+
+  const body = (product.fieldEcardPreviewBody && product.fieldEcardPreviewBody.value)
+    ? product.fieldEcardPreviewBody.value
+    : null;
+
+  // Fallback to default product image.
+  const image = product.ecardPreviewImage.src
+    ? product.ecardPreviewImage
+    : { src: product.imageUrl, alt: product.imageAlt };
 
   return (
     <div className="email-card">
       <h1>Dear {friendName}</h1>
-      <div className="email-card-intro" dangerouslySetInnerHTML={{ __html: intro }} />
-      {imageUrl !== '' &&
-        <div className="email-card-image-wrapper"><img src={imageUrl} alt={product.title} className="email-card-image" /></div>
+      <p className="card-intro">{summary}</p>
+      {image.src &&
+        <div className="email-card-image-wrapper">
+          <Image src={image.src} alt={image.alt} className="email-card-image" responsive />
+        </div>
       }
-      <div className="email-card-product-message" dangerouslySetInnerHTML={{ __html: productMessage }} />
-      <p className="email-card-user-message">{message}</p>
+      {body &&
+        <div className="card-body" dangerouslySetInnerHTML={{ __html: body }} />
+      }
+      <p className="email-card-message">{card.fieldMessage}</p>
     </div>
   );
 };
 
-EmailGiftCard.defaultProps = {
-  product: {},
-  card: {},
-  cardConfig: {}
+EmailGiftCard.propTypes = {
+  product: PropTypes.object.isRequired,
+  card: PropTypes.object.isRequired
 };
 
 export default EmailGiftCard;

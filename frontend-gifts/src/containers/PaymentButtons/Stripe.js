@@ -28,7 +28,11 @@ class Stripe extends Component {
 }
 
 Stripe.propTypes = {
-  paymentMethod: PropTypes.object.isRequired
+  paymentMethod: PropTypes.object.isRequired,
+  total: PropTypes.number.isRequired,
+  currency: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  dispatch: PropTypes.func,
 };
 
 const mapStateToProps = state => ({

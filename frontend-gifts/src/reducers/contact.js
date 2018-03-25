@@ -23,8 +23,7 @@ export const contactForm = (state = {
         formData: {},
       };
 
-    case 'POST_CONTACT_FORM_REJECTED':
-
+    case 'POST_CONTACT_FORM_REJECTED': {
       let errorMessage;
       if (action.error) {
         errorMessage = action.payload.message;
@@ -39,7 +38,7 @@ export const contactForm = (state = {
         isFulfilled: false,
         errorMessage,
       };
-
+    }
     default:
       return state;
   }

@@ -4,7 +4,7 @@ import BasketContainer from '../../containers/BasketContainer';
 
 const BasketView = () => (
   <div>
-    <Metatags metatags={{"title": {"attributes": {"content": "Your shopping basket | Falcon Gifts"}}}} />
+    <Metatags metatags={{ 'title': { 'attributes': { 'content': 'Your shopping basket | Falcon Gifts' } } }} />
     <BasketContainer />
   </div>
 );

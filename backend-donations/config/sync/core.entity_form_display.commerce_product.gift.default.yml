@@ -10,7 +10,11 @@ dependencies:
     - field.field.commerce_product.gift.field_gift_annotation
     - field.field.commerce_product.gift.field_gift_category
     - field.field.commerce_product.gift.field_gift_description
+    - field.field.commerce_product.gift.field_gift_ecard_preview_body
+    - field.field.commerce_product.gift.field_gift_ecard_preview_image
     - field.field.commerce_product.gift.field_gift_image
+    - field.field.commerce_product.gift.field_gift_postal_preview_body
+    - field.field.commerce_product.gift.field_gift_postal_preview_image
     - field.field.commerce_product.gift.field_gift_product_code
     - field.field.commerce_product.gift.field_gift_variant_type
     - field.field.commerce_product.gift.field_gift_what_you_get_image
@@ -68,6 +72,32 @@ third_party_settings:
         open: false
         required_fields: false
       label: 'Bundle settings'
+    group_gift_postal_card:
+      children:
+        - field_gift_postal_preview_image
+        - field_gift_postal_preview_body
+      parent_name: ''
+      weight: 15
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: 'Customise postal card preview for this gift.'
+        required_fields: true
+      label: 'Postal card'
+    group_gift_ecard:
+      children:
+        - field_gift_ecard_preview_image
+        - field_gift_ecard_preview_body
+      parent_name: ''
+      weight: 16
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: 'Customise e-card preview for this gift.'
+        required_fields: true
+      label: E-card
 id: commerce_product.gift.default
 targetEntityType: commerce_product
 bundle: gift
@@ -117,8 +147,42 @@ content:
     third_party_settings: {  }
     type: text_textarea
     region: content
+  field_gift_ecard_preview_body:
+    weight: 19
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
+  field_gift_ecard_preview_image:
+    weight: 18
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
   field_gift_image:
     weight: 5
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_gift_postal_preview_body:
+    weight: 18
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
+  field_gift_postal_preview_image:
+    weight: 17
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -172,6 +236,7 @@ content:
       autocomplete_threshold: 7
       autocomplete_size: 60
       autocomplete_placeholder: ''
+      hide_single_entity: true
     third_party_settings: {  }
     region: content
   title:

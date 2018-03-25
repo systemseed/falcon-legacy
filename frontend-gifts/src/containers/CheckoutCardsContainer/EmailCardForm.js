@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Row, Col, Panel } from 'react-bootstrap';
 import Form from 'react-jsonschema-form';
-import AltDateWidget from '../../components/AltDateWidget';
 import { FieldTemplateCheckout } from '../../utils/forms';
 
 class EmailCardForm extends Component {
@@ -27,10 +26,6 @@ class EmailCardForm extends Component {
     }
   }
 
-  widgets = {
-    AltDateWidget
-  };
-
   uiSchema = {
     field_friends_name: {
       'ui:placeholder': ' '
@@ -45,7 +40,6 @@ class EmailCardForm extends Component {
     },
     sending_date: {
       'bsClassNames': 'col-sm-12 send-date',
-      // 'ui:widget': 'AltDateWidget'
       'ui:widget': 'hidden'
     }
   }
@@ -108,5 +102,12 @@ class EmailCardForm extends Component {
     );
   }
 }
+
+EmailCardForm.propTypes = {
+  card: PropTypes.object.isRequired,
+  expanded: PropTypes.bool.isRequired,
+  onChangeEmailForm: PropTypes.func.isRequired,
+  onPreviewOpen: PropTypes.func.isRequired,
+};
 
 export default EmailCardForm;

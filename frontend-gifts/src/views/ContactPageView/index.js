@@ -7,7 +7,7 @@ import CustomPageMetatags from '../../components/CustomPageMetatags';
 
 const ContactPageView = () => (
   <div>
-    <CustomPageMetatags id='contact' />
+    <CustomPageMetatags id="contact" />
     <FeaturedImage uuid="3accbd3e-64b3-4af4-9ff0-95fdeea5a555" />
 
     <Grid className="space-top-3x" componentClass="section">

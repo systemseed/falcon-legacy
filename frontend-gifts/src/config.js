@@ -1,4 +1,4 @@
-let config = {};
+let config = {}; // eslint-disable-line import/no-mutable-exports
 
 if (typeof window !== 'undefined') {
   config = {
@@ -21,14 +21,14 @@ else {
     'mode': process.env.PLATFORM_BRANCH === 'master' ? 'live' : 'test',
     'isServer': true,
     'frontend': 'http://gifts.flc.local/',
-    'backend': 'http://api.flc.local/',
+    'backend': 'http://api_bus/',
     'donations': 'http://donations.api.flc.local/',
     'gifts': 'http://gifts.api.flc.local/'
   };
 
   if (process.env.PLATFORM_ROUTES) {
     const routes = JSON.parse(Buffer.from(process.env.PLATFORM_ROUTES, 'base64'));
-    for (const url in routes) {
+    for (const url in routes) { // eslint-disable-line
       const route = routes[url];
       if (route.original_url === 'https://www.{default}/' || route.original_url === 'https://{default}/') {
         config.frontend = url;

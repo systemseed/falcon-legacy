@@ -12,7 +12,7 @@ class CwButton extends Button {
     super(props);
     this.state = {
       'clicked': false
-    }
+    };
   }
 
   onClick = () => {
@@ -20,10 +20,10 @@ class CwButton extends Button {
     if (this.state.clicked) {
       return;
     }
-    else {
-      this.setState({ clicked: true });
-      setTimeout(() => this.setState({ clicked: false }), 300);
-    }
+
+    this.setState({ clicked: true });
+    setTimeout(() => this.setState({ clicked: false }), 300);
+
 
     // Invokes original onClick function if exists.
     if (this.props.onClick !== undefined) {

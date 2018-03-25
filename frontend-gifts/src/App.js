@@ -18,8 +18,6 @@ import MessageBarContainer from './containers/MessageBarContainer';
 import GlobalHeader from './components/GlobalHeader';
 import ScrollToTop from './components/ScrollToTop';
 import GiftsLegacyRedirect from './containers/GiftsLegacyRedirect';
-import PopupContainer from './containers/PopupContainer';
-import GlobalFooter from './components/GlobalFooter';
 
 // Importing pre-defined css.
 import './styles/css/vendors/bootstrap.min.css';
@@ -41,7 +39,7 @@ const App = () => (
           atLeave={{ opacity: 2 }}
           atActive={{ opacity: 1 }}
           className="switch-wrapper"
-          mapStyles={styles => styles.opacity > 1 ? { display: 'none' } : { opacity: styles.opacity }}
+          mapStyles={styles => (styles.opacity > 1 ? { display: 'none' } : { opacity: styles.opacity })}
         >
           {/* ROUTES FROM THE MAIN MENU */}
           <PageRoute exact path="/" component={FrontPageView} />

@@ -17,8 +17,7 @@ export const featuredImages = (state = {
         isPending: true
       };
 
-    case 'FEATURED_IMAGES_FETCH_FULFILLED':
-
+    case 'FEATURED_IMAGES_FETCH_FULFILLED': {
       const images = action.payload.body.data;
       const processedImages = _map(images, image => ({
         'uuid': image.uuid,
@@ -32,7 +31,7 @@ export const featuredImages = (state = {
         isFulfilled: true,
         list: processedImages,
       };
-
+    }
     case 'FEATURED_IMAGES_FETCH_REJECTED':
       return {
         ...state,

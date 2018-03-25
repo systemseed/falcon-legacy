@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - cw_gifts_cards.ecard_item_type.gift
+    - falcon_gift_ecards.ecard_item_type.gift
     - field.storage.ecard_item.field_sender_first_name
 id: ecard_item.gift.field_sender_first_name
 field_name: field_sender_first_name

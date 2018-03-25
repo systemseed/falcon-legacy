@@ -8,36 +8,36 @@ import ProductPrice from '../ProductPrice';
 const BasketWidgetDropDownItem = ({ product, currentCurrency, handleDeleteClick }) => (
   <div className="cart-item">
 
-    { /* Link title to the usual products */ }
-    { productUtils.hasFullView(product.data) &&
-    <Link to={productUtils.url(product.data)} className="item-thumb">
-      <img src={product.data.imageUrl} alt={product.data.title} />
-    </Link>
+    { /* Link title to the usual products */}
+    {productUtils.hasFullView(product.data) &&
+      <Link to={productUtils.url(product.data)} className="item-thumb">
+        <img src={product.data.imageUrl} alt={product.data.title} />
+      </Link>
     }
-    { /* Don't show linked title to custom price product */ }
-    { !productUtils.hasFullView(product.data) &&
-    <span className="item-thumb">
-      <img src={product.data.imageUrl} alt={product.data.title} />
-    </span>
+    { /* Don't show linked title to custom price product */}
+    {!productUtils.hasFullView(product.data) &&
+      <span className="item-thumb">
+        <img src={product.data.imageUrl} alt={product.data.title} />
+      </span>
     }
 
     <div className="item-details">
       <h3 className="item-title">
 
-        { /* Link title to the usual products */ }
-        { productUtils.hasFullView(product.data) &&
-        <Link to={productUtils.url(product.data)}>
-          { product.data.title }
-        </Link>
+        { /* Link title to the usual products */}
+        {productUtils.hasFullView(product.data) &&
+          <Link to={productUtils.url(product.data)}>
+            {product.data.title}
+          </Link>
         }
-        { /* Don't show linked title to custom price product */ }
-        { !productUtils.hasFullView(product.data) &&
-        product.data.title
+        { /* Don't show linked title to custom price product */}
+        {!productUtils.hasFullView(product.data) &&
+          product.data.title
         }
 
       </h3>
       <h4 className="item-price">
-        { basketUtils.getProductQuantity(product) }
+        {basketUtils.getProductQuantity(product)}
         &nbsp;x&nbsp;
         <ProductPrice
           currentCurrency={currentCurrency}
@@ -45,17 +45,17 @@ const BasketWidgetDropDownItem = ({ product, currentCurrency, handleDeleteClick 
         />
       </h4>
     </div>
-    { basketUtils.hasDeleteButton(product.data) &&
-    <Button
-      bsStyle="link"
-      className="close-btn"
-      onClick={(e) => {
-        e.preventDefault();
-        handleDeleteClick(product.id);
-      }}
-    >
-      <i className="material-icons close"/>
-    </Button>
+    {basketUtils.hasDeleteButton(product.data) &&
+      <Button
+        bsStyle="link"
+        className="close-btn"
+        onClick={(e) => {
+          e.preventDefault();
+          handleDeleteClick(product.id);
+        }}
+      >
+        <i className="material-icons close" />
+      </Button>
     }
   </div>
 );

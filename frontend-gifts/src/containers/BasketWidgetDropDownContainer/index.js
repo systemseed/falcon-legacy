@@ -110,7 +110,8 @@ BasketWidgetDropDownContainer.propTypes = {
       })
     ),
   }),
-  basketType: React.PropTypes.string
+  basketType: React.PropTypes.string,
+  done: React.PropTypes.func
 };
 
 const mapStateToProps = state => ({

@@ -32,3 +32,9 @@
 .form-group.currency-GBP .form-group.field-integer:before {
   content:"£";
 }
+
+.main-navigation {
+  .menu li > a.active {
+    color: $nav-link-hover-color;
+  }
+}
