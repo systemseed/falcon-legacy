@@ -89,16 +89,16 @@ export const mappedProductItem = (responseItem) => {
 
   const postalPreviewImage = {
     src: api.getImageUrl('donations', responseItem.fieldGiftPostalPreviewImage),
-    alt: responseItem.relationships.field_gift_postal_preview_image.data
-      ? responseItem.relationships.field_gift_postal_preview_image.data.meta.alt
-      : '',
+    alt: api.getImageAlt(
+      responseItem.relationships.field_gift_postal_preview_image
+    ),
   };
 
   const ecardPreviewImage = {
     src: api.getImageUrl('donations', responseItem.fieldGiftEcardPreviewImage),
-    alt: responseItem.relationships.field_gift_ecard_preview_image.data
-      ? responseItem.relationships.field_gift_ecard_preview_image.data.meta.alt
-      : '',
+    alt: api.getImageAlt(
+      responseItem.relationships.field_gift_ecard_preview_image
+    ),
   };
 
   return {
