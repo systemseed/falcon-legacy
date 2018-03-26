@@ -57,7 +57,6 @@ use Drupal\user\UserInterface;
  *     "delete-form" = "/admin/content/gift-cards/gift_card_config/{gift_card_config}/delete",
  *     "version-history" = "/admin/content/gift-cards/gift_card_config/{gift_card_config}/revisions",
  *     "revision" = "/admin/content/gift-cards/gift_card_config/{gift_card_config}/revisions/{gift_card_config_revision}/view",
- *     "revision_delete" = "/admin/content/gift-cards/gift_card_config/{gift_card_config}/revisions/{gift_card_config_revision}/delete",
  *     "collection" = "/admin/content/gift-cards/gift_card_config",
  *   },
  *   bundle_entity_type = "gift_card_config_type",
