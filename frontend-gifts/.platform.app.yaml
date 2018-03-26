@@ -28,6 +28,7 @@ hooks:
     # Copy built files into writable folder to write into index.html on per-environment basis.
     # This should be refactored once server-side rendering is enabled.
     set -e
+    rm -rf build/*
     cp -r build-platform/* build/
     node build_scripts/platform-deploy.js
     node build_scripts/build-snippets.js
