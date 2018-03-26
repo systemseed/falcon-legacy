@@ -64,3 +64,4 @@ docker-compose run fe_gifts sh
 ## Shutting down the environments
 
 To shut the environment run `docker-compose stop`.
+
