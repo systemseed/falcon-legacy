@@ -26,7 +26,7 @@ class ModalGiftCard extends Component {
 
     this.setState({ is_fetching: true });
 
-    // Simpe async...await approach without server side rendering.
+    // Simple async...await approach without server side rendering.
     try {
       const card = await api.getEcardItem(cardId);
       const product = await api.getProduct('gift', card.donationsProductUuid);
