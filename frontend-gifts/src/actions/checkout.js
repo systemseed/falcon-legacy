@@ -50,42 +50,6 @@ export const checkoutCardsSent = () => ({
   type: 'CHECKOUT_CARDS_SENT'
 });
 
-// TODO: move to separate file.
-export const loadProductCardConfigs = (productIds) => {
-  let type = 'physical';
-  const promisePhysical = request
-    .get(`${config.backend}/v1/gifts/jsonapi/gift_card_config/${type}`)
-    .query({
-      // Filter by product ids.
-      'filter[product-ids][condition][path]': 'donations_product_uuid',
-      'filter[product-ids][condition][value][]': productIds,
-      'filter[product-ids][condition][operator]': 'IN',
-      'include': 'field_image,field_image.field_image',
-      'fields[gift_card_config--physical]': 'uuid,donations_product_uuid,field_image',
-      'fields[media--gift_cards]': 'field_image',
-      'fields[file--file]': 'url'
-    });
-
-  type = 'email';
-  const promiseEmail = request
-    .get(`${config.backend}/v1/gifts/jsonapi/gift_card_config/${type}`)
-    .query({
-      // Filter by product ids.
-      'filter[product-ids][condition][path]': 'donations_product_uuid',
-      'filter[product-ids][condition][value][]': productIds,
-      'filter[product-ids][condition][operator]': 'IN',
-      'include': 'field_image,field_image.field_image,donation_product_uuid',
-      'fields[gift_card_config--email]': 'uuid,donations_product_uuid,field_intro_text,field_card_message,field_image',
-      'fields[media--gift_cards]': 'field_image',
-      'fields[file--file]': 'url',
-    });
-
-  return {
-    type: 'GET_CHECKOUT_CARD_CONFIGS',
-    payload: Promise.all([promisePhysical, promiseEmail])
-  };
-};
-
 export const showErrors = () => ({
   type: 'CHECKOUT_SHOW_ERRORS'
 });
