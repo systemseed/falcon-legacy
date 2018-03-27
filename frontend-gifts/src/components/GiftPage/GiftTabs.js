@@ -54,8 +54,8 @@ class GiftTabs extends React.Component {
           <TabPanel>
             <div className="row space-top">
               <div className="col-md-6 space-bottom">
-                {gift.whatYouGetImageUrl &&
-                  <img src={gift.whatYouGetImageUrl} alt={gift.whatYouGetImageAlt} title={gift.whatYouGetImageAlt} />
+                {gift.whatYouGetImage &&
+                  <img src={gift.whatYouGetImage.src} alt={gift.whatYouGetImage.alt} title={gift.whatYouGetImage.alt} />
                 }
               </div>
               <div className="col-md-6">
@@ -90,8 +90,7 @@ GiftTabs.propTypes = {
     actionImageUrl: React.PropTypes.string,
     actionImageAlt: React.PropTypes.string,
     actionDescription: React.PropTypes.string,
-    whatYouGetImageUrl: React.PropTypes.string,
-    whatYouGetImageAlt: React.PropTypes.string
+    whatYouGetImage: React.PropTypes.object,
   }).isRequired,
 };
 
