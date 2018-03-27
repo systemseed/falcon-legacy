@@ -1,0 +1,10 @@
+falcon_mail.admin_index:
+  title: Falcon
+  route_name: falcon_mail.admin_index
+  parent: system.admin_config
+  description: 'Configure Falcon settings.'
+falcon_mail.settings:
+  title: 'Falcon Mail'
+  route_name: falcon_mail.settings
+  parent: falcon_mail.admin_index
+  description: 'Falcon Mail settings.'

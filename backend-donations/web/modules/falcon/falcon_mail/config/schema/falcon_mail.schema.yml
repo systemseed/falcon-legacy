@@ -1,0 +1,13 @@
+# Schema for the configuration files of the Falcon Mail module.
+
+falcon_mail.settings:
+  type: config_object
+  label: 'Falcon Mail settings'
+  mapping:
+    notifications:
+      type: mapping
+      label: 'Notifications'
+      mapping:
+        list_gift_corporate:
+          type: sting
+          label: 'Email addresses to notify about corporate gift order'
