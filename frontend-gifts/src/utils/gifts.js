@@ -1,12 +1,12 @@
 import api from '../lib/api';
 
-export const filterByCategory = (gifts, filter) => {
-  if (!filter.isFiltered) {
+export const filterByCategory = (gifts, categoryId) => {
+  if (categoryId === undefined) {
     return gifts;
   }
 
   const filteredProducts = gifts.products.filter(
-    product => product.categoryId === filter.categoryId
+    product => product.categoryId === categoryId
   );
 
   // If there are no filtered list of products it means

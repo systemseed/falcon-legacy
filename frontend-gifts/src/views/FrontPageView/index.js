@@ -12,7 +12,7 @@ const FrontPageView = ({ match }) => (
 
     <FrontPageCopy />
 
-    <GiftsContainer />
+    <GiftsContainer categoryName={match.params.categoryName} />
 
     {/* Render Gift Card with front page on background. */}
     {match.params.giftCard !== undefined &&

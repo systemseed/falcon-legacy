@@ -10,7 +10,7 @@ const defaultQueryParams = {
   // Limit variation fields to this list.
   'fields[commerce_product_variation--gift]': 'variation_id,sku,price',
   // Limit taxonomy term fields to this list.
-  'fields[taxonomy_term--gift_category]': 'id,name',
+  'fields[taxonomy_term--gift_category]': 'id,name,field_fieldable_path',
   'fields[file--file]': 'url',
   'filter[status][value]': 1,
   // Sorting works this way: "order by variant price ASC".

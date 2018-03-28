@@ -40,7 +40,8 @@ export const gifts = (state = {
           if (!categoryAdded) {
             categories.push({
               id: item.fieldGiftCategory.id,
-              name: item.fieldGiftCategory.name
+              name: item.fieldGiftCategory.name,
+              path: item.fieldGiftCategory.fieldFieldablePath
             });
           }
         }
@@ -102,31 +103,6 @@ export const giftCustomPrice = (state = {
         ...state,
         isPending: false,
         isError: true,
-      };
-
-    default:
-      return state;
-  }
-};
-
-export const giftsFilter = (state = {
-  isFiltered: false,
-  categoryId: ''
-}, action) => {
-  switch (action.type) {
-
-    case 'SET_GIFTS_FILTER_BY_CATEGORY':
-      return {
-        ...state,
-        isFiltered: true,
-        categoryId: action.categoryId,
-      };
-
-    case 'REMOVE_GIFTS_FILTER_BY_CATEGORY':
-      return {
-        ...state,
-        isFiltered: false,
-        categoryId: '',
       };
 
     default:

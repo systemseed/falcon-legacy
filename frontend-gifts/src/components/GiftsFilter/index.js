@@ -1,20 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const GiftsFilter = ({ categories, filter, filterClick, removeFilterClick }) => {
+const GiftsFilter = ({ categories, categoryId }) => {
   const categoriesList = categories.map(category =>
     <li
       key={category.id}
-      className={filter.categoryId === category.id ? 'active' : ''}
+      className={category.id === categoryId ? 'active' : ''}
     >
-      <a
-        href="#legacy"
-        onClick={(e) => {
-          e.preventDefault();
-          filterClick(category.id);
-        }}
-      >
+      <Link to={category.path}>
         {category.name}
-      </a>
+      </Link>
     </li>
   );
 
@@ -23,16 +18,10 @@ const GiftsFilter = ({ categories, filter, filterClick, removeFilterClick }) => 
       <div className="filters-bar space-top-half">
         <div className="column">
           <ul className="nav-filters">
-            <li className={filter.isFiltered ? '' : 'active'}>
-              <a
-                href="#legacy"
-                onClick={(e) => {
-                  e.preventDefault();
-                  removeFilterClick();
-                }}
-              >
+            <li className={!categoryId ? 'active' : ''}>
+              <Link to="/">
                 All
-              </a>
+              </Link>
             </li>
             {categoriesList}
           </ul>
@@ -50,12 +39,7 @@ GiftsFilter.propTypes = {
       name: React.PropTypes.string.isRequired,
     })
   ).isRequired,
-  filter: React.PropTypes.shape({
-    isFiltered: React.PropTypes.bool,
-    categoryId: React.PropTypes.string,
-  }).isRequired,
-  filterClick: React.PropTypes.func.isRequired,
-  removeFilterClick: React.PropTypes.func.isRequired,
+  categoryId: React.PropTypes.string.isRequired,
 };
 
 export default GiftsFilter;

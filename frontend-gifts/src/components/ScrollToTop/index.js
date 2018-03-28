@@ -5,6 +5,16 @@ import { withRouter } from 'react-router';
 class ScrollToTop extends React.Component {
 
   componentDidUpdate(prevProps) {
+    // Do not scroll to top on gifts category filter change.
+    if (this.props.location.pathname.startsWith('/category/')
+      && (prevProps.location.pathname.startsWith('/category/') || prevProps.location.pathname === '/')) {
+      return;
+    }
+    if (this.props.location.pathname === '/'
+      && prevProps.location.pathname.startsWith('/category/')) {
+      return;
+    }
+
     if (this.props.location !== prevProps.location) {
       window.scrollTo(0, 0); // eslint-disable-line no-undef
     }

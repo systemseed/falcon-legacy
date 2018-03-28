@@ -56,6 +56,8 @@ const App = () => (
           <PageRoute exact path="/basket" component={BasketView} />
           {/* CARD POPUP. CONTAINS FRONTPAGE ON THE BACKGROUND */}
           <PageRoute path="/gift-card/:giftCard" component={FrontPageView} />
+          {/* GIFTS CATEGORIES */}
+          <PageRoute path="/category/:categoryName" component={FrontPageView} />
 
           {/* Redirect from legacy Gift URLs */}
           <Route path="/charity-gift/:code/:name" component={GiftsLegacyRedirect} />

@@ -1,0 +1,19 @@
+uuid: 73ecc571-0cc8-4741-b66a-443cca512f73
+langcode: en
+status: true
+dependencies:
+  module:
+    - fieldable_path
+    - taxonomy
+id: taxonomy_term.field_fieldable_path
+field_name: field_fieldable_path
+entity_type: taxonomy_term
+type: fieldable_path
+settings: {  }
+module: fieldable_path
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
