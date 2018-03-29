@@ -1980,7 +1980,7 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.4.2",
+            "version": "8.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
