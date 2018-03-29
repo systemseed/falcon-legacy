@@ -7,6 +7,7 @@ use Drupal\commerce_product\Entity\ProductVariationInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
+use Drupal\Core\Logger\LoggerChannelTrait;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Render\RenderContext;
 use Drupal\Core\Render\Renderer;
@@ -20,6 +21,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class OrderReceiptGiftCorporateSubscriber implements EventSubscriberInterface {
 
   use StringTranslationTrait;
+  use LoggerChannelTrait;
 
   /**
    * The order type entity storage.
@@ -106,6 +108,7 @@ class OrderReceiptGiftCorporateSubscriber implements EventSubscriberInterface {
     // Send notification only if there are configured email addresses.
     $to = $this->configFactory->get('falcon_mail.settings')->get('notifications.list_gift_corporate');
     if (!$to) {
+      $this->getLogger('falcon_mail')->notice('There are no email addresses defined for corporate gift notifications.');
       return;
     }
 
@@ -120,9 +123,16 @@ class OrderReceiptGiftCorporateSubscriber implements EventSubscriberInterface {
       }
       $product = $purchased_entity->getProduct();
       if ($product->bundle() != 'gift_corporate') {
+        $this->getLogger('falcon_mail')->info('Order #@number contains non-corporate gifts, no need to send corporate gift notification.', [
+          '@number' => $order->getOrderNumber(),
+        ]);
         return;
       }
     }
+
+    $this->getLogger('falcon_mail')->info('Sending corporate gift notification for order #@number.', [
+      '@number' => $order->getOrderNumber(),
+    ]);
 
     $params = [
       'headers' => [
