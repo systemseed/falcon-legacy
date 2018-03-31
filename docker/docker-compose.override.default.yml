@@ -1,0 +1,103 @@
+version: '2'
+
+services:
+
+  fe_main:
+    volumes:
+      - ../frontend-main:/app
+      #- ../frontend-main:/app:cached
+    labels:
+      - 'traefik.frontend.rule=Host:main.${PROJECT_BASE_URL}'
+
+  fe_gifts:
+    volumes:
+      - ../frontend-gifts:/app
+      #- ../frontend-gifts:/app:cached
+    # Uncomment to make changes in package.json.
+    #command: sh -c 'yarn install'
+    labels:
+      - 'traefik.frontend.rule=Host:gifts.${PROJECT_BASE_URL}'
+
+  # Uncomment to run app with Server Side Rendering enabled.
+  # Useful for debugging issues related to SSR.
+#  fe_gifts:
+#    command: sh -c 'yarn install && yarn run build && yarn run start:server'
+#    volumes:
+#      #- ../frontend-gifts:/app
+#      - ../frontend-gifts:/app:cached
+#    labels:
+#      - 'traefik.port=3001'
+#      - 'traefik.frontend.rule=Host:gifts.${PROJECT_BASE_URL}'
+
+  api_bus:
+    image: webdevops/php-nginx:alpine-3-php7
+    environment:
+      WEB_ALIAS_DOMAIN: api.${PROJECT_BASE_URL}
+    volumes:
+      - ../backend-api-bus:/app
+      #- ../backend-api-bus:/app:cached
+    labels:
+      - 'traefik.frontend.rule=Host:api.${PROJECT_BASE_URL}'
+
+  be_gifts:
+    environment:
+      ## Read instructions at https://wodby.com/stacks/drupal/docs/local/xdebug/
+      PHP_XDEBUG: 1
+      PHP_XDEBUG_DEFAULT_ENABLE: 1
+      # PHP_XDEBUG_REMOTE_CONNECT_BACK: 0
+      # PHP_IDE_CONFIG: serverName=phpstorm
+      PHP_XDEBUG_REMOTE_HOST: 172.17.0.1 # Linux
+      # PHP_XDEBUG_REMOTE_HOST: 10.254.254.254 # macOS
+      # PHP_XDEBUG_REMOTE_HOST: 10.0.75.1 # Windows
+    volumes:
+      - ../backend-gifts:/var/www/html
+      #- ../backend-gifts:/var/www/html:cached
+
+  be_gifts_mariadb:
+    volumes:
+      - ../backend-gifts/mysql/data:/var/lib/mysql
+      #- ../backend-gifts/mysql/data:/var/lib/mysql:cached
+
+  be_gifts_nginx:
+    volumes:
+      - ../backend-gifts:/var/www/html
+      #- ../backend-gifts:/var/www/html:cached
+    labels:
+      - 'traefik.frontend.rule=Host:gifts.api.${PROJECT_BASE_URL}'
+
+  be_gifts_pma:
+    labels:
+      - 'traefik.frontend.rule=Host:pma.gifts.api.${PROJECT_BASE_URL}'
+
+  be_donations:
+    #environment:
+      # PHP_XDEBUG: 1
+      # PHP_XDEBUG_DEFAULT_ENABLE: 1
+      # PHP_XDEBUG_REMOTE_AUTOSTART: 1
+      # PHP_XDEBUG_REMOTE_CONNECT_BACK: 0         # This is needed to respect remote.host setting bellow
+      # PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"  # You will also need to 'sudo ifconfig lo0 alias 10.254.254.254'
+    volumes:
+      - ../backend-donations:/var/www/html
+      #- ../backend-donations:/var/www/html:cached
+
+  be_donations_mariadb:
+    volumes:
+      - ../backend-donations/mysql/data:/var/lib/mysql
+      #- ../backend-donations/mysql/data:/var/lib/mysql:cached
+
+  be_donations_nginx:
+    volumes:
+      - ../backend-donations:/var/www/html
+      #- ../backend-donations:/var/www/html:cached
+    labels:
+      - 'traefik.frontend.rule=Host:donations.api.${PROJECT_BASE_URL}'
+
+  be_donations_pma:
+    labels:
+      - 'traefik.frontend.rule=Host:pma.donations.api.${PROJECT_BASE_URL}'
+
+  mailhog:
+    labels:
+      - 'traefik.backend=mailhog'
+      - 'traefik.port=8025'
+      - 'traefik.frontend.rule=Host:mailhog.${PROJECT_BASE_URL}'
