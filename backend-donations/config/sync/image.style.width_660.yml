@@ -4,4 +4,12 @@ status: true
 dependencies: {  }
 name: width_660
 label: width_660
-effects: {  }
+effects:
+  f79efae0-84e2-4552-bb12-b0aea8ae2c1f:
+    uuid: f79efae0-84e2-4552-bb12-b0aea8ae2c1f
+    id: image_scale
+    weight: 1
+    data:
+      width: 660
+      height: null
+      upscale: false
