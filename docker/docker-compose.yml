@@ -1,8 +1,8 @@
-version: '3'
+version: '2'
 services:
 
   ##########################
-  ### MAIN FRONTEND #######
+  ### MAIN FRONTEND ########
   ##########################
 
   fe_main:
@@ -52,15 +52,18 @@ services:
   ##########################
 
   be_gifts:
-    image: wodby/drupal-php:7.1-2.0.0
+    image: wodby/drupal-php:7.1-dev-4.2.3
     environment:
-      PHP_SITE_NAME: dev
-      PHP_HOST_NAME: localhost
-      PHP_DOCROOT: web
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
+      DB_HOST: drupal
+      DB_USER: drupal
+      DB_PASSWORD: drupal
+      DB_NAME: drupal
+      DB_DRIVER: mysql
 
   be_gifts_mariadb:
-    image: wodby/mariadb:10.1
+    image: wodby/mariadb:10.2-3.1.3
+    stop_grace_period: 30s
     environment:
       MYSQL_ROOT_PASSWORD: drupal
       MYSQL_DATABASE: drupal
@@ -68,15 +71,14 @@ services:
       MYSQL_PASSWORD: drupal
 
   be_gifts_nginx:
-    image: wodby/drupal-nginx:1.10-1.1.0
+    image: wodby/drupal-nginx:8-1.13-4.0.3
     depends_on:
       - be_gifts
-      - be_gifts_mariadb
     environment:
-      NGINX_SERVER_NAME: localhost
-      NGINX_UPSTREAM_NAME: be_gifts
-      NGINX_DOCROOT: web
-      DRUPAL_VERSION: 8
+      NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
+      NGINX_ERROR_LOG_LEVEL: debug
+      NGINX_BACKEND_HOST: be_gifts
+      NGINX_SERVER_ROOT: /var/www/html/web
     labels:
       - 'traefik.backend=be_gifts_nginx'
       - 'traefik.port=80'
@@ -99,15 +101,18 @@ services:
   ##########################
 
   be_donations:
-    image: wodby/drupal-php:7.1-2.2.0
+    image: wodby/drupal-php:7.1-dev-4.2.3
     environment:
-      PHP_SITE_NAME: dev
-      PHP_HOST_NAME: localhost
-      PHP_DOCROOT: web
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
+      DB_HOST: drupal
+      DB_USER: drupal
+      DB_PASSWORD: drupal
+      DB_NAME: drupal
+      DB_DRIVER: mysql
 
   be_donations_mariadb:
-    image: wodby/mariadb:10.1
+    image: wodby/mariadb:10.2-3.1.3
+    stop_grace_period: 30s
     environment:
       MYSQL_ROOT_PASSWORD: drupal
       MYSQL_DATABASE: drupal
@@ -115,15 +120,14 @@ services:
       MYSQL_PASSWORD: drupal
 
   be_donations_nginx:
-    image: wodby/drupal-nginx:1.10-1.1.0
+    image: wodby/drupal-nginx:8-1.13-4.0.3
     depends_on:
       - be_donations
-      - be_donations_mariadb
     environment:
-      NGINX_SERVER_NAME: localhost
-      NGINX_UPSTREAM_NAME: be_donations
-      NGINX_DOCROOT: web
-      DRUPAL_VERSION: 8
+      NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
+      NGINX_ERROR_LOG_LEVEL: debug
+      NGINX_BACKEND_HOST: be_donations
+      NGINX_SERVER_ROOT: /var/www/html/web
     labels:
       - 'traefik.backend=be_donations_nginx'
       - 'traefik.port=80'
@@ -137,7 +141,7 @@ services:
       PHP_UPLOAD_MAX_FILESIZE: 1G
       PHP_MAX_INPUT_VARS: 1G
     labels:
-      - 'traefik.backend=be_gifts_pma'
+      - 'traefik.backend=be_donations_pma'
       - 'traefik.port=80'
 
   #########################
@@ -146,9 +150,10 @@ services:
 
   mailhog:
     image: mailhog/mailhog
-    ports:
-      - "8025:8025"
 
+  #########################
+  ###### TRAEFIK ##########
+  #########################
 
   traefik:
     image: traefik

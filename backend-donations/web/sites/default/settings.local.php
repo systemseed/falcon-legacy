@@ -7,23 +7,29 @@
 assert_options(ASSERT_ACTIVE, TRUE);
 \Drupal\Component\Assertion\Handle::register();
 
+# Display all errors.
+$config['system.logging']['error_level'] = 'verbose';
+
 // Set private files folder.
 $settings['file_private_path'] = preg_replace('~/web$~', '/private', $app_root);
 
 // Enable local development services.
 $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
 
-$settings['hash_salt'] = 'Qf7s6_7c-W3lpFljM8ZSfYuUbAH6Ha5ldqFpJ177TzGggpOzVk9DI0OIsy80T58WU9uGkfsRCA';
-
 // Configure base url for images going outside of the site.
 $config['rest_absolute_urls']['base_url'] = 'http://donations.api.flc.local';
 $settings['file_public_base_url'] = 'http://donations.api.flc.local/sites/default/files';
 
-$databases['default']['default'] = array(
-  'driver' => 'mysql',
-  'host' => 'be_donations_mariadb',
+// Make default hash salt for local envs.
+$settings['hash_salt'] = 'insecure-local-hash';
+
+$databases['default']['default'] = array (
+  'database' => 'drupal',
   'username' => 'drupal',
   'password' => 'drupal',
-  'database' => 'drupal',
   'prefix' => '',
+  'host' => 'be_donations_mariadb',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
 );

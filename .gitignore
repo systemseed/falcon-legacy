@@ -1,7 +1,11 @@
-# IDE files
+# PHPStorm folder.
 .idea
-dev
 
-# Ignoring any composer files inside of the root (if any).
-vendor
+# Mac artifacts.
 .DS_Store
+
+# Locally generated env file.
+.env
+
+# Locally generated docker file with overrides.
+docker/docker-compose.override.yml
