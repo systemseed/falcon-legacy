@@ -18,16 +18,8 @@ $config->setPaths(['../src/config']);
 // Load default config.
 $config->loadConfigurationFiles();
 
-// Load Platform specific configs.
-if (isset($_ENV['PLATFORM_BRANCH'])) {
-  $config->loadConfigurationFiles('platformsh');
-
-  // This will merge any file in the PLATFORM_BRANCH env var with the
-  // default.php file and provide a single array.
-  // This will not fail if it can't find the file.
-  $config->loadConfigurationFiles($_ENV['PLATFORM_BRANCH']);
-}
-else {
+// Load local config if exists.
+if (!isset($_ENV['PLATFORM_BRANCH'])) {
   // Load local config if exists.
   $config->loadConfigurationFiles('local');
 }

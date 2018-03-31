@@ -24,6 +24,10 @@ $config['simple_oauth.settings']['private_key'] = DRUPAL_ROOT . '/../certificate
 // This is defined inside the read-only "config" directory, deployed via Git.
 $config_directories[CONFIG_SYNC_DIRECTORY] = '../config/sync';
 
+// Enable reverse proxy to pass IP addresses from API Bus and CDN.
+$settings['reverse_proxy'] = TRUE;
+$settings['reverse_proxy_addresses'] = [$_SERVER['REMOTE_ADDR']];
+
 // Error logging.
 $config['system.logging']['error_level'] = 'verbose';
 

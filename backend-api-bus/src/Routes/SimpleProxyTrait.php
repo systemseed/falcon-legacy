@@ -66,7 +66,6 @@ trait SimpleProxyTrait {
     }
     $args['proxy_options']['headers'] = $headers;
 
-    //throw new \Exception(print_r($args['proxy_options'], TRUE));
     /* @var \GuzzleHttp\Client $client */
     $client = $this->getClient();
     $proxy_request = $client->request('GET', $args['proxy_path'], $args['proxy_options']);

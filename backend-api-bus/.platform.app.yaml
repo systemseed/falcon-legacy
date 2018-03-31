@@ -13,6 +13,10 @@ type: 'php:7.1'
 build:
     flavor: composer
 
+relationships:
+    be_donations: 'backend-donations:http'
+    be_gifts: 'backend-gifts:http'
+
 # The configuration of app when it is exposed to the web.
 web:
     # Specific parameters for different URL prefixes.

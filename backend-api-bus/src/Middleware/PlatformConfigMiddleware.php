@@ -78,24 +78,30 @@ class PlatformConfigMiddleware {
    */
   public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next) {
 
-    if ($platform_routes = self::getRoutes()) {
-      // Prepare endpoints array for modification.
-      $endpoints = $this->settings['endpoints'];
+    // Prepare endpoints array for modification.
+    $endpoints = $this->settings['endpoints'];
 
-      foreach ($platform_routes as $url => $route) {
-        $proto = substr($route['original_url'], 0, 6);
-        if (!empty($route['upstream']) && $proto === 'https:') {
-          // The upstream name will be the same as the upstream name in the
-          // routes.yml except it won't include the :http or :https part.
-          // I.e. backend-donations:http is backend-donations in the
-          // PLATFORM_ROUTES var.
-          $endpoints[$route['upstream']]['url'] = $url;
-        }
-      }
-      // Write whole array back to avoid "Indirect modification of overloaded
-      // element" PHP notice.
-      $this->settings['endpoints'] = $endpoints;
-    }
+    // Use internal Platform.sh network to speed up requests.
+    $endpoints['backend-donations']['url'] = 'http://be_donations.internal';
+    $endpoints['backend-gifts']['url'] = 'http://be_gifts.internal';
+
+    // Expose consumer ids for each backend.
+    $endpoints['backend-donations']['consumer_id'] = $_ENV['DONATIONS_CONSUMER_ID'];
+    $endpoints['backend-gifts']['consumer_id'] = $_ENV['GIFTS_CONSUMER_ID'];
+
+    // Expose oauth keys for each backend. CURRENTLY IS NOT USED.
+    $endpoints['backend-donations']['oauth'] = [
+      'client_id' => $_SERVER['DONATIONS_CLIENT_ID'],
+      'client_secret' => $_SERVER['DONATIONS_CLIENT_SECRET'],
+    ];
+    $endpoints['backend-gifts']['oauth'] = [
+      'client_id' => $_SERVER['GIFTS_CLIENT_ID'],
+      'client_secret' => $_SERVER['GIFTS_CLIENT_SECRET'],
+    ];
+
+    // Write whole array back to avoid "Indirect modification of overloaded
+    // element" PHP notice.
+    $this->settings['endpoints'] = $endpoints;
 
     if (!empty($_ENV['PLATFORM_BRANCH']) && $_ENV['PLATFORM_BRANCH'] != 'master') {
       $this->settings['displayErrorDetails'] = TRUE;
@@ -104,4 +110,5 @@ class PlatformConfigMiddleware {
     $response = $next($request, $response);
     return $response;
   }
+
 }

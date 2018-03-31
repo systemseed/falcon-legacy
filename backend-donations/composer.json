@@ -54,7 +54,8 @@
     "drupal/better_normalizers": "^1.0@beta",
     "drupal/default_content": "^1.0@alpha",
     "drupal/rest_absolute_urls": "^1.0@beta",
-    "drupal/editor_advanced_link": "^1.4"
+    "drupal/editor_advanced_link": "^1.4",
+    "drupal/consumer_image_styles": "^2.0@RC"
   },
   "require-dev": {
     "codeception/codeception": "^2.2.9",

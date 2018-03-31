@@ -81,7 +81,7 @@ export const mappedProductItem = (responseItem) => {
   }
 
   const whatYouGetImage = {
-    src: api.getImageUrl('donations', responseItem.fieldGiftWhatYouGetImage),
+    src: api.getImageUrl('donations', responseItem.fieldGiftWhatYouGetImage, 'width_720'),
     alt: api.getImageAlt(
       responseItem.relationships.field_gift_what_you_get_image
     ),
@@ -119,12 +119,13 @@ export const mappedProductItem = (responseItem) => {
         ? responseItem.fieldGiftCategory.id
         : null,
     price,
-    imageUrl: api.getImageUrl('donations', responseItem.fieldGiftImage),
+    imageUrl: api.getImageUrl('donations', responseItem.fieldGiftImage, 'width_660'),
     imageAlt: responseItem.relationships.field_gift_image.data.meta.alt,
     // "Gift in action" fields.
     actionImageUrl: api.getImageUrl(
       'donations',
-      responseItem.fieldGiftActionImage
+      responseItem.fieldGiftActionImage,
+      'width_720'
     ),
     actionImageAlt:
       responseItem.relationships.field_gift_action_image.data.meta.alt,

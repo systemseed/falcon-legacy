@@ -22,7 +22,7 @@ export const mappedProductItem = (responseItem) => {
     type: 'gift_free',
     title: responseItem.title,
     price,
-    imageUrl: api.getImageUrl('donations', responseItem.fieldGiftImage),
+    imageUrl: api.getImageUrl('donations', responseItem.fieldGiftImage, 'width_660'),
     imageAlt: responseItem.relationships.field_gift_image.data.meta.alt,
     amount: {
       value: responseItem.fieldGiftFreeAmount.number,

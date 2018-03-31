@@ -52,9 +52,9 @@ export const mappedProductItem = (responseItem) => {
     description: responseItem.fieldGiftDescription ? responseItem.fieldGiftDescription.value : '',
     categoryId: responseItem.fieldGiftCategory !== undefined ? responseItem.fieldGiftCategory.id : null,
     price,
-    imageUrl: api.getImageUrl('donations', responseItem.fieldGiftImage),
+    imageUrl: api.getImageUrl('donations', responseItem.fieldGiftImage, 'width_660'),
     imageAlt: responseItem.relationships.field_gift_image.data.meta.alt,
-    descriptionImageUrl: api.getImageUrl('donations', responseItem.fieldGiftDescriptionImage),
+    descriptionImageUrl: api.getImageUrl('donations', responseItem.fieldGiftDescriptionImage, 'width_720'),
     descriptionImageAlt: api.getImageAlt(responseItem.relationships.field_gift_description_image, responseItem.title),
     fieldMetatags: responseItem.fieldMetatags !== undefined ? responseItem.fieldMetatags : {},
   };

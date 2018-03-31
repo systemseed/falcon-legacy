@@ -73,15 +73,17 @@ abstract class Route {
    * @throws \Exception
    */
   public function initializeClient(array $endpoint) {
+    $client_ip = !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+
     if (!empty($endpoint['url'])) {
       $connection_config = [
         'base_uri' => $endpoint['url'],
+        'headers' => [
+          'User-Agent' => 'Api-Bus',
+          'X-Forwarded-For' => $client_ip,
+          'X-Consumer-ID' => $endpoint['consumer_id'],
+        ],
       ];
-      // @todo: Slim use Basic value for Authentification header if auth param exists. It conflicts with Auth2.
-      // @todo: Check and remove after HTTP authentification story.
-//      if (!empty($endpoint['user'] && !empty($endpoint['password']))) {
-//        $connection_config['auth'] = [$endpoint['user'], $endpoint['password']];
-//      }
 
       $this->client = new Client($connection_config);
     }

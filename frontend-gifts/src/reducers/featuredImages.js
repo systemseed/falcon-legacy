@@ -21,7 +21,7 @@ export const featuredImages = (state = {
       const images = action.payload.body.data;
       const processedImages = _map(images, image => ({
         'uuid': image.uuid,
-        'url': api.getImageUrl('gifts', image.fieldFeaturedImage),
+        'url': api.getImageUrl('gifts', image.fieldFeaturedImage, 'width_1920'),
         'alt': image.relationships.field_featured_image.data.meta.alt,
       }));
 

@@ -62,6 +62,11 @@ if (isset($_ENV['PLATFORM_ROUTES']) && !isset($settings['trusted_host_patterns']
     if ($host !== FALSE && $route['type'] == 'upstream' && $route['upstream'] == $_ENV['PLATFORM_APPLICATION_NAME']) {
       $settings['trusted_host_patterns'][] = '^' . preg_quote($host) . '$';
     }
+
+    // Set public files base url explicitly to return full file URLs via API.
+    if ($route['type'] == 'upstream' && $route['upstream'] == $_ENV['PLATFORM_APPLICATION_NAME']) {
+      $settings['file_public_base_url'] = $url . 'sites/default/files';
+    }
   }
   $settings['trusted_host_patterns'] = array_unique($settings['trusted_host_patterns']);
 }
@@ -99,4 +104,14 @@ if (isset($_ENV['PLATFORM_VARIABLES'])) {
 // keys and such.
 if (isset($_ENV['PLATFORM_PROJECT_ENTROPY']) && empty($settings['hash_salt'])) {
   $settings['hash_salt'] = $_ENV['PLATFORM_PROJECT_ENTROPY'];
+}
+
+// Add internal host name.
+$settings['trusted_host_patterns'][] = '\.internal$';
+
+// Set REMOTE_ADDR if request is from internal network.
+if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])
+  && preg_match('#\.internal$#i', $_SERVER['HTTP_HOST'])
+) {
+  $GLOBALS['request']->server->set('REMOTE_ADDR', $_SERVER['HTTP_X_FORWARDED_FOR']);
 }
