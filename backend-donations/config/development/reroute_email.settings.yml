@@ -1,5 +1,5 @@
 reroute_email_enable: true
-reroute_email_address: falcon-test@systemseed.com
+reroute_email_address: test+falcon-don@systemseed.com
 reroute_email_enable_message: false
 _core:
   default_config_hash: 13h0XWn5O_Erl8GU184XxSDadjISwLzYZbsqi4cbMEs
