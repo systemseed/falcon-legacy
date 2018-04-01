@@ -1,0 +1,19 @@
+uuid: 1aa67cf5-e850-49ad-8a0c-086f8130fcd9
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+    - text
+id: config_pages.field_config_checkout_cards
+field_name: field_config_checkout_cards
+entity_type: config_pages
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

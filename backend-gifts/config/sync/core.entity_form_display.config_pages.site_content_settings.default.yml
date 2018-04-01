@@ -4,6 +4,11 @@ status: true
 dependencies:
   config:
     - config_pages.type.site_content_settings
+    - field.field.config_pages.site_content_settings.field_config_checkout_cards
+    - field.field.config_pages.site_content_settings.field_config_checkout_optins
+    - field.field.config_pages.site_content_settings.field_config_checkout_page_title
+    - field.field.config_pages.site_content_settings.field_config_checkout_step_1
+    - field.field.config_pages.site_content_settings.field_config_checkout_step_2
     - field.field.config_pages.site_content_settings.field_config_contact_us_address
     - field.field.config_pages.site_content_settings.field_config_corporate_images
     - field.field.config_pages.site_content_settings.field_config_corporate_labels
@@ -68,6 +73,7 @@ third_party_settings:
         - group_config_front_page
         - group_config_contact_us_page
         - group_corporate_gifts
+        - group_checkout
       parent_name: ''
       weight: 0
       format_type: tabs
@@ -103,11 +109,68 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'How Gifts Work section'
+    group_checkout:
+      children:
+        - field_config_checkout_page_title
+        - field_config_checkout_step_1
+        - field_config_checkout_optins
+        - field_config_checkout_step_2
+        - field_config_checkout_cards
+      parent_name: group_config_tabs
+      weight: 5
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Checkout
 id: config_pages.site_content_settings.default
 targetEntityType: config_pages
 bundle: site_content_settings
 mode: default
 content:
+  field_config_checkout_cards:
+    weight: 10
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_config_checkout_optins:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_config_checkout_page_title:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_config_checkout_step_1:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_config_checkout_step_2:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_config_contact_us_address:
     weight: 5
     settings:

@@ -1,0 +1,21 @@
+uuid: ee306d19-af7d-47a1-b7db-eced2b1f0d13
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+id: config_pages.field_config_checkout_step_2
+field_name: field_config_checkout_step_2
+entity_type: config_pages
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

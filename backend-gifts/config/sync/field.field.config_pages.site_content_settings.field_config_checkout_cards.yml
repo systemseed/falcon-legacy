@@ -1,0 +1,24 @@
+uuid: 4d1e1402-5f73-45b5-b5f0-1ff1647e7a47
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.site_content_settings
+    - field.storage.config_pages.field_config_checkout_cards
+  module:
+    - text
+id: config_pages.site_content_settings.field_config_checkout_cards
+field_name: field_config_checkout_cards
+entity_type: config_pages
+bundle: site_content_settings
+label: 'Cards description'
+description: 'Description for the Cards section.'
+required: false
+translatable: false
+default_value:
+  -
+    value: "<p><strong>Each gift comes with either an e-card or a postal card.</strong> All you have to do is choose which one you want your relative or friend to receive. If you choose to send an e-card, we’ll send it directly on your behalf. If you would prefer to give a postal card, we will post it to you and you’ll be able to deliver it in person.</p>\r\n"
+    format: basic_html
+default_value_callback: ''
+settings: {  }
+field_type: text_long

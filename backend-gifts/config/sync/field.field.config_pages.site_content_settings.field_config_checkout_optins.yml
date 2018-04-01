@@ -1,0 +1,24 @@
+uuid: 388a2a24-c8b9-4d58-be29-4573d599ed84
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.site_content_settings
+    - field.storage.config_pages.field_config_checkout_optins
+  module:
+    - text
+id: config_pages.site_content_settings.field_config_checkout_optins
+field_name: field_config_checkout_optins
+entity_type: config_pages
+bundle: site_content_settings
+label: 'Opt-ins Description'
+description: 'Description for the Opt-ins section.'
+required: false
+translatable: false
+default_value:
+  -
+    value: "<p>We would love to keep you updated about our work and let you know how you can continue to help changing lives. Please tick the boxes below to confirm that we can contact you by:</p>\r\n"
+    format: basic_html
+default_value_callback: ''
+settings: {  }
+field_type: text_long

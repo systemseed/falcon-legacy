@@ -60,7 +60,7 @@ class CheckoutCardsContainer extends Component {
   }
 
   render() {
-    const { basketType, cardItems, dispatch } = this.props;
+    const { basketType, cardItems, dispatch, siteContentSettings } = this.props;
 
     // Do not render pane for corporate gifts.
     if (basketType !== 'gift' || cardItems.length === 0) {
@@ -69,10 +69,12 @@ class CheckoutCardsContainer extends Component {
     return (
       <Row className="checkout-cards-list">
         <Col xs={12}>
-          <h3>Step 2 - Choose a card to go with your gifts</h3>
-          <p className="text-gray text-sm">
-            <strong>Each gift comes with either an e-card or a postal card</strong>. All you have to do is choose which one you want your relative or friend to receive. If you choose to send an e-card, we’ll send it directly on your behalf. If you would prefer to give a postal card, we will post it to you and you’ll be able to deliver it in person.
-      </p>
+          {siteContentSettings.fieldConfigCheckoutStep2 &&
+            <h3>{siteContentSettings.fieldConfigCheckoutStep2}</h3>
+          }
+          {siteContentSettings.fieldConfigCheckoutCards && siteContentSettings.fieldConfigCheckoutCards.value &&
+            <p className="text-gray text-sm" dangerouslySetInnerHTML={{ __html: siteContentSettings.fieldConfigCheckoutCards.value }} />
+          }
           <CheckoutCardsList cards={cardItems} dispatch={dispatch} />
         </Col>
       </Row>
@@ -93,6 +95,7 @@ CheckoutCardsContainer.propTypes = {
   basketType: PropTypes.string,
   cardItems: PropTypes.array,
   dispatch: PropTypes.func,
+  siteContentSettings: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -105,7 +108,9 @@ const mapStateToProps = state => ({
   orderUuid: state.checkout.order.order_uuid,
   // Data from profile form is used in E-Card preview.
   senderFirstName: state.checkout.form.profile.formData.field_profile_first_name,
-  senderLastName: state.checkout.form.profile.formData.field_profile_last_name
+  senderLastName: state.checkout.form.profile.formData.field_profile_last_name,
+  dispatch: PropTypes.func,
+  siteContentSettings: state.siteContentSettings.data
 });
 
 export default connect(mapStateToProps)(CheckoutCardsContainer);

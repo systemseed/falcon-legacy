@@ -69,7 +69,8 @@ class CheckoutContainer extends Component {
       showErrors,
       orderId,
       eventcodes,
-      processing
+      processing,
+      siteContentSettings
     } = this.props;
 
     if (showThankYouPage) {
@@ -91,7 +92,9 @@ class CheckoutContainer extends Component {
     if (eventcodes.isFulfilled && eventcodes.codes.length) {
       return (
         <div className={showErrors ? 'showErrors' : null}>
-          <h3>Step 1 - Enter your personal details</h3>
+          {siteContentSettings.fieldConfigCheckoutStep1 &&
+            <h3>{siteContentSettings.fieldConfigCheckoutStep1}</h3>
+          }
           {/* Different parts of the form are controlled by this container and built on top of CheckoutFormContainer */}
           <CheckoutFormProfile
             onFormValidate={this.onProfileChange}
@@ -107,7 +110,7 @@ class CheckoutContainer extends Component {
               onFormValidate={this.onEventCodeChange}
             />
           }
-          <CheckoutFormOptins onFormValidate={this.onAOptinsChange} />
+          <CheckoutFormOptins onFormValidate={this.onAOptinsChange} description={siteContentSettings.fieldConfigCheckoutOptins && siteContentSettings.fieldConfigCheckoutOptins.value ? siteContentSettings.fieldConfigCheckoutOptins.value : ''} />
           <CheckoutGiftAid onFormValidate={this.onGiftAidChange} />
           {showCards &&
             /* Card container is special case. It manages everything related to cards. */
@@ -137,6 +140,7 @@ CheckoutContainer.propTypes = {
   showThankYouPage: PropTypes.bool.isRequired,
   orderId: PropTypes.string.isRequired,
   eventcodes: PropTypes.object.isRequired,
+  siteContentSettings: PropTypes.object.isRequired,
   showErrors: PropTypes.bool.isRequired,
   processing: PropTypes.bool.isRequired,
   isEmpty: PropTypes.bool.isRequired,
@@ -153,7 +157,8 @@ const mapStateToProps = state => ({
   showErrors: state.checkout.showErrors,
   orderId: state.checkout.order.order_id,
   eventcodes: state.eventcodes,
-  processing: state.checkout.processing
+  processing: state.checkout.processing,
+  siteContentSettings: state.siteContentSettings.data,
 });
 
 

@@ -36,14 +36,17 @@ class CheckoutFormOptins extends Component {
   }
 
   render() {
+    const { description, onFormValidate } = this.props;
     return (
       <Row>
         <Col xs={12}>
-          <p className="text-gray text-sm">We’d love to keep you updated about how your generous support is making a difference to our vital work tackling hunger and how you can help transform more lives through campaigning and appeals. We always keep your details safe and we never pass them on to other organisations. You can change your preferences at any time.</p>
+          {description &&
+            <p className="text-gray text-sm" dangerouslySetInnerHTML={{ __html: description }} />
+          }
           <CheckoutFormContainer
             schema={this.schema}
             uiSchema={this.uiSchema}
-            onFormValidate={this.props.onFormValidate}
+            onFormValidate={onFormValidate}
             formClass="options"
           />
         </Col>
@@ -53,7 +56,8 @@ class CheckoutFormOptins extends Component {
 }
 
 CheckoutFormOptins.propTypes = {
-  onFormValidate: PropTypes.func.isRequired
+  onFormValidate: PropTypes.func.isRequired,
+  description: PropTypes.string
 };
 
 export default CheckoutFormOptins;
