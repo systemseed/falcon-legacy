@@ -249,13 +249,15 @@ class FrontendTester extends \AcceptanceTester {
     $I->switchToNextTab();
     $I->waitForText('PayPal', 80);
     $I->wait(2);
-    $I->see($total_formatted);
 
-    // Paypal will render auth form into iframe. Switch to it.
-    $I->waitForElement('#injectedUnifiedLogin iframe');
-    $I->switchToIFrame('injectedUl');
-
+    // PayPal authentication step 1: Email.
     $I->fillField('login_email', 'test-concern-roi-account@systemseed.com');
+    $I->click('#btnNext');
+
+    $I->waitForElement('input[name=login_password]');
+    $I->wait(2);
+
+    // PayPal authentication step 2: password.
     $I->fillField('login_password', 'C0nc3rn!');
     $I->click('#btnLogin');
 
@@ -265,6 +267,9 @@ class FrontendTester extends \AcceptanceTester {
 
     // Wait for Buy Now button in Paypal window.
     $I->waitForElement('#confirmButtonTop', 80);
+
+    $I->expectTo('See correct total amount.');
+    $I->see($total_formatted);
     $I->wait(3);
 
     $I->click('#confirmButtonTop');
