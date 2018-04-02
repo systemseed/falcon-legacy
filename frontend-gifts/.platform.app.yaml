@@ -1,9 +1,13 @@
 name: frontend-gifts
 type: nodejs:8.9
 
+build:
+  flavor: none
+
 dependencies:
   nodejs:
     pm2: "^2.4.4"
+    yarn: "*"
 web:
   commands:
     # Run node server in pm2 process manager. Logs will be available in /app/run/logs.
@@ -23,7 +27,8 @@ web:
 
 hooks:
   build: |
-    npm run build:platform
+    yarn install
+    yarn run build:platform
   deploy: |
     # Copy built files into writable folder to write into index.html on per-environment basis.
     # This should be refactored once server-side rendering is enabled.
