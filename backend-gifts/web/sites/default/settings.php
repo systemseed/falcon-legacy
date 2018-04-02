@@ -40,6 +40,10 @@ $config['routes']['backend-donations']['client_secret'] = '';
 // This is defined inside the read-only "config" directory, deployed via Git.
 $config_directories[CONFIG_SYNC_DIRECTORY] = '../config/sync';
 
+// Enable reverse proxy to pass IP addresses from API Bus and CDN.
+$settings['reverse_proxy'] = TRUE;
+$settings['reverse_proxy_addresses'] = [$_SERVER['REMOTE_ADDR']];
+
 // Custom configs for sites based on Falcon. This folder is always empty
 // for Falcon repo. However, if you're basing your site on top of Falcon and
 // there are configs different from Falcon's, then you'll want to graylist

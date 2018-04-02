@@ -1,0 +1,15 @@
+uuid: 17949d6e-1996-4c66-8396-75f42ad31a0d
+langcode: en
+status: true
+dependencies: {  }
+name: width_1920
+label: width_1920
+effects:
+  28f070aa-64d7-487f-9c36-d27c0b7a8003:
+    uuid: 28f070aa-64d7-487f-9c36-d27c0b7a8003
+    id: image_scale
+    weight: 1
+    data:
+      width: 1920
+      height: null
+      upscale: false

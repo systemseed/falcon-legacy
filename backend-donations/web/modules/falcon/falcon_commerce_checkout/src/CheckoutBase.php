@@ -151,7 +151,6 @@ abstract class CheckoutBase implements CheckoutInterface {
       'state' => 'draft',
       'mail' => $account->getEmail(),
       'uid' => $account->id(),
-      'ip_address' => '127.0.0.1', // @todo: Pass real IP from the ip bus.
       'billing_profile' => $profile,
       'store_id' => reset($store_ids), // @todo: we use one store now, improve to use multiple stores.
       'order_items' => $order_items,

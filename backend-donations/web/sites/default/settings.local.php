@@ -17,6 +17,7 @@ $settings['hash_salt'] = 'Qf7s6_7c-W3lpFljM8ZSfYuUbAH6Ha5ldqFpJ177TzGggpOzVk9DI0
 
 // Configure base url for images going outside of the site.
 $config['rest_absolute_urls']['base_url'] = 'http://donations.api.flc.local';
+$settings['file_public_base_url'] = 'http://donations.api.flc.local/sites/default/files';
 
 $databases['default']['default'] = array(
   'driver' => 'mysql',

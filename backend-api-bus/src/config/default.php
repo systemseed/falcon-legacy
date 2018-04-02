@@ -13,16 +13,14 @@ return [
     ],
     'endpoints' => [
       'backend-donations' => [
-        'user' => 'falcon',
-        'password' => 'FALC0n$!',
+        'consumer_id' => '', // TODO: add a consumer at admin/config/services/consumer
         'oauth' => [
           'client_id' => '', // @todo add oauth credentials see: /admin/config/people/simple_oauth/oauth2_client
           'client_secret' => ''
         ]
       ],
       'backend-gifts' => [
-        'user' => 'falcon',
-        'password' => 'FALC0n$!',
+        'consumer_id' => '', // TODO: add a consumer at admin/config/services/consumer
         'oauth' => [
           'client_id' => '', // @todo add oauth credentials see: /admin/config/people/simple_oauth/oauth2_client
           'client_secret' => ''

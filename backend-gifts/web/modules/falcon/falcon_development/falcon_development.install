@@ -9,7 +9,7 @@ function falcon_development_install() {
 }
 
 /**
- * Active test users on all development environments.
+ * Activate test users on all development environments.
  */
 function activateTestUsers() {
 

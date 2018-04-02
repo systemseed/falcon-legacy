@@ -25,6 +25,7 @@ $config['routes'] = [
 
 // Configure base url for images going outside of the site.
 $config['rest_absolute_urls']['base_url'] = 'http://gifts.api.flc.local';
+$settings['file_public_base_url'] = 'http://gifts.api.flc.local/sites/default/files';
 
 // API credentials for machine-to-machine communication between backends.
 // @todo add oauth credentials see: /admin/config/people/simple_oauth/oauth2_client

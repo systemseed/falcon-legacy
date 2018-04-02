@@ -203,12 +203,21 @@ const getEcardItem = async (cardId) => {
 
 
 // TODO: rework image handling.
-const getImageUrl = (type, imageField) => {
-  if (imageField && imageField.url) {
-    return `${config[type]}${imageField.url}`;
+const getImageUrl = (type, imageField, imageStyle) => {
+  if (!imageField || !imageField.url) {
+    return false;
   }
 
-  return false;
+  // Return default field image if no image style requested.
+  if (!imageStyle) {
+    return imageField.url;
+  }
+  //  Return default field image if requested image style not found.
+  if (!imageField.meta || !imageField.meta.derivatives || !imageField.meta.derivatives[imageStyle]) {
+    return imageField.url;
+  }
+
+  return imageField.meta.derivatives[imageStyle];
 };
 
 const getImageAlt = (relationship, defaultAlt = '') => {

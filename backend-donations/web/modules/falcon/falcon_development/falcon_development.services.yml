@@ -1,0 +1,6 @@
+services:
+  falcon_development.subscriber:
+    class: Drupal\falcon_development\EventSubscriber\Subscriber
+    arguments: ['@logger.factory']
+    tags:
+      - { name: event_subscriber }
