@@ -39,7 +39,7 @@ GiftsFilter.propTypes = {
       name: React.PropTypes.string.isRequired,
     })
   ).isRequired,
-  categoryId: React.PropTypes.string.isRequired,
+  categoryId: React.PropTypes.string,
 };
 
 export default GiftsFilter;

@@ -2,10 +2,12 @@ import React from 'react';
 import Sticky from 'react-stickynode';
 import { Grid, Row, Col } from 'react-bootstrap';
 import BasketTotal from '../BasketTotal';
+import ContinueShopping from '../ContinueShopping';
 
 const BasketEmpty = ({ currentCurrency }) => (
-  <Grid>
-    <h1 className="space-top-half">Shopping Basket</h1>
+  <Grid className="padding-top">
+    <ContinueShopping />
+    <h1 className="space-top">Shopping Basket</h1>
 
     <Row className="padding-top">
 

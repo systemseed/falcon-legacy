@@ -8,6 +8,7 @@ import BasketTotal from '../BasketTotal';
 import AddGiftDonationContainer from '../../containers/AddGiftDonationContainer';
 import CheckoutButton from '../../containers/CheckoutButton';
 import FreeProductsOfferings from '../../containers/FreeProductsOfferings';
+import ContinueShopping from '../ContinueShopping';
 
 const BasketWithGifts = ({ currentCurrency, products }) => {
   const basketProducts = products.map(product => (
@@ -19,8 +20,9 @@ const BasketWithGifts = ({ currentCurrency, products }) => {
   ));
 
   return (
-    <Grid className="padding-top-3x">
-      <h1 className="space-top-half">Shopping Basket</h1>
+    <Grid className="padding-top">
+      <ContinueShopping />
+      <h1 className="space-top">Shopping Basket</h1>
 
       <Row className="padding-top">
 
