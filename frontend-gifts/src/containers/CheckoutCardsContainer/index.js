@@ -69,8 +69,8 @@ class CheckoutCardsContainer extends Component {
     return (
       <Row className="checkout-cards-list">
         <Col xs={12}>
-          {siteContentSettings.fieldConfigCheckoutStep2 &&
-            <h3>{siteContentSettings.fieldConfigCheckoutStep2}</h3>
+          {siteContentSettings.fieldConfigCheckoutStep3 &&
+            <h3>{siteContentSettings.fieldConfigCheckoutStep3}</h3>
           }
           {siteContentSettings.fieldConfigCheckoutCards && siteContentSettings.fieldConfigCheckoutCards.value &&
             <p className="text-gray text-sm" dangerouslySetInnerHTML={{ __html: siteContentSettings.fieldConfigCheckoutCards.value }} />

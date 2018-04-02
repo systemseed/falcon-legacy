@@ -96,6 +96,9 @@ class CheckoutContainer extends Component {
             region={config.region}
             onFormValidate={this.onAddressChange}
           />
+          {siteContentSettings.fieldConfigCheckoutStep2 &&
+            <h3>{siteContentSettings.fieldConfigCheckoutStep2}</h3>
+          }
           {eventcodes.codes.length > 0 &&
             <CheckoutFormEventCodes
               codes={eventcodes.codes}

@@ -31,7 +31,7 @@ Stripe.propTypes = {
   paymentMethod: PropTypes.object.isRequired,
   total: PropTypes.number.isRequired,
   currency: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
+  email: PropTypes.string,
   dispatch: PropTypes.func,
 };
 
