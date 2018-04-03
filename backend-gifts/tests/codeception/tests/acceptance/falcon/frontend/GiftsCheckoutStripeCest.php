@@ -214,7 +214,6 @@ class GiftsCheckoutStripeCest {
 
     // Wait until cards part of the form is loaded.
     $I->waitForText($gift['title']);
-    $I->canSee('Step 2 - Choose a card to go with your gifts');
 
     $I->expectTo('See two card configuration rows for the same product');
     $I->canSee($gift['title'], '.checkout-container .row.checkout-cards-list .row .col-xs-12:nth-of-type(1) .card-product');
