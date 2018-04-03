@@ -80,7 +80,11 @@ abstract class Route {
         'base_uri' => $endpoint['url'],
         'headers' => [
           'User-Agent' => 'Api-Bus',
+          // Pass real user IP.
           'X-Forwarded-For' => $client_ip,
+          // This host will be used as Drupal base url instead of internal.
+          'X-Forwarded-Host' => $endpoint['public_host'],
+          // See Drupal consumer module for details about this header.
           'X-Consumer-ID' => $endpoint['consumer_id'],
         ],
       ];
