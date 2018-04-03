@@ -1,0 +1,15 @@
+falcon_mail.admin_index:
+  path: '/admin/config/falcon'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Falcon'
+  requirements:
+    _permission: 'access administration pages'
+
+falcon_mail.settings:
+  path: 'admin/config/falcon/falcon_mail'
+  defaults:
+    _form: '\Drupal\falcon_mail\Form\SettingsForm'
+    _title: 'Falcon Mail settings'
+  requirements:
+    _permission: 'administer site configuration'
