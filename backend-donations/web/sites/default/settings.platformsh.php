@@ -65,6 +65,7 @@ if (isset($_ENV['PLATFORM_ROUTES']) && !isset($settings['trusted_host_patterns']
 
     // Set public files base url explicitly to return full file URLs via API.
     if ($route['type'] == 'upstream' && $route['upstream'] == $_ENV['PLATFORM_APPLICATION_NAME']) {
+      // NOTE: doesn't work with JSON API due to FileDownloadUrl::fileCreateRootRelativeUrl call.
       $settings['file_public_base_url'] = $url . 'sites/default/files';
     }
   }
@@ -106,12 +107,15 @@ if (isset($_ENV['PLATFORM_PROJECT_ENTROPY']) && empty($settings['hash_salt'])) {
   $settings['hash_salt'] = $_ENV['PLATFORM_PROJECT_ENTROPY'];
 }
 
-// Add internal host name.
+// Allow requests from internal network.
 $settings['trusted_host_patterns'][] = '\.internal$';
 
-// Set REMOTE_ADDR if request is from internal network.
+// Special case for Platform.sh internal network.
+// Set REMOTE_ADDR to SERVER_ADDR and whitelist this IP in
+// 'reverse_proxy_addresses' to enable proxy mode.
 if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])
   && preg_match('#\.internal$#i', $_SERVER['HTTP_HOST'])
 ) {
-  $GLOBALS['request']->server->set('REMOTE_ADDR', $_SERVER['HTTP_X_FORWARDED_FOR']);
+  $GLOBALS['request']->server->set('REMOTE_ADDR', $_SERVER['SERVER_ADDR']);
+  $settings['reverse_proxy_addresses'][] = $_SERVER['SERVER_ADDR'];
 }

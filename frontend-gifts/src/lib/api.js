@@ -208,15 +208,19 @@ const getImageUrl = (type, imageField, imageStyle) => {
     return false;
   }
 
+  // Note: default JSON API file urls are relative.
+  const defaultUrl = `${config[type]}${imageField.url}`;
+
   // Return default field image if no image style requested.
   if (!imageStyle) {
-    return imageField.url;
+    return defaultUrl;
   }
   //  Return default field image if requested image style not found.
   if (!imageField.meta || !imageField.meta.derivatives || !imageField.meta.derivatives[imageStyle]) {
-    return imageField.url;
+    return defaultUrl;
   }
 
+  // Note: derivatives expose absolute URLs.
   return imageField.meta.derivatives[imageStyle];
 };
 

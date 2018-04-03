@@ -69,6 +69,25 @@ class PlatformConfigMiddleware {
   }
 
   /**
+   * Returns host name by Platform.sh URL template.
+   *
+   * @param string $template
+   *
+   * @return mixed
+   */
+  public static function getHostByTemplate($template) {
+    if ($platform_routes = self::getRoutes()) {
+      foreach ($platform_routes as $url => $route) {
+        if ($route['original_url'] == $template) {
+          return parse_url($url, PHP_URL_HOST);
+        }
+      }
+    }
+
+    return FALSE;
+  }
+
+  /**
    * PlatformConfigMiddleware middleware invokable class.
    *
    * @param \Psr\Http\Message\ServerRequestInterface $request
@@ -79,12 +98,17 @@ class PlatformConfigMiddleware {
   public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next) {
 
     if (!empty($_ENV['PLATFORM_BRANCH'])) {
+
       // Prepare endpoints array for modification.
       $endpoints = $this->settings['endpoints'];
 
       // Use internal Platform.sh network to speed up requests.
       $endpoints['backend-donations']['url'] = 'http://be_donations.internal';
       $endpoints['backend-gifts']['url'] = 'http://be_gifts.internal';
+
+      // Expose public host to pass in X-Forwarded-Host header.
+      $endpoints['backend-donations']['public_host'] = self::getHostByTemplate('https://donations.api.{default}/');
+      $endpoints['backend-gifts']['public_host'] = self::getHostByTemplate('https://gifts.api.{default}/');
 
       // Expose consumer ids for each backend.
       $endpoints['backend-donations']['consumer_id'] = $_ENV['DONATIONS_CONSUMER_ID'];
