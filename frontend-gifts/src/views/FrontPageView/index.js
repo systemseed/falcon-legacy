@@ -7,7 +7,8 @@ import CustomPageMetatags from '../../components/CustomPageMetatags';
 
 const FrontPageView = ({ match }) => (
   <div>
-    <CustomPageMetatags id="front" />
+    {match.params.categoryName === undefined &&
+      <CustomPageMetatags id="front" />}
     <FeaturedImage uuid="722f5be9-151e-405f-9890-df742dd3376b" />
 
     <FrontPageCopy />
