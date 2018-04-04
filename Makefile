@@ -19,14 +19,14 @@ drush:
 	$(eval ARGS := $(filter-out $@,$(MAKECMDGOALS)))
 	@echo Target is \"$(firstword $(ARGS))\"
 	@echo Executing \"drush -r /var/www/html/web $(filter-out $(firstword $(ARGS)), $(ARGS)) --yes\"
-	$(call docker-drupal, $(firstword $(ARGS) drush -r /var/www/html/web $(filter-out $(firstword $(ARGS)), $(ARGS)) --yes)
+	$(call docker-drupal, $(firstword $(ARGS)) drush -r /var/www/html/web $(filter-out $(firstword $(ARGS)), $(ARGS)) --yes)
 
 shell:
 	# Remove the first argument from the list of make commands.
 	$(eval ARGS := $(filter-out $@,$(MAKECMDGOALS)))
 	@echo Target is \"$(firstword $(ARGS))\"
 	@echo Executing \"shell $(filter-out $(firstword $(ARGS)), $(ARGS))\"
-	$(call docker-drupal, $(firstword $(ARGS) $(filter-out $(firstword $(ARGS)), $(ARGS)))
+	$(call docker-drupal, $(firstword $(ARGS)) $(filter-out $(firstword $(ARGS)), $(ARGS)))
 
 tests\:prepare:
 	# Prepare codeception to run.
