@@ -11,6 +11,7 @@ const BasketWidgetContainer = ({ count }) => (
         <span className="material-icons shopping_basket" />
         <span className="count">{ count }</span>
       </i>
+      <span className="text">Go to Basket</span>
     </Link>
     <BasketWidgetDropDownContainer />
   </div>

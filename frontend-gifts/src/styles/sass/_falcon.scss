@@ -1,5 +1,43 @@
 // Falcon fixes for the theme.
 
+// General layout customizations.
+$navbar-min-height-mobile: 98px;
+.navbar {
+  @media #{$navbar-collapse} {
+    min-height: $navbar-min-height-mobile;
+    .main-navigation {
+      top: $navbar-min-height-mobile;
+      height: calc(100% - 98px);
+    }
+
+    @media (min-width: $screen-sm-min) {
+      min-height: $navbar-min-height;
+
+      .main-navigation {
+        top: $navbar-min-height;
+        height: calc(100% - 114px);
+      }
+    }
+  }
+}
+.message-bar {
+  top: $navbar-min-height-mobile;
+
+  @media (min-width: $screen-sm-min) {
+    top: $navbar-min-height;
+  }
+}
+.page-content {
+  margin-top: $navbar-min-height-mobile;
+
+  @media (min-width: $screen-sm-min) {
+    margin-top: $navbar-min-height;
+  }
+}
+.site-logo.visible-mobile {
+  padding: 17px 0;
+}
+
 // Make drop-down arrows to open select list.
 .form-element {
   &.form-select:before {
@@ -86,6 +124,110 @@
 
     svg path.fill {
       fill: #2a5c40;
+    }
+  }
+}
+
+// Go to Basket widget.
+.toolbar {
+  right: 15px;
+  width: 110px;
+
+  @media (min-width: $screen-xs-min) {
+    right: 20px;
+    width: 130px;
+  }
+
+  .inner {
+    .cart-btn {
+      width: 110px;
+
+      @media (min-width: $screen-xs-min) {
+        width: 130px;
+      }
+
+      &> a {
+        padding-left: 0;
+        padding-right: 0;
+
+        .count {
+          top: -7px;
+        }
+
+        .text {
+          display: inline-block;
+          margin-left: 20px;
+          font-size: 10px;
+        }
+
+        @media (min-width: $screen-sm-min) {
+          .text {
+            font-size: 12px;
+          }
+
+          .shopping_basket {
+            font-size: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Mobile menu.
+.mobile-menu-wrapper {
+  display: inline-block;
+  margin-top: 34px;
+  vertical-align: middle;
+  margin-left: -10px;
+
+  @media (min-width: $screen-sm-min) {
+    margin-right: 20px;
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+    padding: 10px;
+
+    &:after {
+      display: block;
+      font-family:'Material Icons';
+      content:"\e5cd";
+      margin-top: -30px;
+      opacity: 0;
+      @include transform(translateY(30px) scale(0.7));
+      @include transition(transform .3s, opacity .15s);
+    }
+    &.active {
+      > i {
+        opacity: 0;
+        @include transform(translateY(-30px) scale(0.7));
+      }
+      &:after {
+        opacity: 1;
+        @include transform(translateY(0) scale(1));
+      }
+    }
+
+    .material-icons.menu {
+      &:before {
+        font-size: 24px;
+        line-height: 24px;
+
+        @media (min-width: $screen-sm-min) {
+          font-size: 30px;
+          line-height: 30px;
+        }
+      }
+    }
+
+    @media #{$navbar-collapse} {
+      display: table-cell;
+      margin: 0;
+      vertical-align: middle;
+      height: 100%;
+      border: 0;
+      line-height: 30px;
     }
   }
 }

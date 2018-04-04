@@ -46,6 +46,18 @@ class GlobalHeader extends React.Component {
           headerLeftText={siteContentSettings.fieldConfigHeaderLeftText.value}
           headerRightText={siteContentSettings.fieldConfigHeaderRightText.value}
         />
+
+        {/* Visible only on the mobile */}
+        <div className="mobile-menu-wrapper">
+          <Button
+            bsStyle="link"
+            className={this.state.isMenuCollapsed ? 'mobile-menu-toggle' : 'mobile-menu-toggle active'}
+            onClick={this.mobileMenuToggle}
+          >
+            <i className="material-icons menu" />
+          </Button>
+        </div>
+
         <Logo />
         {/* <RegionSwitcher /> */}
 
@@ -56,15 +68,6 @@ class GlobalHeader extends React.Component {
 
         <div className="toolbar">
           <div className="inner">
-
-            {/* Visible only on the mobile */}
-            <Button
-              bsStyle="link"
-              className={this.state.isMenuCollapsed ? 'mobile-menu-toggle' : 'mobile-menu-toggle active'}
-              onClick={this.mobileMenuToggle}
-            >
-              <i className="material-icons menu" />
-            </Button>
 
             {/* Basket DropDown Widget */}
             <BasketWidget />
