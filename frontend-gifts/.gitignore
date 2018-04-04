@@ -3,3 +3,6 @@ npm-debug.log
 # Don't commit theme.css, because it gets built
 # during platform.sh deploy.
 src/styles/css/theme.css
+
+# Ignore built files.
+build

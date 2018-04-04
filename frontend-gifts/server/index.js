@@ -1,6 +1,6 @@
 const app = require('./app');
 
-let PORT = 3001;
+let PORT = 3000;
 if (process.env.PLATFORM_PROJECT) {
   // Load the Platform.sh configuration.
   PORT = require('platformsh').config().port;

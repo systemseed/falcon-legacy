@@ -1,4 +1,4 @@
-.PHONY: falcon falcon-install falcon-update drush
+.PHONY: falcon falcon-install falcon-update drush test
 
 # Make sure the local file with docker-compose overrides exist.
 $(shell ! test -e \.\/docker\/docker-compose\.override\.yml && cat \.\/docker\/docker-compose\.override\.default\.yml > \.\/docker\/docker-compose\.override\.yml)
@@ -9,51 +9,56 @@ $(shell ! test -e \.env && cat \.env.default > \.env)
 # Make all variables from the file available here.
 include .env
 
-# Define two users for with different permissions within the php container.
-php = docker-compose exec --user=82:82 $(firstword ${1}) sh -c "$(filter-out $(firstword ${1}), ${1})"
-php-wodby = docker-compose exec $(firstword ${1}) sh -c "$(filter-out $(firstword ${1}), ${1})"
-
-falcon:
-	# Remove the first argument from the list of make commands.
-	$(eval COMMAND := $(filter-out $@,$(MAKECMDGOALS)))
-	@if [ "$(COMMAND)" = "install" ]; then\
-		$(MAKE) -s falcon-install;\
-	fi
-	@if [ "$(COMMAND)" = "update" ]; then\
-    	$(MAKE) -s falcon-update;\
-    fi
-	@if [ "$(COMMAND)" != "update" ] && [ "$(COMMAND)" != "install" ]; then\
-		echo "Command was not found. Try 'make falcon install' or 'make falcon update' instead." ;\
-	fi
+# Define two users for with different permissions within the container.
+# docker-drupal is applicable only for php containers.
+docker-drupal = docker-compose exec --user=82:82 $(firstword ${1}) sh -c "$(filter-out $(firstword ${1}), ${1})"
+docker = docker-compose exec $(firstword ${1}) sh -c "$(filter-out $(firstword ${1}), ${1})"
 
 drush:
-    # Remove the first argument from the list of make commands.
+	# Remove the first argument from the list of make commands.
 	$(eval ARGS := $(filter-out $@,$(MAKECMDGOALS)))
 	@echo Target is \"$(firstword $(ARGS))\"
 	@echo Executing \"drush -r /var/www/html/web $(filter-out $(firstword $(ARGS)), $(ARGS)) --yes\"
-	$(call php, $(filter $(firstword $(ARGS)), $(ARGS)) drush -r /var/www/html/web $(filter-out $(firstword $(ARGS)), $(ARGS)) --yes)
+	$(call docker-drupal, $(filter $(firstword $(ARGS)), $(ARGS)) drush -r /var/www/html/web $(filter-out $(firstword $(ARGS)), $(ARGS)) --yes)
 
 shell:
-    # Remove the first argument from the list of make commands.
+	# Remove the first argument from the list of make commands.
 	$(eval ARGS := $(filter-out $@,$(MAKECMDGOALS)))
 	@echo Target is \"$(firstword $(ARGS))\"
 	@echo Executing \"shell $(filter-out $(firstword $(ARGS)), $(ARGS))\"
-	$(call php, $(filter $(firstword $(ARGS)), $(ARGS)) $(filter-out $(firstword $(ARGS)), $(ARGS)))
+	$(call docker-drupal, $(filter $(firstword $(ARGS)), $(ARGS)) $(filter-out $(firstword $(ARGS)), $(ARGS)))
 
-down:
-	@docker-compose down --remove-orphans
+tests\:prepare:
+	# Prepare codeception to run.
+	$(call docker, be_gifts ./vendor/bin/codecept --config=tests/codeception build)
+	# Run Gifts frontend with SSR support to test SSR as well.
+	@docker-compose stop fe_gifts
+	@docker-compose run fe_gifts yarn build
+	@docker-compose run -d fe_gifts yarn start:server
+	# Give node.js server several seconds to initialize.
+	@sleep 5
 
-up:
+tests\:run:
+	$(MAKE) -s test be_gifts acceptance
+
+test:
+	# Remove the first argument from the list of make commands.
+	$(eval ARGS := $(filter-out $@,$(MAKECMDGOALS)))
+	@echo Target is \"$(firstword $(ARGS))\"
+	@echo Executing \"\./vendor/bin/codecept --config=tests/codeception run $(filter-out $(firstword $(ARGS)), $(ARGS))\"
+	$(call docker, $(firstword $(ARGS)) ./vendor/bin/codecept --config=tests/codeception run $(filter-out $(firstword $(ARGS)), $(ARGS)) --steps)
+
+env\:up:
 	@docker-compose up -d --remove-orphans
 
-#######################################
-## Internal command.
-## Invoked from "make falcon install".
-##
-## Builds the falcon from the buttom up.
-#######################################
+env\:down:
+	@docker-compose down --remove-orphans
 
-falcon-install:
+#########################################
+## Builds the falcon from the buttom up #
+#########################################
+
+falcon\:install:
 	@echo "Installing Falcon from the bottom up..."
 
 	@echo "Setting git config to ignore local files chmod..."
@@ -90,7 +95,7 @@ falcon-install:
 	@echo "#####################"
 
 	@echo "Installing composer dependencies for API Bus..."
-	-$(call php-wodby, api_bus composer install)
+	-$(call docker, api_bus composer install)
 	@echo "Copying default local config file for API bus into the adjustable local config..."
 	@cp ./backend-api-bus/src/config/local.default.php ./backend-api-bus/src/config/local.php
 
@@ -99,9 +104,7 @@ falcon-install:
 	@echo "###########################"
 
 	@echo "Installing composer dependencies for Gifts Backend..."
-	-$(call php-wodby, be_gifts composer install)
-	#@echo "Setting the right permissions for local settings.file..."
-	#-$(call php-wodby, be_gifts chmod 0777 web/sites/default/settings.php)
+	-$(call docker, be_gifts composer install)
 	@echo "Installing Gifts site..."
 	$(MAKE) -s drush be_gifts site-install config_installer
 	@echo "Installing the module to import demo content..."
@@ -114,9 +117,7 @@ falcon-install:
 	@echo "###############################"
 
 	@echo "Installing composer dependencies for Donations Backend..."
-	-$(call php-wodby, be_donations composer install)
-	#@echo "Setting the right permissions for local settings.file..."
-	#-$(call php-wodby, be_donations chmod 0777 web/sites/default/settings.php)
+	-$(call docker, be_donations composer install)
 	@echo "Installing Donations site..."
 	$(MAKE) -s drush be_donations site-install config_installer
 	@echo "Installing the module to import demo content..."
@@ -124,14 +125,11 @@ falcon-install:
 	@echo "Disabling unnecessary modules after demo content import..."
 	$(MAKE) -s drush be_donations pmu falcon_demo_content default_content better_normalizers hal
 
-#######################################
-## Internal command.
-## Invoked from "make falcon update".
-##
-## Brings the falcon up to date with latest changes.
-#######################################
+######################################################
+## Brings the falcon up to date with latest changes ##
+######################################################
 
-falcon-update:
+falcon\:update:
 	@echo "Updating the code from the git remote branch..."
 	@git pull origin $(git rev-parse --abbrev-ref HEAD)
 
@@ -142,7 +140,7 @@ falcon-update:
 	docker-compose up -d --remove-orphans
 
 	@echo "Updating composer dependencies for Donations backend..."
-	-$(call php-wodby, be_donations composer install)
+	-$(call docker, be_donations composer install)
 	@echo "Updating cache on Donations backend..."
 	$(MAKE) -s drush be_donations cr
 	@echo "Applying database updates on Donations backend..."
@@ -153,7 +151,7 @@ falcon-update:
 	$(MAKE) -s drush be_donations entup
 
 	@echo "Updating composer dependencies for Gifts backend..."
-	-$(call php-wodby, be_gifts composer install)
+	-$(call docker, be_gifts composer install)
 	@echo "Updating cache on Gifts backend..."
 	$(MAKE) -s drush be_gifts cr
 	@echo "Applying database updates on Gifts backend..."
