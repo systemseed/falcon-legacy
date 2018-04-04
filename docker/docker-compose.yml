@@ -152,6 +152,16 @@ services:
     image: mailhog/mailhog
 
   #########################
+  ### CHROME FOR TESTS ####
+  #########################
+
+  chrome:
+    image: selenium/standalone-chrome:3.11.0
+    expose:
+      - 4444
+    shm_size: 2gb
+
+  #########################
   ###### TRAEFIK ##########
   #########################
 
@@ -162,3 +172,13 @@ services:
       - '80:80'
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      default:
+        aliases:
+          - gifts.$PROJECT_BASE_URL 
+          - main.$PROJECT_BASE_URL 
+          - api.$PROJECT_BASE_URL
+          - gifts.api.$PROJECT_BASE_URL
+          - pma.gifts.api.$PROJECT_BASE_URL
+          - donations.api.$PROJECT_BASE_URL 
+          - pma.donations.api.$PROJECT_BASE_URL

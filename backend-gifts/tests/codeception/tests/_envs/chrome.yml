@@ -1,6 +1,7 @@
-# `phantom` environment config goes here
+# Configuration of chrome environment.
 modules:
   config:
-      WebDriver:
-          browser: 'chrome'
-          port: 9515
+    WebDriver:
+      browser: chrome
+      host: chrome
+      port: 4444
