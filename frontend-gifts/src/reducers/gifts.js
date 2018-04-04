@@ -41,7 +41,8 @@ export const gifts = (state = {
             categories.push({
               id: item.fieldGiftCategory.id,
               name: item.fieldGiftCategory.name,
-              path: item.fieldGiftCategory.fieldFieldablePath
+              path: item.fieldGiftCategory.fieldFieldablePath,
+              metatags: item.fieldGiftCategory.fieldMetatags
             });
           }
         }

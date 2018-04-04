@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.gift_category.field_fieldable_path
+    - field.field.taxonomy_term.gift_category.field_metatags
     - taxonomy.vocabulary.gift_category
   module:
     - text
@@ -21,3 +22,4 @@ content:
     third_party_settings: {  }
 hidden:
   field_fieldable_path: true
+  field_metatags: true

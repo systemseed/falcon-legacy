@@ -4,12 +4,31 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.gift_category.field_fieldable_path
+    - field.field.taxonomy_term.gift_category.field_metatags
     - taxonomy.vocabulary.gift_category
+  module:
+    - metatag
+    - path
+    - text
 id: taxonomy_term.gift_category.default
 targetEntityType: taxonomy_term
 bundle: gift_category
 mode: default
 content:
+  description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_metatags:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+    region: content
   name:
     type: string_textfield
     weight: 0
@@ -18,7 +37,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
+  path:
+    type: path
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
-  description: true
   field_fieldable_path: true
-  path: true

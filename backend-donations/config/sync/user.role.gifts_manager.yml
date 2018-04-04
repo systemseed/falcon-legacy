@@ -19,6 +19,7 @@ permissions:
   - 'add event code entities'
   - 'add own profile_gifts profile'
   - 'administer commerce_product'
+  - 'administer taxonomy'
   - 'create commerce_product_attribute'
   - 'create gift commerce_order'
   - 'create gift commerce_product'

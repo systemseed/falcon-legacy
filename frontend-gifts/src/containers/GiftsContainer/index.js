@@ -9,6 +9,7 @@ import Loading from '../../components/Loading';
 import LoadingError from '../../components/LoadingError';
 import GiftsFilter from '../../components/GiftsFilter';
 import GiftsGrid from '../../components/GiftsGrid';
+import Metatags from '../../components/Metatags';
 
 class GiftsContainer extends React.Component {
 
@@ -43,6 +44,7 @@ class GiftsContainer extends React.Component {
     if (giftsFiltered.isFulfilled && giftsFiltered.products) {
       return (
         <div>
+          {category && <Metatags metatags={category.metatags} />}
           <GiftsFilter
             categories={giftsFiltered.categories}
             categoryId={categoryId}
@@ -86,7 +88,9 @@ GiftsContainer.propTypes = {
     categories: React.PropTypes.arrayOf(
       React.PropTypes.shape({
         id: React.PropTypes.string,
-        name: React.PropTypes.string
+        name: React.PropTypes.string,
+        path: React.PropTypes.string,
+        metatags: React.PropTypes.object
       })
     ),
   }),
