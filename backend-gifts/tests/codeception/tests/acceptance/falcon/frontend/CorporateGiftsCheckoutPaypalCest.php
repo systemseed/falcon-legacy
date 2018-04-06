@@ -26,6 +26,7 @@ class CorporateGiftsCheckoutPaypalCest {
     $I->amGoingTo('Add gift to basket.');
     $I->addCorporateGiftToBasket(\ContentConfig::getCorporateGiftData());
     $I->click('.toolbar a[href="/basket"]');
+    $I->waitForElementNotVisible('.cart-dropdown');
 
     $I->click('Checkout');
     $I->canSee('Checkout and save lives');

@@ -22,6 +22,7 @@ class GiftsBasketCest {
     $I->amGoingTo('Add gift to basket and reload the page.');
     $I->addGiftToBasket(\ContentConfig::getGiftData());
     $I->click('.toolbar a[href="/basket"]');
+    $I->waitForElementNotVisible('.cart-dropdown');
 
     $I->waitForText($gift['title'], 10);
     $I->canSee('Shopping Basket');
@@ -48,6 +49,7 @@ class GiftsBasketCest {
     $I->amGoingTo('Add gift to basket.');
     $I->addGiftToBasket(\ContentConfig::getGiftData());
     $I->click('.toolbar a[href="/basket"]');
+    $I->waitForElementNotVisible('.cart-dropdown');
 
     // Wait until basket loaded.
     $I->waitForText($gift['title'], 10);
@@ -94,6 +96,7 @@ class GiftsBasketCest {
     $I->amGoingTo('Add gift to basket.');
     $I->addGiftToBasket(\ContentConfig::getGiftData());
     $I->click('.toolbar a[href="/basket"]');
+    $I->waitForElementNotVisible('.cart-dropdown');
 
     // Wait until basket loaded.
     $I->waitForText($gift['title'], 10);
@@ -120,6 +123,7 @@ class GiftsBasketCest {
     $I->amGoingTo('Add gift to basket.');
     $I->addGiftToBasket(\ContentConfig::getGiftData());
     $I->click('.toolbar a[href="/basket"]');
+    $I->waitForElementNotVisible('.cart-dropdown');
 
     // Wait until basket loaded.
     $I->waitForText($gift['title'], 10);
@@ -152,6 +156,7 @@ class GiftsBasketCest {
     $I->addGiftToBasket($gift, TRUE);
 
     $I->click('.toolbar a[href="/basket"]');
+    $I->waitForElementNotVisible('.cart-dropdown');
 
     // Wait until basket loaded.
     $I->waitForText($gift['title'], 10);

@@ -27,6 +27,7 @@ class GiftsCheckoutStripeCest {
     $I->amGoingTo('Add gift to basket.');
     $I->addGiftToBasket(\ContentConfig::getGiftData());
     $I->click('.toolbar a[href="/basket"]');
+    $I->waitForElementNotVisible('.cart-dropdown');
 
     $I->click('Checkout');
     $I->canSee('Checkout and save lives');
@@ -208,6 +209,7 @@ class GiftsCheckoutStripeCest {
     $total_formatted = number_format($total, 2);
 
     $I->click('.toolbar a[href="/basket"]');
+    $I->waitForElementNotVisible('.cart-dropdown');
 
     $I->click('Checkout');
     $I->canSee('Checkout and save lives');
