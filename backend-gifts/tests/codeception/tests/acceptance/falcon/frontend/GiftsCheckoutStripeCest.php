@@ -27,6 +27,8 @@ class GiftsCheckoutStripeCest {
     $I->amGoingTo('Add gift to basket.');
     $I->addGiftToBasket(\ContentConfig::getGiftData());
     $I->click('.toolbar a[href="/basket"]');
+    // Wait till cart dropdown is hidden.
+    $I->moveMouseOver('.top-bar');
     $I->waitForElementNotVisible('.cart-dropdown');
 
     $I->click('Checkout');
@@ -209,6 +211,8 @@ class GiftsCheckoutStripeCest {
     $total_formatted = number_format($total, 2);
 
     $I->click('.toolbar a[href="/basket"]');
+    // Wait till cart dropdown is hidden.
+    $I->moveMouseOver('.top-bar');
     $I->waitForElementNotVisible('.cart-dropdown');
 
     $I->click('Checkout');

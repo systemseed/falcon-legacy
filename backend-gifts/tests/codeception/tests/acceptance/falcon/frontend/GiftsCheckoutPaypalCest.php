@@ -26,6 +26,8 @@ class GiftsCheckoutPaypalCest {
     $I->amGoingTo('Add gift to basket.');
     $I->addGiftToBasket(\ContentConfig::getGiftData());
     $I->click('.toolbar a[href="/basket"]');
+    // Wait till cart dropdown is hidden.
+    $I->moveMouseOver('.top-bar');
     $I->waitForElementNotVisible('.cart-dropdown');
 
     $I->click('Checkout');
