@@ -3,18 +3,17 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as analyticsActions from '../../actions/analytics';
 
-const CheckoutButton = ({ dispatch }) => (
+const CheckoutButton = ({ children, dispatch, ...props }) => (
   <Link
     to="/checkout"
-    className="btn btn-primary btn-block space-top-none"
+    {...props}
     onClick={() => dispatch(analyticsActions.ecommerceCheckout())}
-  >
-    Checkout
-  </Link>
+  > {children}</Link >
 );
 
 CheckoutButton.propTypes = {
-  dispatch: PropTypes.func
+  dispatch: PropTypes.func,
+  children: PropTypes.node
 };
 
 export default connect()(CheckoutButton);

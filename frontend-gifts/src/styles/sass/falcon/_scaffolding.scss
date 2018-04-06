@@ -1,0 +1,7 @@
+.page-content {
+  margin-top: $navbar-min-height-mobile;
+
+  @media (min-width: $screen-sm-min) {
+    margin-top: $navbar-min-height;
+  }
+}

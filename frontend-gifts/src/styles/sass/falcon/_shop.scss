@@ -1,0 +1,125 @@
+// Shopping cart.
+.shopping-cart {
+	.item {
+		padding: 0 45px 30px 0;
+		border-bottom: 2px solid #d5d5d5;
+    margin-bottom: 30px;
+
+    .item-row {
+      display: flex;
+    }
+
+    .item-details {
+      flex-grow: 1;
+      margin-top: -1px;
+    }
+
+		.item-thumb {
+			width: $shopping-cart-thumb-width-mobile;
+			margin-right: 20px;
+      > img { width: 100%; }
+
+      @media (min-width: $screen-sm-min) {
+        width: $shopping-cart-thumb-width;
+      }
+    }
+
+    .item-title, .item-price {
+      font-size: $font-size-small;
+      line-height: 1.44;
+
+      @media (min-width: $screen-sm-min) {
+        font-size: $font-size-lead;
+      }
+    }
+
+    .item-title {
+      font-weight: 600;
+      margin-bottom: 0;
+      > a {
+        color: $nav-link-color;
+        text-decoration: none;
+        &:hover, &:focus {
+          color: $nav-link-hover-color;
+          text-decoration: none;
+        }
+      }
+    }
+
+    .item-price {
+      margin-bottom: 4px;
+    }
+
+    // Wrapper when both quantity and remove widgets are visible.
+    .item-controls-flex {
+      // Place controls in two columns.
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-right: -30px;
+
+      @media (min-width: $screen-md-min) {
+        // Disable columns on larger screens.
+        display: block;
+      }
+    }
+
+    .count-input {
+      margin-top: 3px;
+      margin-bottom: 0;
+    }
+
+    .item-remove {
+      font-size: 11px;
+      line-height: 1.45;
+      color: #eb5151;
+      text-decoration: none;
+
+      @media (min-width: $screen-md-min) {
+        font-size: 14px;
+        line-height: 1.14;
+        color: #b8b8b8;
+
+        &:hover {
+          color: #eb5151;
+          text-decoration: underline;
+        }
+        &:active {
+          color: #8f2954;
+        }
+      }
+    }
+
+    .item-bundle-row {
+      margin-right: -30px;
+      @media (min-width: $screen-md-min) {
+        margin-right: 0;
+        margin-left: $shopping-cart-thumb-width + 20px;
+      }
+    }
+
+    .cart-item--bundle {
+      display: flex;
+      align-items: center;
+      .item-thumb {
+        width: 70px;
+        padding-right: 7px;
+      }
+      .item-details {
+        font-size: 14px;
+      }
+    }
+	}
+  .btn { margin-top: 0; }
+  .basket-bundle-container {
+    background: #f5f5f5;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+	@media #{$mobile-land} {
+		.item {
+			padding-bottom: 20px;
+		}
+	}
+}

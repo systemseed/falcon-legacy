@@ -2,7 +2,6 @@
   position: fixed;
   right: 0;
   left: 0;
-  top: 114px;
   display: none;
   text-align: center;
   opacity: 0;
@@ -12,6 +11,12 @@
   transition-duration: 0.5s;
   z-index: 15;
   text-decoration: none;
+  top: $navbar-min-height-mobile;
+
+  @media (min-width: $screen-sm-min) {
+    top: $navbar-min-height;
+  }
+
   a {
     color: white;
   }

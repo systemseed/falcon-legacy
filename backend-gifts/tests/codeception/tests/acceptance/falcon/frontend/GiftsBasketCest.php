@@ -100,7 +100,7 @@ class GiftsBasketCest {
     $I->canSee('CHECKOUT', '.btn-primary');
 
     $I->amGoingTo('Click on Remove icon.');
-    $I->click('button.item-remove');
+    $I->click('.item-remove');
 
     $I->expectTo('See empty basket');
     $I->canSee('Your basket is empty.');

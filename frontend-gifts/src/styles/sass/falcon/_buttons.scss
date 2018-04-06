@@ -1,0 +1,78 @@
+// Add support of SVG icons to buttons.
+.btn-primary {
+  path.fill {
+    fill: #ffffff;
+  }
+
+  &:hover {
+    svg path.fill {
+      fill: $brand-primary;
+    }
+  }
+
+  &:active {
+    svg path.fill {
+      fill: $brand-primary;
+    }
+  }
+}
+
+// Override btn-info.
+.btn-info {
+  background-color: white;
+  color: $brand-primary;
+  border-color: $brand-primary;
+  border-width: 1px;
+
+  &:hover {
+    background-color: white;
+    color: $brand-alternate;
+    border-color: $brand-alternate;
+  }
+}
+
+// Introduce new button type.
+.btn.btn-secondary {
+  text-transform: none;
+  background-color: transparent;
+  color: #606060;
+  border: solid 1px #7f7f7f;
+
+  path.fill {
+    fill: #7f7f7f;
+  }
+
+  &:hover {
+    color: $brand-primary;
+    border-color: $brand-primary;
+
+    svg path.fill {
+      fill: $brand-primary;
+    }
+  }
+
+  &:active {
+    color: $brand-alternate !important;
+    border-color: $brand-alternate;
+
+    svg path.fill {
+      fill: $brand-alternate;
+    }
+  }
+}
+
+// Introduce cusom buttom size.
+.btn-small {
+  text-transform: none;
+  height: 32px;
+  line-height: 28px;
+  padding: 0 12px 0 11px;
+  margin: 0;
+  font-size: 12px;
+
+  @media (min-width: $screen-sm-min) {
+    height: 36px;
+    line-height: 32px;
+    font-size: 14px;
+  }
+}
