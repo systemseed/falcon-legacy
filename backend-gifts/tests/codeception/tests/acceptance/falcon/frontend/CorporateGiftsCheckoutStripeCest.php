@@ -50,7 +50,7 @@ class CorporateGiftsCheckoutStripeCest {
     $currency = $I->getCurrency();
     $gift = \ContentConfig::getCorporateGiftData();
     $I->expectTo('See correct total amount');
-    $I->canSee('Basket total:');
+    $I->canSee('Basket subtotal:');
     $I->canSee($gift['price'][$currency]['formatted']);
 
     // By default, payment buttons are hidden.
