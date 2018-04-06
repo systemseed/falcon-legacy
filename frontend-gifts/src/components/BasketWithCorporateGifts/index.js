@@ -4,7 +4,6 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import * as basketUtils from '../../utils/basket';
 import BasketItem from './BasketItem';
 import BasketItemsInCart from '../BasketWithGifts/BasketItemsInCart';
-import BasketTotal from '../BasketTotal';
 import CheckoutButton from '../../containers/CheckoutButton';
 import BasketNav from '../BasketNav';
 import BasketSummary from '../BasketWithGifts/BasketSummary';
