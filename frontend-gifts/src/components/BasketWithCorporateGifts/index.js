@@ -4,9 +4,9 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import * as basketUtils from '../../utils/basket';
 import BasketItem from './BasketItem';
 import BasketItemsInCart from '../BasketWithGifts/BasketItemsInCart';
-import BasketTotal from '../BasketTotal';
 import CheckoutButton from '../../containers/CheckoutButton';
-import ContinueShopping from '../ContinueShopping';
+import BasketNav from '../BasketNav';
+import BasketSummary from '../BasketWithGifts/BasketSummary';
 
 const BasketWithCorporateGifts = ({ currentCurrency, products }) => {
   const basketProducts = products.map(product => (
@@ -19,18 +19,25 @@ const BasketWithCorporateGifts = ({ currentCurrency, products }) => {
 
   return (
     <Grid className="padding-top">
-      <ContinueShopping />
+      <BasketNav />
       <h1 className="space-top">Shopping Basket</h1>
 
-      <Row className="padding-top">
+      <Row>
 
         <Col sm={8} className="padding-bottom-2x sticky-bottom-boundary-basket">
 
+          <BasketSummary
+            className="text-sm visible-xs"
+            count={basketUtils.getItemsCount(products, currentCurrency)}
+            total={basketUtils.getTotal(products, currentCurrency)}
+            currency={currentCurrency}
+          />
           <BasketItemsInCart
+            className="hidden-xs"
             count={basketUtils.getItemsCount(products, currentCurrency)}
           />
 
-          <div className="shopping-cart">
+          <div className="space-top-2x shopping-cart">
             {basketProducts}
           </div>
 
@@ -39,15 +46,15 @@ const BasketWithCorporateGifts = ({ currentCurrency, products }) => {
         <Col md={3} mdOffset={1} sm={4} className="padding-bottom-2x">
           <aside>
             <Sticky top={114} bottomBoundary=".sticky-bottom-boundary-basket">
-              <h3 className="toolbar-title">Basket total:</h3>
-              <h4 className="amount">
-                <BasketTotal
-                  total={basketUtils.getTotal(products, currentCurrency)}
-                  currentCurrency={currentCurrency}
-                />
-              </h4>
+              <BasketSummary
+                className="text-sm lead-md"
+                total={basketUtils.getTotal(products, currentCurrency)}
+                currency={currentCurrency}
+              />
 
-              <CheckoutButton />
+              <CheckoutButton className="btn btn-primary btn-block space-top-none">
+                Checkout
+              </CheckoutButton>
             </Sticky>
           </aside>
         </Col>

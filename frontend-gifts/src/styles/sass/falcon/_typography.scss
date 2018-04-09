@@ -1,0 +1,25 @@
+// Typography enhancements.
+h1 {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 12px;
+
+  @media (min-width: $screen-sm-min) {
+    font-size: $font-size-h1;
+    margin-bottom: $line-height-computed * 0.65;
+  }
+}
+
+p {
+  margin: 0 0 10px;
+  @media (min-width: $screen-sm-min) {
+    margin-bottom: 16px;
+  }
+}
+
+.lead-md {
+  // Enable .lead class for md+ screens only.
+  @media (min-width: $screen-sm-min) {
+    font-size: $font-size-lead;
+  }
+}

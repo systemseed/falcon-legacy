@@ -8,8 +8,8 @@ const BundleProductsInBasket = ({ bundle }) => {
   }
 
   return (
-    <div>
-      <p className="basket-bundle-label">With this bundle you get the following gifts:</p>
+    <div className="item-bundle-row">
+      <p className="space-top text-sm">With this bundle you get the following gifts:</p>
       <div className="basket-bundle-container">
         {bundle.giftsInBundle.map(product => (
           <div className="cart-item cart-item--bundle" key={product.id}>
@@ -25,7 +25,7 @@ const BundleProductsInBasket = ({ bundle }) => {
 };
 
 BundleProductsInBasket.propTypes = {
-  bundle: PropTypes.string.isRequired
+  bundle: PropTypes.object.isRequired
 };
 
 export default BundleProductsInBasket;

@@ -37,7 +37,7 @@ class AddDonationForm extends React.Component {
         >
           <Col xs={6} sm={9}>
             <Button
-              bsStyle="primary"
+              bsStyle="info"
               type="submit"
               className="btn-block space-top-none"
             >

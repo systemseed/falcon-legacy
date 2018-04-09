@@ -21,6 +21,8 @@ $brand-warning:         #8e8005;
 $brand-danger:          #8E0554;
 $brand-error:           #8e0606;
 
+$brand-alternate:       #2a5c40;
+
 $body-bg: 							#fff;
 
 
@@ -37,7 +39,7 @@ $font-size-lead:          floor(($font-size-base * 1.125)); // ~18px
 $font-size-small: 				floor(($font-size-base * 0.875)); // ~14px
 $font-size-xs:         		floor(($font-size-base * 0.75)); // ~12px
 
-$font-size-h1:            floor(($font-size-base * 2.5)); // ~40px
+$font-size-h1:            floor(($font-size-base * 2.25)); // ~36px
 $font-size-h2:            floor(($font-size-base * 1.875)); // ~30px
 $font-size-h3:            floor(($font-size-base * 1.625)); // ~26px
 $font-size-h4:            floor(($font-size-base * 1.375)); // ~22px
@@ -165,6 +167,7 @@ $table-bg-accent: 						$gray-lighter;
 
 $navbar-zindex: 					9900;
 $navbar-min-height: 			114px;
+$navbar-min-height-mobile: 98px;
 $navbar-bg: 							#fff;
 
 $image-logo-width: 				115px;
@@ -195,9 +198,8 @@ $cart-dropdown-border:        1px solid $hr-border;
 $cart-dropdown-thumb-width:   65px;
 
 // Shopping Cart
-$shopping-cart-thumb-width:       140px;
-$shopping-cart-icon-size:         20px;
-$shopping-cart-item-title-size:   floor($font-size-base * 1.375); // ~22px;
+$shopping-cart-thumb-width:         140px;
+$shopping-cart-thumb-width-mobile:  100px;
 
 // Search Button
 $search-button-icon-size:     20px;

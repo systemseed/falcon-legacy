@@ -27,8 +27,11 @@ class GiftsCheckoutStripeCest {
     $I->amGoingTo('Add gift to basket.');
     $I->addGiftToBasket(\ContentConfig::getGiftData());
     $I->click('.toolbar a[href="/basket"]');
+    // Wait till cart dropdown is hidden.
+    $I->moveMouseOver('.top-bar');
+    $I->waitForElementNotVisible('.cart-dropdown');
 
-    $I->click('Checkout');
+    $I->click('Checkout', '.sticky-outer-wrapper');
     $I->canSee('Checkout and save lives');
 
     // Wait until the form is loaded.
@@ -48,7 +51,7 @@ class GiftsCheckoutStripeCest {
     $currency = $I->getCurrency();
     $gift = \ContentConfig::getGiftData();
     $I->expectTo('See correct total amount');
-    $I->canSee('Basket total:');
+    $I->canSee('Basket subtotal:');
     $I->canSee($gift['price'][$currency]['formatted']);
 
     // By default, payment buttons are hidden.
@@ -208,8 +211,11 @@ class GiftsCheckoutStripeCest {
     $total_formatted = number_format($total, 2);
 
     $I->click('.toolbar a[href="/basket"]');
+    // Wait till cart dropdown is hidden.
+    $I->moveMouseOver('.top-bar');
+    $I->waitForElementNotVisible('.cart-dropdown');
 
-    $I->click('Checkout');
+    $I->click('Checkout', '.sticky-outer-wrapper');
     $I->canSee('Checkout and save lives');
 
     // Wait until cards part of the form is loaded.

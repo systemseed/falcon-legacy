@@ -1,0 +1,18 @@
+.basket-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .btn {
+    flex: 1;
+    max-width: 160px;
+
+    @media (min-width: $screen-sm-min) {
+      flex: none;
+      max-width: none;
+      &.btn-checkout {
+        display: none;
+      }
+    }
+  }
+}

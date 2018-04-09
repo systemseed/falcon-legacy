@@ -22,6 +22,9 @@ class GiftsBasketCest {
     $I->amGoingTo('Add gift to basket and reload the page.');
     $I->addGiftToBasket(\ContentConfig::getGiftData());
     $I->click('.toolbar a[href="/basket"]');
+    // Wait till cart dropdown is hidden.
+    $I->moveMouseOver('.top-bar');
+    $I->waitForElementNotVisible('.cart-dropdown');
 
     $I->waitForText($gift['title'], 10);
     $I->canSee('Shopping Basket');
@@ -48,6 +51,9 @@ class GiftsBasketCest {
     $I->amGoingTo('Add gift to basket.');
     $I->addGiftToBasket(\ContentConfig::getGiftData());
     $I->click('.toolbar a[href="/basket"]');
+    // Wait till cart dropdown is hidden.
+    $I->moveMouseOver('.top-bar');
+    $I->waitForElementNotVisible('.cart-dropdown');
 
     // Wait until basket loaded.
     $I->waitForText($gift['title'], 10);
@@ -58,7 +64,7 @@ class GiftsBasketCest {
     $I->expectTo("See '-' button is disabled");
     $I->canSeeElement('.count-input button:nth-of-type(1)', ['disabled' => TRUE]);
     $I->expectTo('See correct total amount');
-    $I->canSee($gift['price'][$currency]['formatted'], 'aside .amount');
+    $I->canSee($gift['price'][$currency]['formatted'], 'aside .text-danger');
 
     // Increase - 2 items.
     $I->amGoingTo('Click on + button to increase quantity');
@@ -69,7 +75,7 @@ class GiftsBasketCest {
     $I->canSee(2, '.shopping-cart .count-input span.quantity');
     $I->canSee("Currently 2 items in cart");
     $I->expectTo('See correct total amount');
-    $I->canSee(number_format($gift['price'][$currency]['number'] * 2, 2), 'aside .amount');
+    $I->canSee(number_format($gift['price'][$currency]['number'] * 2, 2), 'aside .text-danger');
 
     // Decrease - 1 item.
     $I->amGoingTo("Click on '-' button to descrease quantity");
@@ -80,7 +86,7 @@ class GiftsBasketCest {
     $I->expectTo("See '-' button is disabled");
     $I->canSeeElement('.count-input button:nth-of-type(1)', ['disabled' => TRUE]);
     $I->expectTo('See correct total amount');
-    $I->canSee($gift['price'][$currency]['formatted'], 'aside .amount');
+    $I->canSee($gift['price'][$currency]['formatted'], 'aside .text-danger');
     $I->canSee('CHECKOUT', '.btn-primary');
   }
 
@@ -94,13 +100,16 @@ class GiftsBasketCest {
     $I->amGoingTo('Add gift to basket.');
     $I->addGiftToBasket(\ContentConfig::getGiftData());
     $I->click('.toolbar a[href="/basket"]');
+    // Wait till cart dropdown is hidden.
+    $I->moveMouseOver('.top-bar');
+    $I->waitForElementNotVisible('.cart-dropdown');
 
     // Wait until basket loaded.
     $I->waitForText($gift['title'], 10);
     $I->canSee('CHECKOUT', '.btn-primary');
 
     $I->amGoingTo('Click on Remove icon.');
-    $I->click('button.item-remove');
+    $I->click('.item-remove');
 
     $I->expectTo('See empty basket');
     $I->canSee('Your basket is empty.');
@@ -120,6 +129,9 @@ class GiftsBasketCest {
     $I->amGoingTo('Add gift to basket.');
     $I->addGiftToBasket(\ContentConfig::getGiftData());
     $I->click('.toolbar a[href="/basket"]');
+    // Wait till cart dropdown is hidden.
+    $I->moveMouseOver('.top-bar');
+    $I->waitForElementNotVisible('.cart-dropdown');
 
     // Wait until basket loaded.
     $I->waitForText($gift['title'], 10);
@@ -133,7 +145,7 @@ class GiftsBasketCest {
     $I->canSee('Custom donation');
     $I->canSee(number_format($custom_donation, 2));
     $total = number_format($custom_donation + $gift['price'][$currency]['number'], 2);
-    $I->canSee($total, 'aside .amount');
+    $I->canSee($total, 'aside .text-danger');
     $I->canSee('CHECKOUT', '.btn-primary');
   }
 
@@ -152,11 +164,16 @@ class GiftsBasketCest {
     $I->addGiftToBasket($gift, TRUE);
 
     $I->click('.toolbar a[href="/basket"]');
+    // Wait till cart dropdown is hidden.
+    $I->moveMouseOver('.top-bar');
+    // Wait till cart dropdown is hidden.
+    $I->moveMouseOver('.top-bar');
+    $I->waitForElementNotVisible('.cart-dropdown');
 
     // Wait until basket loaded.
     $I->waitForText($gift['title'], 10);
     $I->cantSee($corp_gift['title']);
-    $I->canSee($gift['price'][$currency]['formatted'], 'aside .amount');
+    $I->canSee($gift['price'][$currency]['formatted'], 'aside .text-danger');
     $I->canSee('CHECKOUT', '.btn-primary');
   }
 }

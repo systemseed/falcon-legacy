@@ -1,17 +1,16 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import * as basketUtils from '../../utils/basket';
-import BasketTotal from '../../components/BasketTotal';
+import BasketSummary from '../../components/BasketWithGifts/BasketSummary';
+
 
 const CheckoutBasketSummary = ({ products, currentCurrency }) => (
   <div>
-    <h3 className="toolbar-title">Basket total:</h3>
-    <h4 className="amount">
-      <BasketTotal
-        total={basketUtils.getTotal(products, currentCurrency)}
-        currentCurrency={currentCurrency}
-      />
-    </h4>
+    <BasketSummary
+      className="text-sm lead-md"
+      total={basketUtils.getTotal(products, currentCurrency)}
+      currency={currentCurrency}
+    />
   </div>
 );
 

@@ -26,8 +26,11 @@ class CorporateGiftsCheckoutStripeCest {
     $I->amGoingTo('Add gift to basket.');
     $I->addCorporateGiftToBasket(\ContentConfig::getCorporateGiftData());
     $I->click('.toolbar a[href="/basket"]');
+    // Wait till cart dropdown is hidden.
+    $I->moveMouseOver('.top-bar');
+    $I->waitForElementNotVisible('.cart-dropdown');
 
-    $I->click('Checkout');
+    $I->click('Checkout', '.sticky-outer-wrapper');
     $I->canSee('Checkout and save lives');
 
     // Wait until the form is loaded.
@@ -47,7 +50,7 @@ class CorporateGiftsCheckoutStripeCest {
     $currency = $I->getCurrency();
     $gift = \ContentConfig::getCorporateGiftData();
     $I->expectTo('See correct total amount');
-    $I->canSee('Basket total:');
+    $I->canSee('Basket subtotal:');
     $I->canSee($gift['price'][$currency]['formatted']);
 
     // By default, payment buttons are hidden.
