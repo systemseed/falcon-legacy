@@ -67,6 +67,7 @@ if (isset($_ENV['PLATFORM_ROUTES']) && !isset($settings['trusted_host_patterns']
     if ($route['type'] == 'upstream' && $route['upstream'] == $_ENV['PLATFORM_APPLICATION_NAME']) {
       // NOTE: doesn't work with JSON API due to FileDownloadUrl::fileCreateRootRelativeUrl call.
       $settings['file_public_base_url'] = $url . 'sites/default/files';
+      $config['rest_absolute_urls']['base_url'] = rtrim($url, "/");
     }
   }
   $settings['trusted_host_patterns'] = array_unique($settings['trusted_host_patterns']);
