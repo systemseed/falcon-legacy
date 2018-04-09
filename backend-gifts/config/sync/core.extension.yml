@@ -30,6 +30,7 @@ module:
   field: 0
   field_group: 0
   field_ui: 0
+  fieldable_path: 0
   file: 0
   filter: 0
   help: 0
@@ -56,6 +57,7 @@ module:
   rest: 0
   rest_absolute_urls: 0
   restui: 0
+  scheduler: 0
   serialization: 0
   shortcut: 0
   simple_oauth: 0

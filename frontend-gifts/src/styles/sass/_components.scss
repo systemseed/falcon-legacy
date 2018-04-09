@@ -808,12 +808,15 @@ img.mfp-img {
   left: 32px;
 }
 
-// Basic bages customisations.
-.basic-page-faq .featured-image {
-  background-position: top;
-}
-.basic-page-about .featured-image {
-  background-position: center right;
+// Basic pages customisations.
+.basic-page-container {
+  &.path--how-gifts-work .featured-image {
+    background-position: center right;
+  }
+
+  &.path--faq .featured-image {
+    background-position: top;
+  }
 }
 
 // Cards preview.

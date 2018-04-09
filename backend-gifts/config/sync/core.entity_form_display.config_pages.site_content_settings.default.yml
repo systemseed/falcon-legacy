@@ -11,6 +11,7 @@ dependencies:
     - field.field.config_pages.site_content_settings.field_config_checkout_step_2
     - field.field.config_pages.site_content_settings.field_config_checkout_step_3
     - field.field.config_pages.site_content_settings.field_config_contact_us_address
+    - field.field.config_pages.site_content_settings.field_config_corporate_enabled
     - field.field.config_pages.site_content_settings.field_config_corporate_images
     - field.field.config_pages.site_content_settings.field_config_corporate_labels
     - field.field.config_pages.site_content_settings.field_config_footer_left_text
@@ -86,6 +87,7 @@ third_party_settings:
       label: Tabs
     group_corporate_gifts:
       children:
+        - field_config_corporate_enabled
         - group_how_gifts_work_section
       parent_name: group_config_tabs
       weight: 4
@@ -102,7 +104,7 @@ third_party_settings:
         - field_config_corporate_labels
         - field_config_corporate_images
       parent_name: group_corporate_gifts
-      weight: 20
+      weight: 24
       format_type: fieldset
       format_settings:
         id: ''
@@ -188,6 +190,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_config_corporate_enabled:
+    weight: 23
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_config_corporate_images:
     weight: 22

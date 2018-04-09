@@ -50,7 +50,9 @@
     "drupal/config_filter": "^1.1",
     "drupal/rest_absolute_urls": "^1.0@beta",
     "drupal/editor_advanced_link": "^1.4",
-    "drupal/consumer_image_styles": "^2.0@RC"
+    "drupal/consumer_image_styles": "^2.0@RC",
+    "drupal/scheduler": "^1.0",
+    "drupal/fieldable_path": "^1.0@RC"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,

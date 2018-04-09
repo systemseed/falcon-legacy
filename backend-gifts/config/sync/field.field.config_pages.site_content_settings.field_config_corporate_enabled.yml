@@ -1,0 +1,23 @@
+uuid: ca9f6f8c-ff59-4755-a707-ff122f2a48f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.site_content_settings
+    - field.storage.config_pages.field_config_corporate_enabled
+id: config_pages.site_content_settings.field_config_corporate_enabled
+field_name: field_config_corporate_enabled
+entity_type: config_pages
+bundle: site_content_settings
+label: 'Enable Corporate gifts'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

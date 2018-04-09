@@ -4,10 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.node.cw_page.body
+    - field.field.node.cw_page.field_featured_image
+    - field.field.node.cw_page.field_fieldable_path
     - field.field.node.cw_page.field_metatags
     - node.type.cw_page
   module:
-    - metatag
     - text
     - user
 _core:
@@ -20,18 +21,12 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 0
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_metatags:
-    weight: 102
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: metatag_empty_formatter
-    region: content
-  links:
-    weight: 100
-    region: content
-hidden: {  }
+hidden:
+  field_featured_image: true
+  field_fieldable_path: true
+  field_metatags: true
+  links: true

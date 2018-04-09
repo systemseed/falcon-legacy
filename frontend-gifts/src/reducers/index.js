@@ -7,7 +7,7 @@ import { currentCurrency } from './currencies';
 import { contactForm } from './contact';
 import { messageBar } from './messageBar';
 import { featuredImages } from './featuredImages';
-import { basicPage } from './basicPage';
+import { pages } from './pages';
 import { siteContentSettings } from './siteContentSettings';
 import { customPageMetatags } from './customPageMetatags';
 import basket from './basket';
@@ -32,7 +32,7 @@ const routerChanged = (state = {}, action) => {
 export default combineReducers({
   app: (state = {}) => state,
   basket,
-  basicPage,
+  pages,
   cards,
   customPageMetatags,
   checkout,
