@@ -1,256 +1,68 @@
-# Environment variables (set these via CircleCI GUI):
-# - PLATFORM_TOKEN (platform.sh machine token for CLI to authenticate)
-# - PLATFORM_PROJECT_NAME (machine name of your project. Looks like "dwnzfswdl2o3e").
-# - PLATFORM_HTTP_AUTH_USERNAME (http auth username to protect environments)
-# - PLATFORM_HTTP_AUTH_PASSWORD (http auth password to protect environments)
-
 version: 2
-# Default configs for all jobs.
-defaults: &defaults
-  working_directory: /home/circleci/flc
-  docker:
-    # TODO: consider using falcon/circle-php:7.1-cli-browsers with Platform CLI.
-    # and codeception installed.
-    - image: circleci/php:7.1-cli-browsers
-
-# Step to install Platform.sh. Reusable across different jobs.
-install_platform_cli: &install_platform_cli
-  name: Install and configure Platform.sh CLI
-  command: |
-    curl -sS https://platform.sh/cli/installer | php
-    sudo ln -s ~/.platformsh/bin/platform /usr/local/bin/platform
-    echo $PLATFORM_TOKEN > ~/.platformsh/token
-    cp .platform/config.yaml ~/.platformsh/config.yaml
-    # Add platform.sh remote to git.
-    if ! git config remote.platform.url > /dev/null; then
-      git remote add platform $PLATFORM_PROJECT_NAME@git.eu.platform.sh:$PLATFORM_PROJECT_NAME.git
-    fi
-    # Avoid dynamic hosts issue for git push to platform.
-    echo "StrictHostKeyChecking no" > ~/.ssh/config
 
 jobs:
-  prepare_platformsh:
-    <<: *defaults
+  build:
+    machine: true
+
     steps:
       - checkout
-
-      - run:
-          <<: *install_platform_cli
-
-      - run:
-          name: Execute custom pre-push script (to make a backup for example)
-          command: |
-            if [[ -f .circleci/scripts/${CIRCLE_PROJECT_REPONAME}/pre-push-hook.sh ]]; then
-              .circleci/scripts/${CIRCLE_PROJECT_REPONAME}/pre-push-hook.sh
-            fi
-
-      - run:
-          name: Clone database if [db sync] is presented in commit message
-          shell: /bin/bash
-          command: |
-            git log --format=%B -n 1 $CIRCLE_SHA1 | grep "\[db sync\]"
-            if [ $? -ne 1 ] || [ $CIRCLE_BRANCH == "stage" ]; then
-              platform sync data -y
-            fi
-
-      - run:
-          name: Push branch changes to platform's git repository
-          command: git push --force platform $CIRCLE_BRANCH
-          no_output_timeout: 20m
-
-      - run:
-          name: Build a new environment on platform.sh using db/files from master environment
-          command: platform environment:activate -y --project $PLATFORM_PROJECT_NAME --parent=master $CIRCLE_BRANCH
-
-      - run:
-          name: Enable HTTP AUTH on frontend only
-          command: |
-            if [ $CIRCLE_BRANCH != "master" ] && [ -v PLATFORM_HTTP_AUTH_USERNAME ] && [ -v PLATFORM_HTTP_AUTH_PASSWORD ]; then
-              platform variable:set env:http_auth "$PLATFORM_HTTP_AUTH_USERNAME:$PLATFORM_HTTP_AUTH_PASSWORD"
-            fi
-
-      - run:
-          name: Enable SMTP on Platform
-          command: |
-            if [ $CIRCLE_BRANCH != "master" ]; then
-               platform environment:info enable_smtp true
-            fi
-
-      # Fail the build if deploy of any app was not successful. This is required
-      # because Platform deploys the app regardless of deploy hook result.
-      - run:
-          name: First attempt to access the app. Ignore failure.
-          command: |
-            platform log deploy --app=backend-donations --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED" || true
-            platform log deploy --app=backend-gifts --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED" || true
-            platform log deploy --app=frontend-gifts --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED" || true
-
-      # TODO: wait until containers are available to avoid false positives.
-      - run: platform log deploy --app=backend-donations --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED" || true
-      - run: platform log deploy --app=backend-gifts --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED" || true
-      - run: platform log deploy --app=frontend-gifts --lines 1 | grep "DEPLOY SUCCESSFULLY COMPLETED" || true
-
-  ######################################
-  ####### PREPARE & RUN TESTS ##########
-  ######################################
-  run_tests_backend_gifts:
-    <<: *defaults
-    steps:
-      - checkout
-
-      - run:
-          <<: *install_platform_cli
-
-      - run:
-          name: Run ESLint for the frontend Gifts application.
-          command: platform ssh --app=frontend-gifts "./node_modules/.bin/eslint ./src/ --quiet"
-
-      - run:
-          name: Start PhantomJS webdriver
-          command: phantomjs --webdriver=4445 --ignore-ssl-errors=true
-          background: true
-
-      - run:
-          name: Start ChromeDriver
-          command: chromedriver --url-base=wd/hub --port=9515 --ignore-certificate-errors
-          background: true
-
-      - run:
-          name: Install PHP libzip-dev lib for codeception to get installed
-          command: |
-            sudo apt-get install -y libzip-dev
-            sudo docker-php-ext-install zip pcntl pdo_mysql
 
       - restore_cache:
           keys:
-            - composer-cache-{{ arch }}-{{ .Branch }}
-            - composer-cache
-
-      - run:
-          name: Install test dependencies
-          command: |
-            composer require codeception/codeception:^2.3.5 drupal/coder flow/jsonpath
-            # Is not used now:
-            # composer require stripe/stripe-php paypal/rest-api-sdk-php
-
+            - be-donationscomposer-v1-{{ checksum "composer.lock" }}
+            - be-donationscomposer-v1-
       - save_cache:
-          key: composer-cache-{{ arch }}-{{ .Branch }}
+          key: be-donationscomposer-v1-{{ checksum "backend-donations/composer.lock" }}
           paths:
-            - vendor
+            - backend-donations/vendor
 
-      # Get list of root folders changed in this branch in comparison to the master branch.
-      # Later we're going to run tests and code reviews only for changed applications.
-#      - run:
-#          name: Get list of changed apps in this build
-#          command: |
-#            git pull
-#            GIT_CHANGES=$(git diff --name-only origin/master...$CIRCLE_BRANCH . | cut -d '/' -f1 | uniq | paste -sd ',' -)
-#            echo $GIT_CHANGES # Just debug outout.
-#            echo "GIT_CHANGES=$GIT_CHANGES" >> $BASH_ENV
+      - restore_cache:
+          keys:
+            - be-gifts-composer-v1-{{ checksum "composer.lock" }}
+            - be-gifts-composer-v1-
+      - save_cache:
+          key: be-gifts-composer-v1-{{ checksum "backend-gifts/composer.lock" }}
+          paths:
+            - backend-gifts/vendor
 
-      - run:
-          name: Expose app URLs as environment variables
-          shell: /bin/bash
-          command: |
-            BACKEND_GIFTS_URL="$(platform route:get -A backend-gifts -P url https://gifts.api.\{default\}/)"
-            BACKEND_DONATIONS_URL="$(platform route:get -A backend-gifts -P url https://donations.api.\{default\}/)"
-            FRONTEND_GIFTS_URL="$(platform route:get -A backend-gifts -P url https://www.\{default\}/)"
-            ABI_BUS_URL="$(platform route:get -A backend-gifts -P url https://api.\{default\}/)"
-            echo "$BACKEND_GIFTS_URL $BACKEND_DONATIONS_URL $FRONTEND_GIFTS_URL $ABI_BUS_URL"
-            echo "BACKEND_GIFTS_URL=$BACKEND_GIFTS_URL" >> $BASH_ENV
-            echo "BACKEND_DONATIONS_URL=$BACKEND_DONATIONS_URL" >> $BASH_ENV
-            echo "FRONTEND_GIFTS_URL=$FRONTEND_GIFTS_URL" >> $BASH_ENV
-            echo "ABI_BUS_URL=$ABI_BUS_URL" >> $BASH_ENV
-            source $BASH_ENV
+      - restore_cache:
+          keys:
+            - be-api-bus-composer-v1-{{ checksum "composer.lock" }}
+            - be-api-bus-composer-v1-
+      - save_cache:
+          key: be-api-bus-composer-v1-{{ checksum "backend-api-bus/composer.lock" }}
+          paths:
+            - backend-api-bus/vendor
 
-      - run:
-          name: Run Codeception tests
-          shell: /bin/bash
-          command: |
-            ./vendor/bin/codecept run acceptance  -c ./backend-gifts/tests/codeception --debug --env=phantom-circle,chrome || true
+      - restore_cache:
+          keys:
+            - main-npm-v1-{{ checksum "package.json" }}
+            - main-npm-v1-
+      - save_cache:
+          key: main-npm-v1-{{ checksum "frontend-main/package.json" }}
+          paths:
+            - frontend-main/node_modules
 
-      - run:
-          name: Re-run failed Codeception tests
-          shell: /bin/bash
-          command: |
-            source /home/circleci/.bashrc
-            echo "$BACKEND_GIFTS_URL"
-            ./vendor/bin/codecept run acceptance  -c ./backend-gifts/tests/codeception --debug --env=phantom-circle,chrome -g failed
+      - restore_cache:
+          keys:
+            - be-gifts-npm-v1-{{ checksum "package.json" }}
+            - be-gifts-npm-v1-
+      - save_cache:
+          key: be-gifts-npm-v1-{{ checksum "frontend-gifts/package.json" }}
+          paths:
+            - frontend-gifts/node_modules
 
-      - store_artifacts:
-          path: backend-gifts/tests/codeception/tests/_output
-
-
-  run_success_build_hook:
-    <<: *defaults
-    steps:
-      - checkout
-
-      - run:
-          <<: *install_platform_cli
-
-      - run:
-          name: Execute custom on post-tests hook
-          command: |
-            if [[ -f .circleci/scripts/${CIRCLE_PROJECT_REPONAME}/post-tests-hook.sh ]]; then
-              .circleci/scripts/${CIRCLE_PROJECT_REPONAME}/post-tests-hook.sh
-            fi
-
-
-  ######################################
-  ###### CHECK SECURITY UPDATES ########
-  ######################################
-  check_security_updates:
-    <<: *defaults
-    steps:
-      - checkout
-
-      - run:
-          <<: *install_platform_cli
-
-      - run:
-          name: Check security updates for Donations backend
-          # Connect via SSH and output result of drush pm-updatestatus as a list | count output lines | make sure there are exactly zero lines which means "No security updates found".
-          command: platform ssh -q -A backend-donations "drush ups -r web --security-only --pipe" | wc -l | grep -q "\b0$"
-
-      - run:
-          when: always
-          name: Check security updates for Gifts backend
-          command: platform ssh -q -A backend-gifts "drush ups -r web --security-only --pipe" | wc -l | grep -q "\b0$"
-
-
-workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - prepare_platformsh
-
-      - run_tests_backend_gifts:
-          requires:
-            - prepare_platformsh
-          filters:
-            branches:
-              ignore:
-                #- master
-                - production
-
-      - run_success_build_hook:
-          requires:
-            - run_tests_backend_gifts
-            # Jobs to be introduced.
-            #- run_tests_backend_donations
-            #- run_tests_api_bus
-            #- run_tests_frontend_gifts
-
-  security_updates_scheduled:
-    triggers:
-      - schedule:
-          cron: "0 0 * * 4"
-          filters:
-            branches:
-              only: master
-    jobs:
-      - prepare_platformsh
-      - check_security_updates:
-          requires:
-            - prepare_platformsh
+      - run: wget -qO- https://api.chingis.proxy.wodby.com/api/v1/get/cli | sh
+      - run: wodby ci init 928acdc2-4c03-43ca-b34f-d00bdc45869f
+      - run: wodby ci run be-donations-php -- composer install --prefer-dist --no-interaction -d backend-donations
+      - run: wodby ci run be-gifts-php -- composer install --prefer-dist --no-interaction -d backend-gifts
+      - run: wodby ci run be-api-bus-php -- composer install --prefer-dist --no-interaction -d backend-api-bus
+      - run: wodby ci run fe-main -- yarn install --modules-folder frontend-main
+      - run: wodby ci run fe-gifts -- yarn install --modules-folder frontend-gifts
+      - run: wodby ci build be-donations-php --from backend-donations
+      - run: wodby ci build be-gifts-php --from backend-gifts
+      - run: wodby ci build be-api-bus-php --from backend-api-bus
+      - run: wodby ci build fe-main --from frontend-main
+      - run: wodby ci build fe-gifts --from frontend-gifts
+      - run: wodby ci release be-donations-php be-gifts-php be-api-bus-php fe-main fe-gifts
+      - run: wodby ci deploy be-donations-php be-gifts-php be-api-bus-php fe-main fe-gifts
