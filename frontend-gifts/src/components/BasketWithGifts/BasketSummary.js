@@ -4,7 +4,7 @@ import BasketTotal from '../BasketTotal';
 
 const BasketSummary = ({ total, currency, count, className }) => (
   <p className={className}>
-    Basket subtotal
+    <strong> Basket subtotal </strong>
     {
       count &&
       <span>

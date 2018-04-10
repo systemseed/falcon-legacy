@@ -26,8 +26,7 @@ const BasketWithGifts = ({ currentCurrency, products }) => {
 
       <Row>
 
-        <Col sm={8} className="padding-bottom-2x sticky-bottom-boundary-basket">
-
+        <Col sm={12} md={7} className="padding-bottom-2x sticky-bottom-boundary-basket">
           <BasketSummary
             className="text-sm visible-xs"
             count={basketUtils.getItemsCount(products, currentCurrency)}
@@ -38,22 +37,19 @@ const BasketWithGifts = ({ currentCurrency, products }) => {
             className="hidden-xs"
             count={basketUtils.getItemsCount(products, currentCurrency)}
           />
-
           <FreeProductsOfferings className="offering--basket-page" />
-
           <div className="space-top-2x shopping-cart">
             {basketProducts}
           </div>
-
-          <div>
-            <p className="text-sm">Would you like to make a donation as well? </p>
-            <AddGiftDonationContainer />
-          </div>
         </Col>
 
-        <Col md={3} mdOffset={1} sm={4} className="padding-bottom-2x">
+        <Col sm={12}  md={4} mdOffset={1} className="padding-bottom-2x">
           <aside>
             <Sticky top={114} bottomBoundary=".sticky-bottom-boundary-basket">
+              <div>
+                <p className="text-md">Would you like to make a donation as well? </p>
+                <AddGiftDonationContainer />
+              </div>
               <BasketSummary
                 className="text-sm lead-md"
                 total={basketUtils.getTotal(products, currentCurrency)}
