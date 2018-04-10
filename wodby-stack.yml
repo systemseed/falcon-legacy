@@ -24,6 +24,7 @@ services:
         environment:
             NGINX_LOG_FORMAT_SHOW_REAL_IP: 1
             NGINX_BACKEND_HOST: be-api-bus-php
+            NGINX_SERVER_ROOT: /var/www/html/public
         check_ready:
             exec:
                 command: [make, check-ready, '-f', /usr/local/bin/actions.mk]
@@ -50,6 +51,7 @@ services:
         environment:
             NGINX_LOG_FORMAT_SHOW_REAL_IP: 1
             NGINX_BACKEND_HOST: be-donations-php
+            NGINX_SERVER_ROOT: /var/www/html/web
         volumes:
             - 'be-donations-files:/mnt/files'
         check_ready:
@@ -61,6 +63,12 @@ services:
             period_seconds: 30
     be-donations-php:
         image: 'wodby/drupal-php:7.1-4.2.3'
+        environment:
+            DB_HOST: '{{donations_db_host}}'
+            DB_NAME: '{{donations_db_database}}'
+            DB_USER: '{{donations_db_user}}'
+            DB_PASSWORD: '{{gifts_db_password}}'
+            PHP_FPM_CLEAR_ENV: no
         ports:
             - 9000/tcp
         volumes:
@@ -74,6 +82,11 @@ services:
             period_seconds: 30
     be-donations-crond:
         image: 'wodby/drupal-php:7.1-4.2.3'
+        environment:
+            DB_HOST: '{{donations_db_host}}'
+            DB_NAME: '{{donations_db_database}}'
+            DB_USER: '{{donations_db_user}}'
+            DB_PASSWORD: '{{gifts_db_password}}'
         command:
             - sudo
             - '-E'
@@ -87,6 +100,11 @@ services:
         memory: '8:512'
     be-donations-sshd:
         image: 'wodby/drupal-php:7.1-4.2.3'
+        environment:
+            DB_HOST: '{{donations_db_host}}'
+            DB_NAME: '{{donations_db_database}}'
+            DB_USER: '{{donations_db_user}}'
+            DB_PASSWORD: '{{gifts_db_password}}'
         command:
             - sudo
             - /usr/sbin/sshd
@@ -98,13 +116,13 @@ services:
             - '9000:9000'
         volumes:
             - 'be-donations-files:/mnt/files'
-    be-donations-mariadb:
+    donations-mariadb:
         image: 'wodby/mariadb:10.2-3.1.2'
         environment:
-            MYSQL_ROOT_PASSWORD: '{{be_donations_db_root_password}}'
-            MYSQL_DATABASE: '{{be_donations_db_database}}'
-            MYSQL_USER: '{{be_donations_db_user}}'
-            MYSQL_PASSWORD: '{{be_donations_db_password}}'
+            MYSQL_ROOT_PASSWORD: '{{donations_db_root_password}}'
+            MYSQL_DATABASE: '{{donations_db_database}}'
+            MYSQL_USER: '{{donations_db_user}}'
+            MYSQL_PASSWORD: '{{donations_db_password}}'
         ports:
             - 3306/tcp
         volumes:
@@ -119,10 +137,10 @@ services:
             failure_threshold: 3
             timeout_seconds: 3
             period_seconds: 30
-    be-donations-pma:
+    donations-pma:
         image: 'phpmyadmin/phpmyadmin:4.7.0-2'
         environment:
-            PMA_HOST: '{{be_donations_db_host}}'
+            PMA_HOST: '{{donations_db_host}}'
             PHP_UPLOAD_MAX_FILESIZE: 1G
             PHP_MAX_INPUT_VARS: 1G
         ports:
@@ -135,6 +153,7 @@ services:
         environment:
             NGINX_LOG_FORMAT_SHOW_REAL_IP: 1
             NGINX_BACKEND_HOST: be-gifts-php
+            NGINX_SERVER_ROOT: /var/www/html/web
         volumes:
             - 'be-gifts-files:/mnt/files'
         check_ready:
@@ -146,6 +165,12 @@ services:
             period_seconds: 30
     be-gifts-php:
         image: 'wodby/drupal-php:7.1-4.2.3'
+        environment:
+            DB_HOST: '{{gifts_db_host}}'
+            DB_NAME: '{{gifts_db_database}}'
+            DB_USER: '{{gifts_db_user}}'
+            DB_PASSWORD: '{{gifts_db_password}}'
+            PHP_FPM_CLEAR_ENV: no
         ports:
             - 9000/tcp
         volumes:
@@ -159,6 +184,11 @@ services:
             period_seconds: 30
     be-gifts-crond:
         image: 'wodby/drupal-php:7.1-4.2.3'
+        environment:
+            DB_HOST: '{{gifts_db_host}}'
+            DB_NAME: '{{gifts_db_database}}'
+            DB_USER: '{{gifts_db_user}}'
+            DB_PASSWORD: '{{gifts_db_password}}'
         command:
             - sudo
             - '-E'
@@ -172,6 +202,11 @@ services:
         memory: '8:512'
     be-gifts-sshd:
         image: 'wodby/drupal-php:7.1-4.2.3'
+        environment:
+            DB_HOST: '{{gifts_db_host}}'
+            DB_NAME: '{{gifts_db_database}}'
+            DB_USER: '{{gifts_db_user}}'
+            DB_PASSWORD: '{{gifts_db_password}}'
         command:
             - sudo
             - /usr/sbin/sshd
@@ -183,13 +218,13 @@ services:
             - '9000:9000'
         volumes:
             - 'files:/mnt/files'
-    be-gifts-mariadb:
+    gifts-mariadb:
         image: 'wodby/mariadb:10.2-3.1.2'
         environment:
-            MYSQL_ROOT_PASSWORD: '{{be_gifts_db_root_password}}'
-            MYSQL_DATABASE: '{{be_gifts_db_database}}'
-            MYSQL_USER: '{{be_gifts_db_user}}'
-            MYSQL_PASSWORD: '{{be_gifts_db_password}}'
+            MYSQL_ROOT_PASSWORD: '{{gifts_db_root_password}}'
+            MYSQL_DATABASE: '{{gifts_db_database}}'
+            MYSQL_USER: '{{gifts_db_user}}'
+            MYSQL_PASSWORD: '{{gifts_db_password}}'
         ports:
             - 3306/tcp
         volumes:
@@ -204,10 +239,10 @@ services:
             failure_threshold: 3
             timeout_seconds: 3
             period_seconds: 30
-    be-gifts-pma:
+    gifts-pma:
         image: 'phpmyadmin/phpmyadmin:4.7.0-2'
         environment:
-            PMA_HOST: '{{be_gifts_db_host}}'
+            PMA_HOST: '{{gifts_db_host}}'
             PHP_UPLOAD_MAX_FILESIZE: 1G
             PHP_MAX_INPUT_VARS: 1G
         ports:
@@ -244,13 +279,13 @@ volumes:
     smtpd:
         path: smtpd
 variables:
-    be_gifts_db_root_password: 'auto:password:32'
-    be_gifts_db_password: 'auto:password:16'
-    be_gifts_db_host: be-gifts-mariadb
-    be_gifts_db_database: gifts
-    be_gifts_db_user: drupal
-    be_donations_db_root_password: 'auto:password:32'
-    be_donations_db_password: 'auto:password:16'
-    be_donations_db_host: be-donations-mariadb
-    be_donations_db_database: donations
-    be_donations_db_user: drupal
+    gifts_db_root_password: 'auto:password:32'
+    gifts_db_password: 'auto:password:16'
+    gifts_db_host: gifts-mariadb
+    gifts_db_database: gifts
+    gifts_db_user: drupal
+    donations_db_root_password: 'auto:password:32'
+    donations_db_password: 'auto:password:16'
+    donations_db_host: donations-mariadb
+    donations_db_database: donations
+    donations_db_user: drupal

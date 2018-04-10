@@ -9,10 +9,10 @@ jobs:
 
       - restore_cache:
           keys:
-            - be-donationscomposer-v1-{{ checksum "backend-donations/composer.lock" }}
-            - be-donationscomposer-v1-
+            - be-donations-composer-v1-{{ checksum "backend-donations/composer.lock" }}
+            - be-donations-composer-v1-
       - save_cache:
-          key: be-donationscomposer-v1-{{ checksum "backend-donations/composer.lock" }}
+          key: be-donations-composer-v1-{{ checksum "backend-donations/composer.lock" }}
           paths:
             - backend-donations/vendor
 
@@ -53,16 +53,16 @@ jobs:
             - frontend-gifts/node_modules
 
       - run: wget -qO- https://api.chingis.proxy.wodby.com/api/v1/get/cli | sh
-      - run: wodby ci init 928acdc2-4c03-43ca-b34f-d00bdc45869f
-      - run: wodby ci run be-donations-php -- composer install --prefer-dist --no-interaction -d backend-donations
-      - run: wodby ci run be-gifts-php -- composer install --prefer-dist --no-interaction -d backend-gifts
-      - run: wodby ci run be-api-bus-php -- composer install --prefer-dist --no-interaction -d backend-api-bus
-      - run: wodby ci run fe-main -- yarn install --modules-folder frontend-main
-      - run: wodby ci run fe-gifts -- yarn install --modules-folder frontend-gifts
-      - run: wodby ci build be-donations-php --from backend-donations
-      - run: wodby ci build be-gifts-php --from backend-gifts
-      - run: wodby ci build be-api-bus-php --from backend-api-bus
+      - run: wodby ci init 107e26da-2b83-4594-b25a-f2d6027daa22
+      - run: wodby ci run -s be-donations-php -- composer install --prefer-dist --no-interaction -d backend-donations
+      - run: wodby ci run -s be-gifts-php -- composer install --prefer-dist --no-interaction -d backend-gifts
+      - run: wodby ci run -s be-api-bus-php -- composer install --prefer-dist --no-interaction -d backend-api-bus
+      - run: wodby ci run -s fe-main -- yarn install --modules-folder frontend-main
+      - run: wodby ci run -s fe-gifts -- yarn install --modules-folder frontend-gifts
+      - run: wodby ci build be-donations- --from backend-donations
+      - run: wodby ci build be-gifts- --from backend-gifts
+      - run: wodby ci build be-api-bus- --from backend-api-bus
       - run: wodby ci build fe-main --from frontend-main
       - run: wodby ci build fe-gifts --from frontend-gifts
-      - run: wodby ci release be-donations-php be-gifts-php be-api-bus-php fe-main fe-gifts
-      - run: wodby ci deploy be-donations-php be-gifts-php be-api-bus-php fe-main fe-gifts
+      - run: wodby ci release be- fe-
+      - run: wodby ci deploy be- fe-
