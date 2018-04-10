@@ -54,15 +54,22 @@ jobs:
 
       - run: wget -qO- https://api.chingis.proxy.wodby.com/api/v1/get/cli | sh
       - run: wodby ci init 107e26da-2b83-4594-b25a-f2d6027daa22
+      # fix permissions
+      - run: wodby ci run -u root -s be-donations-php -- chown -R wodby:wodby backend-*
+      - run: wodby ci run -u root -s fe-main -- chown -R node:node frontend-*
+      # install composer deps
       - run: wodby ci run -s be-donations-php -- composer install --prefer-dist --no-interaction -d backend-donations
       - run: wodby ci run -s be-gifts-php -- composer install --prefer-dist --no-interaction -d backend-gifts
       - run: wodby ci run -s be-api-bus-php -- composer install --prefer-dist --no-interaction -d backend-api-bus
+      # install node deps
       - run: wodby ci run -s fe-main -- yarn install --modules-folder frontend-main
       - run: wodby ci run -s fe-gifts -- yarn install --modules-folder frontend-gifts
+      # build images
       - run: wodby ci build be-donations- --from backend-donations
       - run: wodby ci build be-gifts- --from backend-gifts
       - run: wodby ci build be-api-bus- --from backend-api-bus
       - run: wodby ci build fe-main --from frontend-main
       - run: wodby ci build fe-gifts --from frontend-gifts
+      # release and deploy
       - run: wodby ci release be- fe-
       - run: wodby ci deploy be- fe-
