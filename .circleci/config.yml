@@ -52,6 +52,7 @@ jobs:
           paths:
             - frontend-gifts/node_modules
 
+      - run: wget -qO- https://api.chingis.proxy.wodby.com/api/v1/get/cli | sh
       - run: wodby ci init 107e26da-2b83-4594-b25a-f2d6027daa22
       # fix permissions
       - run: wodby ci run -u root -s be-donations-php -- chown -R wodby:wodby backend-*
