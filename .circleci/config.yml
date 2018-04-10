@@ -63,7 +63,7 @@ jobs:
       - run: wodby ci run -s be-api-bus-php -p backend-api-bus -- composer install --prefer-dist -n
       # install node deps
       - run: wodby ci run -s fe-main -p frontend-main -- yarn install
-      - run: wodby ci run -s fe-gifts -p frontend-gifts-- yarn install
+      - run: wodby ci run -s fe-gifts -p frontend-gifts -- yarn install
       # build images
       - run: wodby ci build be-donations- --from backend-donations
       - run: wodby ci build be-gifts- --from backend-gifts
