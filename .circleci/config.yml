@@ -2,10 +2,7 @@ version: 2
 
 jobs:
   build:
-    docker:
-      - image: wodby/wodby-cli:0.1.0-beta
-
-    working_directory: /home/wodby/repo
+    machine: true
 
     steps:
       - checkout
@@ -54,9 +51,6 @@ jobs:
           key: be-gifts-npm-v1-{{ checksum "frontend-gifts/package.json" }}
           paths:
             - frontend-gifts/node_modules
-
-      - setup_remote_docker:
-          docker_layer_caching: true
 
       - run: wodby ci init 107e26da-2b83-4594-b25a-f2d6027daa22
       # fix permissions
