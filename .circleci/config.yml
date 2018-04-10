@@ -2,7 +2,10 @@ version: 2
 
 jobs:
   build:
-    machine: true
+    docker:
+      - image: wodby/wodby-cli:0.1.0-beta
+
+    working_directory: /home/wodby/repo
 
     steps:
       - checkout
@@ -52,7 +55,9 @@ jobs:
           paths:
             - frontend-gifts/node_modules
 
-      - run: wget -qO- https://api.chingis.proxy.wodby.com/api/v1/get/cli | sh
+      - setup_remote_docker:
+          docker_layer_caching: true
+
       - run: wodby ci init 107e26da-2b83-4594-b25a-f2d6027daa22
       # fix permissions
       - run: wodby ci run -u root -s be-donations-php -- chown -R wodby:wodby backend-*
