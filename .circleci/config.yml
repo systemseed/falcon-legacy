@@ -9,7 +9,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - be-donationscomposer-v1-{{ checksum "composer.lock" }}
+            - be-donationscomposer-v1-{{ checksum "backend-donations/composer.lock" }}
             - be-donationscomposer-v1-
       - save_cache:
           key: be-donationscomposer-v1-{{ checksum "backend-donations/composer.lock" }}
@@ -18,7 +18,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - be-gifts-composer-v1-{{ checksum "composer.lock" }}
+            - be-gifts-composer-v1-{{ checksum "backend-gifts/composer.lock" }}
             - be-gifts-composer-v1-
       - save_cache:
           key: be-gifts-composer-v1-{{ checksum "backend-gifts/composer.lock" }}
@@ -27,7 +27,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - be-api-bus-composer-v1-{{ checksum "composer.lock" }}
+            - be-api-bus-composer-v1-{{ checksum "backend-api-bus/composer.lock" }}
             - be-api-bus-composer-v1-
       - save_cache:
           key: be-api-bus-composer-v1-{{ checksum "backend-api-bus/composer.lock" }}
@@ -36,7 +36,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - main-npm-v1-{{ checksum "package.json" }}
+            - main-npm-v1-{{ checksum "frontend-main/package.json" }}
             - main-npm-v1-
       - save_cache:
           key: main-npm-v1-{{ checksum "frontend-main/package.json" }}
@@ -45,7 +45,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - be-gifts-npm-v1-{{ checksum "package.json" }}
+            - be-gifts-npm-v1-{{ checksum "frontend-gifts/package.json" }}
             - be-gifts-npm-v1-
       - save_cache:
           key: be-gifts-npm-v1-{{ checksum "frontend-gifts/package.json" }}
