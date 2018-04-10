@@ -62,8 +62,8 @@ jobs:
       - run: wodby ci run -s be-gifts-php -- composer install --prefer-dist --no-interaction -d backend-gifts
       - run: wodby ci run -s be-api-bus-php -- composer install --prefer-dist --no-interaction -d backend-api-bus
       # install node deps
-      - run: wodby ci run -s fe-main -- yarn install --modules-folder frontend-main
-      - run: wodby ci run -s fe-gifts -- yarn install --modules-folder frontend-gifts
+      - run: wodby ci run -s fe-main -- cd frontend-main && yarn install
+      - run: wodby ci run -s fe-gifts -- cd frontend-gifts && yarn install
       # build images
       - run: wodby ci build be-donations- --from backend-donations
       - run: wodby ci build be-gifts- --from backend-gifts
