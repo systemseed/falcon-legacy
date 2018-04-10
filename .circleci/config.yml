@@ -3,6 +3,7 @@ version: 2
 jobs:
   build:
     machine: true
+      docker_layer_caching: true
 
     steps:
       - checkout
@@ -58,12 +59,12 @@ jobs:
       - run: wodby ci run -u root -s be-donations-php -- chown -R wodby:wodby backend-*
       - run: wodby ci run -u root -s fe-main -- chown -R node:node frontend-*
       # install composer deps
-      - run: wodby ci run -s be-donations-php -- composer install --prefer-dist --no-interaction -d backend-donations
-      - run: wodby ci run -s be-gifts-php -- composer install --prefer-dist --no-interaction -d backend-gifts
-      - run: wodby ci run -s be-api-bus-php -- composer install --prefer-dist --no-interaction -d backend-api-bus
+      - run: wodby ci run -s be-donations-php -p backend-donations -- composer install --prefer-dist -n
+      - run: wodby ci run -s be-gifts-php -p backend-gifts -- composer install --prefer-dist -n
+      - run: wodby ci run -s be-api-bus-php -p backend-api-bus -- composer install --prefer-dist -n
       # install node deps
-      - run: wodby ci run -s fe-main -- cd frontend-main && yarn install
-      - run: wodby ci run -s fe-gifts -- cd frontend-gifts && yarn install
+      - run: wodby ci run -s fe-main -p frontend-main -- yarn install
+      - run: wodby ci run -s fe-gifts -p frontend-gifts-- yarn install
       # build images
       - run: wodby ci build be-donations- --from backend-donations
       - run: wodby ci build be-gifts- --from backend-gifts
