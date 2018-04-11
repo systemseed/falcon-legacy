@@ -43,7 +43,7 @@ const BasketWithGifts = ({ currentCurrency, products }) => {
           </div>
         </Col>
 
-        <Col sm={12}  md={4} mdOffset={1} className="padding-bottom-2x">
+        <Col sm={12} md={4} mdOffset={1} className="padding-bottom-2x">
           <aside>
             <Sticky top={114} bottomBoundary=".sticky-bottom-boundary-basket">
               <div>
