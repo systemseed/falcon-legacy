@@ -56,7 +56,7 @@ const BasketWithGifts = ({ currentCurrency, products }) => {
                 currency={currentCurrency}
               />
 
-              <CheckoutButton className="btn btn-primary btn-block space-top-none">
+              <CheckoutButton className="btn btn-primary btn-block btn-checkout space-top-none">
                 Checkout
               </CheckoutButton>
             </Sticky>

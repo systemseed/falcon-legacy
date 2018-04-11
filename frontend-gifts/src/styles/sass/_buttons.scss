@@ -422,6 +422,12 @@ input[type="button"] {
   &:focus { color: $gray-dark; }
 }
 
+// Checkout Button
+.btn-checkout {
+  font-weight: bold;
+  text-transform: uppercase !important;
+}
+
 
 /*!
  * Waves v0.6.0
