@@ -11,7 +11,7 @@ const BasketSummary = ({ total, currency, count, className }) => (
         {' '}({count} <FormattedPlural value={count} one="item" other="items" />)
       </span>
     }
-      <strong className="text-danger">
+    <strong className="text-danger">
       <BasketTotal total={total} currentCurrency={currency} />
     </strong>
   </p >
