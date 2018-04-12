@@ -29,6 +29,12 @@
     color: $brand-alternate;
     border-color: $brand-alternate;
   }
+
+  &:active, &:focus {
+    color: $btn-font-color-alt !important;
+    background-color: darken($btn-primary-bg, 10%) !important;
+    border-color: transparent; 
+  }
 }
 
 // Introduce new button type.

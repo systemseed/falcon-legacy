@@ -16,7 +16,7 @@ class AddDonationForm extends React.Component {
   };
 
   uiSchema = {
-    'classNames': `col-xs-6 col-sm-3 currency-${this.props.currentCurrency}`,
+    'classNames': `col-xs-6 col-sm-5 currency-${this.props.currentCurrency}`,
     'amount': {
       'ui:widget': 'updown',
       'ui:placeholder': '0',
@@ -35,7 +35,7 @@ class AddDonationForm extends React.Component {
           onSubmit={addDonationSubmit}
           formData={formData}
         >
-          <Col xs={6} sm={9}>
+          <Col xs={6} sm={7}>
             <Button
               bsStyle="info"
               type="submit"
