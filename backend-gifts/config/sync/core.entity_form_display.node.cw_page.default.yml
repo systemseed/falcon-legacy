@@ -4,11 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.node.cw_page.body
+    - field.field.node.cw_page.field_featured_image
+    - field.field.node.cw_page.field_fieldable_path
     - field.field.node.cw_page.field_metatags
     - node.type.cw_page
   module:
     - metatag
     - path
+    - scheduler
     - text
 _core:
   default_config_hash: d3k6xEQjK0Sn8CwTjJfQfVenxWnAjjfsrM7-mZJEQ6w
@@ -19,7 +22,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 31
+    weight: 2
     settings:
       rows: 9
       summary_rows: 3
@@ -28,19 +31,25 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_featured_image:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_metatags:
-    weight: 32
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
     region: content
   path:
     type: path
-    weight: 30
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -48,19 +57,37 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 15
+    weight: 6
     third_party_settings: {  }
     region: content
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  scheduler_settings:
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 3
+    region: content
+    third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 7
     third_party_settings: {  }
     region: content
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     settings:
       size: 60
       placeholder: ''
@@ -68,11 +95,18 @@ content:
     region: content
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 4
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
     region: content
-hidden: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_fieldable_path: true

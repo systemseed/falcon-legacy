@@ -1,0 +1,19 @@
+uuid: 70590c99-2d28-40df-8f7d-a2ddbf66dcf4
+langcode: en
+status: true
+dependencies:
+  module:
+    - fieldable_path
+    - node
+id: node.field_fieldable_path
+field_name: field_fieldable_path
+entity_type: node
+type: fieldable_path
+settings: {  }
+module: fieldable_path
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

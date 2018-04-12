@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.cw_page.body
+    - field.field.node.cw_page.field_featured_image
+    - field.field.node.cw_page.field_fieldable_path
     - field.field.node.cw_page.field_metatags
     - node.type.cw_page
   module:
@@ -20,13 +22,13 @@ content:
   body:
     label: hidden
     type: text_summary_or_trimmed
-    weight: 101
+    weight: 0
     settings:
       trim_length: 600
     third_party_settings: {  }
     region: content
-  links:
-    weight: 100
-    region: content
 hidden:
+  field_featured_image: true
+  field_fieldable_path: true
   field_metatags: true
+  links: true

@@ -1,47 +1,45 @@
-import _find from 'lodash/find';
 import * as pageUtils from '../utils/page';
 
-export const basicPage = (state = {
+export const pages = (state = {
   isPending: false,
   isFulfilled: false,
   isError: false,
   list: []
 }, action) => {
-  let page;
   switch (action.type) {
 
-    case 'GET_PAGE_PENDING':
+    case 'GET_PAGES_PENDING':
       return {
         ...state,
         isPending: true,
       };
 
-    case 'GET_PAGE_FULFILLED':
+    case 'GET_PAGES_FULFILLED': {
+      const data = action.payload.body.data;
+      const list = [];
 
-      page = action.payload.body.data;
-      if (!_find(state.list, { uuid: page.attributes.uuid })) {
+      data.forEach((page) => {
         if (page.attributes.body && page.attributes.body.value) {
           // Add Gifts domain to all image urls.
           page.attributes.body.value = pageUtils.processImages(page.attributes.body.value);
         }
-        return {
-          ...state,
-          isPending: false,
-          isFulfilled: true,
-          list: [
-            ...state.list,
-            page.attributes
-          ]
-        };
-      }
+
+        if (page.relationships.field_featured_image && page.relationships.field_featured_image.data) {
+          page.attributes.field_featured_image = page.relationships.field_featured_image.data.id;
+        }
+
+        list.push(page.attributes);
+      });
 
       return {
         ...state,
         isPending: false,
         isFulfilled: true,
+        list
       };
+    }
 
-    case 'GET_PAGE_REJECTED':
+    case 'GET_PAGES_REJECTED':
       return {
         ...state,
         isPending: false,

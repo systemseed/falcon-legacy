@@ -1,0 +1,28 @@
+uuid: 6758fb93-c904-454a-a397-3f19bc7e9283
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.featured_image.image
+    - field.storage.node.field_featured_image
+    - node.type.cw_page
+id: node.cw_page.field_featured_image
+field_name: field_featured_image
+entity_type: node
+bundle: cw_page
+label: 'Featured image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:featured_image'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,23 @@
+uuid: ca722329-29f3-4350-9cd9-9683a66788c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fieldable_path
+    - node.type.cw_page
+  module:
+    - fieldable_path
+id: node.cw_page.field_fieldable_path
+field_name: field_fieldable_path
+entity_type: node
+bundle: cw_page
+label: 'Fieldable Path'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: fieldable_path
