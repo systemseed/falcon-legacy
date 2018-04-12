@@ -1,7 +1,0 @@
-cw_gifts_cards.admin_index:
-  path: '/admin/structure/gift-cards'
-  defaults:
-    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
-    _title: 'Gift Cards'
-  requirements:
-    _permission: 'access administration pages'
