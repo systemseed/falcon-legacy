@@ -30,7 +30,7 @@
     border-color: $brand-alternate;
   }
 
-  &:active, &:focus {
+  &:hover, &:active, &:focus {
     color: $btn-font-color-alt !important;
     background-color: darken($btn-primary-bg, 10%) !important;
     border-color: transparent; 
