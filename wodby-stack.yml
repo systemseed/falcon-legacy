@@ -1,3 +1,5 @@
+metadata:
+    deployment_type: ci
 services:
     fe-main:
         image: 'wodby/node:8.11-0.1.0'
