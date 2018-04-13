@@ -1,7 +1,6 @@
 services:
-    ## FRONTEND
     fe-main:
-        image: 'wodby/node:8'
+        image: 'wodby/node:8.11-0.1.0'
         ports:
             - 'edge::3000/tcp'
         command:
@@ -9,14 +8,13 @@ services:
             - run
             - 'start:dev'
     fe-gifts:
-        image: 'wodby/node:8'
+        image: 'wodby/node:8.11-0.1.0'
         ports:
             - 'edge::3000/tcp'
         command:
             - yarn
             - run
             - start
-    ## API BUS
     be-api-bus-nginx:
         image: 'wodby/php-nginx:1.13-4.0.3'
         ports:
@@ -43,7 +41,6 @@ services:
             failure_threshold: 2
             timeout_seconds: 3
             period_seconds: 30
-    ## DONATIONS
     be-donations-nginx:
         image: 'wodby/drupal-nginx:8-1.13-4.0.3'
         ports:
@@ -68,7 +65,7 @@ services:
             DB_NAME: '{{donations_db_database}}'
             DB_USER: '{{donations_db_user}}'
             DB_PASSWORD: '{{gifts_db_password}}'
-            PHP_FPM_CLEAR_ENV: no
+            PHP_FPM_CLEAR_ENV: 'no'
         ports:
             - 9000/tcp
         volumes:
@@ -80,42 +77,6 @@ services:
             failure_threshold: 2
             timeout_seconds: 3
             period_seconds: 30
-    be-donations-crond:
-        image: 'wodby/drupal-php:7.1-4.2.3'
-        environment:
-            DB_HOST: '{{donations_db_host}}'
-            DB_NAME: '{{donations_db_database}}'
-            DB_USER: '{{donations_db_user}}'
-            DB_PASSWORD: '{{gifts_db_password}}'
-        command:
-            - sudo
-            - '-E'
-            - crond
-            - '-f'
-            - '-d'
-            - '8'
-        volumes:
-            - 'be-donations-files:/mnt/files'
-        cpu: '100:1000'
-        memory: '8:512'
-    be-donations-sshd:
-        image: 'wodby/drupal-php:7.1-4.2.3'
-        environment:
-            DB_HOST: '{{donations_db_host}}'
-            DB_NAME: '{{donations_db_database}}'
-            DB_USER: '{{donations_db_user}}'
-            DB_PASSWORD: '{{gifts_db_password}}'
-        command:
-            - sudo
-            - /usr/sbin/sshd
-            - '-De'
-        environment:
-            SSHD_GATEWAY_PORTS: clientspecified
-        ports:
-            - 'auto::22'
-            - '9000:9000'
-        volumes:
-            - 'be-donations-files:/mnt/files'
     donations-mariadb:
         image: 'wodby/mariadb:10.2-3.1.2'
         environment:
@@ -145,7 +106,6 @@ services:
             PHP_MAX_INPUT_VARS: 1G
         ports:
             - 'edge::80/tcp'
-    ## GIFTS
     be-gifts-nginx:
         image: 'wodby/drupal-nginx:8-1.13-4.0.3'
         ports:
@@ -170,7 +130,7 @@ services:
             DB_NAME: '{{gifts_db_database}}'
             DB_USER: '{{gifts_db_user}}'
             DB_PASSWORD: '{{gifts_db_password}}'
-            PHP_FPM_CLEAR_ENV: no
+            PHP_FPM_CLEAR_ENV: 'no'
         ports:
             - 9000/tcp
         volumes:
@@ -182,42 +142,6 @@ services:
             failure_threshold: 2
             timeout_seconds: 3
             period_seconds: 30
-    be-gifts-crond:
-        image: 'wodby/drupal-php:7.1-4.2.3'
-        environment:
-            DB_HOST: '{{gifts_db_host}}'
-            DB_NAME: '{{gifts_db_database}}'
-            DB_USER: '{{gifts_db_user}}'
-            DB_PASSWORD: '{{gifts_db_password}}'
-        command:
-            - sudo
-            - '-E'
-            - crond
-            - '-f'
-            - '-d'
-            - '8'
-        volumes:
-            - 'be-gifts-files:/mnt/files'
-        cpu: '100:1000'
-        memory: '8:512'
-    be-gifts-sshd:
-        image: 'wodby/drupal-php:7.1-4.2.3'
-        environment:
-            DB_HOST: '{{gifts_db_host}}'
-            DB_NAME: '{{gifts_db_database}}'
-            DB_USER: '{{gifts_db_user}}'
-            DB_PASSWORD: '{{gifts_db_password}}'
-        command:
-            - sudo
-            - /usr/sbin/sshd
-            - '-De'
-        environment:
-            SSHD_GATEWAY_PORTS: clientspecified
-        ports:
-            - 'auto::22'
-            - '9000:9000'
-        volumes:
-            - 'files:/mnt/files'
     gifts-mariadb:
         image: 'wodby/mariadb:10.2-3.1.2'
         environment:
@@ -248,7 +172,6 @@ services:
         ports:
             - 'edge::80/tcp'
         memory: '32'
-    ## MISC
     opensmtpd:
         image: 'wodby/opensmtpd:6.0-1.3.0'
         ports:
