@@ -6,7 +6,7 @@
 
   &:hover {
     svg path.fill {
-      fill: $brand-primary;
+      fill: #ffffff;
     }
   }
 
@@ -33,7 +33,7 @@
   &:hover, &:active, &:focus {
     color: $btn-font-color-alt !important;
     background-color: darken($btn-primary-bg, 10%) !important;
-    border-color: transparent; 
+    border-color: transparent;
   }
 }
 
