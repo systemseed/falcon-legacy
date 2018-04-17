@@ -30,7 +30,7 @@ else {
     const routes = JSON.parse(Buffer.from(process.env.PLATFORM_ROUTES, 'base64'));
     for (const url in routes) { // eslint-disable-line
       const route = routes[url];
-      if (route.original_url === 'https://www.{default}/' || route.original_url === 'https://{default}/') {
+      if (route.original_url === 'https://{default}/' || route.original_url === 'https://{default}/') {
         config.frontend = url;
       }
       else if (route.original_url === 'https://api.{default}/') {

@@ -154,7 +154,7 @@ jobs:
           command: |
             BACKEND_GIFTS_URL="$(platform route:get -A backend-gifts -P url https://gifts.api.\{default\}/)"
             BACKEND_DONATIONS_URL="$(platform route:get -A backend-gifts -P url https://donations.api.\{default\}/)"
-            FRONTEND_GIFTS_URL="$(platform route:get -A backend-gifts -P url https://www.\{default\}/)"
+            FRONTEND_GIFTS_URL="$(platform route:get -A backend-gifts -P url https://\{default\}/)"
             ABI_BUS_URL="$(platform route:get -A backend-gifts -P url https://api.\{default\}/)"
             echo "$BACKEND_GIFTS_URL $BACKEND_DONATIONS_URL $FRONTEND_GIFTS_URL $ABI_BUS_URL"
             echo "BACKEND_GIFTS_URL=$BACKEND_GIFTS_URL" >> $BASH_ENV
