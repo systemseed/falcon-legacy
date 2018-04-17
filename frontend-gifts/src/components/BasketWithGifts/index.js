@@ -26,7 +26,7 @@ const BasketWithGifts = ({ currentCurrency, products }) => {
 
       <Row>
 
-        <Col sm={12} md={7} className="padding-bottom-2x sticky-bottom-boundary-basket">
+        <Col xs={12} sm={7} className="padding-bottom-2x sticky-bottom-boundary-basket">
           <BasketSummary
             className="text-sm visible-xs"
             count={basketUtils.getItemsCount(products, currentCurrency)}
@@ -43,7 +43,7 @@ const BasketWithGifts = ({ currentCurrency, products }) => {
           </div>
         </Col>
 
-        <Col sm={12} md={4} mdOffset={1} className="padding-bottom-2x">
+        <Col xs={12} sm={5} md={4} mdOffset={1} className="padding-bottom-2x">
           <aside>
             <Sticky top={114} bottomBoundary=".sticky-bottom-boundary-basket">
               <div>
