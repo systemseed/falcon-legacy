@@ -59,6 +59,11 @@
       align-items: flex-end;
       margin-right: -30px;
 
+      @media #{$mobile-port} {
+        // Disable columns on very small screens.
+        display: block;
+      }
+
       @media (min-width: $screen-md-min) {
         // Disable columns on larger screens.
         display: block;

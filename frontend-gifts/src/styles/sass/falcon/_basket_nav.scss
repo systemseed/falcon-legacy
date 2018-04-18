@@ -7,6 +7,13 @@
     flex: 1;
     max-width: 160px;
 
+    // Allow buttons to use more space on very small screens.
+    @media #{$mobile-port} {
+      flex-basis: auto;
+      flex-grow: 0.5;
+    }
+
+    // Hide checkout button on desktop.
     @media (min-width: $screen-sm-min) {
       flex: none;
       max-width: none;
