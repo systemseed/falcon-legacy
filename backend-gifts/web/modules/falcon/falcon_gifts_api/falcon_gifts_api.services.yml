@@ -1,0 +1,6 @@
+services:
+  serializer.normalizer.menu_link_content.falcon_gifts_api:
+    class: Drupal\falcon_gifts_api\Normalizer\MenuLinkContentEntityNormalizer
+    arguments: ['@jsonapi.link_manager', '@jsonapi.resource_type.repository', '@entity_type.manager']
+    tags:
+      - { name: normalizer, priority: 22 }

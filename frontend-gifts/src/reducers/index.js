@@ -5,6 +5,7 @@ import { giftsCorporate, giftCorporateCustomPrice } from './gifts.corporate';
 import { giftsFree } from './gifts.free';
 import { currentCurrency } from './currencies';
 import { contactForm } from './contact';
+import { menu } from './menu';
 import { messageBar } from './messageBar';
 import { featuredImages } from './featuredImages';
 import { pages } from './pages';
@@ -45,6 +46,7 @@ export default combineReducers({
   giftsFree,
   giftCustomPrice,
   giftCorporateCustomPrice,
+  menu,
   messageBar,
   siteContentSettings,
   popup,

@@ -5,6 +5,8 @@
  * Contains falcon_gifts_api.module.
  */
 
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
@@ -21,4 +23,19 @@ function falcon_gifts_api_help($route_name, RouteMatchInterface $route_match) {
 
     default:
   }
+}
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function falcon_gifts_api_entity_base_field_info(EntityTypeInterface $entity_type) {
+  $fields = [];
+  if ($entity_type->id() == 'menu_link_content') {
+    $fields['url'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('URL'))
+      ->setDescription(t('The URL of the menu link.'))
+      ->setComputed(TRUE)
+      ->setQueryable(FALSE);
+  }
+  return $fields;
 }
