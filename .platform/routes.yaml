@@ -6,13 +6,13 @@
     upstream: "frontend-main:http"
 
 # Gifts frontend.
-"https://www.{default}/":
+"https://{default}/":
     type: upstream
     upstream: "frontend-gifts:http"
 
-"https://{default}/":
+"https://www.{default}/":
   type: redirect
-  to: "https://www.{default}/"
+  to: "https://{default}/"
 
 # Gifts backend.
 "https://gifts.api.{default}/":

@@ -53,8 +53,8 @@ class PlatformConfigMiddleware {
     $origin = [];
 
     $frontend_urls = [
-      'http://www.{default}/',
-      'https://www.{default}/',
+      'http://{default}/',
+      'https://{default}/',
     ];
 
     if ($platform_routes = self::getRoutes()) {
