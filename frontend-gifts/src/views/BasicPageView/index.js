@@ -41,7 +41,7 @@ BasicPageView.propTypes = {
     isPending: React.PropTypes.bool,
     isFulfilled: React.PropTypes.bool,
     isError: React.PropTypes.bool,
-    pages: React.PropTypes.arrayOf(
+    list: React.PropTypes.arrayOf(
       React.PropTypes.shape({
         uuid: React.PropTypes.string,
         title: React.PropTypes.string,

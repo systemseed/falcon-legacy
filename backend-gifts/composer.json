@@ -95,6 +95,9 @@
       ]
     },
     "patches": {
+      "drupal/core": {
+        "Menu content is not accessible via jsonapi": "https://www.drupal.org/files/issues/2018-03-19/menu_link_content-view-permissions-2915792-16.patch"
+      },
       "drupal/metatag": {
         "Fix compatibility with jsonapi": "https://www.drupal.org/files/issues/make_metatag_fields-2636852-80.patch"
       }

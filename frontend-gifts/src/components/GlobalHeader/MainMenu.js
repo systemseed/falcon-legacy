@@ -1,29 +1,66 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import * as menuActions from '../../actions/menu';
 
-const MainMenu = ({ isMenuCollapsed, onMenuClick, location }) => (
-  <nav className={`main-navigation text-center ${isMenuCollapsed ? '' : 'open'}`}>
-    <ul className="menu">
-      <li><NavLink to="/" exact onClick={onMenuClick} location={location}>Browse Gifts</NavLink></li>
-      <li><NavLink to="/corporate" exact onClick={onMenuClick} location={location}>Corporate Gifts</NavLink></li>
-      <li><NavLink to="/how-gifts-work" exact onClick={onMenuClick} location={location}>How Gifts Work</NavLink></li>
-      <li><NavLink to="/faq" exact onClick={onMenuClick} location={location}>FAQs</NavLink></li>
-      <li><NavLink to="/contact" exact onClick={onMenuClick} location={location}>Contact</NavLink></li>
-    </ul>
-  </nav>
-);
+class MainMenu extends Component {
+
+  componentWillMount() {
+    // Load list of pages is they haven't been loaded yet.
+    const { menu, loadMenu, done } = this.props;
+    if (!menu.list.length) {
+      loadMenu().then(done, done);
+    }
+  }
+
+  render = () => {
+    const { isMenuCollapsed, onMenuClick, location, menu } = this.props;
+
+    return (<nav className={`main-navigation text-center ${isMenuCollapsed ? '' : 'open'}`}>
+      <ul className="menu">
+        {menu.list.map((item) => {
+          if (!item.url) {
+            return '';
+          }
+          return (<li key={item.uuid}>
+            <NavLink to={item.url} exact onClick={onMenuClick} location={location}>{item.title}</NavLink>
+          </li>);
+        })}
+      </ul>
+    </nav>);
+  }
+
+}
 
 MainMenu.propTypes = {
   isMenuCollapsed: React.PropTypes.bool.isRequired,
   onMenuClick: React.PropTypes.func.isRequired,
   location: React.PropTypes.object.isRequired,
+  loadMenu: React.PropTypes.func,
+  done: React.PropTypes.func,
+  menu: React.PropTypes.shape({
+    isPending: React.PropTypes.bool,
+    isFulfilled: React.PropTypes.bool,
+    isError: React.PropTypes.bool,
+    list: React.PropTypes.arrayOf(
+      React.PropTypes.shape({
+        uuid: React.PropTypes.string,
+        title: React.PropTypes.string,
+        url: React.PropTypes.string
+      })
+    )
+  })
 };
 
-// Pass location prop to NavLink explicitly.
-// See https://github.com/ReactTraining/react-router/issues/4638
 const mapStateToProps = state => ({
-  location: state.router.location
+  // Pass location prop to NavLink explicitly.
+  // See https://github.com/ReactTraining/react-router/issues/4638
+  location: state.router.location,
+  menu: state.menu
 });
 
-export default connect(mapStateToProps)(MainMenu);
+const mapDispatchToProps = {
+  loadMenu: menuActions.loadAll,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainMenu);

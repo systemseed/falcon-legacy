@@ -15,6 +15,7 @@ permissions:
   - 'access toolbar'
   - 'access user profiles'
   - 'add e-card item entities'
+  - 'administer menu'
   - 'administer meta tags'
   - 'administer nodes'
   - 'administer taxonomy'
