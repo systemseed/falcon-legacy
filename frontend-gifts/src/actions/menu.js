@@ -15,7 +15,7 @@ export function loadAll() {
         'filter[menu_name][condition][value]': 'main',
         'filter[enabled][condition][path]': 'enabled',
         'filter[enabled][condition][value]': 1,
-        'sort': 'weight'
+        'sort': 'title,weight'
       })
   };
 }
