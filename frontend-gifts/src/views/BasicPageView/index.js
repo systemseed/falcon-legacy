@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { withDone as withServerDone } from 'react-router-server';
 import _find from 'lodash/find';
 import _isEmpty from 'lodash/isEmpty';
 
 import NotFoundView from '../NotFoundView';
 import * as pageActions from '../../actions/pages';
+import * as redirectActions from '../../actions/redirects';
 import Loading from '../../components/Loading';
 import BasicPageContainer from '../../containers/BasicPageContainer';
 
@@ -13,14 +15,26 @@ class BasicPageView extends Component {
 
   componentWillMount() {
     // Load list of pages is they haven't been loaded yet.
-    const { pages, loadAllPages, done } = this.props;
+    const { pages, loadAllPages, redirects, loadAllRedirects, done } = this.props;
+    if (!redirects.list.length) {
+      loadAllRedirects().then(done, done);
+    }
     if (!pages.list.length) {
       loadAllPages().then(done, done);
     }
   }
 
   render = () => {
-    const { match, pages } = this.props;
+    const { match, location, pages, redirects } = this.props;
+
+    if ((!redirects.isFulfilled && !redirects.isPending) || redirects.isPending) {
+      return <Loading big />;
+    }
+
+    const redirect = _find(redirects.list, item => `/${item.redirect_source.path.replace(/\/+$/g, '')}` === location.pathname.replace(/\/+$/g, ''));
+    if (redirect) {
+      return <Redirect to={redirect.redirect_url} />;
+    }
 
     if ((!pages.isFulfilled && !pages.isPending) || pages.isPending) {
       return <Loading big />;
@@ -37,6 +51,7 @@ class BasicPageView extends Component {
 
 BasicPageView.propTypes = {
   match: React.PropTypes.object,
+  location: React.PropTypes.object,
   pages: React.PropTypes.shape({
     isPending: React.PropTypes.bool,
     isFulfilled: React.PropTypes.bool,
@@ -56,15 +71,19 @@ BasicPageView.propTypes = {
     )
   }),
   loadAllPages: React.PropTypes.func,
+  redirects: React.PropTypes.shape,
+  loadAllRedirects: React.PropTypes.func,
   done: React.PropTypes.func
 };
 
 const mapStateToProps = state => ({
-  pages: state.pages
+  pages: state.pages,
+  redirects: state.redirects
 });
 
 const mapDispatchToProps = {
   loadAllPages: pageActions.loadAll,
+  loadAllRedirects: redirectActions.loadAll
 };
 
 export default withServerDone(connect(mapStateToProps, mapDispatchToProps)(BasicPageView));

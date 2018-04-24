@@ -44,6 +44,7 @@ module:
   falcon_mail: 0
   falcon_metatag: 0
   falcon_payment_event: 0
+  falcon_redirect: 0
   falcon_thankq: 0
   field: 0
   field_group: 0
@@ -71,6 +72,7 @@ module:
   page_cache: 0
   path: 0
   profile: 0
+  redirect: 0
   rest: 0
   rest_absolute_urls: 0
   serialization: 0

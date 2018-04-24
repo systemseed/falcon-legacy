@@ -1,2 +1,5 @@
 User-agent: *
 Disallow: /
+
+User-agent: *
+Allow: /sites/default/files/*

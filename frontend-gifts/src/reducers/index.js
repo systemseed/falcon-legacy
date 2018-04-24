@@ -16,6 +16,7 @@ import cards from './cards';
 import checkout from './checkout';
 import { popup } from './popup';
 import eventcodes from './eventcodes';
+import { redirects } from './redirects';
 
 // THIS IS AN ANTI-PATTERN.
 // TODO: find out a way to trigger a function on route change.
@@ -33,7 +34,6 @@ const routerChanged = (state = {}, action) => {
 export default combineReducers({
   app: (state = {}) => state,
   basket,
-  pages,
   cards,
   customPageMetatags,
   checkout,
@@ -48,8 +48,10 @@ export default combineReducers({
   giftCorporateCustomPrice,
   menu,
   messageBar,
-  siteContentSettings,
+  pages,
   popup,
+  redirects,
+  siteContentSettings,
   router: routerReducer,
   routerChanged
 });

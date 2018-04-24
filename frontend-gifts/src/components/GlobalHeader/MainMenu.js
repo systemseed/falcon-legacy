@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { withDone as withServerDone } from 'react-router-server';
 import * as menuActions from '../../actions/menu';
 
 class MainMenu extends Component {
@@ -63,4 +64,4 @@ const mapDispatchToProps = {
   loadMenu: menuActions.loadAll,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainMenu);
+export default withServerDone(connect(mapStateToProps, mapDispatchToProps)(MainMenu));
