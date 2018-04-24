@@ -53,7 +53,7 @@ jobs:
             - frontend-gifts/node_modules
 
       - run: wget -qO- https://api.wodby.com/api/v1/get/cli | sh
-      - run: wodby ci init 59d5e534-dffc-40b6-bf2c-98bb6cca9846
+      - run: wodby ci init 16eca9c8-c8d0-498c-a7b4-439394ad8307
       # fix permissions
       - run: wodby ci run -u root -s be-donations-php -- chown -R wodby:wodby backend-*
       - run: wodby ci run -u root -s fe-main -- chown -R node:node frontend-*
@@ -71,5 +71,5 @@ jobs:
       - run: wodby ci build fe-main --from frontend-main
       - run: wodby ci build fe-gifts --from frontend-gifts
       # release and deploy
-      - run: wodby ci release be- fe-
-      - run: wodby ci deploy be- fe-
+      - run: wodby ci release
+      - run: wodby ci deploy

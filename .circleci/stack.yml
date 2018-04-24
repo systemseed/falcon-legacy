@@ -1,10 +1,10 @@
-metadata:
-    deployment_type: ci
 services:
     fe-main:
         image: 'wodby/node:8.11-0.1.0'
         ports:
             - 'edge::3000/tcp'
+        deployment:
+            type: ci
         command:
             - yarn
             - run
@@ -13,6 +13,8 @@ services:
         image: 'wodby/node:8.11-0.1.0'
         ports:
             - 'edge::3000/tcp'
+        deployment:
+            type: ci
         command:
             - yarn
             - run
@@ -36,6 +38,8 @@ services:
         image: 'wodby/php:7.1-4.2.3'
         ports:
             - 9000/tcp
+        deployment:
+            type: ci
         check_ready:
             exec:
                 command: [make, check-ready, '-f', /usr/local/bin/actions.mk]
@@ -68,6 +72,8 @@ services:
             DB_USER: '{{donations_db_user}}'
             DB_PASSWORD: '{{gifts_db_password}}'
             PHP_FPM_CLEAR_ENV: 'no'
+        deployment:
+            type: ci
         ports:
             - 9000/tcp
         volumes:
@@ -137,6 +143,8 @@ services:
             - 9000/tcp
         volumes:
             - 'be-gifts-files:/mnt/files'
+        deployment:
+            type: ci
         check_ready:
             exec:
                 command: [make, check-ready, '-f', /usr/local/bin/actions.mk]
