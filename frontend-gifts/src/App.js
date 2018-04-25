@@ -53,7 +53,7 @@ const App = () => (
           {/* GIFTS CATEGORIES */}
           <PageRoute exact path="/category/:categoryName" component={FrontPageView} />
 
-          {/* Process redirects, then try to find this page and show 404 if not found */}
+          {/* Process redirects, then try to find the page and show 404 if not found */}
           <PageRoute path="/:path" component={BasicPageView} />
         </AnimatedSwitch>
       </div>
