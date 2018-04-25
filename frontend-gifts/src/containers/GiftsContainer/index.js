@@ -49,7 +49,7 @@ class GiftsContainer extends React.Component {
             categories={giftsFiltered.categories}
             categoryId={categoryId}
             categoryName={categoryName}
-            isCollapsed={false}
+            isCollapsed
           />
           <GiftsGrid
             gifts={giftsFiltered.products}

@@ -7,55 +7,55 @@ class GiftsFilter extends React.Component {
     this.state = {
       isCollapsed: props.isCollapsed
     };
-
-    this.toggleCollapse = this.toggleCollapse.bind(this);
   }
 
-  toggleCollapse(e){
-    e.preventDefault();
-    this.setState({isCollapsed: !this.state.isCollapsed});
+  toggleCollapse() {
+    this.setState({ isCollapsed: !this.state.isCollapsed });
   }
 
-  categoriesList(){
+  categoriesList() {
     return this.props.categories.map(category =>
-    <li
-      key={category.id}
-      className={category.id === this.props.categoryId ? 'active' : ''}
-    >
-      <Link to={category.path}>
-        {category.name}
-      </Link>
-    </li>
+      <li
+        key={category.id}
+        className={category.id === this.props.categoryId ? 'active' : ''}
+      >
+        <Link onClick={this.toggleCollapse.bind(this)} to={category.path}>
+          {category.name}
+        </Link>
+      </li>
     );
   }
 
-  render = () => (
-    <section className="container padding-top-1x">
-      <div className="filters-bar space-top-half">
-        <div className="column">
-          <a href="/"
-            onClick={this.toggleCollapse}
-            className={'category-filter-btn ' + (this.state.isCollapsed ? 'collapsed' : '')}>
-            {this.props.categoryName ? this.props.categoryName: 'All gifts'}
-            <span className="material-icons chevron_right category-filter-icon"></span>
-          </a>
+  render() {
+    return (
+      <section className="container padding-top-1x">
+        <div className="filters-bar space-top-half">
+          <div className="column">
+            <button
+              onClick={this.toggleCollapse.bind(this)}
+              className={`category-filter-btn ${!this.state.isCollapsed ? 'collapsed' : ''}`}
+            >
+              {this.props.categoryName ? this.props.categoryName : 'All gifts'}
+              <span className="material-icons chevron_right category-filter-icon" />
+            </button>
 
-          <ul className={'nav-filters ' + (this.state.isCollapsed ? 'collapsed' : '')}>
-              <button onClick={this.toggleCollapse} className="clear-btn">
-                <span className="material-icons clear"></span>
+            <ul className={`nav-filters ${!this.state.isCollapsed ? 'collapsed' : ''}`}>
+              <button onClick={this.toggleCollapse.bind(this)} className="clear-btn">
+                <span className="material-icons clear" />
               </button>
-            <li className={!this.props.categoryId ? 'active' : ''}>
-              <Link to="/">
-                All gifts
-              </Link>
-            </li>
-            {this.categoriesList()}
-          </ul>
+              <li className={!this.props.categoryId ? 'active' : ''}>
+                <Link to="/">
+                  All gifts
+                </Link>
+              </li>
+              {this.categoriesList()}
+            </ul>
+          </div>
+          <div className="column" />
         </div>
-        <div className="column" />
-      </div>
-    </section>
-  );
+      </section>
+    );
+  }
 }
 
 GiftsFilter.propTypes = {
@@ -66,6 +66,8 @@ GiftsFilter.propTypes = {
     })
   ).isRequired,
   categoryId: React.PropTypes.string,
+  categoryName: React.PropTypes.string,
+  isCollapsed: React.PropTypes.bool,
 };
 
 export default GiftsFilter;

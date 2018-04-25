@@ -433,6 +433,8 @@ input[type="button"] {
   font-size: $nav-filters-font-size-mobile;
   font-weight: bold;
   color: $brand-danger;
+  border: none;
+  padding: 0;
   border-bottom: solid $brand-danger 3px;
   padding-bottom: 4px;
   text-decoration: none;
@@ -443,12 +445,13 @@ input[type="button"] {
   &.collapsed {
     border-bottom-color: transparent;
     .category-filter-icon {
+      color: $brand-danger;
       transform: rotate(90deg);
     }
   }
   &:active, &:hover, &:visited, &:focus {
     color: $brand-danger;
-    text-decoration: none;
+    outline: none;
   }
   .category-filter-icon {
       color: #606060;
