@@ -151,26 +151,62 @@
 // Filters
 // --------------------------------------------------
 .nav-filters {
-  display: block;
+  display: none;
   list-style: none;
-  font-size: $nav-filters-font-size;
+  font-size: $nav-filters-font-size-mobile;
   text-transform: uppercase;
   padding: 0;
   margin: 0;
+  position: absolute;
+  z-index: 10;
+  background: white;
+  box-shadow: 1px 1px 7px 0px rgba(171,171,171,1);
+  padding: 16px; 
+  @media (min-width: $screen-sm-min){
+    font-size: $nav-filters-font-size;
+    display: block;
+    position: relative;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+  }
+  &.collapsed {
+    display: block;
+  }
+  .clear-btn {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    font-size: 18px;
+    background: none;
+    border: none; 
+    &:hover, &:active, &:focus {
+      outline: none;
+      color: $brand-danger;
+    }
+    @media (min-width: $screen-sm-min){
+      display: none;
+    }
+}
+
   > li {
-    display: inline-block;
+    @media (min-width: $screen-sm-min) {
+      display: inline-block;
+    }
     margin: 0 22px 10px 0;
     > a {
       color: $nav-filters-link-color;
       text-decoration: none;
       padding-bottom: 8px;
-      border-bottom: 2px solid transparent;
+      border-bottom: 8px solid transparent;
     }
     sup { color: $nav-filters-count-color; }
     > a:hover,
     &.active > a { color: $nav-filters-link-active-color; }
     &.active > a {
-      border-bottom-color: $nav-filters-link-active-border-color;
+      @media (min-width: $screen-sm-min) {
+        border-bottom-color: $nav-filters-link-active-border-color;
+      }
     }
   }
 }

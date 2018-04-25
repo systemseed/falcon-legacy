@@ -428,6 +428,34 @@ input[type="button"] {
   text-transform: uppercase !important;
 }
 
+.category-filter-btn {
+  display: inline-block;
+  font-size: $nav-filters-font-size-mobile;
+  font-weight: bold;
+  color: $brand-danger;
+  border-bottom: solid $brand-danger 3px;
+  padding-bottom: 4px;
+  text-decoration: none;
+  text-transform: uppercase;
+  @media (min-width: $screen-sm-min) {
+    display: none;
+  }
+  &.collapsed {
+    border-bottom-color: transparent;
+    .category-filter-icon {
+      transform: rotate(90deg);
+    }
+  }
+  &:active, &:hover, &:visited, &:focus {
+    color: $brand-danger;
+    text-decoration: none;
+  }
+  .category-filter-icon {
+      color: #606060;
+      font-size: 24px;
+      transition: all .1s linear;
+    }
+  }
 
 /*!
  * Waves v0.6.0
