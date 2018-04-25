@@ -1,6 +1,5 @@
 import React from 'react';
 import { IntlProvider } from 'react-intl';
-import { Route } from 'react-router-dom';
 import { AnimatedSwitch } from 'react-router-transition';
 import PageRoute from './components/RouteWithTransition';
 import FrontPageView from './views/FrontPageView';
@@ -15,7 +14,6 @@ import BasicPageView from './views/BasicPageView';
 import MessageBarContainer from './containers/MessageBarContainer';
 import GlobalHeader from './components/GlobalHeader';
 import ScrollToTop from './components/ScrollToTop';
-import GiftsLegacyRedirect from './containers/GiftsLegacyRedirect';
 
 // Importing pre-defined css.
 import './styles/css/vendors/bootstrap.min.css';
@@ -42,7 +40,7 @@ const App = () => (
           {/* ROUTES FROM THE MAIN MENU */}
           <PageRoute exact path="/" component={FrontPageView} />
           <PageRoute exact path="/corporate" component={CorporateGiftsView} />
-          <PageRoute path="/contact" component={ContactPageView} />
+          <PageRoute exact path="/contact" component={ContactPageView} />
           {/* GIFTS AND CORPORATE GIFTS FULL VIEW PAGES */}
           <PageRoute exact path="/gifts/:path" component={GiftView} />
           <PageRoute exact path="/corporate/:path" component={CorporateGiftView} />
@@ -53,11 +51,9 @@ const App = () => (
           {/* CARD POPUP. CONTAINS FRONTPAGE ON THE BACKGROUND */}
           <PageRoute path="/gift-card/:giftCard" component={FrontPageView} />
           {/* GIFTS CATEGORIES */}
-          <PageRoute path="/category/:categoryName" component={FrontPageView} />
+          <PageRoute exact path="/category/:categoryName" component={FrontPageView} />
 
-          {/* Redirect from legacy Gift URLs */}
-          <Route path="/charity-gift/:code/:name" component={GiftsLegacyRedirect} />
-
+          {/* Process redirects, then try to find this page and show 404 if not found */}
           <PageRoute path="/:path" component={BasicPageView} />
         </AnimatedSwitch>
       </div>

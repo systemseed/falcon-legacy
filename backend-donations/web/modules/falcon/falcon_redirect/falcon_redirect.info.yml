@@ -1,0 +1,7 @@
+name: Falcon Redirect
+type: module
+description: Provides helpers to prepare redirects for usage on frontend.
+core: 8.x
+package: Falcon
+dependencies:
+  - redirect:redirect
