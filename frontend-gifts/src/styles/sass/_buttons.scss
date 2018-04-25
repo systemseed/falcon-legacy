@@ -433,6 +433,7 @@ input[type="button"] {
   font-size: $nav-filters-font-size-mobile;
   font-weight: bold;
   color: $brand-danger;
+  background-color: transparent;
   border: none;
   padding: 0;
   border-bottom: solid $brand-danger 3px;
