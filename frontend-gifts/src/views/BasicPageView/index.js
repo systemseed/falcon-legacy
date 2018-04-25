@@ -14,7 +14,7 @@ import BasicPageContainer from '../../containers/BasicPageContainer';
 class BasicPageView extends Component {
 
   componentWillMount() {
-    // Load list of pages is they haven't been loaded yet.
+    // Load list of pages and redirects is they haven't been loaded yet.
     const { pages, loadAllPages, redirects, loadAllRedirects, done } = this.props;
     if (!redirects.list.length) {
       loadAllRedirects().then(done, done);
@@ -31,6 +31,7 @@ class BasicPageView extends Component {
       return <Loading big />;
     }
 
+    // Check for redirects.
     const redirect = _find(redirects.list, item => `/${item.redirect_source.path.replace(/\/+$/g, '')}` === location.pathname.replace(/\/+$/g, ''));
     if (redirect) {
       return <Redirect to={redirect.redirect_url} />;
@@ -40,6 +41,7 @@ class BasicPageView extends Component {
       return <Loading big />;
     }
 
+    // Try to find the page.
     const page = _find(pages.list, item => item.field_fieldable_path === `/${match.params.path}`);
     if (_isEmpty(page)) {
       return <NotFoundView />;
@@ -71,7 +73,19 @@ BasicPageView.propTypes = {
     )
   }),
   loadAllPages: React.PropTypes.func,
-  redirects: React.PropTypes.shape,
+  redirects: React.PropTypes.shape({
+    isPending: React.PropTypes.bool,
+    isFulfilled: React.PropTypes.bool,
+    isError: React.PropTypes.bool,
+    list: React.PropTypes.arrayOf(
+      React.PropTypes.shape({
+        uuid: React.PropTypes.string,
+        redirect_source: React.PropTypes.object,
+        status_code: React.PropTypes.number,
+        redirect_url: React.PropTypes.string
+      })
+    )
+  }),
   loadAllRedirects: React.PropTypes.func,
   done: React.PropTypes.func
 };
