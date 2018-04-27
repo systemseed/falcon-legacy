@@ -11,7 +11,7 @@ assert_options(ASSERT_ACTIVE, TRUE);
 $config['system.logging']['error_level'] = 'verbose';
 
 // Enable local development services.
-$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
+$settings['container_yamls'][] =  __DIR__ . '/services.development.yml';
 
 // Set private files folder.
 $settings['file_private_path'] = preg_replace('~/web$~', '/private', $app_root);

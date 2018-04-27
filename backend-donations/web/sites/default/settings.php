@@ -4,7 +4,7 @@
 $databases = [];
 $config_directories = [];
 $settings['update_free_access'] = FALSE;
-$settings['container_yamls'][] = $app_root . '/services.yml';
+$settings['container_yamls'][] = __DIR__ . '/services.yml';
 $settings['file_scan_ignore_directories'] = [
   'node_modules',
   'bower_components',

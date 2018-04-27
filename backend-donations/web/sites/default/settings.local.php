@@ -14,7 +14,7 @@ $config['system.logging']['error_level'] = 'verbose';
 $settings['file_private_path'] = preg_replace('~/web$~', '/private', $app_root);
 
 // Enable local development services.
-$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
+$settings['container_yamls'][] = __DIR__ . '/services.development.yml';
 
 // Configure base url for images going outside of the site.
 $config['rest_absolute_urls']['base_url'] = 'http://donations.api.flc.local';

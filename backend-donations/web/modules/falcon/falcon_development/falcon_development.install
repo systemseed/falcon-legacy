@@ -37,6 +37,7 @@ function activateTestUsers() {
       $account->enforceIsNew();
       $account->setEmail('test+falcon-' . $role->id() . '@systemseed.com');
       $account->setUsername($role->id() . '.test');
+      $account->activate();
 
       if ($role->id() !== 'authenticated') {
         $account->addRole($role->id());

@@ -20,7 +20,7 @@
     git clone git@github.com:systemseed/falcon.git
     ```
     
-3. Run `make falcon install` in the root of repository. Profit!
+3. Run `make falcon:install` in the root of repository. Profit!
 
 4. TODO
 
