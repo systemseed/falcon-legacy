@@ -15,6 +15,9 @@
   .sign-up-with-description-pane {
     margin-bottom: 40px;
   }
+  .footer-links-pane {
+    margin: 16px 0;
+  }
   @include media-breakpoint-up(sm) {
     .pagetitle-with-copy {
       margin-bottom: 52px;
@@ -31,8 +34,12 @@
     .sign-up-with-description-pane {
       margin-bottom: 40px;
     }
+    .footer-links-pane {
+      margin: 24px 0;
+    }
   }
   @include media-breakpoint-up(md) {
+    .hero-image-pane,
     .hero-with-donation-block-pane {
       margin-bottom: 54px;
     }
@@ -51,8 +58,12 @@
     .sign-up-with-description-pane {
       margin-bottom: 40px;
     }
+    .footer-links-pane {
+      margin: 32px 0;
+    }
   }
   @include media-breakpoint-up(lg) {
+    .hero-image-pane,
     .hero-with-donation-block-pane {
       margin-bottom: 34px;
     }
@@ -70,6 +81,9 @@
     }
     .sign-up-with-description-pane {
       margin-bottom: 76px;
+    }
+    .footer-links-pane {
+      margin: 48px 0;
     }
   }
   @include media-breakpoint-up(xl) {

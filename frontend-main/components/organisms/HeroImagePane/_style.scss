@@ -1,0 +1,19 @@
+.hero-image-pane {
+  .background-image {
+    background-size: cover;
+    background-position: center;
+    height: 180px;
+    @include media-breakpoint-up(md) {
+      height: 230px;
+    }
+    @include media-breakpoint-up(lg) {
+      height: 300px;
+    }
+    @include media-breakpoint-up(xl) {
+      height: 400px;
+    }
+    @include media-breakpoint-up(xxl, (xxl: $xxl)) {
+      height: 530px;
+    }
+  }
+}
