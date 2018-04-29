@@ -18,8 +18,16 @@
 }
 
 .main-navigation {
-  .menu li > a.active {
-    color: $nav-link-hover-color;
+  .menu li > a {
+    font-size: 15px;
+
+    &.active {
+      font-weight: bold;
+    }
+
+    &:hover {
+      color: #8f2954;
+    }
   }
 }
 

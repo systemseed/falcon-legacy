@@ -1,0 +1,42 @@
+.front-page-copy {
+  h1 {
+    font-size: 24px;
+    line-height: 1.33;
+    font-weight: 200;
+
+    .amplify {
+      font-weight: 800;
+    }
+    .purple {
+      color: #8f2954;
+    }
+    .green {
+      color: #00734a;
+    }
+
+    @media (min-width: $screen-sm-min) {
+      font-size: 32px;
+      line-height: 1.5;
+    }
+
+    @media (min-width: $screen-md-min) {
+      font-size: 42px;
+      line-height: 1.43;
+    }
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.43;
+    font-weight: 300;
+
+    @media (min-width: $screen-sm-min) {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    @media (min-width: $screen-md-min) {
+      font-size: 18px;
+    }
+  }
+}

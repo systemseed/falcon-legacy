@@ -128,3 +128,35 @@
 		}
 	}
 }
+
+// Shop Item
+.shop-item {
+  .shop-item-title {
+    width: 70%;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+
+    > a {
+      color: #00734a;
+      text-decoration: none;
+    }
+
+    @media (min-width: $screen-md-min) {
+      font-size: 20px;
+    }
+  }
+
+  .shop-item-details {
+    padding-top: 8px;
+
+    .shop-item-price {
+      font-size: 14px;
+      text-align: left;
+
+      @media (min-width: $screen-sm-min) {
+        font-size: 16px;
+      }
+    }
+  }
+}

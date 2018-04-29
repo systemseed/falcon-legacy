@@ -1,18 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-bootstrap';
+import FeaturedImage from '../../containers/FeaturedImageContainer';
 
 const FrontPageCopy = ({ siteContentSettings }) => (
-  <div>
-    <Grid className="padding-top-3x">
+  <div className="front-page-copy">
+    <Grid className="padding-top-2x">
       <Row>
-        <Col md={12}>
+        <Col sm={12} md={6}>
           {siteContentSettings.fieldConfigFrontPageSubline &&
             <h1 dangerouslySetInnerHTML={{ __html: siteContentSettings.fieldConfigFrontPageSubline.value }} />
           }
           {siteContentSettings.fieldConfigFrontPageCopy &&
-            <h2 dangerouslySetInnerHTML={{ __html: siteContentSettings.fieldConfigFrontPageCopy.value }} />
+            <p dangerouslySetInnerHTML={{ __html: siteContentSettings.fieldConfigFrontPageCopy.value }} />
           }
+        </Col>
+        <Col sm={12} md={6}>
+          <FeaturedImage uuid="722f5be9-151e-405f-9890-df742dd3376b" />
         </Col>
       </Row>
     </Grid>
