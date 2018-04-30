@@ -10,7 +10,7 @@ import CorporateGiftView from './views/CorporateGiftView';
 import CorporateGiftsView from './views/CorporateGiftsView';
 import CheckoutView from './views/CheckoutView';
 import ThankYouView from './views/ThankYouView';
-import BasicPageView from './views/BasicPageView';
+import DynamicPathView from './views/DynamicPathView';
 import MessageBarContainer from './containers/MessageBarContainer';
 import GlobalHeader from './components/GlobalHeader';
 import ScrollToTop from './components/ScrollToTop';
@@ -54,7 +54,7 @@ const App = () => (
           <PageRoute exact path="/category/:categoryName" component={FrontPageView} />
 
           {/* Process redirects, then try to find the page and show 404 if not found */}
-          <PageRoute path="/:path" component={BasicPageView} />
+          <PageRoute path="/:path" component={DynamicPathView} />
         </AnimatedSwitch>
       </div>
     </ScrollToTop>

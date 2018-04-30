@@ -18,6 +18,7 @@ permissions:
   - 'administer menu'
   - 'administer meta tags'
   - 'administer nodes'
+  - 'administer redirects'
   - 'administer taxonomy'
   - 'bypass node access'
   - 'create media'

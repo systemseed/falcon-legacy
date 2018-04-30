@@ -16,8 +16,14 @@ export const redirects = (state = {
       const data = action.payload.body.data;
       const list = [];
 
+      // Prepare redirects data.
       data.forEach((item) => {
-        list.push(item.attributes);
+        list.push(
+          {
+            source_path: `/${item.attributes.redirect_source.path.replace(/\/+$/, '')}`,
+            redirect_url: item.attributes.redirect_url
+          }
+        );
       });
 
       return {

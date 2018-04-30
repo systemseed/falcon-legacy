@@ -11,17 +11,25 @@ import * as redirectActions from '../../actions/redirects';
 import Loading from '../../components/Loading';
 import BasicPageContainer from '../../containers/BasicPageContainer';
 
-class BasicPageView extends Component {
+// Render pages and handles redirects by dynamic page path.
+class DynamicPathView extends Component {
 
   componentWillMount() {
     // Load list of pages and redirects is they haven't been loaded yet.
     const { pages, loadAllPages, redirects, loadAllRedirects, done } = this.props;
+
+    const loaders = [];
+
     if (!redirects.list.length) {
-      loadAllRedirects().then(done, done);
+      loaders.push(loadAllRedirects());
     }
     if (!pages.list.length) {
-      loadAllPages().then(done, done);
+      loaders.push(loadAllPages());
     }
+
+    // Start backend rendering when all loading is completed.
+    // Otherwise server will return incomplete data on basic page view.
+    Promise.all(loaders).then(done, done);
   }
 
   render = () => {
@@ -32,7 +40,9 @@ class BasicPageView extends Component {
     }
 
     // Check for redirects.
-    const redirect = _find(redirects.list, item => `/${item.redirect_source.path.replace(/\/+$/g, '')}` === location.pathname.replace(/\/+$/g, ''));
+    const redirect = _find(redirects.list, item =>
+      item.source_path === location.pathname.replace(/\/+$/g, '')
+    );
     if (redirect) {
       return <Redirect to={redirect.redirect_url} />;
     }
@@ -42,7 +52,9 @@ class BasicPageView extends Component {
     }
 
     // Try to find the page.
-    const page = _find(pages.list, item => item.field_fieldable_path === `/${match.params.path}`);
+    const page = _find(pages.list, item =>
+      item.field_fieldable_path === `/${match.params.path}`
+    );
     if (_isEmpty(page)) {
       return <NotFoundView />;
     }
@@ -51,7 +63,7 @@ class BasicPageView extends Component {
   }
 }
 
-BasicPageView.propTypes = {
+DynamicPathView.propTypes = {
   match: React.PropTypes.object,
   location: React.PropTypes.object,
   pages: React.PropTypes.shape({
@@ -100,4 +112,4 @@ const mapDispatchToProps = {
   loadAllRedirects: redirectActions.loadAll
 };
 
-export default withServerDone(connect(mapStateToProps, mapDispatchToProps)(BasicPageView));
+export default withServerDone(connect(mapStateToProps, mapDispatchToProps)(DynamicPathView));

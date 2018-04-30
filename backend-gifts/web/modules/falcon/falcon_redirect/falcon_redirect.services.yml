@@ -1,0 +1,6 @@
+services:
+  serializer.normalizer.redirect.falcon_redirect:
+    class: Drupal\falcon_redirect\Normalizer\RedirectEntityNormalizer
+    arguments: ['@jsonapi.link_manager', '@jsonapi.resource_type.repository', '@entity_type.manager']
+    tags:
+      - { name: normalizer, priority: 22 }
