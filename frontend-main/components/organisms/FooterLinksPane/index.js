@@ -9,10 +9,10 @@ const FooterLinksPane = ({ styles, links }) => {
   }
   return (
     <div className={"row justify-content-center limited-width footer-links-pane " + styles}>
-      <div className="col-12 col-xl-10">
+      <div className="col-12 col-md-8 col-lg-11 col-xl-10">
         <div className="row">
           {links.map((item, i) => (
-            <div className="col-md footer-links-pane__link_block" key={`${item.url}${i}`}>
+            <div className="col-lg pl-0 footer-links-pane__link_block" key={`${item.url}${i}`}>
               <ExternalLink key={`${item.url}${i}`} {...item} />
             </div>
           ))}
