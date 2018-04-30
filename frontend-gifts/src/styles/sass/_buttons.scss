@@ -440,7 +440,7 @@ input[type="button"] {
   padding-bottom: 4px;
   text-decoration: none;
   text-transform: uppercase;
-  @media (min-width: $screen-sm-min) {
+  @media (min-width: $screen-md-min) {
     display: none;
   }
   &.collapsed {

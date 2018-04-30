@@ -162,7 +162,7 @@
   background: white;
   box-shadow: 1px 1px 7px 0px rgba(171,171,171,1);
   padding: 16px; 
-  @media (min-width: $screen-sm-min){
+  @media (min-width: $screen-md-min){
     font-size: $nav-filters-font-size;
     display: block;
     position: relative;
@@ -184,13 +184,13 @@
       outline: none;
       color: $brand-danger;
     }
-    @media (min-width: $screen-sm-min){
+    @media (min-width: $screen-md-min){
       display: none;
     }
 }
 
   > li {
-    @media (min-width: $screen-sm-min) {
+    @media (min-width: $screen-md-min) {
       display: inline-block;
     }
     margin: 0 22px 10px 0;
@@ -204,7 +204,7 @@
     > a:hover,
     &.active > a { color: $nav-filters-link-active-color; }
     &.active > a {
-      @media (min-width: $screen-sm-min) {
+      @media (min-width: $screen-md-min) {
         border-bottom-color: $nav-filters-link-active-border-color;
       }
     }
