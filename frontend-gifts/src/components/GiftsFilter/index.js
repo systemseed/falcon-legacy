@@ -2,10 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class GiftsFilter extends React.Component {
-  static defautlProps = {
-    isCollapsed: true,
-  };
-
   constructor(props) {
     super(props);
     this.state = {
