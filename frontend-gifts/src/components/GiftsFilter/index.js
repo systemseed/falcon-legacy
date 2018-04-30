@@ -14,20 +14,7 @@ class GiftsFilter extends React.Component {
   }
 
   toggleCollapse() {
-    this.setState({ isCollapsed: !this.state.isCollapsed });
-  }
-
-  categoriesList() {
-    return this.props.categories.map(category =>
-      <li
-        key={category.id}
-        className={category.id === this.props.categoryId ? 'active' : ''}
-      >
-        <Link onClick={this.toggleCollapse.bind(this)} to={category.path}>
-          {category.name}
-        </Link>
-      </li>
-    );
+    this.setState(state => ({ isCollapsed: !state.isCollapsed }));
   }
 
   render() {
@@ -52,7 +39,16 @@ class GiftsFilter extends React.Component {
                   All gifts
                 </Link>
               </li>
-              {this.categoriesList()}
+              {this.props.categories.map(category =>
+                <li
+                  key={category.id}
+                  className={category.id === this.props.categoryId ? 'active' : ''}
+                >
+                  <Link onClick={this.toggleCollapse.bind(this)} to={category.path}>
+                    {category.name}
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
           <div className="column" />
