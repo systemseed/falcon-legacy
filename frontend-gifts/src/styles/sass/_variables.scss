@@ -19,6 +19,7 @@ $brand-info:            #93c4ef;
 $brand-success:         #00b5ac;
 $brand-warning:         #8e8005;
 $brand-danger:          #8E0554;
+$brand-danger-lighter:  #8f2954;
 $brand-error:           #8e0606;
 
 $brand-alternate:       #2a5c40;
@@ -219,10 +220,11 @@ $nav-tabs-link-active-color:  			$gray-dark;
 //== Filters
 //
 
-$nav-filters-font-size:							floor(($font-size-base * 0.875)); // ~14px
-$nav-filters-link-color:                $gray;
-$nav-filters-link-active-color:         $gray-dark;
-$nav-filters-link-active-border-color:  $gray-dark;
+$nav-filters-font-size-mobile:          floor(($font-size-base * 1.175)); // ~18px
+$nav-filters-font-size:                 floor(($font-size-base * 0.975)); // ~15px
+$nav-filters-link-color:                $gray-dark;
+$nav-filters-link-active-color:         $brand-danger-lighter;
+$nav-filters-link-active-border-color:  $brand-danger;
 $nav-filters-count-color:               $gray;
 
 

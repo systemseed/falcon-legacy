@@ -1,36 +1,58 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const GiftsFilter = ({ categories, categoryId }) => {
-  const categoriesList = categories.map(category =>
-    <li
-      key={category.id}
-      className={category.id === categoryId ? 'active' : ''}
-    >
-      <Link to={category.path}>
-        {category.name}
-      </Link>
-    </li>
-  );
+class GiftsFilter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isCollapsed: props.isCollapsed
+    };
+  }
 
-  return (
-    <section className="container padding-top-1x">
-      <div className="filters-bar space-top-half">
-        <div className="column">
-          <ul className="nav-filters">
-            <li className={!categoryId ? 'active' : ''}>
-              <Link to="/">
-                All
-              </Link>
-            </li>
-            {categoriesList}
-          </ul>
+  toggleCollapse() {
+    this.setState(state => ({ isCollapsed: !state.isCollapsed }));
+  }
+
+  render() {
+    return (
+      <section className="container padding-top-1x">
+        <div className="filters-bar space-top-half">
+          <div className="column">
+            <button
+              onClick={this.toggleCollapse.bind(this)}
+              className={`category-filter-btn ${!this.state.isCollapsed ? 'collapsed' : ''}`}
+            >
+              {this.props.categoryName ? this.props.categoryName : 'All gifts'}
+              <span className="material-icons chevron_right category-filter-icon" />
+            </button>
+
+            <ul className={`nav-filters ${!this.state.isCollapsed ? 'collapsed' : ''}`}>
+              <button onClick={this.toggleCollapse.bind(this)} className="clear-btn">
+                <span className="material-icons clear" />
+              </button>
+              <li className={!this.props.categoryId ? 'active' : ''}>
+                <Link to="/">
+                  All gifts
+                </Link>
+              </li>
+              {this.props.categories.map(category =>
+                <li
+                  key={category.id}
+                  className={category.id === this.props.categoryId ? 'active' : ''}
+                >
+                  <Link onClick={this.toggleCollapse.bind(this)} to={category.path}>
+                    {category.name}
+                  </Link>
+                </li>
+              )}
+            </ul>
+          </div>
+          <div className="column" />
         </div>
-        <div className="column" />
-      </div>
-    </section>
-  );
-};
+      </section>
+    );
+  }
+}
 
 GiftsFilter.propTypes = {
   categories: React.PropTypes.arrayOf(
@@ -40,6 +62,8 @@ GiftsFilter.propTypes = {
     })
   ).isRequired,
   categoryId: React.PropTypes.string,
+  categoryName: React.PropTypes.string,
+  isCollapsed: React.PropTypes.bool.isRequired,
 };
 
 export default GiftsFilter;
