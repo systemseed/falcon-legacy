@@ -1,0 +1,224 @@
+services:
+    fe-main:
+        image: 'wodby/node:8.11-0.1.0'
+        ports:
+            - 'edge::3000/tcp'
+        deployment:
+            type: ci
+        command:
+            - yarn
+            - run
+            - 'start:dev'
+    fe-gifts:
+        image: 'wodby/node:8.11-0.1.0'
+        ports:
+            - 'edge::3000/tcp'
+        deployment:
+            type: ci
+        command:
+            - yarn
+            - run
+            - start
+    be-api-bus-nginx:
+        image: 'wodby/php-nginx:1.13-4.0.3'
+        ports:
+            - 80/tcp
+        environment:
+            NGINX_LOG_FORMAT_SHOW_REAL_IP: 1
+            NGINX_BACKEND_HOST: be-api-bus-php
+            NGINX_SERVER_ROOT: /var/www/html/public
+        check_ready:
+            exec:
+                command: [make, check-ready, '-f', /usr/local/bin/actions.mk]
+            initial_delay_seconds: 5
+            failure_threshold: 2
+            timeout_seconds: 3
+            period_seconds: 30
+    be-api-bus-php:
+        image: 'wodby/php:7.1-4.2.3'
+        ports:
+            - 9000/tcp
+        deployment:
+            type: ci
+        check_ready:
+            exec:
+                command: [make, check-ready, '-f', /usr/local/bin/actions.mk]
+            initial_delay_seconds: 5
+            failure_threshold: 2
+            timeout_seconds: 3
+            period_seconds: 30
+    be-donations-nginx:
+        image: 'wodby/drupal-nginx:8-1.13-4.0.3'
+        ports:
+            - 'edge::80/tcp'
+        environment:
+            NGINX_LOG_FORMAT_SHOW_REAL_IP: 1
+            NGINX_BACKEND_HOST: be-donations-php
+            NGINX_SERVER_ROOT: /var/www/html/web
+        volumes:
+            - 'be-donations-files:/mnt/files'
+        check_ready:
+            exec:
+                command: [make, check-ready, '-f', /usr/local/bin/actions.mk]
+            initial_delay_seconds: 5
+            failure_threshold: 2
+            timeout_seconds: 3
+            period_seconds: 30
+    be-donations-php:
+        image: 'wodby/drupal-php:7.1-4.2.3'
+        environment:
+            DB_HOST: '{{donations_db_host}}'
+            DB_NAME: '{{donations_db_database}}'
+            DB_USER: '{{donations_db_user}}'
+            DB_PASSWORD: '{{gifts_db_password}}'
+            PHP_FPM_CLEAR_ENV: 'no'
+        deployment:
+            type: ci
+        ports:
+            - 9000/tcp
+        volumes:
+            - 'be-donations-files:/mnt/files'
+        check_ready:
+            exec:
+                command: [make, check-ready, '-f', /usr/local/bin/actions.mk]
+            initial_delay_seconds: 5
+            failure_threshold: 2
+            timeout_seconds: 3
+            period_seconds: 30
+    donations-mariadb:
+        image: 'wodby/mariadb:10.2-3.1.2'
+        environment:
+            MYSQL_ROOT_PASSWORD: '{{donations_db_root_password}}'
+            MYSQL_DATABASE: '{{donations_db_database}}'
+            MYSQL_USER: '{{donations_db_user}}'
+            MYSQL_PASSWORD: '{{donations_db_password}}'
+        ports:
+            - 3306/tcp
+        volumes:
+            - 'be-donations-mariadb:/var/lib/mysql'
+        memory: '64'
+        deployment:
+            strategy: recreate
+        check_ready:
+            exec:
+                command: [make, check-ready, '-f', /usr/local/bin/actions.mk]
+            initial_delay_seconds: 20
+            failure_threshold: 3
+            timeout_seconds: 3
+            period_seconds: 30
+    donations-pma:
+        image: 'phpmyadmin/phpmyadmin:4.7.0-2'
+        environment:
+            PMA_HOST: '{{donations_db_host}}'
+            PHP_UPLOAD_MAX_FILESIZE: 1G
+            PHP_MAX_INPUT_VARS: 1G
+        ports:
+            - 'edge::80/tcp'
+    be-gifts-nginx:
+        image: 'wodby/drupal-nginx:8-1.13-4.0.3'
+        ports:
+            - 'edge::80/tcp'
+        environment:
+            NGINX_LOG_FORMAT_SHOW_REAL_IP: 1
+            NGINX_BACKEND_HOST: be-gifts-php
+            NGINX_SERVER_ROOT: /var/www/html/web
+        volumes:
+            - 'be-gifts-files:/mnt/files'
+        check_ready:
+            exec:
+                command: [make, check-ready, '-f', /usr/local/bin/actions.mk]
+            initial_delay_seconds: 5
+            failure_threshold: 2
+            timeout_seconds: 3
+            period_seconds: 30
+    be-gifts-php:
+        image: 'wodby/drupal-php:7.1-4.2.3'
+        environment:
+            DB_HOST: '{{gifts_db_host}}'
+            DB_NAME: '{{gifts_db_database}}'
+            DB_USER: '{{gifts_db_user}}'
+            DB_PASSWORD: '{{gifts_db_password}}'
+            PHP_FPM_CLEAR_ENV: 'no'
+        ports:
+            - 9000/tcp
+        volumes:
+            - 'be-gifts-files:/mnt/files'
+        deployment:
+            type: ci
+        check_ready:
+            exec:
+                command: [make, check-ready, '-f', /usr/local/bin/actions.mk]
+            initial_delay_seconds: 5
+            failure_threshold: 2
+            timeout_seconds: 3
+            period_seconds: 30
+    gifts-mariadb:
+        image: 'wodby/mariadb:10.2-3.1.2'
+        environment:
+            MYSQL_ROOT_PASSWORD: '{{gifts_db_root_password}}'
+            MYSQL_DATABASE: '{{gifts_db_database}}'
+            MYSQL_USER: '{{gifts_db_user}}'
+            MYSQL_PASSWORD: '{{gifts_db_password}}'
+        ports:
+            - 3306/tcp
+        volumes:
+            - 'be-gifts-mariadb:/var/lib/mysql'
+        memory: '64'
+        deployment:
+            strategy: recreate
+        check_ready:
+            exec:
+                command: [make, check-ready, '-f', /usr/local/bin/actions.mk]
+            initial_delay_seconds: 20
+            failure_threshold: 3
+            timeout_seconds: 3
+            period_seconds: 30
+    gifts-pma:
+        image: 'phpmyadmin/phpmyadmin:4.7.0-2'
+        environment:
+            PMA_HOST: '{{gifts_db_host}}'
+            PHP_UPLOAD_MAX_FILESIZE: 1G
+            PHP_MAX_INPUT_VARS: 1G
+        ports:
+            - 'edge::80/tcp'
+        memory: '32'
+    opensmtpd:
+        image: 'wodby/opensmtpd:6.0-1.3.0'
+        ports:
+            - 25/tcp
+        volumes:
+            - 'smtpd:/var/spool/smtpd'
+        check_ready:
+            exec:
+                command: [make, check-ready, '-f', /usr/local/bin/actions.mk]
+            initial_delay_seconds: 5
+            failure_threshold: 2
+            timeout_seconds: 3
+            period_seconds: 30
+    mailhog:
+        image: mailhog/mailhog
+        ports:
+            - '25:1025/tcp'
+            - 'edge::80:8025/tcp'
+volumes:
+    be-gifts-files:
+        path: be-gifts-files
+    be-gifts-mariadb:
+        path: be-gifts-mariadb
+    be-donations-files:
+        path: be-donations-files
+    be-donations-mariadb:
+        path: be-donations-mariadb
+    smtpd:
+        path: smtpd
+variables:
+    gifts_db_root_password: 'auto:password:32'
+    gifts_db_password: 'auto:password:16'
+    gifts_db_host: gifts-mariadb
+    gifts_db_database: gifts
+    gifts_db_user: drupal
+    donations_db_root_password: 'auto:password:32'
+    donations_db_password: 'auto:password:16'
+    donations_db_host: donations-mariadb
+    donations_db_database: donations
+    donations_db_user: drupal
