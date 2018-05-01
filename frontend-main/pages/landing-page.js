@@ -10,6 +10,7 @@ import OneColumnLayout from '../components/templates/OneColumnLayout';
 const availableComponents = {
   'SiteHeaderPane': dynamic(import('../components/organisms/SiteHeaderPane')),
   'PageTitleCopyDonatePane': dynamic(import('../components/organisms/PageTitleCopyDonatePane')),
+  'PageTitleCopyPane': dynamic(import('../components/organisms/PageTitleCopyPane')),
   'TextBlockPane': dynamic(import('../components/organisms/TextBlockPane')),
   'MoneyHandlesWithButtonPane': dynamic(import('../components/organisms/MoneyHandlesWithButtonPane')),
   'DonateButtonPane': dynamic(import('../components/organisms/DonateButtonPane')),
@@ -17,7 +18,9 @@ const availableComponents = {
   'VideoPlayerPane': dynamic(import('../components/organisms/VideoPlayerPane')),
   'SingUpWithDescriptionPane': dynamic(import('../components/organisms/SingUpWithDescriptionPane')),
   'HeroWithDonationBlockPane': dynamic(import('../components/organisms/HeroWithDonationBlockPane')),
+  'HeroImagePane': dynamic(import('../components/organisms/HeroImagePane')),
   'FooterDataPane': dynamic(import('../components/organisms/FooterDataPane')),
+  'FooterLinksPane': dynamic(import('../components/organisms/FooterLinksPane')),
 };
 
 class LandingPage extends React.Component {
@@ -42,7 +45,7 @@ class LandingPage extends React.Component {
         }
         else {
           return (
-            <Component key={i} {...(data.styles && data.styles.count > 0 ? {styles: data.styles.join(' ')} : {})} {...data.data} />
+            <Component key={i} {...(data.styles && data.styles.count > 0 ? { styles: data.styles.join(' ') } : {})} {...data.data} />
           )
         }
       });
@@ -65,7 +68,7 @@ class LandingPage extends React.Component {
   }
 
   // Load Page data and project settings from file now, should be given from backend later.
-  static getInitialProps = async function({ res, query }) {
+  static getInitialProps = async function ({ res, query }) {
 
     // @todo: validate url
     if (query.file_data_url !== undefined) {

@@ -31,7 +31,7 @@ You'll find more info about it at their [documentation](https://docs.platform.sh
 4. Add the following lines to your hosts file:
 
     ```
-    127.0.0.1 gifts.flc.local api.flc.local gifts.api.flc.local donations.api.flc.local # FALCON installation
+    127.0.0.1 main.flc.local gifts.flc.local api.flc.local gifts.api.flc.local donations.api.flc.local # FALCON installation
     ```
 5. Run `docker-compose up -d`. Profit!
 

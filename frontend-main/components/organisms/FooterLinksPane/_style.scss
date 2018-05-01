@@ -1,0 +1,21 @@
+.footer-links-pane__link_block {
+  a {
+    font-weight: bold;
+    color: $warm-grey;
+    line-height: 2;
+
+    &:hover {
+      color: $primary;
+      text-decoration: none;
+    }
+  }
+
+  // Allow link items to use more space if needed.
+  @include media-breakpoint-up(lg) {
+    flex: 0.5 1 auto;
+    flex-wrap: nowrap;
+    width: auto;
+    padding: 0 5px;
+    text-align: center;
+  }
+}
