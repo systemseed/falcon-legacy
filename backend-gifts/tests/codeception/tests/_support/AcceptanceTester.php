@@ -21,6 +21,19 @@ class AcceptanceTester extends \Codeception\Actor
   use _generated\AcceptanceTesterActions;
 
   /**
+   * Return result of check instead of failing.
+   */
+  public function seePageHasElement($I, $element, $wait = 5) {
+    try {
+      $I->waitForElementVisible($element, $wait);
+    }
+    catch (\Exception $e) {
+      return FALSE;
+    }
+    return TRUE;
+  }
+
+  /**
    * Get current region from Platform/Circle environment.
    *
    * TODO: remove region specific tests.

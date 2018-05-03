@@ -250,6 +250,12 @@ class FrontendTester extends \AcceptanceTester {
     $I->waitForText('PayPal', 80);
     $I->wait(2);
 
+    if ($I->seePageHasElement($I, '#loginSection .btn')) {
+      $I->click('#loginSection .btn');
+      $I->waitForElement('#btnNext');
+      $I->wait(2);
+    }
+
     // PayPal authentication step 1: Email.
     $I->fillField('login_email', 'test-concern-roi-account@systemseed.com');
     $I->click('#btnNext');
