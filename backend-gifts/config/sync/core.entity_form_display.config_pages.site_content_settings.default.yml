@@ -16,7 +16,6 @@ dependencies:
     - field.field.config_pages.site_content_settings.field_config_corporate_labels
     - field.field.config_pages.site_content_settings.field_config_footer_left_text
     - field.field.config_pages.site_content_settings.field_config_front_page_copy
-    - field.field.config_pages.site_content_settings.field_config_front_page_subline
     - field.field.config_pages.site_content_settings.field_config_header_left_text
     - field.field.config_pages.site_content_settings.field_config_header_right_text
     - image.style.thumbnail
@@ -229,14 +228,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
-    region: content
-  field_config_front_page_subline:
-    weight: 9
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: text_textfield
     region: content
   field_config_header_left_text:
     weight: 2

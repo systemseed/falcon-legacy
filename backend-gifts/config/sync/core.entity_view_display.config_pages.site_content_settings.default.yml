@@ -16,7 +16,6 @@ dependencies:
     - field.field.config_pages.site_content_settings.field_config_corporate_labels
     - field.field.config_pages.site_content_settings.field_config_footer_left_text
     - field.field.config_pages.site_content_settings.field_config_front_page_copy
-    - field.field.config_pages.site_content_settings.field_config_front_page_subline
     - field.field.config_pages.site_content_settings.field_config_header_left_text
     - field.field.config_pages.site_content_settings.field_config_header_right_text
   module:
@@ -116,13 +115,6 @@ content:
     region: content
   field_config_front_page_copy:
     weight: 6
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_config_front_page_subline:
-    weight: 5
     label: above
     settings: {  }
     third_party_settings: {  }

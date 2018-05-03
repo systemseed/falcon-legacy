@@ -5,17 +5,16 @@ import FeaturedImage from '../../containers/FeaturedImageContainer';
 
 const FrontPageCopy = ({ siteContentSettings }) => (
   <div className="front-page-copy">
-    <Grid className="padding-top-2x">
+    <Grid fluid className="no-gutters space-bottom-2x">
       <Row>
         <Col sm={12} md={6}>
-          {siteContentSettings.fieldConfigFrontPageSubline &&
-            <h1 dangerouslySetInnerHTML={{ __html: siteContentSettings.fieldConfigFrontPageSubline.value }} />
-          }
-          {siteContentSettings.fieldConfigFrontPageCopy &&
-            <p dangerouslySetInnerHTML={{ __html: siteContentSettings.fieldConfigFrontPageCopy.value }} />
-          }
+          <div className="text-pane padding-top-2x padding-bottom">
+            {siteContentSettings.fieldConfigFrontPageCopy &&
+              <div dangerouslySetInnerHTML={{ __html: siteContentSettings.fieldConfigFrontPageCopy.value }} />
+            }
+          </div>
         </Col>
-        <Col sm={12} md={6}>
+        <Col sm={12} md={6} className="no-gutters">
           <FeaturedImage uuid="722f5be9-151e-405f-9890-df742dd3376b" />
         </Col>
       </Row>

@@ -4,16 +4,6 @@
     line-height: 1.33;
     font-weight: 200;
 
-    .amplify {
-      font-weight: 800;
-    }
-    .purple {
-      color: #8f2954;
-    }
-    .green {
-      color: #00734a;
-    }
-
     @media (min-width: $screen-sm-min) {
       font-size: 32px;
       line-height: 1.5;
@@ -22,6 +12,18 @@
     @media (min-width: $screen-md-min) {
       font-size: 42px;
       line-height: 1.43;
+    }
+
+    // EM tag is easy to use with H1 in WYSIWYG to specify highlighted parts.
+    em {
+      font-weight: 800;
+      font-style: normal;
+    }
+    em:first-of-type {
+      color: #8f2954;
+    }
+    em:last-of-type {
+      color: #00734a;
     }
   }
 
@@ -37,6 +39,33 @@
 
     @media (min-width: $screen-md-min) {
       font-size: 18px;
+    }
+  }
+
+  .featured-image {
+    max-height: 405px;
+  }
+
+  .text-pane {
+    @media (min-width: $screen-sm-min) {
+      padding-left: $grid-gutter-width / 2;
+      padding-right: $grid-gutter-width / 2;
+    }
+
+    // Adjustments for two-column panel on the frontpage.
+    @media (min-width: $screen-md-min) {
+      padding-left: 0;
+      padding-right: $grid-gutter-width;
+
+      // Align text pane to the left of the main products container.
+      max-width: $container-md / 2 - $grid-gutter-width;
+      float: right;
+    }
+    @media (min-width: $screen-lg-min) {
+      padding-right: $grid-gutter-width * 2;
+
+      // Align text pane to the left of the main products container.
+      max-width: $container-lg / 2 - $grid-gutter-width;
     }
   }
 }
