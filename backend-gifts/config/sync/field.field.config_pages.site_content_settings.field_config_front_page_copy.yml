@@ -12,7 +12,7 @@ field_name: field_config_front_page_copy
 entity_type: config_pages
 bundle: site_content_settings
 label: Copy
-description: ''
+description: 'Header highlighting rules: the first italic piece becomes bold and purple, the last one becomes bold and green; all other italics become just bold.'
 required: false
 translatable: false
 default_value:
