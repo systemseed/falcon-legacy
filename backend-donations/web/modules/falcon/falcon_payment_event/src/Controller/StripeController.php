@@ -127,7 +127,7 @@ class StripeController extends ControllerBase {
     ]);
 
     // Get list of account activities.
-    $response = $httpClient->get('https://dashboard.stripe.com/ajax/account_activities');
+    $response = $httpClient->get('https://dashboard.stripe.com/ajax/account/activities');
     $responseData = (string) $response->getBody();
     if (empty($responseData)) {
       throw new \Exception('There is a problem with stripe request.');
@@ -135,12 +135,12 @@ class StripeController extends ControllerBase {
 
     $data = \GuzzleHttp\json_decode($responseData);
 
-    if (empty($data->activities)) {
-      throw new \Exception('Activities key is not found in Stripe response.');
+    if (empty($data->data)) {
+      throw new \Exception('Data key is not found in Stripe response.');
     }
 
     // Sort activities to keep latest on the top.
-    $activities = $data->activities;
+    $activities = $data->data;
     usort($activities, function($a, $b) {
       return strcmp($b->created, $a->created);
     });
@@ -170,7 +170,10 @@ class StripeController extends ControllerBase {
 
     // Parse and look for preloaded_json, it contains generated csrf_token.
     $doc = new \DOMDocument();
+    // Disabling xml errors. See: https://stackoverflow.com/a/6090728
+    libxml_use_internal_errors(true);
     $doc->loadHTML($data);
+    libxml_clear_errors();
     $preloaded_json_html = $doc->getElementById('preloaded_json');
 
     // Get csrf_token from response HTML.
@@ -252,7 +255,7 @@ class StripeController extends ControllerBase {
       // Creates an entity from activity information.
       $entity = $entity_type_mgr->getStorage('payment_event')->create([
           'type' => 'stripe_event',
-          'field_stripe_event_email' => $activity->user_email,
+          'field_stripe_event_email' => $activity->user->email,
           'field_stripe_event_action' => $activity->action,
           'field_stripe_event_description' => $this->normalizeDescription($activity),
           'created' => intval($activity->created),
