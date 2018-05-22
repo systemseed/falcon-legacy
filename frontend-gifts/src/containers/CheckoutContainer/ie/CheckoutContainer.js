@@ -91,10 +91,12 @@ class CheckoutContainer extends Component {
           {/* Different parts of the form are controlled by this container and built on top of CheckoutFormContainer */}
           <CheckoutFormProfile
             onFormValidate={this.onProfileChange}
+            tooltips={siteContentSettings.tooltips}
           />
           <CheckoutFormAddress
             region={config.region}
             onFormValidate={this.onAddressChange}
+            tooltips={siteContentSettings.tooltips}
           />
           {siteContentSettings.fieldConfigCheckoutStep2 &&
             <h3>{siteContentSettings.fieldConfigCheckoutStep2}</h3>
@@ -104,9 +106,15 @@ class CheckoutContainer extends Component {
               codes={eventcodes.codes}
               labels={eventcodes.labels}
               onFormValidate={this.onEventCodeChange}
+              tooltips={siteContentSettings.tooltips}
             />
           }
-          <CheckoutFormOptins onFormValidate={this.onAOptinsChange} description={siteContentSettings.fieldConfigCheckoutOptins && siteContentSettings.fieldConfigCheckoutOptins.value ? siteContentSettings.fieldConfigCheckoutOptins.value : ''} />
+          <CheckoutFormOptins
+            onFormValidate={this.onAOptinsChange}
+            description={siteContentSettings.fieldConfigCheckoutOptins && siteContentSettings.fieldConfigCheckoutOptins.value ? siteContentSettings.fieldConfigCheckoutOptins.value : ''}
+            descriptionBottom={siteContentSettings.fieldConfigCheckoutOptinsBtm && siteContentSettings.fieldConfigCheckoutOptinsBtm.value ? siteContentSettings.fieldConfigCheckoutOptinsBtm.value : ''}
+            tooltips={siteContentSettings.tooltips}
+          />
           {showCards &&
             /* Card container is special case. It manages everything related to cards. */
             <CheckoutCardsContainer />

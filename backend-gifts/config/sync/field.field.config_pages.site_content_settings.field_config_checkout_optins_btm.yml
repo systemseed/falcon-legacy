@@ -1,0 +1,24 @@
+uuid: ab0c2c3e-9e6e-4c1a-a81f-091756dd6102
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.site_content_settings
+    - field.storage.config_pages.field_config_checkout_optins_btm
+  module:
+    - text
+id: config_pages.site_content_settings.field_config_checkout_optins_btm
+field_name: field_config_checkout_optins_btm
+entity_type: config_pages
+bundle: site_content_settings
+label: 'Opt-ins Bottom Description'
+description: 'Bottom description for the Opt-ins section.'
+required: false
+translatable: false
+default_value:
+  -
+    value: "<p><strong>We will also keep you updated by post.</strong> You can update your preferences at any time by contacting us at <a href=\"mailto:preferences@concern.org\">preferences@concern.net</a>.</p>\r\n"
+    format: basic_html
+default_value_callback: ''
+settings: {  }
+field_type: text_long

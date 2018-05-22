@@ -39,8 +39,8 @@ class CheckoutGiftAid extends Component {
               <CheckoutFormContainer
                 schema={this.schema}
                 uiSchema={this.uiSchema}
-                onFormValidate={this.props.onFormValidate}
                 formClass=""
+                {...this.props}
               />
             </Col>
           </Row>
