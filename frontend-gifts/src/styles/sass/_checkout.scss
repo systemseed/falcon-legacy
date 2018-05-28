@@ -52,11 +52,15 @@
 
         input[type=checkbox] {
           position: absolute;
-          top: 12px;
-          left: 12px;
-          visibility: hidden;
+          top: 13px;
+          left: 13px;
+          width: 0px;
+          height: 0px;
 
           &:after {
+            position: absolute;
+            top: -1px;
+            left: -1px;
             visibility: visible;
             display: inline-block;
             cursor: pointer;
