@@ -147,7 +147,7 @@ class FrontendTester extends \AcceptanceTester {
         // Check if opt-in is presented on the page.
         if (count($I->grabMultiple("#$key", 'value'))) {
           if ($value === TRUE) {
-            $I->click("#$key");
+            $I->checkInvisibleOptionById("$key");
           }
           else {
             $I->cantSeeCheckboxIsChecked("#$key");
@@ -156,7 +156,7 @@ class FrontendTester extends \AcceptanceTester {
       }
       else {
         if ($value === FALSE) {
-          $I->click("#$key");
+          $I->uncheckInvisibleOptionById("$key");
         }
         else {
           $I->canSeeCheckboxIsChecked("#$key");
@@ -284,6 +284,16 @@ class FrontendTester extends \AcceptanceTester {
     $I->switchToWindow();
     // Make sure we are in correct window.
     $I->canSeeElement('.checkout-payment');
+  }
+
+  public function checkInvisibleOptionById($id){
+    $I = $this;
+    $I->executeJS("document.getElementById('$id').checked = true;");
+  }
+
+  public function uncheckInvisibleOptionById($id){
+    $I = $this;
+    $I->executeJS("document.getElementById('$id').checked = false;");
   }
 
 }
