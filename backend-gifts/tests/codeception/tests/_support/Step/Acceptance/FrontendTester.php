@@ -147,7 +147,7 @@ class FrontendTester extends \AcceptanceTester {
         // Check if opt-in is presented on the page.
         if (count($I->grabMultiple("#$key", 'value'))) {
           if ($value === TRUE) {
-            $I->checkOption("#$key");
+            $I->click("#$key");
           }
           else {
             $I->cantSeeCheckboxIsChecked("#$key");
@@ -156,7 +156,7 @@ class FrontendTester extends \AcceptanceTester {
       }
       else {
         if ($value === FALSE) {
-          $I->uncheckOption("#$key");
+          $I->click("#$key");
         }
         else {
           $I->canSeeCheckboxIsChecked("#$key");
