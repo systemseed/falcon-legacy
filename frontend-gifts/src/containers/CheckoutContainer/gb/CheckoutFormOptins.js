@@ -41,7 +41,7 @@ class CheckoutFormOptins extends Component {
       <Row>
         <Col xs={12}>
           {description &&
-          <p className="text-gray text-sm" dangerouslySetInnerHTML={{ __html: description }} />
+            <p className="text-gray text-sm" dangerouslySetInnerHTML={{ __html: description }} />
           }
           <CheckoutFormContainer
             schema={this.schema}
