@@ -147,7 +147,7 @@ class FrontendTester extends \AcceptanceTester {
         // Check if opt-in is presented on the page.
         if (count($I->grabMultiple("#$key", 'value'))) {
           if ($value === TRUE) {
-            $I->checkOption("#$key");
+            $I->simulateCheck("$key");
           }
           else {
             $I->cantSeeCheckboxIsChecked("#$key");
@@ -156,7 +156,7 @@ class FrontendTester extends \AcceptanceTester {
       }
       else {
         if ($value === FALSE) {
-          $I->uncheckOption("#$key");
+          $I->simulateUncheck("$key");
         }
         else {
           $I->canSeeCheckboxIsChecked("#$key");
@@ -284,6 +284,30 @@ class FrontendTester extends \AcceptanceTester {
     $I->switchToWindow();
     // Make sure we are in correct window.
     $I->canSeeElement('.checkout-payment');
+  }
+
+  public function simulateCheck($id){
+    $I = $this;
+    // If element is not checked simulate click to perform check.
+    $js = "
+    var element = document.getElementById('$id');
+    if(!element.checked){
+      element.click();
+    }
+    ";
+    $I->executeJS($js);
+  }
+
+  public function simulateUncheck($id){
+    $I = $this;
+    // If element is  checked simulate click to perform uncheck.
+    $js = "
+    var element = document.getElementById('$id');
+    if!element.checked){
+      element.click();
+    }
+    ";
+    $I->executeJS($js);
   }
 
 }
