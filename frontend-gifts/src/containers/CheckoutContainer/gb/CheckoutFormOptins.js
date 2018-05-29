@@ -36,7 +36,7 @@ class CheckoutFormOptins extends Component {
   }
 
   render() {
-    const { description, descriptionBottom } = this.props;
+    const { description, onFormValidate } = this.props;
     return (
       <Row>
         <Col xs={12}>
@@ -46,12 +46,9 @@ class CheckoutFormOptins extends Component {
           <CheckoutFormContainer
             schema={this.schema}
             uiSchema={this.uiSchema}
+            onFormValidate={onFormValidate}
             formClass="options"
-            {...this.props}
           />
-          {descriptionBottom &&
-          <div className="text-gray text-sm form-group" dangerouslySetInnerHTML={{ __html: descriptionBottom }} />
-          }
         </Col>
       </Row>
     );
@@ -60,8 +57,7 @@ class CheckoutFormOptins extends Component {
 
 CheckoutFormOptins.propTypes = {
   onFormValidate: PropTypes.func.isRequired,
-  description: PropTypes.string,
-  descriptionBottom: PropTypes.string
+  description: PropTypes.string
 };
 
 export default CheckoutFormOptins;
