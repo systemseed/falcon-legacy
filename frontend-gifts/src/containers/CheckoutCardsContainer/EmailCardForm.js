@@ -79,23 +79,27 @@ class EmailCardForm extends Component {
     return (
       <Row>
         <Col xs={12}>
-          <Panel collapsible expanded={this.props.expanded}>
-            <Form
-              schema={this.schema}
-              uiSchema={this.uiSchema}
-              widgets={this.widgets}
-              formData={card.emailFormData}
-              onChange={this.onChange.bind(this)}
-              onSubmit={this.onSubmit.bind(this)}
-              validate={this.onValidate.bind(this)}
-              FieldTemplate={FieldTemplateCheckout}
-              className="card-send space-top space-bottom-2x"
-            >
-              <div className="primary-buttons">
-                <button className="btn" onClick={this.onPreviewClick.bind(this)}>Preview</button>
-                <button type="submit" className="btn btn-primary">Save</button>
-              </div>
-            </Form>
+          <Panel expanded={this.props.expanded} onToggle={() => {}}>
+            <Panel.Collapse>
+              <Panel.Body>
+                <Form
+                  schema={this.schema}
+                  uiSchema={this.uiSchema}
+                  widgets={this.widgets}
+                  formData={card.emailFormData}
+                  onChange={this.onChange.bind(this)}
+                  onSubmit={this.onSubmit.bind(this)}
+                  validate={this.onValidate.bind(this)}
+                  FieldTemplate={FieldTemplateCheckout}
+                  className="card-send space-top space-bottom-2x"
+                >
+                  <div className="primary-buttons">
+                    <button className="btn" onClick={this.onPreviewClick.bind(this)}>Preview</button>
+                    <button type="submit" className="btn btn-primary">Save</button>
+                  </div>
+                </Form>
+              </Panel.Body>
+            </Panel.Collapse>
           </Panel>
         </Col>
       </Row>

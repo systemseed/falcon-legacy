@@ -47,6 +47,14 @@ class CheckoutFormContainer extends Component {
   }
 
   render() {
+    // Add tooltips data to uiSchema, used in FieldTemplate.
+    const { tooltips, uiSchema } = this.props;
+    Object.keys(uiSchema).forEach((key) => {
+      if (tooltips[key]) {
+        uiSchema[key]['ui:tooltip'] = tooltips[key];
+      }
+    });
+
     return (
       <Row>
         <Form
@@ -55,7 +63,7 @@ class CheckoutFormContainer extends Component {
           // we don't need to keep formData value up to date with user input.
           formData={{}}
           schema={this.props.schema}
-          uiSchema={this.props.uiSchema}
+          uiSchema={uiSchema}
           validate={this.onValidate.bind(this)}
           FieldTemplate={FieldTemplateCheckout}
           className={this.props.formClass}
@@ -83,6 +91,7 @@ CheckoutFormContainer.propTypes = {
   schema: PropTypes.object.isRequired,
   uiSchema: PropTypes.object.isRequired,
   formClass: PropTypes.string.isRequired,
+  tooltips: PropTypes.object,
   onChange: PropTypes.func
 };
 

@@ -30,3 +30,11 @@
 .form-group.currency-GBP .form-group.field-integer:before {
   content:"£";
 }
+
+form.options > .form-group {
+  margin-bottom: 0;
+}
+
+.text-gray p a {
+  color: $text-gray;
+}
