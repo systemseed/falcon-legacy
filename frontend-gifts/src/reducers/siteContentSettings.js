@@ -12,13 +12,28 @@ export const siteContentSettings = (state = {
         isPending: true,
       };
 
-    case 'GET_SITE_CONTENT_SETTINGS_FULFILLED':
+    case 'GET_SITE_CONTENT_SETTINGS_FULFILLED': {
+      const data = action.payload.body.data[0];
+      const tooltips = {};
+
+      // Prepare tooltips configuration.
+      if (data.fieldConfigCheckoutTooltips) {
+        data.fieldConfigCheckoutTooltips.split('\n').forEach((item) => {
+          const values = item.split('|');
+          if (values.length === 2) {
+            tooltips[values[0]] = values[1].replace('&#13;', '');
+          }
+        });
+      }
+      data.tooltips = tooltips;
+
       return {
         ...state,
         isPending: false,
         isFulfilled: true,
-        data: action.payload.body.data[0],
+        data,
       };
+    }
 
     case 'GET_SITE_CONTENT_SETTINGS_REJECTED':
       return {

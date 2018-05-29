@@ -1,0 +1,21 @@
+uuid: a9e784b1-ec61-4216-91c8-307c5ab15216
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.site_content_settings
+    - field.storage.config_pages.field_config_checkout_tooltips
+id: config_pages.site_content_settings.field_config_checkout_tooltips
+field_name: field_config_checkout_tooltips
+entity_type: config_pages
+bundle: site_content_settings
+label: 'Tooltips configuration'
+description: 'Enter tooltips configuration as "machine_name|Tooltip text", one tooltip per line.<br>Supported machine names include: field_profile_first_name, field_profile_last_name, field_profile_email, field_profile_phone, address_line1, address_line2, locality, administrative_area, country_code.'
+required: false
+translatable: false
+default_value:
+  -
+    value: "field_profile_email|This lets us send you a receipt for your donation. We'll also update you on our work.\r\nfield_profile_phone|This lets us update you on our emergency appeals.\r\ncountry_code|This lets us send you an acknowledgement letter and update you about our work."
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -6,10 +6,12 @@ dependencies:
     - config_pages.type.site_content_settings
     - field.field.config_pages.site_content_settings.field_config_checkout_cards
     - field.field.config_pages.site_content_settings.field_config_checkout_optins
+    - field.field.config_pages.site_content_settings.field_config_checkout_optins_btm
     - field.field.config_pages.site_content_settings.field_config_checkout_page_title
     - field.field.config_pages.site_content_settings.field_config_checkout_step_1
     - field.field.config_pages.site_content_settings.field_config_checkout_step_2
     - field.field.config_pages.site_content_settings.field_config_checkout_step_3
+    - field.field.config_pages.site_content_settings.field_config_checkout_tooltips
     - field.field.config_pages.site_content_settings.field_config_contact_us_address
     - field.field.config_pages.site_content_settings.field_config_corporate_enabled
     - field.field.config_pages.site_content_settings.field_config_corporate_images
@@ -42,7 +44,6 @@ third_party_settings:
       label: General
     group_config_front_page:
       children:
-        - field_config_front_page_subline
         - field_config_front_page_copy
       parent_name: group_config_tabs
       weight: 2
@@ -116,9 +117,11 @@ third_party_settings:
         - field_config_checkout_page_title
         - field_config_checkout_step_1
         - field_config_checkout_optins
+        - field_config_checkout_optins_btm
         - field_config_checkout_step_2
         - field_config_checkout_step_3
         - field_config_checkout_cards
+        - field_config_checkout_tooltips
       parent_name: group_config_tabs
       weight: 5
       format_type: tab
@@ -135,7 +138,7 @@ bundle: site_content_settings
 mode: default
 content:
   field_config_checkout_cards:
-    weight: 11
+    weight: 12
     settings:
       rows: 5
       placeholder: ''
@@ -144,6 +147,14 @@ content:
     region: content
   field_config_checkout_optins:
     weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_config_checkout_optins_btm:
+    weight: 9
     settings:
       rows: 5
       placeholder: ''
@@ -167,7 +178,7 @@ content:
     type: string_textfield
     region: content
   field_config_checkout_step_2:
-    weight: 9
+    weight: 10
     settings:
       size: 60
       placeholder: ''
@@ -175,12 +186,20 @@ content:
     type: string_textfield
     region: content
   field_config_checkout_step_3:
-    weight: 10
+    weight: 11
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_config_checkout_tooltips:
+    weight: 13
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
     region: content
   field_config_contact_us_address:
     weight: 5

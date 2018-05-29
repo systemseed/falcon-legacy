@@ -6,10 +6,12 @@ dependencies:
     - config_pages.type.site_content_settings
     - field.field.config_pages.site_content_settings.field_config_checkout_cards
     - field.field.config_pages.site_content_settings.field_config_checkout_optins
+    - field.field.config_pages.site_content_settings.field_config_checkout_optins_btm
     - field.field.config_pages.site_content_settings.field_config_checkout_page_title
     - field.field.config_pages.site_content_settings.field_config_checkout_step_1
     - field.field.config_pages.site_content_settings.field_config_checkout_step_2
     - field.field.config_pages.site_content_settings.field_config_checkout_step_3
+    - field.field.config_pages.site_content_settings.field_config_checkout_tooltips
     - field.field.config_pages.site_content_settings.field_config_contact_us_address
     - field.field.config_pages.site_content_settings.field_config_corporate_enabled
     - field.field.config_pages.site_content_settings.field_config_corporate_images
@@ -35,6 +37,13 @@ content:
     region: content
   field_config_checkout_optins:
     weight: 12
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_config_checkout_optins_btm:
+    weight: 16
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -71,6 +80,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_config_checkout_tooltips:
+    weight: 17
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
     region: content
   field_config_contact_us_address:
     weight: 4
