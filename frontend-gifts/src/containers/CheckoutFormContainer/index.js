@@ -7,9 +7,6 @@ import { FieldTemplateCheckout } from '../../utils/forms';
 // See CheckoutFormProfile for usage example.
 class CheckoutFormContainer extends Component {
 
-  state = {
-    formData: {},
-  };
 
   // Flag to let onValidate know this is initial state of form data.
   inited = false;

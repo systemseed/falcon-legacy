@@ -6,7 +6,7 @@
   .form-control,
   .form-control:focus,
   .has-error .form-control,
-  .has-error .form-control:focus {
+  .has-error .form-control:focus  {
     box-shadow: none;
   }
 
@@ -28,82 +28,21 @@
     }
 
     &.options {
-      margin: 16px 0;
-      padding: 0 15px;
 
-      .field {
-        margin-bottom: 0px;
-      }
       .checkbox {
-        width: 100%;
-        max-width: 400px;
-        position: relative;
-        margin-bottom: 16px;
-        padding-left: 0;
+        margin: 0;
+        padding: 0;
 
         label {
-          margin-bottom: 0px;
-          &:hover {
-            input[type=checkbox]:after {
-              border-color: $brand-primary;
-            }
-          }
+          @extend .btn;
+          margin: 0;
+          padding-left: 42px;
         }
 
-        input[type=checkbox] {
+        input[type="checkbox"] {
           position: absolute;
-          top: 13px;
-          left: 13px;
-          width: 0px;
-          height: 0px;
-
-          &:after {
-            position: absolute;
-            top: -1px;
-            left: -1px;
-            visibility: visible;
-            display: inline-block;
-            cursor: pointer;
-            content: " ";
-            background: #fff;
-            width: 24px;
-            height: 24px;
-            border: 1px solid;
-            border-radius: 4px;
-          }
-
-          &:checked + span {
-            border-color: $brand-primary;
-            color: $brand-primary;
-          }
-          &:checked:after {
-            font-family: 'Material Icons';
-            content: "\E5CA";
-            font-style: normal;
-            font-weight: 400;
-            line-height: 25px;
-            font-size: 24px;
-            color: #fff;
-            background: $brand-primary;
-            border: none;
-          }
-        }
-
-        span {
-          cursor: pointer;
-          display: block;
-          padding: 14px 0;
-          border: 1px solid $gray-dark;
-          border-radius: 4px;
-          color: $gray-dark;
-          font-size: 14px;
-          padding-left: 44px;
-          padding-right: 12px;
-
-          &:hover {
-            color: $brand-primary;
-            border-color: $brand-primary;
-          }
+          margin-top: 16px;
+          margin-left: -20px;
         }
       }
     }
@@ -205,6 +144,8 @@
       }
     }
   }
+
+
 
   // By default, hide errors highlighting.
   .has-error .form-control {
