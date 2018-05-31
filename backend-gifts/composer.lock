@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4844a8f3fe1584ba5a045d90cca2699e",
+    "content-hash": "cef2af2b9419a82c541e076dcccebf10",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2745,6 +2745,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Raise maximum page limit to 100": "patches/jsonapi_raise_maximum_page_limit_100.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
