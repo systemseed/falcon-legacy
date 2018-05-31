@@ -142,5 +142,6 @@ export const mappedProductItem = (responseItem) => {
     ecardPreviewImage,
     fieldPostalPreviewBody: responseItem.fieldGiftPostalPreviewBody,
     fieldEcardPreviewBody: responseItem.fieldGiftEcardPreviewBody,
+    visible: true
   };
 };

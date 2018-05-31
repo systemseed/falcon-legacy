@@ -1,0 +1,23 @@
+.rc-slider {
+  .rc-slider-track, .rc-slider-handle {
+    background: #8E0554;
+  }
+
+  .rc-slider-handle {
+    border-color: #8E0554;
+
+     &:focus {
+       box-shadow: 0 0 0 5px #8E0554;
+
+     }
+
+    &:active {
+      border-color: #8E0554;
+
+    }
+  }
+
+  .rc-slider-dot-active {
+    border-color: #8E0554;
+  }
+}

@@ -10,6 +10,7 @@ import LoadingError from '../../components/LoadingError';
 import GiftsFilter from '../../components/GiftsFilter';
 import GiftsGrid from '../../components/GiftsGrid';
 import Metatags from '../../components/Metatags';
+import PriceFilter from '../../components/PriceFilter';
 
 class GiftsContainer extends React.Component {
 
@@ -20,6 +21,10 @@ class GiftsContainer extends React.Component {
     if (!gifts.products.length) {
       loadAllGifts().then(done, done);
     }
+  }
+
+  onPriceChange(priceRange) {
+    this.props.filterByPriceRange(priceRange, this.props.currentCurrency);
   }
 
   render = () => {
@@ -37,22 +42,33 @@ class GiftsContainer extends React.Component {
 
     const giftsFiltered = giftUtils.filterByCategory(gifts, categoryId);
 
+    const giftsByPriceRange = giftsFiltered.products.filter(gift => gift.visible);
+
     if (giftsFiltered.isPending) {
       return <Loading big />;
     }
 
     if (giftsFiltered.isFulfilled && giftsFiltered.products) {
       return (
-        <div>
-          {category && <Metatags metatags={category.metatags} />}
-          <GiftsFilter
-            categories={giftsFiltered.categories}
-            categoryId={categoryId}
-            categoryName={categoryName}
-            isCollapsed
-          />
+        <div className="container">
+          <div className="row">
+            {category && <Metatags metatags={category.metatags} />}
+            <div className="col-md-8">
+              <GiftsFilter
+                categories={giftsFiltered.categories}
+                categoryId={categoryId}
+                categoryName={categoryName}
+                isCollapsed
+              />
+            </div>
+            <div className="col-md-4">
+              <PriceFilter
+                onPriceChange={this.onPriceChange.bind(this)}
+              />
+            </div>
+          </div>
           <GiftsGrid
-            gifts={giftsFiltered.products}
+            gifts={giftsByPriceRange}
             currentCurrency={currentCurrency}
           />
         </div>
@@ -60,7 +76,7 @@ class GiftsContainer extends React.Component {
     }
 
     return <LoadingError type="gifts" />;
-  }
+  };
 }
 
 // Declare our props dependencies.
@@ -99,6 +115,7 @@ GiftsContainer.propTypes = {
   currentCurrency: React.PropTypes.string,
   loadAllGifts: React.PropTypes.func,
   done: React.PropTypes.func,
+  filterByPriceRange: React.PropTypes.func
 };
 
 // Anything in the returned object below is merged in with the props of the
@@ -115,6 +132,12 @@ const mapStoreToProps = store => ({
 
 const mapDispatchToProps = {
   loadAllGifts: giftsActions.loadAll,
+  filterByPriceRange: (priceRange, currentCurrency) => ({
+    type: 'GET_PRODUCTS_BY_PRICE_RANGE',
+    gifts: [],
+    priceRange,
+    currentCurrency
+  }),
 };
 
 // This is where we make our component subscribe to store update.

@@ -7,7 +7,9 @@ export const gifts = (state = {
   isFulfilled: false,
   isError: false,
   products: [],
-  categories: []
+  categories: [],
+  priceRange: [0, 1200],
+  currentCurrency: null
 }, action) => {
   switch (action.type) {
 
@@ -62,6 +64,25 @@ export const gifts = (state = {
         isPending: false,
         isError: true,
       };
+
+    case 'GET_PRODUCTS_BY_PRICE_RANGE': {
+      const currentCurrency = action.currentCurrency;
+      const priceRange = action.priceRange;
+      const products = state.products.map((gift) => {
+        if (gift.price[currentCurrency]) {
+          let price = gift.price[currentCurrency].amount * 100;
+          price /= 100;
+          gift.visible = (price >= priceRange[0] && price <= priceRange[1]);
+        }
+
+        return gift;
+      });
+
+      return {
+        ...state,
+        products,
+      };
+    }
 
     default:
       return state;
