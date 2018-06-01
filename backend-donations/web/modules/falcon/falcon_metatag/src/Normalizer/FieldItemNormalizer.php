@@ -2,6 +2,7 @@
 
 namespace Drupal\falcon_metatag\Normalizer;
 
+use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\serialization\Normalizer\NormalizerBase;
 use Drupal\jsonapi\Normalizer\Value\FieldItemNormalizerValue;
 
@@ -26,7 +27,7 @@ class FieldItemNormalizer extends NormalizerBase {
       $values[$property_name] = $property->getValue();
     }
 
-    return new FieldItemNormalizerValue($values);
+    return new FieldItemNormalizerValue($values, new CacheableMetadata());
   }
 
 }
