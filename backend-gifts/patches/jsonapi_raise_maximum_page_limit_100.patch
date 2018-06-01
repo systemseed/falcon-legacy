@@ -1,13 +1,13 @@
-diff --git a/src/Routing/Param/OffsetPage.php b/src/Routing/Param/OffsetPage.php
-index 2de1b22..77de434 100644
---- a/src/Routing/Param/OffsetPage.php
-+++ b/src/Routing/Param/OffsetPage.php
-@@ -19,7 +19,7 @@ class OffsetPage extends JsonApiParamBase {
+diff --git a/src/Query/OffsetPage.php b/src/Query/OffsetPage.php
+index 7e1a7a0..8f8a40e 100644
+--- a/src/Query/OffsetPage.php
++++ b/src/Query/OffsetPage.php
+@@ -42,7 +42,7 @@ class OffsetPage {
     *
     * @var int
     */
--  public static $maxSize = 50;
-+  public static $maxSize = 100;
+-  const SIZE_MAX = 50;
++  const SIZE_MAX = 100;
  
    /**
-    * Instantiates an OffsetPage object.
+    * The offset for the query.
