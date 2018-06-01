@@ -1,23 +1,67 @@
-.rc-slider {
-  .rc-slider-track, .rc-slider-handle {
-    background: #8E0554;
+.price-filter {
+  margin-top: 14px;
+  margin-bottom: 32px;
+
+  @media (max-width: $screen-sm){
+    margin-left: 6px;
+    margin-right: 6px;
   }
 
-  .rc-slider-handle {
-    border-color: #8E0554;
+  &__header {
+    @media (min-width: $screen-sm){
+      margin-left: -6px;
+      margin-right: -6px;
+    }
+    color: #606060;
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
 
-     &:focus {
-       box-shadow: 0 0 0 5px #8E0554;
+  &__title {
+    @media (max-width: $screen-sm){
+      margin-left: -6px;
+    }
+    font-weight: bold;
+    text-transform: uppercase;
+  }
 
-     }
-
-    &:active {
-      border-color: #8E0554;
-
+  &__values {
+    @media (max-width: $screen-sm){
+      margin-right: -6px;
     }
   }
 
-  .rc-slider-dot-active {
-    border-color: #8E0554;
+  &__values {
+
+  }
+
+  .rc-slider {
+    .rc-slider-track, .rc-slider-handle {
+      background: $brand-danger;
+    }
+
+    .rc-slider-handle {
+      border-color: $brand-danger;
+      width: 12px;
+      height: 12px;
+
+      &:focus {
+        box-shadow: 0 0 0 5px $brand-danger;
+
+      }
+
+      &:active {
+        border-color: $brand-danger;
+
+      }
+    }
+
+    .rc-slider-dot-active {
+      border-color: $brand-danger;
+    }
+
+    .rc-slider-dot, .rc-slider-mark-text {
+      display: none;
+    }
   }
 }

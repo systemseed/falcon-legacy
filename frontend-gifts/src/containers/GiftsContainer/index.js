@@ -53,7 +53,7 @@ class GiftsContainer extends React.Component {
         <div className="container">
           <div className="row">
             {category && <Metatags metatags={category.metatags} />}
-            <div className="col-md-8">
+            <div className="col-sm-6 col-md-8">
               <GiftsFilter
                 categories={giftsFiltered.categories}
                 categoryId={categoryId}
@@ -61,9 +61,10 @@ class GiftsContainer extends React.Component {
                 isCollapsed
               />
             </div>
-            <div className="col-md-4">
+            <div className="col-sm-6 col-md-4">
               <PriceFilter
                 onPriceChange={this.onPriceChange.bind(this)}
+                currentCurrency={currentCurrency}
               />
             </div>
           </div>

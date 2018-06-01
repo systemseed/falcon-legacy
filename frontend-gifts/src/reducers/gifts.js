@@ -81,6 +81,7 @@ export const gifts = (state = {
       return {
         ...state,
         products,
+        priceRange: action.priceRange
       };
     }
 

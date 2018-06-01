@@ -12,10 +12,14 @@ const GiftsGrid = ({ gifts, currentCurrency }) => {
     </Col>
   );
 
+  const noProductsMessage = (
+    <h1>No results.</h1>
+  );
+
   return (
     <Grid bsClass="container padding-bottom-3x" componentClass="section">
       <Row>
-        { products }
+        { (products.length > 0) ? products : noProductsMessage }
       </Row>
     </Grid>
   );
