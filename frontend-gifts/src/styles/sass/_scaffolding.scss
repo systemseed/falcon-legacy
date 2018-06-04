@@ -40,6 +40,12 @@ body {
   background-size: cover;
 }
 
+@media (min-width: $container-xlg){
+  body {
+    background: $body-bg-xl;
+  }
+}
+
 // Reset fonts for relevant elements
 input,
 button,

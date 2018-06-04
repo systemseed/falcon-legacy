@@ -47,7 +47,7 @@ class GlobalHeader extends React.Component {
           headerLeftText={siteContentSettings.fieldConfigHeaderLeftText.value}
           headerRightText={siteContentSettings.fieldConfigHeaderRightText.value}
         />
-        <div className="container">
+        <div className="container header-container">
 
           {/* Visible only on the mobile */}
           <div className="mobile-menu-wrapper">

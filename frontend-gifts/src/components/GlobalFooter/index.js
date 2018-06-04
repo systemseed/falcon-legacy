@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const GlobalFooter = ({ siteContentSettings }) => (
-  <div className="container">
+  <div className="container footer-container">
     <footer className="footer">
       <div className="column">
         {siteContentSettings.fieldConfigFooterLeftText &&

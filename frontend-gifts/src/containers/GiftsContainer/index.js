@@ -43,7 +43,7 @@ class GiftsContainer extends React.Component {
 
     if (giftsFiltered.isFulfilled && giftsFiltered.products) {
       return (
-        <div>
+        <div className="gifts-container">
           {category && <Metatags metatags={category.metatags} />}
           <GiftsFilter
             categories={giftsFiltered.categories}

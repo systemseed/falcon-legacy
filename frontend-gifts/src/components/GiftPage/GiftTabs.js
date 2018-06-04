@@ -25,7 +25,7 @@ class GiftTabs extends React.Component {
     const gift = this.props.gift;
 
     return (
-      <section className="container padding-top-2x">
+      <section className="padding-top-2x">
         <Tabs forceRenderTabPanel selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
 
           <TabList className="text-center">

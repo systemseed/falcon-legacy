@@ -9,14 +9,10 @@ const PageRoute = ({ component: Component, ...rest }) => (
     {...rest}
     render={props => (
       <div className="page-content">
-        <div className="container">
-          <div className="bg-white">
-            <Component {...props} />
-          </div>
-        </div>
-        <GlobalFooter />
+        <Component {...props} />
+        <GlobalFooter/>
         {/* POPUP CONTAINER SITS HERE AND WAITS FOR YOU TO OPEN IT */}
-        <PopupContainer />
+        <PopupContainer/>
       </div>
     )}
   />

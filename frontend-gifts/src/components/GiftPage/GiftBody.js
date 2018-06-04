@@ -5,8 +5,8 @@ import BuyNowButton from '../BuyNowButton';
 import ProductPrice from '../ProductPrice';
 
 const GiftBody = ({ gift, currentCurrency }) => (
-  <section className="fw-section bg-gray padding-bottom-2x">
-    <div className="container">
+  <section className="fw-section padding-bottom-2x">
+    <div>
       <div className="product-info padding-top-1x text-center">
         <h1 className="h2 space-bottom-half">{ gift.title }</h1>
         <h2>
