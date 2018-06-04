@@ -70,8 +70,7 @@ export const gifts = (state = {
       const priceRange = action.priceRange;
       const products = state.products.map((gift) => {
         if (gift.price[currentCurrency]) {
-          let price = gift.price[currentCurrency].amount * 100;
-          price /= 100;
+          const price = Number(gift.price[currentCurrency].amount);
           gift.visible = (price >= priceRange[0] && price <= priceRange[1]);
         }
 

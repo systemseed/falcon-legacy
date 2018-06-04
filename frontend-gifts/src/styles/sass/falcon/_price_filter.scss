@@ -2,37 +2,15 @@
   margin-top: 14px;
   margin-bottom: 32px;
 
-  @media (max-width: $screen-sm){
-    margin-left: 6px;
-    margin-right: 6px;
-  }
-
   &__header {
-    @media (min-width: $screen-sm){
-      margin-left: -6px;
-      margin-right: -6px;
-    }
     color: #606060;
     font-size: 15px;
     margin-bottom: 16px;
   }
 
   &__title {
-    @media (max-width: $screen-sm){
-      margin-left: -6px;
-    }
     font-weight: bold;
     text-transform: uppercase;
-  }
-
-  &__values {
-    @media (max-width: $screen-sm){
-      margin-right: -6px;
-    }
-  }
-
-  &__values {
-
   }
 
   .rc-slider {
@@ -47,13 +25,18 @@
 
       &:focus {
         box-shadow: 0 0 0 5px $brand-danger;
-
       }
 
       &:active {
         border-color: $brand-danger;
-
       }
+    }
+
+    .rc-slider-handle-1 {
+      margin-left: -1px;
+    }
+    .rc-slider-handle-2 {
+      margin-left: -11px;
     }
 
     .rc-slider-dot-active {
