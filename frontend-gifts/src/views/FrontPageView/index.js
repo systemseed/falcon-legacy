@@ -5,18 +5,20 @@ import FrontPageCopy from '../../components/FrontPageCopy';
 import CustomPageMetatags from '../../components/CustomPageMetatags';
 
 const FrontPageView = ({ match }) => (
-  <div>
-    {match.params.categoryName === undefined &&
-      <CustomPageMetatags id="front" />}
+  <div className="container">
+    <div className="bg-white padding-bottom-2x">
+      {match.params.categoryName === undefined &&
+      <CustomPageMetatags id="front"/>}
 
-    <FrontPageCopy />
+      <FrontPageCopy/>
 
-    <GiftsContainer categoryName={match.params.categoryName} />
+      <GiftsContainer categoryName={match.params.categoryName}/>
 
-    {/* Render Gift Card with front page on background. */}
-    {match.params.giftCard !== undefined &&
-      <ModalGiftCard cardId={match.params.giftCard} />
-    }
+      {/* Render Gift Card with front page on background. */}
+      {match.params.giftCard !== undefined &&
+      <ModalGiftCard cardId={match.params.giftCard}/>
+      }
+    </div>
   </div>
 );
 

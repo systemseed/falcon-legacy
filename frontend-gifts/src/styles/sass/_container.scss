@@ -1,0 +1,10 @@
+.head {
+  position: relative;
+}
+
+@media (min-width: $container-xlg){
+  .container {
+    width: $container-xlg;
+  }
+}
+
