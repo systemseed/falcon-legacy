@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { connect } from 'react-redux';
-import CwButton from '../../components/CwButton';
+import CwButton from '../CwButton';
 import * as basketActions from '../../actions/basket';
 import * as messageActions from '../../actions/messageBar';
+import ArrowIcon from '../ArrowIcon';
 
 class AddToBasketButton extends React.Component {
   addToBasketClicked = () => {
@@ -14,7 +16,7 @@ class AddToBasketButton extends React.Component {
     // product type. Otherwise popup with basket clear confirmation
     // will be shown, so no message needed.
     if (basketType === product.type || !basketType) {
-      dispatch(messageActions.show('Added to basket', { link: '/basket' }));
+      dispatch(messageActions.show(`Added! Go to basket ${renderToStaticMarkup(<ArrowIcon direction="right" />)}`, { link: '/basket' }));
     }
   };
 

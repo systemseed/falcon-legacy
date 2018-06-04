@@ -1,8 +1,10 @@
 import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import _isEmpty from 'lodash/isEmpty';
 import * as popup from './popup';
 import * as message from './messageBar';
 import ConfirmChangeProduct from '../components/ConfirmChangeProduct';
+import ArrowIcon from '../components/ArrowIcon';
 
 const addProductUnsafe = product => ({
   type: 'BASKET_ADD_PRODUCT',
@@ -98,7 +100,7 @@ export const addProduct = (product, router = null) => (dispatch, getState) => {
       dispatch(addProductUnsafe(product));
       updateFreeProductInBasket(dispatch, getState);
       dispatch(popup.close());
-      dispatch(message.show('Added to basket'));
+      dispatch(message.show(`Added! Go to basket ${renderToStaticMarkup(<ArrowIcon direction="right" />)}`, { link: '/basket' }));
       if (router) {
         router.history.push({ pathname: '/basket' });
       }

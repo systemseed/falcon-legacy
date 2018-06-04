@@ -15,7 +15,7 @@ const GiftsGridCorporate = ({ gifts, currentCurrency }) => {
   return (
     <Grid
       componentClass="section"
-      className="padding-top-3x space-top-half corporate"
+      className="gifts-grid padding-top-3x space-top-half corporate"
     >
 
       <h3 className="text-center">
