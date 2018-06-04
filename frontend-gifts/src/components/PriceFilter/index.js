@@ -79,6 +79,7 @@ class PriceFilter extends React.Component {
           defaultValue={[this.state.value[0], this.state.value[1]]}
           min={this.state.lowerBound} max={this.state.upperBound}
           onChange={this.onSliderChange}
+          pushable
         />
       </div>
     );
