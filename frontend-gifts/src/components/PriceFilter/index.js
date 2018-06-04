@@ -18,15 +18,22 @@ class PriceFilter extends React.Component {
     // Values on the right are actual price values.
     const marks = {
       0: 0,
-      1: 50,
-      2: 100,
-      3: 500,
-      4: 1000,
-      5: 1500
+      1: 20,
+      2: 40,
+      3: 60,
+      4: 80,
+      5: 100,
+      6: 150,
+      7: 500,
+      8: 1000,
+      9: 1500
     };
 
+    const lowerBound = 0;
+    const upperBound = 9;
+
     // Calculating initial Slider range value from price range.
-    const initialSliderRangeValue = [0, 5];
+    const initialSliderRangeValue = [lowerBound, upperBound];
     Object.keys(marks).forEach((key) => {
       if (marks[key] === this.props.initialPriceRange[0]) {
         initialSliderRangeValue[0] = parseInt(key, 10);
@@ -38,8 +45,8 @@ class PriceFilter extends React.Component {
     });
 
     this.state = {
-      lowerBound: 0,
-      upperBound: 5,
+      lowerBound,
+      upperBound,
       value: initialSliderRangeValue, // Slider range scale.
       priceRange: [0, 1500], // Actual price range.
       marks,
