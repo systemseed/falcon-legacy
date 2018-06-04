@@ -61,12 +61,15 @@ class PriceFilter extends React.Component {
 
 
   render() {
+    const defaultLowerValue = this.state.marks[this.state.value[0]];
+    const defaultUpperValue = this.state.marks[this.state.value[1]];
+
     return (
       <div className="price-filter">
         <div className="clearfix price-filter__header">
           <span className="price-filter__title pull-left">Price range</span>
           <span className="price-filter__values pull-right">
-            {this.state.currentCurrencySymbol}{this.state.priceRange[0]} - {this.state.currentCurrencySymbol}{this.state.priceRange[1]}
+            {this.state.currentCurrencySymbol}{defaultLowerValue} - {this.state.currentCurrencySymbol}{defaultUpperValue}
           </span>
         </div>
         <Range
