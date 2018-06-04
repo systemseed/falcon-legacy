@@ -6,9 +6,9 @@ import GiftTabs from './GiftTabs';
 const GiftPage = ({ gift, currentCurrency }) => (
   <div className="container">
     <div className="bg-white">
-      <GiftHeroImage gift={gift}/>
-      <GiftBody gift={gift} currentCurrency={currentCurrency}/>
-      <GiftTabs gift={gift}/>
+      <GiftHeroImage gift={gift} />
+      <GiftBody gift={gift} currentCurrency={currentCurrency} />
+      <GiftTabs gift={gift} />
     </div>
   </div>
 );

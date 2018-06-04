@@ -56,11 +56,11 @@ class GlobalHeader extends React.Component {
               className={this.state.isMenuCollapsed ? 'mobile-menu-toggle' : 'mobile-menu-toggle active'}
               onClick={this.mobileMenuToggle}
             >
-              <i className="material-icons menu"/>
+              <i className="material-icons menu" />
             </Button>
           </div>
 
-          <Logo/>
+          <Logo />
           {/* <RegionSwitcher /> */}
 
           <MainMenu
@@ -72,7 +72,7 @@ class GlobalHeader extends React.Component {
             <div className="inner">
 
               {/* Basket DropDown Widget */}
-              <BasketWidget/>
+              <BasketWidget />
             </div>
           </div>
         </div>

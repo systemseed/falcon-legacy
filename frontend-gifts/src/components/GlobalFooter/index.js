@@ -6,7 +6,7 @@ const GlobalFooter = ({ siteContentSettings }) => (
     <footer className="footer">
       <div className="column">
         {siteContentSettings.fieldConfigFooterLeftText &&
-        <div dangerouslySetInnerHTML={{ __html: siteContentSettings.fieldConfigFooterLeftText.value }}/>
+        <div dangerouslySetInnerHTML={{ __html: siteContentSettings.fieldConfigFooterLeftText.value }} />
         }
       </div>
       <div className="column">
@@ -15,7 +15,7 @@ const GlobalFooter = ({ siteContentSettings }) => (
           <small>We support all of the following payment methods.</small>
         </h3>
         <div className="cards">
-          <img src="/images/cards.png" alt="Payment methods"/>
+          <img src="/images/cards.png" alt="Payment methods" />
         </div>
       </div>
 
