@@ -41,7 +41,7 @@ class MetatagsConfigEntityNormalizer extends ConfigEntityNormalizer {
           }
         }
 
-        $entity->set('tags', ['value' => $metatag_normalized]);
+        $entity->set('tags', $metatag_normalized);
         $entity->set('metatag_normalized', true);
       }
       return parent::getFields($entity, $bundle, $resource_type);

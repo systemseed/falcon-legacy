@@ -5,8 +5,6 @@ import config from '../config';
 jsonapify(request);
 
 const defaultQueryParams = {
-  // Fetch extra data in the same request.
-  'include': 'variations,field_gift_category,field_gift_image,field_gift_action_image,field_fieldable_path,field_gift_product_code,field_metatags,field_gift_description_image,field_gift_what_you_get_image,field_gifts_in_bundle,field_gift_postal_preview_body,field_gift_ecard_preview_body,field_gift_postal_preview_image,field_gift_ecard_preview_image',
   // Limit variation fields to this list.
   'fields[commerce_product_variation--gift]': 'variation_id,sku,price',
   // Limit taxonomy term fields to this list.
@@ -25,21 +23,53 @@ const defaultQueryParams = {
  *   'gift' or 'gift_corporate'
  */
 export function getAll(productBundle) {
+  const queryParams = defaultQueryParams;
+
+  switch (productBundle) {
+    case 'gift':
+      queryParams.include = 'variations,field_gift_category,field_gift_image,field_gift_action_image,field_fieldable_path,field_gift_product_code,field_metatags,field_gift_what_you_get_image,field_gifts_in_bundle,field_gift_postal_preview_body,field_gift_ecard_preview_body,field_gift_postal_preview_image,field_gift_ecard_preview_image';
+      break;
+    case 'gift_free':
+      queryParams.include = 'variations,field_gift_image,field_gift_product_code';
+      break;
+    case 'gift_corporate':
+      queryParams.include = 'variations,field_gift_image,field_fieldable_path,field_gift_product_code,field_metatags,field_gift_description_image';
+      break;
+    default:
+      break;
+  }
+
   return {
     type: `GET_PRODUCTS_${productBundle.toUpperCase()}`,
     payload: request
       .get(`${config.backend}/v1/donations/jsonapi/commerce_product/${productBundle}`)
-      .query(defaultQueryParams)
+      .query(queryParams)
   };
 }
 
 export function getCustomPriceProduct(productBundle) {
+  const queryParams = defaultQueryParams;
+
+  switch (productBundle) {
+    case 'gift':
+      queryParams.include = 'variations,field_gift_category,field_gift_image,field_gift_action_image,field_fieldable_path,field_gift_product_code,field_metatags,field_gift_what_you_get_image,field_gifts_in_bundle,field_gift_postal_preview_body,field_gift_ecard_preview_body,field_gift_postal_preview_image,field_gift_ecard_preview_image';
+      break;
+    case 'gift_free':
+      queryParams.include = 'variations,field_gift_image,field_gift_product_code';
+      break;
+    case 'gift_corporate':
+      queryParams.include = 'variations,field_gift_image,field_fieldable_path,field_gift_product_code,field_metatags,field_gift_description_image';
+      break;
+    default:
+      break;
+  }
+
   return {
     type: `GET_CUSTOM_PRICE_${productBundle.toUpperCase()}`,
     payload: request
       .get(`${config.backend}/v1/donations/jsonapi/commerce_product/${productBundle}`)
       .query({
-        ...defaultQueryParams,
+        ...queryParams,
         'filter[field_gift_variant_type][value]': 'custom_price'
       })
   };

@@ -5,7 +5,6 @@ dependencies:
   module:
     - commerce
     - commerce_store
-    - system
     - user
 _core:
   default_config_hash: oHsklE_XUCqbT57_8chfj2OrDcR4ikKQ1go5WEz3PK0

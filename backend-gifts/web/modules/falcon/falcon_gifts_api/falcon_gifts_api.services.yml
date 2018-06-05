@@ -3,4 +3,4 @@ services:
     class: Drupal\falcon_gifts_api\Normalizer\MenuLinkContentEntityNormalizer
     arguments: ['@jsonapi.link_manager', '@jsonapi.resource_type.repository', '@entity_type.manager']
     tags:
-      - { name: normalizer, priority: 22 }
+      - { name: jsonapi_normalizer_do_not_use_removal_imminent, priority: 22 }
