@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "532cfa48aac8df7100d17c356481ea80",
+    "content-hash": "73130d1affe2016d0a18220b80ddde84",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2286,7 +2286,8 @@
                     "merge-extra": false
                 },
                 "patches_applied": {
-                    "Menu content is not accessible via jsonapi": "https://www.drupal.org/files/issues/2018-03-19/menu_link_content-view-permissions-2915792-16.patch"
+                    "Menu content is not accessible via jsonapi": "https://www.drupal.org/files/issues/2018-03-19/menu_link_content-view-permissions-2915792-16.patch",
+                    "NegotiationMiddleware calls $request->setRequestFormat('html') when there is no _format request parameter, but shouldn't": "https://www.drupal.org/files/issues/2018-04-28/2854543-88.patch"
                 }
             },
             "autoload": {
