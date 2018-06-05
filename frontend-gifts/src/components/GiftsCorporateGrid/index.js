@@ -15,16 +15,18 @@ const GiftsGridCorporate = ({ gifts, currentCurrency }) => {
   return (
     <Grid
       componentClass="section"
-      className="padding-top-3x space-top-half corporate"
+      className="corporate"
     >
 
-      <h3 className="text-center">
-        Falcon Corporate Gifts - Give the gift of hope to children this year
-      </h3>
+      <div className="bg-white container__corporate padding-top-3x padding-bottom-2x">
+        <h3 className="text-center">
+          Falcon Corporate Gifts - Give the gift of hope to children this year
+        </h3>
 
-      <Row className="padding-top">
-        {products}
-      </Row>
+        <Row className="padding-top">
+          {products}
+        </Row>
+      </div>
 
     </Grid>
   );

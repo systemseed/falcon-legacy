@@ -8,6 +8,11 @@
     padding-left: 0;
     width: 100%;
   }
+  .featured-image-container {
+    padding-right: 0;
+    padding-left: 0;
+    width: 100%;
+  }
 }
 
 @media (min-width: $container-xlg){
@@ -15,7 +20,9 @@
     width: $container-xlg;
   }
 
-  .gifts-container {
+  .gifts-container,
+  .container__corporate-info,
+  .container__corporate {
     padding-left: 150px;
     padding-right: 150px;
   }

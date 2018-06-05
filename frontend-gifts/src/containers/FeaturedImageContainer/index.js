@@ -17,16 +17,19 @@ class FeaturedImageContainer extends React.Component {
     if (!this.props.imageUrl) {
       // redux-promise-middleware returns a promise after dispatching an action.
       // It allows us to simply attach done function to that promise.
-      dispatch(featuredImageActions.fetchAll()).then(done, done);
+      dispatch(featuredImageActions.fetchAll())
+        .then(done, done);
     }
   }
 
   render = () => (
-    <div
-      className="featured-image"
-      style={{ backgroundImage: `url(${this.props.imageUrl})` }}
-      title={this.props.imageAlt}
-    />
+    <div className="container featured-image-container">
+      <div
+        className="featured-image"
+        style={{ backgroundImage: `url(${this.props.imageUrl})` }}
+        title={this.props.imageAlt}
+      />
+    </div>
   );
 }
 

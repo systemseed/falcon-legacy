@@ -246,6 +246,12 @@ kbd {
 .padding-bottom-3x {
   padding-bottom: floor($line-height-computed * 3) !important;
 }
+
+.padding-horizontal-150 {
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
 @media #{$tablet-port} {
   .space-top {
     margin-top: floor($line-height-computed / 1.5) !important;
