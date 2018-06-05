@@ -252,6 +252,13 @@ kbd {
   padding-right: 150px;
 }
 
+@media (min-width: $container-xlg) {
+  .padding-horizontal-150-xl {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+}
+
 @media #{$tablet-port} {
   .space-top {
     margin-top: floor($line-height-computed / 1.5) !important;

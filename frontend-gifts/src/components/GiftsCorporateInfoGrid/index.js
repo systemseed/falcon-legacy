@@ -10,7 +10,7 @@ const GiftsCorporateInfoGrid = () => (
     componentClass="section"
     bsClass="container"
   >
-    <div className="bg-white padding-top-3x container__corporate-info">
+    <div className="bg-white padding-top-3x padding-horizontal-150-xl">
 
       <h3 className="text-center">
         How do Corporate Gifts work?

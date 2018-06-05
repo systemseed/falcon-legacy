@@ -18,48 +18,50 @@ const BasketWithCorporateGifts = ({ currentCurrency, products }) => {
   ));
 
   return (
-    <Grid className="padding-top">
-      <BasketNav />
-      <h1 className="space-top">Shopping Basket</h1>
+    <Grid>
+      <div className="bg-white padding-horizontal-150-xl padding-top">
+        <BasketNav />
+        <h1 className="space-top">Shopping Basket</h1>
 
-      <Row>
+        <Row>
 
-        <Col sm={8} className="padding-bottom-2x sticky-bottom-boundary-basket">
+          <Col sm={8} className="padding-bottom-2x sticky-bottom-boundary-basket">
 
-          <BasketSummary
-            className="text-sm visible-xs"
-            count={basketUtils.getItemsCount(products, currentCurrency)}
-            total={basketUtils.getTotal(products, currentCurrency)}
-            currency={currentCurrency}
-          />
-          <BasketItemsInCart
-            className="hidden-xs"
-            count={basketUtils.getItemsCount(products, currentCurrency)}
-          />
+            <BasketSummary
+              className="text-sm visible-xs"
+              count={basketUtils.getItemsCount(products, currentCurrency)}
+              total={basketUtils.getTotal(products, currentCurrency)}
+              currency={currentCurrency}
+            />
+            <BasketItemsInCart
+              className="hidden-xs"
+              count={basketUtils.getItemsCount(products, currentCurrency)}
+            />
 
-          <div className="space-top-2x shopping-cart">
-            {basketProducts}
-          </div>
+            <div className="space-top-2x shopping-cart">
+              {basketProducts}
+            </div>
 
-        </Col>
+          </Col>
 
-        <Col md={3} mdOffset={1} sm={4} className="padding-bottom-2x">
-          <aside>
-            <Sticky top={114} bottomBoundary=".sticky-bottom-boundary-basket">
-              <BasketSummary
-                className="text-sm lead-md"
-                total={basketUtils.getTotal(products, currentCurrency)}
-                currency={currentCurrency}
-              />
+          <Col md={3} mdOffset={1} sm={4} className="padding-bottom-2x">
+            <aside>
+              <Sticky top={114} bottomBoundary=".sticky-bottom-boundary-basket">
+                <BasketSummary
+                  className="text-sm lead-md"
+                  total={basketUtils.getTotal(products, currentCurrency)}
+                  currency={currentCurrency}
+                />
 
-              <CheckoutButton className="btn btn-primary btn-block space-top-none">
-                Checkout
-              </CheckoutButton>
-            </Sticky>
-          </aside>
-        </Col>
+                <CheckoutButton className="btn btn-primary btn-block space-top-none">
+                  Checkout
+                </CheckoutButton>
+              </Sticky>
+            </aside>
+          </Col>
 
-      </Row>
+        </Row>
+      </div>
     </Grid>
   );
 };

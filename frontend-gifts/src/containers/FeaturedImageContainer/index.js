@@ -23,7 +23,7 @@ class FeaturedImageContainer extends React.Component {
   }
 
   render = () => (
-    <div className="container featured-image-container">
+    <div className={this.props.frontPageCopy ? ' ' : 'container featured-image-container'}>
       <div
         className="featured-image"
         style={{ backgroundImage: `url(${this.props.imageUrl})` }}
@@ -38,6 +38,7 @@ FeaturedImageContainer.propTypes = {
   imageUrl: React.PropTypes.string,
   imageAlt: React.PropTypes.string,
   done: React.PropTypes.func,
+  frontPageCopy: React.PropTypes.bool,
 };
 
 const mapStateToProps = (state, ownProps) => {
