@@ -225,6 +225,15 @@ kbd {
 .padding-top-3x {
   padding-top: floor($line-height-computed * 3) !important;
 }
+
+.padding-right {
+  padding-right: $line-height-computed !important;
+}
+
+.padding-left {
+  padding-left: $line-height-computed !important;
+}
+
 .padding-bottom-half {
   padding-bottom: floor($line-height-computed / 2) !important;
 }
