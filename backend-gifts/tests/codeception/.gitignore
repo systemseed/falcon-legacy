@@ -1,4 +1,3 @@
-tests/_output
-
-# Files generated for test suite.
-tests/_support/_generated
+/tests/acceptance.suite.yml
+/tests/_output
+/tests/_support/_generated

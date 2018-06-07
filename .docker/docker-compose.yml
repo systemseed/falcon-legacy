@@ -7,13 +7,15 @@ services:
 
   fe_main:
     image: node:8.9-alpine
+    container_name: "${PROJECT_NAME}_fe_main"
     ports:
-      - "3001:3000"
+      - '3001:3000'
     working_dir: /app
     command: sh -c 'yarn install && yarn run start:dev'
     labels:
       - 'traefik.backend=fe_main'
       - 'traefik.port=3000'
+      - 'traefik.frontend.rule=Host:main.${PROJECT_BASE_URL}'
 
   ##########################
   ### GIFTS FRONTEND #######
@@ -21,15 +23,17 @@ services:
 
   fe_gifts:
     image: node:8.9-alpine
+    container_name: "${PROJECT_NAME}_fe_gifts"
     depends_on:
       - api_bus
     ports:
-      - "3000"
+      - '3000'
     working_dir: /app
     command: sh -c 'yarn install && yarn run start'
     labels:
       - 'traefik.backend=fe_gifts'
       - 'traefik.port=3000'
+      - 'traefik.frontend.rule=Host:gifts.${PROJECT_BASE_URL}'
 
   ##########################
   ####### API BUS ##########
@@ -37,116 +41,121 @@ services:
 
   api_bus:
     image: webdevops/php-nginx:alpine-3-php7
+    container_name: "${PROJECT_NAME}_api_bus"
     depends_on:
       - be_gifts_nginx
       - be_donations_nginx
     environment:
       WEB_DOCUMENT_ROOT: /app/public
+      WEB_ALIAS_DOMAIN: api.${PROJECT_BASE_URL}
     working_dir: /app
     labels:
       - 'traefik.backend=api_bus'
       - 'traefik.port=80'
+      - 'traefik.frontend.rule=Host:api.${PROJECT_BASE_URL}'
 
   ##########################
   ### GIFTS BACKEND ########
   ##########################
 
   be_gifts:
-    image: wodby/drupal-php:7.1-dev-4.2.3
-    depends_on:
-      - be_gifts_mariadb
+    image: wodby/drupal-php:$PHP_TAG
+    container_name: "${PROJECT_NAME}_be_gifts_php"
     environment:
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
-      DB_HOST: drupal
-      DB_USER: drupal
-      DB_PASSWORD: drupal
-      DB_NAME: drupal
-      DB_DRIVER: mysql
+      DB_HOST: $DB_HOST_GIFTS
+      DB_USER: $DB_USER
+      DB_PASSWORD: $DB_PASSWORD
+      DB_NAME: $DB_NAME
+      DB_DRIVER: $DB_DRIVER
 
   be_gifts_mariadb:
-    image: wodby/mariadb:10.1-3.1.3
+    image: wodby/mariadb:$MARIADB_TAG
+    container_name: "${PROJECT_NAME}_be_gifts_mariadb"
     stop_grace_period: 30s
     environment:
-      MYSQL_ROOT_PASSWORD: drupal
-      MYSQL_DATABASE: drupal
-      MYSQL_USER: drupal
-      MYSQL_PASSWORD: drupal
+      MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
+      MYSQL_DATABASE: $DB_NAME
+      MYSQL_USER: $DB_USER
+      MYSQL_PASSWORD: $DB_PASSWORD
 
   be_gifts_nginx:
-    image: wodby/drupal-nginx:8-1.13-4.0.3
+    image: wodby/drupal-nginx:$NGINX_TAG
+    container_name: "${PROJECT_NAME}_be_gifts_nginx"
     depends_on:
       - be_gifts
     environment:
+#      NGINX_PAGESPEED: "on"
       NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
       NGINX_ERROR_LOG_LEVEL: debug
       NGINX_BACKEND_HOST: be_gifts
       NGINX_SERVER_ROOT: /var/www/html/web
+#      NGINX_DRUPAL_FILE_PROXY_URL: http://example.com
     labels:
       - 'traefik.backend=be_gifts_nginx'
       - 'traefik.port=80'
+      - 'traefik.frontend.rule=Host:gifts.api.${PROJECT_BASE_URL}'
 
   be_gifts_pma:
     image: phpmyadmin/phpmyadmin
+    container_name: "${PROJECT_NAME}_be_gifts_pma"
     environment:
-      PMA_HOST: be_gifts_mariadb
-      PMA_USER: drupal
-      PMA_PASSWORD: drupal
+      PMA_HOST: $DB_HOST_GIFTS
+      PMA_USER: $DB_USER
+      PMA_PASSWORD: $DB_PASSWORD
       PHP_UPLOAD_MAX_FILESIZE: 1G
       PHP_MAX_INPUT_VARS: 1G
     labels:
       - 'traefik.backend=be_gifts_pma'
       - 'traefik.port=80'
-
+      - 'traefik.frontend.rule=Host:pma.gifts.api.${PROJECT_BASE_URL}'
 
   ##########################
   ### DONATIONS BACKEND ####
   ##########################
 
   be_donations:
-    image: wodby/drupal-php:7.1-dev-4.2.3
-    depends_on:
-      - be_donations_mariadb
+    extends:
+      service: be_gifts
+    container_name: "${PROJECT_NAME}_be_donations_php"
     environment:
-      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
-      DB_HOST: drupal
-      DB_USER: drupal
-      DB_PASSWORD: drupal
-      DB_NAME: drupal
-      DB_DRIVER: mysql
+      DB_HOST: $DB_HOST_DONATIONS
 
   be_donations_mariadb:
-    image: wodby/mariadb:10.1-3.1.3
-    stop_grace_period: 30s
-    environment:
-      MYSQL_ROOT_PASSWORD: drupal
-      MYSQL_DATABASE: drupal
-      MYSQL_USER: drupal
-      MYSQL_PASSWORD: drupal
+    extends:
+      service: be_gifts_mariadb
+    container_name: "${PROJECT_NAME}_be_donations_mariadb"
 
   be_donations_nginx:
-    image: wodby/drupal-nginx:8-1.13-4.0.3
+    image: wodby/drupal-nginx:$NGINX_TAG
+    container_name: "${PROJECT_NAME}_be_donations_nginx"
     depends_on:
       - be_donations
     environment:
+#      NGINX_PAGESPEED: "on"
       NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
       NGINX_ERROR_LOG_LEVEL: debug
       NGINX_BACKEND_HOST: be_donations
       NGINX_SERVER_ROOT: /var/www/html/web
+#      NGINX_DRUPAL_FILE_PROXY_URL: http://example.com
     labels:
       - 'traefik.backend=be_donations_nginx'
       - 'traefik.port=80'
+      - 'traefik.frontend.rule=Host:donations.api.${PROJECT_BASE_URL}'
 
   be_donations_pma:
     image: phpmyadmin/phpmyadmin
+    container_name: "${PROJECT_NAME}_be_donations_pma"
     environment:
-      PMA_HOST: be_donations_mariadb
-      PMA_USER: drupal
-      PMA_PASSWORD: drupal
+      PMA_HOST: $DB_HOST_DONATIONS
+      PMA_USER: $DB_USER
+      PMA_PASSWORD: $DB_PASSWORD
       PHP_UPLOAD_MAX_FILESIZE: 1G
       PHP_MAX_INPUT_VARS: 1G
     labels:
       - 'traefik.backend=be_donations_pma'
       - 'traefik.port=80'
+      - 'traefik.frontend.rule=Host:pma.donations.api.${PROJECT_BASE_URL}'
 
   #########################
   ###### MAILHOG ##########
@@ -154,6 +163,11 @@ services:
 
   mailhog:
     image: mailhog/mailhog
+    container_name: "${PROJECT_NAME}_mailhog"
+    labels:
+      - 'traefik.backend=mailhog'
+      - 'traefik.port=8025'
+      - 'traefik.frontend.rule=Host:mailhog.${PROJECT_BASE_URL}'
 
   #########################
   ### CHROME FOR TESTS ####
@@ -161,6 +175,7 @@ services:
 
   chrome:
     image: selenium/standalone-chrome:3.11.0
+    container_name: "${PROJECT_NAME}_chrome"
     expose:
       - 4444
     shm_size: 2gb
@@ -171,18 +186,18 @@ services:
 
   traefik:
     image: traefik
+    container_name: "${PROJECT_NAME}_traefik"
     command: -c /dev/null --web --docker --logLevel=INFO
     ports:
       - '80:80'
+      - '8080:8080' # Dashboard
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       default:
         aliases:
-          - gifts.$PROJECT_BASE_URL 
-          - main.$PROJECT_BASE_URL 
+          - gifts.$PROJECT_BASE_URL
+          - main.$PROJECT_BASE_URL
           - api.$PROJECT_BASE_URL
           - gifts.api.$PROJECT_BASE_URL
-          - pma.gifts.api.$PROJECT_BASE_URL
-          - donations.api.$PROJECT_BASE_URL 
-          - pma.donations.api.$PROJECT_BASE_URL
+          - donations.api.$PROJECT_BASE_URL

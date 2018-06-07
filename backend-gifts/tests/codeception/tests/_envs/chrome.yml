@@ -3,5 +3,4 @@ modules:
   config:
     WebDriver:
       browser: chrome
-      host: chrome
-      port: 4444
+      port: 9515

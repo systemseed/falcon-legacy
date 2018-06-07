@@ -28,19 +28,19 @@ $config_directories[CONFIG_SYNC_DIRECTORY] = '../config/sync';
 $settings['reverse_proxy'] = TRUE;
 $settings['reverse_proxy_addresses'] = [$_SERVER['REMOTE_ADDR']];
 
-// Error logging.
-$config['system.logging']['error_level'] = 'verbose';
-
-// Disable CSS and JS aggregation.
-$config['system.performance']['css']['preprocess'] = FALSE;
-$config['system.performance']['js']['preprocess'] = FALSE;
-
 // Custom configs for sites based on Falcon. This folder is always empty
 // for Falcon repo. However, if you're basing your site on top of Falcon and
 // there are configs different from Falcon's, then you'll want to graylist
 // them and they'll appear on config export in separate folder automatically.
 $config['config_split.config_split.customizations']['status'] = TRUE;
 $config['config_split.config_split.development']['status'] = TRUE;
+
+// Error logging.
+$config['system.logging']['error_level'] = 'verbose';
+
+// Disable CSS and JS aggregation.
+$config['system.performance']['css']['preprocess'] = FALSE;
+$config['system.performance']['js']['preprocess'] = FALSE;
 
 // Enable test mode by default for all development environments, overridden for master in settings.platform.php.
 $config['falcon.settings']['test_mode_enabled'] = TRUE;
