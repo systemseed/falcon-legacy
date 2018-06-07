@@ -1,33 +1,33 @@
 actor: Tester
 paths:
-    tests: tests
-    log: tests/_output
-    data: tests/_data
-    support: tests/_support
-    envs: tests/_envs
+  tests: tests
+  log: tests/_output
+  data: tests/_data
+  support: tests/_support
+  envs: tests/_envs
 settings:
-    bootstrap: _bootstrap.php
-    colors: true
-    memory_limit: 1024M
+  bootstrap: _bootstrap.php
+  colors: true
+  memory_limit: 1024M
 extensions:
-    enabled:
-        - RunFailed
-        - CustomUrlsExtension
-        - PlatformExtension
-        #- Codeception\Extension\Recorder
-    config:
-        PlatformExtension:
-          http_user: falcon
-          http_pass: FALC0n$!
+  enabled:
+    - RunFailed
+    - CustomUrlsExtension
+    - PlatformExtension
+    #- Codeception\Extension\Recorder
+  config:
+    # TODO: Read from Circle's env.
+    PlatformExtension:
+      http_user: falcon
+      http_pass: FALC0n$!
 
 modules:
-    config:
-        WebDriver:
-          url: https://be_gifts_nginx
-          # TODO: place correct Docker URLs here.
-          frontend_url: https://fe_gifts
-          donations_url: https://be_donations_nginx
-        REST:
-          url: https://be_gifts_nginx
-        PhpBrowser:
-          url: https://be_gifts_nginx
+  config:
+    WebDriver:
+      url: http://gifts.api.flc.local
+      frontend_url: http://gifts.flc.local
+      donations_url: http://donations.api.flc.local
+    REST:
+      url: http://gifts.api.flc.local
+    PhpBrowser:
+      url: http://gifts.api.flc.local

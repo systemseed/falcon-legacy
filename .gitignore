@@ -1,7 +1,13 @@
-# IDE files
+# PHPStorm directory.
 .idea
-dev
 
-# Ignoring any composer files inside of the root (if any).
-vendor
+# MacOS Desktop Services Store files.
 .DS_Store
+
+# Docker mysql storage.
+/docker/mysql/*
+!/docker/mysql/.gitkeep
+
+# Environment overrides.
+/.env
+/docker/docker-compose.override.yml

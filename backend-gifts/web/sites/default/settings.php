@@ -4,7 +4,7 @@
 $databases = [];
 $config_directories = [];
 $settings['update_free_access'] = FALSE;
-$settings['container_yamls'][] = $app_root . '/services.yml';
+$settings['container_yamls'][] = __DIR__ . '/services.yml';
 $settings['file_scan_ignore_directories'] = [
   'node_modules',
   'bower_components',
@@ -21,6 +21,20 @@ $settings['install_profile'] = 'config_installer';
 $config['simple_oauth.settings']['public_key'] = DRUPAL_ROOT . '/../certificates/public.key';
 $config['simple_oauth.settings']['private_key'] = DRUPAL_ROOT . '/../certificates/private.key';
 
+// This is defined inside the read-only "config" directory, deployed via Git.
+$config_directories[CONFIG_SYNC_DIRECTORY] = '../config/sync';
+
+// Enable reverse proxy to pass IP addresses from API Bus and CDN.
+$settings['reverse_proxy'] = TRUE;
+$settings['reverse_proxy_addresses'] = [$_SERVER['REMOTE_ADDR']];
+
+// Custom configs for sites based on Falcon. This folder is always empty
+// for Falcon repo. However, if you're basing your site on top of Falcon and
+// there are configs different from Falcon's, then you'll want to graylist
+// them and they'll appear on config export in separate folder automatically.
+$config['config_split.config_split.customizations']['status'] = TRUE;
+$config['config_split.config_split.development']['status'] = TRUE;
+
 // Set Platform routes in Drupal config variables.
 if (!empty($_ENV['PLATFORM_ROUTES'])) {
   $platform_routes = json_decode(base64_decode($_ENV['PLATFORM_ROUTES']), TRUE);
@@ -36,20 +50,6 @@ if (!empty($_ENV['PLATFORM_ROUTES'])) {
 // @todo add oauth credentials see: /admin/config/people/simple_oauth/oauth2_client
 $config['routes']['backend-donations']['client_id'] = '';
 $config['routes']['backend-donations']['client_secret'] = '';
-
-// This is defined inside the read-only "config" directory, deployed via Git.
-$config_directories[CONFIG_SYNC_DIRECTORY] = '../config/sync';
-
-// Enable reverse proxy to pass IP addresses from API Bus and CDN.
-$settings['reverse_proxy'] = TRUE;
-$settings['reverse_proxy_addresses'] = [$_SERVER['REMOTE_ADDR']];
-
-// Custom configs for sites based on Falcon. This folder is always empty
-// for Falcon repo. However, if you're basing your site on top of Falcon and
-// there are configs different from Falcon's, then you'll want to graylist
-// them and they'll appear on config export in separate folder automatically.
-$config['config_split.config_split.customizations']['status'] = TRUE;
-$config['config_split.config_split.development']['status'] = TRUE;
 
 /**
  * Settings for Platform.sh environments.
@@ -69,4 +69,3 @@ if (!empty($_ENV['PLATFORM_BRANCH'])) {
 else {
   require_once(__DIR__ . '/settings.local.php');
 }
-

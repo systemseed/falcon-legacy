@@ -1,5 +1,0 @@
-# `phantom` environment for CircleCI.
-modules:
-  config:
-      WebDriver:
-          browser: 'phantomjs'
