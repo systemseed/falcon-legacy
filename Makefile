@@ -1,18 +1,34 @@
-.PHONY: falcon falcon-install falcon-update drush test
+.PHONY: default pull up stop down drush shell tests\:prepare tests\:run test install update
 
 # Make sure the local file with docker-compose overrides exist.
-$(shell ! test -e \.\/docker\/docker-compose\.override\.yml && cat \.\/docker\/docker-compose\.override\.default\.yml > \.\/docker\/docker-compose\.override\.yml)
+$(shell cp -n \.\/docker\/docker-compose\.override\.default\.yml \.\/docker\/docker-compose\.override\.yml)
 
 # Create a .env file if not exists and include default env variables.
-$(shell ! test -e \.env && cat \.env.default > \.env)
-
-# Make all variables from the file available here.
+$(shell cp -n \.env.default \.env)
 include .env
 
 # Define two users for with different permissions within the container.
 # docker-drupal is applicable only for php containers.
 docker-drupal = docker-compose exec --user=82:82 $(firstword ${1}) sh -c "$(filter-out $(firstword ${1}), ${1})"
 docker = docker-compose exec $(firstword ${1}) sh -c "$(filter-out $(firstword ${1}), ${1})"
+
+default: up
+
+pull:
+	@echo "Updating Docker images..."
+	docker-compose pull
+
+up: | pull
+	@echo "Build and run containers..."
+	docker-compose up -d --remove-orphans
+
+stop:
+	@echo "Stopping containers..."
+	docker-compose stop
+
+down:
+	@echo "Removing network & containers for $(PROJECT_NAME)..."
+	docker-compose down -v --remove-orphans
 
 drush:
 	# Remove the first argument from the list of make commands.
@@ -48,17 +64,11 @@ test:
 	@echo Executing \"\./vendor/bin/codecept --config=tests/codeception run $(filter-out $(firstword $(ARGS)), $(ARGS))\"
 	$(call docker, $(firstword $(ARGS)) ./vendor/bin/codecept --config=tests/codeception run $(filter-out $(firstword $(ARGS)), $(ARGS)) --steps)
 
-env\:up:
-	@docker-compose up -d --remove-orphans
-
-env\:down:
-	@docker-compose down --remove-orphans
-
 #########################################
 ## Builds the falcon from the buttom up #
 #########################################
 
-falcon\:install:
+install:
 	@echo "Installing Falcon from the bottom up..."
 
 	@echo "Setting git config to ignore local files chmod..."
@@ -69,9 +79,8 @@ falcon\:install:
 	@echo "###############################"
 
 	@echo "Making sure Docker is not running..."
-	@docker-compose down --remove-orphans
-	@echo "Fetching Docker images..."
-	docker-compose pull --parallel
+	$(MAKE) -s down
+	$(MAKE) -s pull
 
 	@echo "############################"
 	@echo "# Preparing Gifts Frontend #"
@@ -105,12 +114,18 @@ falcon\:install:
 
 	@echo "Installing composer dependencies for Gifts Backend..."
 	-$(call docker, be_gifts composer install)
+	@echo "Creating backup of settings.php..."
+	$(call docker, be_gifts cp web/sites/default/settings.php web/sites/default/settings.backup.php)
+	$(call docker, be_gifts chmod 666 web/sites/default/settings.php)
 	@echo "Installing Gifts site..."
 	$(MAKE) -s drush be_gifts site-install config_installer
+	@echo "Restoring backup of settings.php..."
+	$(call docker, be_gifts cp web/sites/default/settings.backup.php web/sites/default/settings.php)
+	$(call docker, be_gifts rm web/sites/default/settings.backup.php)
 	@echo "Installing the module to import demo content..."
-	$(MAKE) -s drush be_gifts en falcon_demo_content
+	$(MAKE) -s drush be_gifts en $(MODULES_GIFTS)
 	@echo "Disabling unnecessary modules after demo content import..."
-	$(MAKE) -s drush be_gifts pmu falcon_demo_content default_content better_normalizers hal
+	$(MAKE) -s drush be_gifts pmu $(MODULES_GIFTS)
 
 	@echo "###############################"
 	@echo "# Preparing Donations backend #"
@@ -118,18 +133,24 @@ falcon\:install:
 
 	@echo "Installing composer dependencies for Donations Backend..."
 	-$(call docker, be_donations composer install)
+	@echo "Creating backup of settings.php..."
+	$(call docker, be_donations cp web/sites/default/settings.php web/sites/default/settings.backup.php)
+	$(call docker, be_donations chmod 666 web/sites/default/settings.php)
 	@echo "Installing Donations site..."
 	$(MAKE) -s drush be_donations site-install config_installer
+	@echo "Restoring backup of settings.php..."
+	$(call docker, be_donations cp web/sites/default/settings.backup.php web/sites/default/settings.php)
+	$(call docker, be_donations rm web/sites/default/settings.backup.php)
 	@echo "Installing the module to import demo content..."
-	$(MAKE) -s drush be_donations en falcon_demo_content
+	$(MAKE) -s drush be_donations en $(MODULES_DONATIONS)
 	@echo "Disabling unnecessary modules after demo content import..."
-	$(MAKE) -s drush be_donations pmu falcon_demo_content default_content better_normalizers hal
+	$(MAKE) -s drush be_donations pmu $(MODULES_DONATIONS)
 
 ######################################################
 ## Brings the falcon up to date with latest changes ##
 ######################################################
 
-falcon\:update:
+update:
 	@echo "Updating the code from the git remote branch..."
 	@git pull origin $(git rev-parse --abbrev-ref HEAD)
 

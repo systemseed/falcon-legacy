@@ -1,11 +1,13 @@
-# PHPStorm folder.
+# PHPStorm directory.
 .idea
 
-# Mac artifacts.
+# MacOS Desktop Services Store files.
 .DS_Store
 
-# Locally generated env file.
-.env
+# Docker mysql storage.
+/docker/mysql/*
+!/docker/mysql/.gitkeep
 
-# Locally generated docker file with overrides.
-docker/docker-compose.override.yml
+# Environment overrides.
+/.env
+/docker/docker-compose.override.yml
