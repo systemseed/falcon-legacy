@@ -6,8 +6,6 @@ services:
     volumes:
       - ../frontend-main:/app
       #- ../frontend-main:/app:cached
-    labels:
-      - 'traefik.frontend.rule=Host:main.${PROJECT_BASE_URL}'
 
   fe_gifts:
     volumes:
@@ -15,29 +13,22 @@ services:
       #- ../frontend-gifts:/app:cached
     # Uncomment to make changes in package.json.
     #command: sh -c 'yarn install'
-    labels:
-      - 'traefik.frontend.rule=Host:gifts.${PROJECT_BASE_URL}'
 
-  # Uncomment to run app with Server Side Rendering enabled.
-  # Useful for debugging issues related to SSR.
+## Uncomment to run app with Server Side Rendering enabled.
+## Useful for debugging issues related to SSR.
 #  fe_gifts:
 #    command: sh -c 'yarn install && yarn run build && yarn run start:server'
 #    volumes:
-#      #- ../frontend-gifts:/app
-#      - ../frontend-gifts:/app:cached
+#      - ../frontend-gifts:/app
+#      #- ../frontend-gifts:/app:cached
 #    labels:
 #      - 'traefik.port=3001'
 #      - 'traefik.frontend.rule=Host:gifts.${PROJECT_BASE_URL}'
 
   api_bus:
-    image: webdevops/php-nginx:alpine-3-php7
-    environment:
-      WEB_ALIAS_DOMAIN: api.${PROJECT_BASE_URL}
     volumes:
       - ../backend-api-bus:/app
       #- ../backend-api-bus:/app:cached
-    labels:
-      - 'traefik.frontend.rule=Host:api.${PROJECT_BASE_URL}'
 
   be_gifts:
     environment:
@@ -52,22 +43,17 @@ services:
     volumes:
       - ../backend-gifts:/var/www/html
       #- ../backend-gifts:/var/www/html:cached
+      - ../backup:/var/www/html/backup
 
   be_gifts_mariadb:
     volumes:
-      - ../backend-gifts/mysql/data:/var/lib/mysql
-      #- ../backend-gifts/mysql/data:/var/lib/mysql:cached
+      - ${MYSQL_DATA_DIR}/${MYSQL_DATA_DIR_GIFTS}:/var/lib/mysql
+      #- ${MYSQL_DATA_DIR}/${MYSQL_DATA_DIR_GIFTS}:/var/lib/mysql:cached
 
   be_gifts_nginx:
     volumes:
       - ../backend-gifts:/var/www/html
       #- ../backend-gifts:/var/www/html:cached
-    labels:
-      - 'traefik.frontend.rule=Host:gifts.api.${PROJECT_BASE_URL}'
-
-  be_gifts_pma:
-    labels:
-      - 'traefik.frontend.rule=Host:pma.gifts.api.${PROJECT_BASE_URL}'
 
   be_donations:
     #environment:
@@ -79,25 +65,14 @@ services:
     volumes:
       - ../backend-donations:/var/www/html
       #- ../backend-donations:/var/www/html:cached
+      - ../backup:/var/www/html/backup
 
   be_donations_mariadb:
     volumes:
-      - ../backend-donations/mysql/data:/var/lib/mysql
-      #- ../backend-donations/mysql/data:/var/lib/mysql:cached
+      - ${MYSQL_DATA_DIR}/${MYSQL_DATA_DIR_DONATIONS}:/var/lib/mysql
+      #- ${MYSQL_DATA_DIR}/${MYSQL_DATA_DIR_DONATIONS}:/var/lib/mysql:cached
 
   be_donations_nginx:
     volumes:
       - ../backend-donations:/var/www/html
       #- ../backend-donations:/var/www/html:cached
-    labels:
-      - 'traefik.frontend.rule=Host:donations.api.${PROJECT_BASE_URL}'
-
-  be_donations_pma:
-    labels:
-      - 'traefik.frontend.rule=Host:pma.donations.api.${PROJECT_BASE_URL}'
-
-  mailhog:
-    labels:
-      - 'traefik.backend=mailhog'
-      - 'traefik.port=8025'
-      - 'traefik.frontend.rule=Host:mailhog.${PROJECT_BASE_URL}'
