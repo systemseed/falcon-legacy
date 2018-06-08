@@ -50,6 +50,28 @@ export const filterByCurrency = (products, currentCurrency) => {
 };
 
 /**
+ * Filters out products
+ * by the current price range.
+ */
+export const filterByPriceRange = (products, currentCurrency) => {
+  const priceRange = products.priceRange;
+  const filteredProducts = products.products.filter((gift) => {
+    if (gift.price[currentCurrency]) {
+      const price = Number(gift.price[currentCurrency].amount);
+      return (price >= priceRange[0] && price <= priceRange[1]);
+    }
+
+    return false;
+  });
+
+  return {
+    ...products,
+    categories: products.categories,
+    products: filteredProducts
+  };
+};
+
+/**
  * Helper to map product response data to store.
  */
 export const mappedProductItem = (responseItem) => {
@@ -128,7 +150,7 @@ export const mappedProductItem = (responseItem) => {
       'width_720'
     ),
     actionImageAlt:
-      responseItem.relationships.field_gift_action_image.data.meta.alt,
+    responseItem.relationships.field_gift_action_image.data.meta.alt,
     actionDescription: responseItem.fieldGiftActionDescription
       ? responseItem.fieldGiftActionDescription.value
       : '',
@@ -141,7 +163,6 @@ export const mappedProductItem = (responseItem) => {
     postalPreviewImage,
     ecardPreviewImage,
     fieldPostalPreviewBody: responseItem.fieldGiftPostalPreviewBody,
-    fieldEcardPreviewBody: responseItem.fieldGiftEcardPreviewBody,
-    visible: true
+    fieldEcardPreviewBody: responseItem.fieldGiftEcardPreviewBody
   };
 };

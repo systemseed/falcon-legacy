@@ -19,12 +19,9 @@ class GiftsContainer extends React.Component {
     // loaded yet.
     const { gifts, loadAllGifts, done } = this.props;
     if (!gifts.products.length) {
-      loadAllGifts().then(done, done);
+      loadAllGifts()
+        .then(done, done);
     }
-  }
-
-  onPriceChange(priceRange) {
-    this.props.filterByPriceRange(priceRange, this.props.currentCurrency);
   }
 
   render = () => {
@@ -42,7 +39,6 @@ class GiftsContainer extends React.Component {
 
     const giftsFiltered = giftUtils.filterByCategory(gifts, categoryId);
 
-    const giftsByPriceRange = giftsFiltered.products.filter(gift => gift.visible);
 
     if (giftsFiltered.isPending) {
       return <Loading big />;
@@ -63,13 +59,12 @@ class GiftsContainer extends React.Component {
             </div>
             <div className="col-sm-6 col-md-4">
               <PriceFilter
-                onPriceChange={this.onPriceChange.bind(this)}
                 currentCurrency={currentCurrency}
               />
             </div>
           </div>
           <GiftsGrid
-            gifts={giftsByPriceRange}
+            gifts={giftsFiltered.products}
             currentCurrency={currentCurrency}
           />
         </div>
@@ -115,8 +110,7 @@ GiftsContainer.propTypes = {
   }),
   currentCurrency: React.PropTypes.string,
   loadAllGifts: React.PropTypes.func,
-  done: React.PropTypes.func,
-  filterByPriceRange: React.PropTypes.func
+  done: React.PropTypes.func
 };
 
 // Anything in the returned object below is merged in with the props of the
@@ -125,20 +119,14 @@ GiftsContainer.propTypes = {
 const mapStoreToProps = store => ({
   currentCurrency: store.currentCurrency,
   // Filter out products by the current site currency.
-  gifts: giftUtils.filterByCurrency(
+  gifts: giftUtils.filterByPriceRange(giftUtils.filterByCurrency(
     store.gifts,
     store.currentCurrency
-  )
+  ), store.currentCurrency)
 });
 
 const mapDispatchToProps = {
   loadAllGifts: giftsActions.loadAll,
-  filterByPriceRange: (priceRange, currentCurrency) => ({
-    type: 'GET_PRODUCTS_BY_PRICE_RANGE',
-    gifts: [],
-    priceRange,
-    currentCurrency
-  }),
 };
 
 // This is where we make our component subscribe to store update.

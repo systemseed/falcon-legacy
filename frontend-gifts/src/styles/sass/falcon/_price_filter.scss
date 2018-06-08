@@ -13,6 +13,10 @@
     text-transform: uppercase;
   }
 
+  &__values {
+    font-weight: 500;
+  }
+
   .rc-slider {
     .rc-slider-track, .rc-slider-handle {
       background: $brand-danger;

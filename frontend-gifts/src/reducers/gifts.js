@@ -8,8 +8,7 @@ export const gifts = (state = {
   isError: false,
   products: [],
   categories: [],
-  priceRange: [0, 1200],
-  currentCurrency: null
+  priceRange: [0, 1500],
 }, action) => {
   switch (action.type) {
 
@@ -65,21 +64,20 @@ export const gifts = (state = {
         isError: true,
       };
 
-    case 'GET_PRODUCTS_BY_PRICE_RANGE': {
-      const currentCurrency = action.currentCurrency;
-      const priceRange = action.priceRange;
-      const products = state.products.map((gift) => {
-        if (gift.price[currentCurrency]) {
-          const price = Number(gift.price[currentCurrency].amount);
-          gift.visible = (price >= priceRange[0] && price <= priceRange[1]);
-        }
-
-        return gift;
-      });
+    case 'FILTER_PRICE_RANGE_CHANGED': {
+      // const currentCurrency = action.currentCurrency;
+      // const priceRange = action.priceRange;
+      // const products = state.products.map((gift) => {
+      //   if (gift.price[currentCurrency]) {
+      //     const price = Number(gift.price[currentCurrency].amount);
+      //     gift.visible = (price >= priceRange[0] && price <= priceRange[1]);
+      //   }
+      //
+      //   return gift;
+      // });
 
       return {
         ...state,
-        products,
         priceRange: action.priceRange
       };
     }
