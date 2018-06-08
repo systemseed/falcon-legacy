@@ -1,11 +1,21 @@
+import _find from 'lodash/find';
 import api from '../lib/api';
 
-export const filterByCategory = (gifts, categoryId) => {
-  if (categoryId === undefined) {
-    return gifts;
+
+/**
+ * Filters out products by category
+ */
+export const filterByCategory = (products, ownProps) => {
+  const category = _find(products.categories, cat => cat.path === `/category/${ownProps.categoryName}`);
+  let categoryId;
+  if (category) {
+    categoryId = category.id;
+  }
+  else {
+    return products;
   }
 
-  const filteredProducts = gifts.products.filter(
+  const filteredProducts = products.products.filter(
     product => product.categoryId === categoryId
   );
 
@@ -15,11 +25,11 @@ export const filterByCategory = (gifts, categoryId) => {
   // we should return all unfiltered gifts, because this
   // filter is not applicable to this currency (no product).
   if (!filteredProducts.length) {
-    return gifts;
+    return products;
   }
 
   return {
-    ...gifts,
+    ...products,
     products: filteredProducts
   };
 };
@@ -66,7 +76,6 @@ export const filterByPriceRange = (products, currentCurrency) => {
 
   return {
     ...products,
-    categories: products.categories,
     products: filteredProducts
   };
 };

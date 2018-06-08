@@ -37,21 +37,18 @@ class GiftsContainer extends React.Component {
       categoryId = category.id;
     }
 
-    const giftsFiltered = giftUtils.filterByCategory(gifts, categoryId);
-
-
-    if (giftsFiltered.isPending) {
+    if (gifts.isPending) {
       return <Loading big />;
     }
 
-    if (giftsFiltered.isFulfilled && giftsFiltered.products) {
+    if (gifts.isFulfilled && gifts.products) {
       return (
         <div className="container">
           <div className="row">
             {category && <Metatags metatags={category.metatags} />}
             <div className="col-sm-6 col-md-8">
               <GiftsFilter
-                categories={giftsFiltered.categories}
+                categories={gifts.categories}
                 categoryId={categoryId}
                 categoryName={categoryName}
                 isCollapsed
@@ -64,7 +61,7 @@ class GiftsContainer extends React.Component {
             </div>
           </div>
           <GiftsGrid
-            gifts={giftsFiltered.products}
+            gifts={gifts.products}
             currentCurrency={currentCurrency}
           />
         </div>
@@ -116,14 +113,16 @@ GiftsContainer.propTypes = {
 // Anything in the returned object below is merged in with the props of the
 // component, so we have access to store values but the component itself
 // does not have to be aware of the store.
-const mapStoreToProps = store => ({
-  currentCurrency: store.currentCurrency,
-  // Filter out products by the current site currency.
-  gifts: giftUtils.filterByPriceRange(giftUtils.filterByCurrency(
-    store.gifts,
-    store.currentCurrency
-  ), store.currentCurrency)
-});
+const mapStoreToProps = (store, ownProps) => {
+  const giftsFilteredByCurrency = giftUtils.filterByCategory(store.gifts, store.currentCurrency);
+  const giftsFilteredByCategory = giftUtils.filterByCategory(giftsFilteredByCurrency, ownProps);
+  const giftsFilteredByPriceRange = giftUtils.filterByPriceRange(giftsFilteredByCategory, store.currentCurrency);
+
+  return {
+    currentCurrency: store.currentCurrency,
+    gifts: giftsFilteredByPriceRange
+  };
+};
 
 const mapDispatchToProps = {
   loadAllGifts: giftsActions.loadAll,
