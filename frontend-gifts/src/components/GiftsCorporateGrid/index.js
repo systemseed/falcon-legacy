@@ -16,6 +16,7 @@ const GiftsGridCorporate = ({ gifts, currentCurrency }) => {
     <Grid
       componentClass="section"
       className="corporate"
+      bsClass={false}
     >
 
       <div className="bg-white padding-horizontal-150-xl padding-top-3x padding-bottom-2x">

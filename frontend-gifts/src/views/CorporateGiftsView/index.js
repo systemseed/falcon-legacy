@@ -13,11 +13,13 @@ const CorporateGiftsView = ({ siteContentSettings }) => {
   }
 
   return (
-    <div className="container">
+    <div>
       <CustomPageMetatags id="corporate" />
       <FeaturedImage uuid="dc6cde6a-7b9c-4292-aa36-d1091b078154" />
-      <GiftsCorporateInfoGrid />
-      <GiftsCorporateContainer />
+      <div className="container">
+        <GiftsCorporateInfoGrid />
+        <GiftsCorporateContainer />
+      </div>
     </div>
   );
 };
