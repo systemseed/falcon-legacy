@@ -117,7 +117,7 @@ const mapStoreToProps = (store, ownProps) => ({
   currentCurrency: store.currentCurrency,
   gifts: giftUtils.filterByPriceRange(
       giftUtils.filterByCategory(
-        giftUtils.filterByCategory(store.gifts, store.currentCurrency), ownProps),
+        giftUtils.filterByCurrency(store.gifts, store.currentCurrency), ownProps),
       store.currentCurrency),
 });
 
