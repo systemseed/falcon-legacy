@@ -113,16 +113,13 @@ GiftsContainer.propTypes = {
 // Anything in the returned object below is merged in with the props of the
 // component, so we have access to store values but the component itself
 // does not have to be aware of the store.
-const mapStoreToProps = (store, ownProps) => {
-  const giftsFilteredByCurrency = giftUtils.filterByCategory(store.gifts, store.currentCurrency);
-  const giftsFilteredByCategory = giftUtils.filterByCategory(giftsFilteredByCurrency, ownProps);
-  const giftsFilteredByPriceRange = giftUtils.filterByPriceRange(giftsFilteredByCategory, store.currentCurrency);
-
-  return {
-    currentCurrency: store.currentCurrency,
-    gifts: giftsFilteredByPriceRange
-  };
-};
+const mapStoreToProps = (store, ownProps) => ({
+  currentCurrency: store.currentCurrency,
+  gifts: giftUtils.filterByPriceRange(
+      giftUtils.filterByCategory(
+        giftUtils.filterByCategory(store.gifts, store.currentCurrency), ownProps),
+      store.currentCurrency),
+});
 
 const mapDispatchToProps = {
   loadAllGifts: giftsActions.loadAll,

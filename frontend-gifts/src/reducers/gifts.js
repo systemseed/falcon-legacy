@@ -65,17 +65,6 @@ export const gifts = (state = {
       };
 
     case 'FILTER_PRICE_RANGE_CHANGED': {
-      // const currentCurrency = action.currentCurrency;
-      // const priceRange = action.priceRange;
-      // const products = state.products.map((gift) => {
-      //   if (gift.price[currentCurrency]) {
-      //     const price = Number(gift.price[currentCurrency].amount);
-      //     gift.visible = (price >= priceRange[0] && price <= priceRange[1]);
-      //   }
-      //
-      //   return gift;
-      // });
-
       return {
         ...state,
         priceRange: action.priceRange
