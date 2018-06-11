@@ -1,0 +1,53 @@
+diff --git a/src/Authentication/TokenAuthUser.php b/src/Authentication/TokenAuthUser.php
+index d1bbd6b..01ef257 100644
+--- a/src/Authentication/TokenAuthUser.php
++++ b/src/Authentication/TokenAuthUser.php
+@@ -854,6 +854,48 @@ class TokenAuthUser implements TokenAuthUserInterface {
+     return $this->subject->updateLoadedRevisionId();
+   }
+ 
++  /**
++  * {@inheritdoc}
++  */
++ public function wasDefaultRevision() {
++   return $this->subject->wasDefaultRevision();
++ }
++
++ /**
++  * {@inheritdoc}
++  */
++ public function isLatestRevision() {
++   return $this->subject->isLatestRevision();
++ }
++
++ /**
++  * {@inheritdoc}
++  */
++ public function isLatestTranslationAffectedRevision() {
++   return $this->subject->isLatestTranslationAffectedRevision();
++ }
++
++ /**
++  * {@inheritdoc}
++  */
++ public function isRevisionTranslationAffectedEnforced() {
++   return $this->subject->isRevisionTranslationAffectedEnforced();
++ }
++
++ /**
++  * {@inheritdoc}
++  */
++ public function setRevisionTranslationAffectedEnforced($enforced) {
++   return $this->subject->setRevisionTranslationAffectedEnforced($enforced);
++ }
++
++ /**
++  * {@inheritdoc}
++  */
++ public function isDefaultTranslationAffectedOnly() {
++   return $this->subject->isDefaultTranslationAffectedOnly();
++ }
++
+   /**
+    * Returns the role storage object.
+    *
