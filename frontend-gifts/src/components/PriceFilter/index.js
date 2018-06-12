@@ -6,16 +6,12 @@ import { getSymbolByCurrency } from '../../utils/currencies';
 
 
 class PriceFilter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.props = props;
-  }
-
   /**
    * This is a workaround to group prices for better UX.
    * Marks config control dots on the price range slider.
    * Keys on the left are dot positions evenly spaced from each other and also slider range values.
    * Values on the right are actual price values.
+   * This needs to be addresed in: https://www.pivotaltracker.com/story/show/158291213
    */
   marks = {
     0: 0,

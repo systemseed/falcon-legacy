@@ -5,8 +5,8 @@ import api from '../lib/api';
 /**
  * Filters out products by category
  */
-export const filterByCategory = (products, ownProps) => {
-  const category = _find(products.categories, cat => cat.path === `/category/${ownProps.categoryName}`);
+export const filterByCategory = (products, categoryName) => {
+  const category = _find(products.categories, cat => cat.path === `/category/${categoryName}`);
   let categoryId;
   if (category) {
     categoryId = category.id;
