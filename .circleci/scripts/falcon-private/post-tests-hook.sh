@@ -18,7 +18,7 @@ vars=$(env | awk -F '=' '{print $1}' | grep 'CLIENT_*') || true
 
 # Create a new variable $client_repos which is now array of env vars
 # starting with CLIENT_*.
-read -a client_repos <<<$vars
+client_repos=($vars)
 
 # Every CLIENT_* variable should define a remote git repo.
 # So we loop through client repos and deploy changes to each of those.

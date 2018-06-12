@@ -6,8 +6,8 @@ dependencies:
     - eck.eck_type.export.gift
     - system.menu.admin
   module:
-    - falcon_thankq
     - eck
+    - falcon_thankq
     - user
 id: exports_gift
 label: 'Exports - Gift'
@@ -393,7 +393,7 @@ display:
       arguments: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -418,7 +418,7 @@ display:
         context: '0'
         menu_name: admin
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'

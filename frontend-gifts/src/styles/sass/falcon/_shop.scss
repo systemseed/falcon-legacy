@@ -131,6 +131,8 @@
 
 // Shop Item
 .shop-item {
+  position: relative;
+
   .shop-item-title {
     width: 70%;
     font-size: 18px;
@@ -151,11 +153,101 @@
     padding-top: 8px;
 
     .shop-item-price {
-      font-size: 14px;
       text-align: left;
+    }
+  }
+}
 
-      @media (min-width: $screen-sm-min) {
+// Frontpage customizations.
+.frontpage {
+  .shop-item {
+    // CTA buttons (Add to basket).
+    .shop-item-tools {
+      position: relative;
+      visibility: visible;
+      opacity: 1;
+      bottom: 0;
+      right: 0;
+      text-align: center;
+
+      @media (min-width: $screen-lg-min) {
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        bottom: 22px;
+        right: 22px;
+        text-align: right;
+      }
+
+      .add-to-cart {
+        width: 100%;
+        height: 40px;
         font-size: 16px;
+        font-weight: 600;
+        margin-top: 8px;
+
+        @media (min-width: $screen-lg-min) {
+          width: 114px;
+          height: 36px;
+          font-size: 12px;
+          font-weight: 400;
+          margin-top: 0;
+        }
+      }
+    }
+
+    // Price placement.
+    .shop-item-details {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding-top: 0;
+
+      @media (min-width: $screen-lg-min) {
+        position: relative;
+        padding-top: 8px;
+      }
+
+      .shop-item-price {
+        text-align: right;
+
+        @media (min-width: $screen-lg-min) {
+          text-align: left;
+        }
+      }
+    }
+
+    &:hover {
+      .shop-item-tools {
+        @media (min-width: $screen-lg-min) {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.gifts-grid {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+
+    > div {
+      display: flex;
+
+      .shop-item {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .shop-item-title {
+          flex: 1 0 auto;
+        }
+
+        .shop-item-details {
+          min-height: 32px;
+        }
       }
     }
   }

@@ -1,0 +1,13 @@
+diff --git a/src/Query/OffsetPage.php b/src/Query/OffsetPage.php
+index 7e1a7a0..8f8a40e 100644
+--- a/src/Query/OffsetPage.php
++++ b/src/Query/OffsetPage.php
+@@ -42,7 +42,7 @@ class OffsetPage {
+    *
+    * @var int
+    */
+-  const SIZE_MAX = 50;
++  const SIZE_MAX = 100;
+ 
+   /**
+    * The offset for the query.

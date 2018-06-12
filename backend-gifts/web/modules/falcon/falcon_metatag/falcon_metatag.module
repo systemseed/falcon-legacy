@@ -7,6 +7,9 @@
 
 use Drupal\Core\Entity\EntityTypeInterface;
 
+/**
+ * Implements hook_entity_type_alter().
+ */
 function falcon_metatag_entity_type_alter(array &$entity_types) {
   /** @var $entity_types \Drupal\Core\Entity\EntityTypeInterface[] */
   // Allows anonymous to get default Metatag entities.

@@ -113,7 +113,7 @@ class StripeController extends ControllerBase {
     }
 
     if (empty($data->csrf_token)) {
-      throw new \Exception('There is a problem with stripe request.');
+      throw new \Exception('The csrf_token was not present in a response from Stripe.');
     }
 
     $httpClient = \Drupal::service('http_client_factory')->fromOptions([
@@ -130,13 +130,13 @@ class StripeController extends ControllerBase {
     $response = $httpClient->get('https://dashboard.stripe.com/ajax/account/activities');
     $responseData = (string) $response->getBody();
     if (empty($responseData)) {
-      throw new \Exception('There is a problem with stripe request.');
+      throw new \Exception('Response body is empty.');
     }
 
     $data = \GuzzleHttp\json_decode($responseData);
 
     if (empty($data->data)) {
-      throw new \Exception('Data key is not found in Stripe response.');
+      throw new \Exception('Data key is not found in Stripe response: ' . $responseData);
     }
 
     // Sort activities to keep latest on the top.
@@ -150,6 +150,8 @@ class StripeController extends ControllerBase {
 
   /**
    * Makes first request to get csrf_token from response HTML.
+   *
+   * @throws \Exception
    */
   private function getStripeCsrfTokenForLogin(&$cookieJar) {
 
@@ -165,7 +167,7 @@ class StripeController extends ControllerBase {
 
     $data = (string) $response->getBody();
     if (empty($data)) {
-      throw new \Exception('There is a problem with stripe request.');
+      throw new \Exception('Response body is empty.');
     }
 
     // Parse and look for preloaded_json, it contains generated csrf_token.
