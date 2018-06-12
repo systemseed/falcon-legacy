@@ -13,7 +13,7 @@ const GiftsGrid = ({ gifts, currentCurrency }) => {
   );
 
   return (
-    <Grid bsClass="container padding-bottom-3x" componentClass="section">
+    <Grid bsClass="gifts-grid container padding-bottom-3x" componentClass="section">
       <Row>
         { products }
       </Row>

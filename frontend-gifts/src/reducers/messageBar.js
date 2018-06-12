@@ -1,7 +1,7 @@
 // Defines default options.
 const defaultOptions = {
   type: 'status',
-  timeout: 2000,
+  timeout: 5000,
   link: '',
 };
 
