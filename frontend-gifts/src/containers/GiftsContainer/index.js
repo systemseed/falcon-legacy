@@ -10,6 +10,7 @@ import LoadingError from '../../components/LoadingError';
 import GiftsFilter from '../../components/GiftsFilter';
 import GiftsGrid from '../../components/GiftsGrid';
 import Metatags from '../../components/Metatags';
+import PriceFilter from '../../components/PriceFilter';
 
 class GiftsContainer extends React.Component {
 
@@ -18,7 +19,8 @@ class GiftsContainer extends React.Component {
     // loaded yet.
     const { gifts, loadAllGifts, done } = this.props;
     if (!gifts.products.length) {
-      loadAllGifts().then(done, done);
+      loadAllGifts()
+        .then(done, done);
     }
   }
 
@@ -35,24 +37,31 @@ class GiftsContainer extends React.Component {
       categoryId = category.id;
     }
 
-    const giftsFiltered = giftUtils.filterByCategory(gifts, categoryId);
-
-    if (giftsFiltered.isPending) {
+    if (gifts.isPending) {
       return <Loading big />;
     }
 
-    if (giftsFiltered.isFulfilled && giftsFiltered.products) {
+    if (gifts.isFulfilled && gifts.products) {
       return (
-        <div>
-          {category && <Metatags metatags={category.metatags} />}
-          <GiftsFilter
-            categories={giftsFiltered.categories}
-            categoryId={categoryId}
-            categoryName={categoryName}
-            isCollapsed
-          />
+        <div className="container">
+          <div className="row">
+            {category && <Metatags metatags={category.metatags} />}
+            <div className="col-sm-6 col-md-8">
+              <GiftsFilter
+                categories={gifts.categories}
+                categoryId={categoryId}
+                categoryName={categoryName}
+                isCollapsed
+              />
+            </div>
+            <div className="col-sm-6 col-md-4">
+              <PriceFilter
+                currentCurrency={currentCurrency}
+              />
+            </div>
+          </div>
           <GiftsGrid
-            gifts={giftsFiltered.products}
+            gifts={gifts.products}
             currentCurrency={currentCurrency}
           />
         </div>
@@ -60,7 +69,7 @@ class GiftsContainer extends React.Component {
     }
 
     return <LoadingError type="gifts" />;
-  }
+  };
 }
 
 // Declare our props dependencies.
@@ -98,19 +107,18 @@ GiftsContainer.propTypes = {
   }),
   currentCurrency: React.PropTypes.string,
   loadAllGifts: React.PropTypes.func,
-  done: React.PropTypes.func,
+  done: React.PropTypes.func
 };
 
 // Anything in the returned object below is merged in with the props of the
 // component, so we have access to store values but the component itself
 // does not have to be aware of the store.
-const mapStoreToProps = store => ({
+const mapStoreToProps = (store, ownProps) => ({
   currentCurrency: store.currentCurrency,
-  // Filter out products by the current site currency.
-  gifts: giftUtils.filterByCurrency(
-    store.gifts,
-    store.currentCurrency
-  )
+  gifts: giftUtils.filterByPriceRange(
+      giftUtils.filterByCategory(
+        giftUtils.filterByCurrency(store.gifts, store.currentCurrency), ownProps.categoryName),
+      store.currentCurrency),
 });
 
 const mapDispatchToProps = {

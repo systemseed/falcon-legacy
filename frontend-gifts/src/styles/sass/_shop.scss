@@ -240,11 +240,7 @@
   > .column {
     display: table-cell;
     vertical-align: middle;
-    &:last-child {
-      width: 200px;
-      text-align: right;
-      padding-bottom: 10px;
-    }
+
   }
   @media #{$tablet-land} {
     > .column {

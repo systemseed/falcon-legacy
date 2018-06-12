@@ -13,9 +13,14 @@ const GiftsGrid = ({ gifts, currentCurrency }) => {
   );
 
   return (
-    <Grid bsClass="gifts-grid container padding-bottom-3x" componentClass="section">
+    <Grid bsClass="padding-bottom-3x" componentClass="section">
       <Row>
-        { products }
+        {(products.length > 0) ?
+          products :
+          <div className="col-sm-12">
+            <h1>No results.</h1>
+          </div>
+        }
       </Row>
     </Grid>
   );
