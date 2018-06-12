@@ -7,31 +7,30 @@ import HowGiftsWork from '../HowGiftsWork';
 Tabs.setUseDefaultStyles(false);
 
 const GiftCorporateTabs = ({ gift }) => (
-  <Grid componentClass="section" className="container padding-top-2x">
+  <Grid componentClass="section" className="container">
+    <div className="bg-white padding-top-2x padding-horizontal-150-xl">
+      <Tabs>
+        <TabList className="text-center">
+          <Tab>Description</Tab>
+          <Tab>How Gifts Work</Tab>
+        </TabList>
 
-    <Tabs>
+        <TabPanel>
+          <Row className="space-top">
+            <Col md={6} className="space-bottom wide-image">
+              <img src={gift.descriptionImageUrl} alt={gift.descriptionImageAlt} title={gift.descriptionImageAlt} />
+            </Col>
+            <Col md={6} className="space-bottom">
+              <div dangerouslySetInnerHTML={{ __html: gift.description }} />
+            </Col>
+          </Row>
+        </TabPanel>
 
-      <TabList className="text-center">
-        <Tab>Description</Tab>
-        <Tab>How Gifts Work</Tab>
-      </TabList>
-
-      <TabPanel>
-        <Row className="space-top">
-          <Col md={6} className="space-bottom wide-image">
-            <img src={gift.descriptionImageUrl} alt={gift.descriptionImageAlt} title={gift.descriptionImageAlt} />
-          </Col>
-          <Col md={6} className="space-bottom">
-            <div dangerouslySetInnerHTML={{ __html: gift.description }} />
-          </Col>
-        </Row>
-      </TabPanel>
-
-      <TabPanel>
-        <HowGiftsWork />
-      </TabPanel>
-
-    </Tabs>
+        <TabPanel>
+          <HowGiftsWork />
+        </TabPanel>
+      </Tabs>
+    </div>
   </Grid>
 );
 

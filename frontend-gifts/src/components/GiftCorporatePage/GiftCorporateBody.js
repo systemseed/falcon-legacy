@@ -6,32 +6,33 @@ import ProductPrice from '../ProductPrice';
 import AddGiftCorporateDonationContainer from '../../containers/AddGiftCorporateDonationContainer';
 
 const GiftCorporate = ({ gift, currentCurrency }) => (
-  <section className="fw-section bg-gray padding-bottom-2x">
+  <section className="fw-section ">
     <div className="container">
-      <div className="product-info padding-top-1x text-center">
-        <h1 className="h2 space-bottom-half">{ gift.title }</h1>
-        <h2>
-          { !productUtils.isCustomPrice(gift) &&
-          <ProductPrice
-            price={productUtils.getPrice(gift, currentCurrency)}
-            currentCurrency={currentCurrency}
-          />
-          }
-        </h2>
-        <div className="text-sm text-gray" dangerouslySetInnerHTML={{ __html: gift.annotation }} />
+      <div className="bg-white padding-bottom-2x padding-horizontal-150-xl">
+        <div className="product-info padding-top-1x text-center">
+          <h1 className="h2 space-bottom-half">{gift.title}</h1>
+          <h2>
+            {!productUtils.isCustomPrice(gift) &&
+            <ProductPrice
+              price={productUtils.getPrice(gift, currentCurrency)}
+              currentCurrency={currentCurrency}
+            />
+            }
+          </h2>
+          <div className="text-sm text-gray" dangerouslySetInnerHTML={{ __html: gift.annotation }} />
 
-        <div className="product-tools shop-item">
-          { !productUtils.isCustomPrice(gift) &&
-          <div>
-            <AddToBasketButton product={gift} />
-            <BuyNowButton product={gift} />
+          <div className="product-tools shop-item">
+            {!productUtils.isCustomPrice(gift) &&
+            <div>
+              <AddToBasketButton product={gift} />
+              <BuyNowButton product={gift} />
+            </div>
+            }
+            {productUtils.isCustomPrice(gift) &&
+            <AddGiftCorporateDonationContainer />
+            }
           </div>
-          }
-          { productUtils.isCustomPrice(gift) &&
-          <AddGiftCorporateDonationContainer />
-          }
         </div>
-
       </div>
     </div>
   </section>
