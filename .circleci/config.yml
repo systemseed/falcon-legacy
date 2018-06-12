@@ -250,7 +250,4 @@ workflows:
             branches:
               only: master
     jobs:
-      - prepare_platformsh
-      - check_security_updates:
-          requires:
-            - prepare_platformsh
+      - check_security_updates

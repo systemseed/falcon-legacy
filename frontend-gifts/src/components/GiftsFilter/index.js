@@ -47,7 +47,6 @@ class GiftsFilter extends React.Component {
               )}
             </ul>
           </div>
-          <div className="column" />
         </div>
       </section>
     );

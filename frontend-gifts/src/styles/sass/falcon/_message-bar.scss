@@ -1,0 +1,18 @@
+.message-bar {
+  font-size: 14px;
+  font-weight: 600;
+
+  span.material-icons {
+    font-size: 24px;
+  }
+
+  .arrow-icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+
+    path.fill {
+      fill: #ffffff;
+    }
+  }
+}

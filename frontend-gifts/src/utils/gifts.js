@@ -1,11 +1,21 @@
+import _find from 'lodash/find';
 import api from '../lib/api';
 
-export const filterByCategory = (gifts, categoryId) => {
-  if (categoryId === undefined) {
-    return gifts;
+
+/**
+ * Filters out products by category
+ */
+export const filterByCategory = (products, categoryName) => {
+  const category = _find(products.categories, cat => cat.path === `/category/${categoryName}`);
+  let categoryId;
+  if (category) {
+    categoryId = category.id;
+  }
+  else {
+    return products;
   }
 
-  const filteredProducts = gifts.products.filter(
+  const filteredProducts = products.products.filter(
     product => product.categoryId === categoryId
   );
 
@@ -15,11 +25,11 @@ export const filterByCategory = (gifts, categoryId) => {
   // we should return all unfiltered gifts, because this
   // filter is not applicable to this currency (no product).
   if (!filteredProducts.length) {
-    return gifts;
+    return products;
   }
 
   return {
-    ...gifts,
+    ...products,
     products: filteredProducts
   };
 };
@@ -45,6 +55,27 @@ export const filterByCurrency = (products, currentCurrency) => {
   return {
     ...products,
     categories: filteredCategories,
+    products: filteredProducts
+  };
+};
+
+/**
+ * Filters out products
+ * by the current price range.
+ */
+export const filterByPriceRange = (products, currentCurrency) => {
+  const priceRange = products.priceRange;
+  const filteredProducts = products.products.filter((gift) => {
+    if (gift.price[currentCurrency]) {
+      const price = Number(gift.price[currentCurrency].amount);
+      return (price >= priceRange[0] && price <= priceRange[1]);
+    }
+
+    return false;
+  });
+
+  return {
+    ...products,
     products: filteredProducts
   };
 };
@@ -128,7 +159,7 @@ export const mappedProductItem = (responseItem) => {
       'width_720'
     ),
     actionImageAlt:
-      responseItem.relationships.field_gift_action_image.data.meta.alt,
+    responseItem.relationships.field_gift_action_image.data.meta.alt,
     actionDescription: responseItem.fieldGiftActionDescription
       ? responseItem.fieldGiftActionDescription.value
       : '',
@@ -141,6 +172,6 @@ export const mappedProductItem = (responseItem) => {
     postalPreviewImage,
     ecardPreviewImage,
     fieldPostalPreviewBody: responseItem.fieldGiftPostalPreviewBody,
-    fieldEcardPreviewBody: responseItem.fieldGiftEcardPreviewBody,
+    fieldEcardPreviewBody: responseItem.fieldGiftEcardPreviewBody
   };
 };

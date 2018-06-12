@@ -7,7 +7,8 @@ export const gifts = (state = {
   isFulfilled: false,
   isError: false,
   products: [],
-  categories: []
+  categories: [],
+  priceRange: [0, 1500],
 }, action) => {
   switch (action.type) {
 
@@ -62,6 +63,13 @@ export const gifts = (state = {
         isPending: false,
         isError: true,
       };
+
+    case 'FILTER_PRICE_RANGE_CHANGED': {
+      return {
+        ...state,
+        priceRange: action.priceRange
+      };
+    }
 
     default:
       return state;

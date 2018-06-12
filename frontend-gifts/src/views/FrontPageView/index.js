@@ -5,7 +5,7 @@ import FrontPageCopy from '../../components/FrontPageCopy';
 import CustomPageMetatags from '../../components/CustomPageMetatags';
 
 const FrontPageView = ({ match }) => (
-  <div>
+  <div className="frontpage">
     {match.params.categoryName === undefined &&
     <CustomPageMetatags id="front" />}
 
