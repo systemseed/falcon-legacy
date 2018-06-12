@@ -1,0 +1,37 @@
+.head {
+  position: relative;
+}
+
+@media (max-width: $container-xlg){
+  .footer-container {
+    padding-right: 0;
+    padding-left: 0;
+    width: 100%;
+  }
+  .featured-image-container {
+    padding-right: 0;
+    padding-left: 0;
+    width: 100%;
+  }
+}
+
+@media (min-width: $container-xlg){
+  .container {
+    width: $container-xlg;
+  }
+
+  .header-container {
+    position: relative;
+
+    .toolbar {
+      right: 58px;
+    }
+  }
+
+  .front-page-copy {
+    max-width: 1440px;
+    margin: 0 auto;
+    background: white;
+    padding-bottom: 7px;
+  }
+}

@@ -16,7 +16,7 @@ class GiftsFilter extends React.Component {
   render() {
     return (
       <section className="padding-top-1x">
-        <div className="filters-bar space-top-half">
+        <div className="filters-bar">
           <div>
             <button
               onClick={this.toggleCollapse.bind(this)}

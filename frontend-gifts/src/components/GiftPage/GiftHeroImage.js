@@ -1,8 +1,8 @@
 import React from 'react';
 
 const GiftHeroImage = ({ gift }) => (
-  <section className="fw-section bg-gray padding-top-1x">
-    <div className="container padding-top">
+  <section className="fw-section padding-top-1x">
+    <div className="padding-top">
       <div className="product-gallery">
         <ul className="product-gallery-preview">
           <li className="current">

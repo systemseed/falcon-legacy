@@ -25,7 +25,7 @@ class GiftTabs extends React.Component {
     const gift = this.props.gift;
 
     return (
-      <section className="container padding-top-2x">
+      <section className="padding-top-2x">
         <Tabs forceRenderTabPanel selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
 
           <TabList className="text-center">
@@ -40,12 +40,14 @@ class GiftTabs extends React.Component {
             <div className="row space-top">
               <div className="col-md-6 space-bottom wide-image">
                 {gift.actionImageUrl &&
-                  <img src={gift.actionImageUrl} alt={gift.actionImageAlt} title={gift.actionImageAlt} />
+                  <div className="padding-left">
+                    <img src={gift.actionImageUrl} alt={gift.actionImageAlt} title={gift.actionImageAlt} />
+                  </div>
                 }
               </div>
               <div className="col-md-6">
                 {gift.actionDescription &&
-                  <div dangerouslySetInnerHTML={{ __html: gift.actionDescription }} />
+                  <div className="padding-right" dangerouslySetInnerHTML={{ __html: gift.actionDescription }} />
                 }
               </div>
             </div>
@@ -55,11 +57,13 @@ class GiftTabs extends React.Component {
             <div className="row space-top">
               <div className="col-md-6 space-bottom">
                 {gift.whatYouGetImage &&
+                <div className="padding-left">
                   <img src={gift.whatYouGetImage.src} alt={gift.whatYouGetImage.alt} title={gift.whatYouGetImage.alt} />
+                </div>
                 }
               </div>
               <div className="col-md-6">
-                <div dangerouslySetInnerHTML={{ __html: gift.description }} />
+                <div className="padding-right" dangerouslySetInnerHTML={{ __html: gift.description }} />
               </div>
             </div>
           </TabPanel>

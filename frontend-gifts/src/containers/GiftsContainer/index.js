@@ -43,7 +43,7 @@ class GiftsContainer extends React.Component {
 
     if (gifts.isFulfilled && gifts.products) {
       return (
-        <div className="container">
+        <div className="padding-horizontal-150-xl">
           <div className="row">
             {category && <Metatags metatags={category.metatags} />}
             <div className="col-sm-6 col-md-8">

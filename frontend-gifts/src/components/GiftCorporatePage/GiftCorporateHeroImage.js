@@ -1,14 +1,16 @@
 import React from 'react';
 
 const GiftCorporateHeroImage = ({ gift }) => (
-  <section className="fw-section bg-gray padding-top-1x">
-    <div className="container padding-top">
-      <div className="product-gallery">
-        <ul className="product-gallery-preview">
-          <li className="current">
-            <img src={gift.imageUrl} alt={gift.imageAlt} title={gift.imageAlt} />
-          </li>
-        </ul>
+  <section className="fw-section padding-top-1x">
+    <div className="container">
+      <div className="bg-white padding-horizontal-150-xl padding-top">
+        <div className="product-gallery">
+          <ul className="product-gallery-preview">
+            <li className="current">
+              <img src={gift.imageUrl} alt={gift.imageAlt} title={gift.imageAlt} />
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>

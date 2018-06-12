@@ -24,7 +24,8 @@ class GlobalHeader extends React.Component {
     const { siteContentSettings, getSiteContentSettings, done } = this.props;
 
     if (_isEmpty(siteContentSettings)) {
-      getSiteContentSettings().then(done, done);
+      getSiteContentSettings()
+        .then(done, done);
     }
   }
 
@@ -46,34 +47,35 @@ class GlobalHeader extends React.Component {
           headerLeftText={siteContentSettings.fieldConfigHeaderLeftText.value}
           headerRightText={siteContentSettings.fieldConfigHeaderRightText.value}
         />
+        <div className="container header-container">
 
-        {/* Visible only on the mobile */}
-        <div className="mobile-menu-wrapper">
-          <Button
-            bsStyle="link"
-            className={this.state.isMenuCollapsed ? 'mobile-menu-toggle' : 'mobile-menu-toggle active'}
-            onClick={this.mobileMenuToggle}
-          >
-            <i className="material-icons menu" />
-          </Button>
-        </div>
+          {/* Visible only on the mobile */}
+          <div className="mobile-menu-wrapper">
+            <Button
+              bsStyle="link"
+              className={this.state.isMenuCollapsed ? 'mobile-menu-toggle' : 'mobile-menu-toggle active'}
+              onClick={this.mobileMenuToggle}
+            >
+              <i className="material-icons menu" />
+            </Button>
+          </div>
 
-        <Logo />
-        {/* <RegionSwitcher /> */}
+          <Logo />
+          {/* <RegionSwitcher /> */}
 
-        <MainMenu
-          isMenuCollapsed={this.state.isMenuCollapsed}
-          onMenuClick={this.mobileMenuToggle.bind(this)}
-        />
+          <MainMenu
+            isMenuCollapsed={this.state.isMenuCollapsed}
+            onMenuClick={this.mobileMenuToggle.bind(this)}
+          />
 
-        <div className="toolbar">
-          <div className="inner">
+          <div className="toolbar">
+            <div className="inner">
 
-            {/* Basket DropDown Widget */}
-            <BasketWidget />
+              {/* Basket DropDown Widget */}
+              <BasketWidget />
+            </div>
           </div>
         </div>
-
       </header>
     );
   };

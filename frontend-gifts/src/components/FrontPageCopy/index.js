@@ -15,7 +15,7 @@ const FrontPageCopy = ({ siteContentSettings }) => (
           </div>
         </Col>
         <Col sm={12} md={6} className="no-gutters">
-          <FeaturedImage uuid="722f5be9-151e-405f-9890-df742dd3376b" />
+          <FeaturedImage frontPageCopy uuid="722f5be9-151e-405f-9890-df742dd3376b" />
         </Col>
       </Row>
     </Grid>
