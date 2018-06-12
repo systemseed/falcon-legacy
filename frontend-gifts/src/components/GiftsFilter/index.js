@@ -17,7 +17,7 @@ class GiftsFilter extends React.Component {
     return (
       <section className="padding-top-1x">
         <div className="filters-bar">
-          <div className="column">
+          <div>
             <button
               onClick={this.toggleCollapse.bind(this)}
               className={`category-filter-btn ${!this.state.isCollapsed ? 'collapsed' : ''}`}
