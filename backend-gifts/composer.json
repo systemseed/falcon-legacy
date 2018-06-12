@@ -23,7 +23,7 @@
     "composer/installers": "^1.0.20",
     "drupal-composer/drupal-scaffold": "^2.0.1",
     "cweagans/composer-patches": "~1.0",
-    "drupal/core": "8.5.3",
+    "drupal/core": "^8.5.3",
     "drush/drush": "~8.0",
     "drupal/console": "~1.0",
     "drupal/admin_toolbar": "1.20.0",
@@ -102,14 +102,16 @@
     },
     "patches": {
       "drupal/core": {
-        "Menu content is not accessible via jsonapi": "https://www.drupal.org/files/issues/2018-03-19/menu_link_content-view-permissions-2915792-16.patch",
-        "NegotiationMiddleware calls $request->setRequestFormat('html') when there is no _format request parameter, but shouldn't": "https://www.drupal.org/files/issues/2018-04-28/2854543-88.patch"
+        "Menu content is not accessible via jsonapi": "https://www.drupal.org/files/issues/2018-03-19/menu_link_content-view-permissions-2915792-16.patch"
       },
       "drupal/jsonapi": {
         "Raise maximum page limit to 100": "patches/jsonapi_raise_maximum_page_limit_100.patch"
       },
       "drupal/metatag": {
         "Fix compatibility with jsonapi": "https://www.drupal.org/files/issues/make_metatag_fields-2636852-80.patch"
+      },
+      "drupal/simple_oauth": {
+        "Fix compatibility with Drupal 8.5.x": "patches/simple_oauth_2.0-alpha2_fix_compatibility_with_core.patch"
       }
     }
   },
