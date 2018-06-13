@@ -23,6 +23,10 @@ $bundle-section-margin: 150px 48px 150px 80px;
 
 .gift-primary-image-container {
   background-color: $image-column-background-color;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center;
   img {
     margin: 0 auto;
     max-height: 580px;
@@ -96,4 +100,55 @@ $bundle-section-margin: 150px 48px 150px 80px;
 .product-tools {
   //margin-top: 20px;
 
+}
+
+
+
+@media (min-width: 1440px) {
+  .gutters-md {
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+  }
+
+  .no-left-gutter-md {
+    padding-left: 0 !important;
+  }
+
+  .no-right-gutter-md {
+    padding-right: 0 !important;
+  }
+
+}
+
+.secondary-section-container {
+  padding: $secondary-section-padding;
+}
+
+.secondary-section-title {
+  padding-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .row-eq-height {
+    display: flex;
+  }
+}
+
+@media (max-width: 1440px) {
+  .gift-container {
+    width: 100%;
+  }
+}
+
+.object-fit-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
