@@ -26,55 +26,64 @@ class GiftTabs extends React.Component {
 
     return (
       <section className="padding-top-2x">
-        <Tabs forceRenderTabPanel selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
+        <div className="padding-horizontal-150-xl">
 
-          <TabList className="text-center">
-            <Tab>Gift in action</Tab>
-            <Tab>What you get</Tab>
-            {gift.variantType === 'bundle' &&
+          <Tabs
+            forceRenderTabPanel selectedIndex={this.state.tabIndex}
+            onSelect={tabIndex => this.setState({ tabIndex })}
+          >
+
+            <TabList className="text-center">
+              <Tab>Gift in action</Tab>
+              <Tab>What you get</Tab>
+              {gift.variantType === 'bundle' &&
               <Tab>In this bundle</Tab>
-            }
-          </TabList>
+              }
+            </TabList>
 
-          <TabPanel>
-            <div className="row space-top">
-              <div className="col-md-6 space-bottom wide-image">
-                {gift.actionImageUrl &&
-                  <div className="padding-left">
+            <TabPanel>
+              <div className="row space-top">
+                <div className="col-md-6 space-bottom wide-image">
+                  {gift.actionImageUrl &&
+                  <div className="">
                     <img src={gift.actionImageUrl} alt={gift.actionImageAlt} title={gift.actionImageAlt} />
                   </div>
-                }
-              </div>
-              <div className="col-md-6">
-                {gift.actionDescription &&
-                  <div className="padding-right" dangerouslySetInnerHTML={{ __html: gift.actionDescription }} />
-                }
-              </div>
-            </div>
-          </TabPanel>
-
-          <TabPanel>
-            <div className="row space-top">
-              <div className="col-md-6 space-bottom">
-                {gift.whatYouGetImage &&
-                <div className="padding-left">
-                  <img src={gift.whatYouGetImage.src} alt={gift.whatYouGetImage.alt} title={gift.whatYouGetImage.alt} />
+                  }
                 </div>
-                }
+                <div className="col-md-6">
+                  {gift.actionDescription &&
+                  <div className="" dangerouslySetInnerHTML={{ __html: gift.actionDescription }} />
+                  }
+                </div>
               </div>
-              <div className="col-md-6">
-                <div className="padding-right" dangerouslySetInnerHTML={{ __html: gift.description }} />
-              </div>
-            </div>
-          </TabPanel>
+            </TabPanel>
 
-          {gift.variantType === 'bundle' &&
+            <TabPanel>
+              <div className="row space-top">
+                <div className="col-md-6 space-bottom">
+                  {gift.whatYouGetImage &&
+                  <div className="">
+                    <img
+                      src={gift.whatYouGetImage.src} alt={gift.whatYouGetImage.alt}
+                      title={gift.whatYouGetImage.alt}
+                    />
+                  </div>
+                  }
+                </div>
+                <div className="col-md-6">
+                  <div className="" dangerouslySetInnerHTML={{ __html: gift.description }} />
+                </div>
+              </div>
+            </TabPanel>
+
+            {gift.variantType === 'bundle' &&
             <TabPanel>
               <BundleProductsViewContainer bundle={gift} />
             </TabPanel>
-          }
+            }
 
-        </Tabs>
+          </Tabs>
+        </div>
       </section>
     );
   }
