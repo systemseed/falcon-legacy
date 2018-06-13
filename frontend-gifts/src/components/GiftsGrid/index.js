@@ -18,7 +18,8 @@ const GiftsGrid = ({ gifts, currentCurrency }) => {
         {(products.length > 0) ?
           products :
           <div className="col-sm-12">
-            <h1>No results.</h1>
+            <h5>There are no gifts in this price range. Please select another price range.</h5>
+            <h5>Thank you.</h5>
           </div>
         }
       </Row>
