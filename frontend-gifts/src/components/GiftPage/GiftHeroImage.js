@@ -1,16 +1,8 @@
 import React from 'react';
 
 const GiftHeroImage = ({ gift }) => (
-  <section className="fw-section padding-top-1x">
-    <div className="padding-top">
-      <div className="product-gallery">
-        <ul className="product-gallery-preview">
-          <li className="current">
-            <img src={gift.imageUrl} alt={gift.imageAlt} title={gift.imageAlt} />
-          </li>
-        </ul>
-      </div>
-    </div>
+  <section className="fw-section gift-primary-image-container">
+    <img src={gift.imageUrl} alt={gift.imageAlt} title={gift.imageAlt}/>
   </section>
 );
 

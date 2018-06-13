@@ -1,0 +1,99 @@
+// Colors
+$section-title-color: #00734a; // Convert to global variable and replace it's usage in codebase.
+$text-color: #595959;
+$cta-button-color-dark: #8e0042;
+$cta-button-color-light: #d41b66;
+$image-column-background-color: #c5c5c5;
+
+// Font sizes
+// $font-size-h1
+$text-font-size: 18px;
+$price-font-size: 30px;
+
+// Font weights
+$title-font-weight: bold;
+$bold-text-font-weight: bold;
+$price-font-weight: normal;
+
+// Spacing
+$gift-body-padding: 48px;
+$secondary-section-padding: 64px 88px 64px 64px;
+$bottom-cta-padding: 172px 80px;
+$bundle-section-margin: 150px 48px 150px 80px;
+
+.gift-primary-image-container {
+  background-color: $image-column-background-color;
+  img {
+    margin: 0 auto;
+    max-height: 580px;
+  }
+}
+
+.gift-content {
+  padding: $gift-body-padding;
+  .gift-body {
+    p {
+      margin-bottom: 24px;
+    }
+  }
+
+  .gift-title {
+    font-size: $font-size-h1;
+    color: $section-title-color;
+    font-weight: $title-font-weight;
+    margin-bottom: 0;
+  }
+
+  .price-container {
+    margin-bottom: 40px;
+
+    span {
+      font-size: $font-size-h2;
+      color: $text-color;
+    }
+  }
+}
+
+.gift-cta-buttons-container {
+  button {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.2;
+    letter-spacing: normal;
+    height: 48px;
+  }
+
+  .add-to-cart.buy-now {
+    margin-left: 0 !important;
+  }
+
+  .gift-add-to-basket-col {
+    padding-right: 8px;
+    button {
+      background-color: $cta-button-color-dark;
+      &:hover {
+        color: #ffffff;
+        background-color: darken($cta-button-color-dark, 5%)
+      }
+    }
+  }
+
+  .gift-buy-now-col {
+    padding-left: 8px;
+    button {
+      background-color: $cta-button-color-light;
+      &:hover {
+        color: #ffffff;
+        background-color: darken($cta-button-color-light, 5%)
+      }
+    }
+  }
+}
+
+.product-tools {
+  //margin-top: 20px;
+
+}

@@ -5,21 +5,27 @@ import BuyNowButton from '../BuyNowButton';
 import ProductPrice from '../ProductPrice';
 
 const GiftBody = ({ gift, currentCurrency }) => (
-  <section className="fw-section padding-bottom-2x">
-    <div>
-      <div className="product-info padding-top-1x text-center">
-        <h1 className="h2 space-bottom-half">{ gift.title }</h1>
-        <h2>
+  <section className="fw-section">
+    <div className="gift-content">
+      <div className="product-info">
+        <h1 className="gift-title">{gift.title}</h1>
+        <div className="price-container">
           <ProductPrice
             price={productUtils.getPrice(gift, currentCurrency)}
             currentCurrency={currentCurrency}
           />
-        </h2>
-        <div className="text-sm text-gray" dangerouslySetInnerHTML={{ __html: gift.annotation }} />
+        </div>
+        <div className="gift-body" dangerouslySetInnerHTML={{ __html: gift.annotation }}/>
 
-        <div className="product-tools shop-item">
-          <AddToBasketButton product={gift} />
-          <BuyNowButton product={gift} />
+        <div className="gift-cta-buttons-container">
+          <div className="row">
+            <div className="col-md-6 gift-add-to-basket-col">
+              <AddToBasketButton product={gift}/>
+            </div>
+            <div className="col-md-6 gift-buy-now-col">
+              <BuyNowButton product={gift}/>
+            </div>
+          </div>
         </div>
 
       </div>
