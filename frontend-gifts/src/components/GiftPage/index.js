@@ -13,8 +13,8 @@ const GiftPage = ({ gift, currentCurrency }) => (
       <div className="row row-eq-height">
         <div className="col-md-6 tile-image-col-left no-gutter-sm">
           <div className="tile tile--image-section">
-            <section className="fw-section tile--image-section">
-              <img src={gift.imageUrl} alt={gift.imageAlt} title={gift.imageAlt} />
+            <section className="fw-section tile--image-section object-fit-wrapper">
+              <img className="object-fit-cover" src={gift.imageUrl} alt={gift.imageAlt} title={gift.imageAlt} />
             </section>
           </div>
         </div>

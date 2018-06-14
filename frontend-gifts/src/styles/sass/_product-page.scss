@@ -4,6 +4,7 @@ $text-color: #595959;
 $cta-button-color-dark: #8e0042;
 $cta-button-color-light: #d41b66;
 $tile-image-background-color: #c5c5c5;
+$bundled-products-price-color: #606060;
 
 // Font sizes
 // $font-size-h1
@@ -58,7 +59,6 @@ $bundle-section-margin: 150px 48px 150px 80px;
   }
 }
 
-
 .tile--text-section {
   margin-bottom: 20px;
   @media (min-width: 768px) {
@@ -68,112 +68,113 @@ $bundle-section-margin: 150px 48px 150px 80px;
       font-size: 18px;
     }
   }
+}
 
-  .tile-gift-title {
-    font-size: 24px;
-    line-height: 1.33;
-    color: $section-title-color;
-    font-weight: bold;
-    margin-bottom: 0;
-    padding-top: 8px;
-    @media (min-width: 768px) {
-      padding-top: 24px;
-    }
-    @media (min-width: 1470px) {
-      font-size: 30px;
-      padding-top: 0;
-    }
-  }
-
-  .tile-gift-title--in-action, .tile-gift-title--what-you-get {
-    @media (min-width: 768px) {
-      padding-bottom: 16px;
-      padding-top: 40px;
-    }
-  }
-
-  .tile-gift-price {
-    span {
-      font-size: 24px;
-      font-weight: normal;
-      color: $text-color;
-    }
-  }
-  .tile-gift-price--bottom {
-    margin-bottom: 24px;
-  }
-
-  .tile-gift-body {
-    p {
-      padding-bottom: 8px;
-      margin: 0;
-    }
-
-    margin-bottom: 8px;
-  }
-
-  .tile-gift-cta-buttons {
-    button {
-      width: 100%;
-      font-size: 20px;
-      font-weight: 500;
-      line-height: 2.2;
-      height: 48px;
-      margin: 0; // reset padding.
-      margin-bottom: 12px;
-    }
-
-    .tile-add-to-basket-button-col {
-      button {
-        background-color: $cta-button-color-dark;
-        &:hover {
-          color: #ffffff;
-          background-color: darken($cta-button-color-dark, 5%)
-        }
-      }
-
-      @media (min-width: 992px) {
-        padding-right: 8px;
-      }
-
-    }
-
-    .gift-buy-now-col {
-      button {
-        background-color: $cta-button-color-light;
-        &:hover {
-          color: #ffffff;
-          background-color: darken($cta-button-color-light, 5%)
-        }
-      }
-
-      @media (min-width: 992px) {
-        padding-left: 8px;
-      }
-    }
-
-    @media (min-width: 1470px) {
-      margin-top: 48px;
-    }
-  }
-
-  .tile-gift-cta-buttons--bottom {
-    padding-bottom: 24px;
-  }
-
+.tile-gift-title--in-action, .tile-gift-title--what-you-get {
   @media (min-width: 768px) {
-    .product-info {
-      padding-left: 26px;
-      padding-right: 26px;
+    padding-bottom: 16px;
+    padding-top: 40px;
+  }
+}
+
+.tile-gift-price {
+  span {
+    font-size: 24px;
+    font-weight: normal;
+    color: $text-color;
+  }
+}
+
+.tile-gift-price--bottom {
+  margin-bottom: 24px;
+}
+
+.tile-gift-body {
+  p {
+    padding-bottom: 8px;
+    margin: 0;
+  }
+
+  margin-bottom: 8px;
+}
+
+.tile-gift-cta-buttons {
+  button {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 2.2;
+    height: 48px;
+    margin: 0; // reset padding.
+    margin-bottom: 12px;
+  }
+
+  .tile-add-to-basket-button-col {
+    button {
+      background-color: $cta-button-color-dark;
+      &:hover {
+        color: #ffffff;
+        background-color: darken($cta-button-color-dark, 5%)
+      }
+    }
+
+    @media (min-width: 992px) {
+      padding-right: 8px;
+    }
+
+  }
+
+  .gift-buy-now-col {
+    button {
+      background-color: $cta-button-color-light;
+      &:hover {
+        color: #ffffff;
+        background-color: darken($cta-button-color-light, 5%)
+      }
+    }
+
+    @media (min-width: 992px) {
+      padding-left: 8px;
     }
   }
 
   @media (min-width: 1470px) {
-    .product-info {
-      padding-top: 40px;
-      padding-left: 40px;
-      padding-right: 40px;
-    }
+    margin-top: 48px;
+  }
+}
+
+.tile-gift-cta-buttons--bottom {
+  padding-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .product-info {
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+}
+
+@media (min-width: 1470px) {
+  .product-info {
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+.tile-gift-title {
+  font-size: 24px;
+  line-height: 1.33;
+  color: $section-title-color;
+  font-weight: bold;
+  margin-bottom: 0;
+  padding-top: 8px;
+  @media (min-width: 768px) {
+    padding-top: 24px;
+  }
+  @media (min-width: 1470px) {
+    font-size: 30px;
+    padding-top: 0;
   }
 }
 
@@ -183,6 +184,21 @@ $bundle-section-margin: 150px 48px 150px 80px;
       padding-left: 8px;
       padding-right: 8px;
     }
+  }
+}
+
+.gift-in-this-bundle {
+  padding: 0 15px;
+  .tile-gift-title {
+    padding-bottom: 8px;
+  }
+
+  .gift-in-this-bundle-description {
+    padding-bottom: 16px;
+    margin-bottom: 0;
+  }
+  .shop-item-price {
+    color: $bundled-products-price-color;
   }
 }
 
@@ -211,7 +227,6 @@ $bundle-section-margin: 150px 48px 150px 80px;
     padding-left: 0;
     padding-right: 0;
   }
-
 
 }
 
