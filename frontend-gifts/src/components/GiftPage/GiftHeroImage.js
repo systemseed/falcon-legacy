@@ -1,8 +1,8 @@
 import React from 'react';
 
 const GiftHeroImage = ({ gift }) => (
-  <section className="fw-section gift-primary-image-container">
-    <img src={gift.imageUrl} alt={gift.imageAlt} title={gift.imageAlt}/>
+  <section className="fw-section tile--image-section">
+    <img src={gift.imageUrl} alt={gift.imageAlt} title={gift.imageAlt} />
   </section>
 );
 

@@ -8,26 +8,25 @@ const GiftBody = ({ gift, currentCurrency }) => (
   <section className="fw-section">
     <div className="gift-content">
       <div className="product-info">
-        <h1 className="gift-title">{gift.title}</h1>
-        <div className="price-container">
+        <h1 className="tile-gift-title">{gift.title}</h1>
+        <div className="tile-gift-price">
           <ProductPrice
             price={productUtils.getPrice(gift, currentCurrency)}
             currentCurrency={currentCurrency}
           />
         </div>
-        <div className="gift-body" dangerouslySetInnerHTML={{ __html: gift.annotation }}/>
+        <div className="tile-gift-body" dangerouslySetInnerHTML={{ __html: gift.annotation }} />
 
-        <div className="gift-cta-buttons-container">
+        <div className="tile-gift-cta-buttons">
           <div className="row">
-            <div className="col-md-6 gift-add-to-basket-col">
-              <AddToBasketButton product={gift}/>
+            <div className="col-md-6 tile-add-to-basket-button-col">
+              <AddToBasketButton product={gift} />
             </div>
             <div className="col-md-6 gift-buy-now-col">
-              <BuyNowButton product={gift}/>
+              <BuyNowButton product={gift} />
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>

@@ -154,7 +154,6 @@
   &:focus, &:active { color: $add-to-cart-color; }
   &.buy-now {
     background-color: $brand-success;
-    margin-left: 7px !important;
     &:hover {
       background-color: darken($brand-success, 15%);
     }
