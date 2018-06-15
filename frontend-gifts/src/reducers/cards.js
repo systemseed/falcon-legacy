@@ -38,11 +38,11 @@ const items = (state = false, action) => {
           {
             ...defaults,
             cardIndex: `${action.productId}.${state[action.productId].length}`,
-            product: action.product
+            // Copy the same product object from the first card item.
+            product: state[action.productId][0].product
           }
         ]
       };
-
     case 'BASKET_DECREASE_PRODUCT_QUANTITY':
       return {
         ...state,
