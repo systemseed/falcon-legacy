@@ -8,7 +8,7 @@ import imgHope from '../../styles/img/corporate/hope.jpg';
 const GiftsCorporateInfoGrid = () => (
   <Grid
     componentClass="section"
-    bsClass={false}
+    bsClass=""
   >
     <div className="bg-white padding-top-3x padding-horizontal-150-xl">
 
