@@ -29,6 +29,7 @@ $bundle-section-margin: 150px 48px 150px 80px;
 }
 
 .tiles-container {
+  overflow: hidden;
   @media (min-width: 768px) and (max-width: 1470px) {
     width: 100%;
     padding-right: 0;
@@ -67,6 +68,17 @@ $bundle-section-margin: 150px 48px 150px 80px;
     p {
       font-size: 18px;
     }
+  }
+}
+
+.tile--text-section--bottom-ctas {
+  padding-top: 85px;
+  padding-bottom: 64px;
+  .tile-gift-title {
+    padding-top: 8px;
+  }
+  .tile-gift-price--bottom {
+    padding-top: 6px;
   }
 }
 
@@ -118,7 +130,7 @@ $bundle-section-margin: 150px 48px 150px 80px;
       }
     }
 
-    @media (min-width: 992px) {
+    @media (min-width: 768px) {
       padding-right: 8px;
     }
 
@@ -133,13 +145,28 @@ $bundle-section-margin: 150px 48px 150px 80px;
       }
     }
 
-    @media (min-width: 992px) {
+    @media (min-width: 768px) {
       padding-left: 8px;
     }
   }
 
+
+
+  @media (min-width: 992px) {
+    max-width: 100%;
+  }
+
   @media (min-width: 1470px) {
     margin-top: 48px;
+  }
+}
+
+.tile-gift-cta-buttons--bottom {
+  @media (min-width: 768px) {
+    max-width: 660px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
   }
 }
 
@@ -154,11 +181,16 @@ $bundle-section-margin: 150px 48px 150px 80px;
   }
 }
 
-@media (min-width: 1470px) {
+@media (min-width: 992px) {
   .product-info {
-    padding-top: 40px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 64px 88px 64px 64px;
+  }
+}
+
+.product-info--bottom {
+  padding: 0;
+  @media (max-width: 992px) {
+    margin-top: -50px;
   }
 }
 
@@ -179,27 +211,44 @@ $bundle-section-margin: 150px 48px 150px 80px;
 }
 
 .tile--text-section--primary {
-  @media (min-width: 1470px) {
+  @media (min-width: 992px) {
+    .tile-gift-title {
+      padding-top: 0;
+    }
     .product-info {
-      padding-left: 8px;
-      padding-right: 8px;
+      padding-top: 48px;
+      padding-left: 48px;
+      padding-right: 48px;
     }
   }
 }
 
 .gift-in-this-bundle {
-  padding: 0 15px;
   .tile-gift-title {
     padding-bottom: 8px;
   }
 
   .gift-in-this-bundle-description {
-    padding-bottom: 16px;
+    padding-bottom: 32px;
     margin-bottom: 0;
   }
   .shop-item-price {
     color: $bundled-products-price-color;
   }
+
+  @media (min-width: 768px)  and (max-width: 992px) {
+    max-width: 660px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 100%;
+    padding-top: 48px;
+  }
+
 }
 
 .object-fit-wrapper {

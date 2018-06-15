@@ -34,10 +34,10 @@ const GiftPage = ({ gift, currentCurrency }) => (
 
                   <div className="tile-gift-cta-buttons">
                     <div className="row">
-                      <div className="col-md-6 tile-add-to-basket-button-col">
-                        <AddToBasketButton product={gift} />
+                      <div className="col-sm-6 tile-add-to-basket-button-col">
+                        <AddToBasketButton prodct={gift} />
                       </div>
-                      <div className="col-md-6 gift-buy-now-col">
+                      <div className="col-sm-6 gift-buy-now-col">
                         <BuyNowButton product={gift} />
                       </div>
                     </div>
@@ -105,42 +105,51 @@ const GiftPage = ({ gift, currentCurrency }) => (
       {/* end what you get */}
 
       {/* In this bundle */}
-      <div className="padding-horizontal-150-xl">
+      {gift.variantType === 'bundle' &&
+      <div className="padding-horizontal-150-md">
         <BundleProductsViewContainer bundle={gift} />
       </div>
+      }
       {/* end In this bundle */}
 
       {/* bottom CTAs */}
-      <div className="tile tile--text-section">
-        <div className="col-md-6">
-          <section className="fw-section">
-            <div className="gift-content">
-              <div className="product-info">
-                <h1 className="tile-gift-title">{gift.title}</h1>
-                <div className="tile-gift-price tile-gift-price--bottom">
-                  <ProductPrice
-                    price={productUtils.getPrice(gift, currentCurrency)}
-                    currentCurrency={currentCurrency}
-                  />
+      <div className="padding-horizontal-100-md">
+        <div className="tile tile--text-section--bottom-ctas row">
+          <div className="col-md-5">
+            <section className="fw-section">
+              <div className="gift-content">
+                <div className="product-info product-info--bottom">
+                  <div className="row">
+                    <div className="col-md-9">
+                      <h1 className="tile-gift-title">{gift.title}</h1>
+                    </div>
+                    <div className="col-md-3">
+                      <div className="tile-gift-price tile-gift-price--bottom">
+                        <ProductPrice
+                          price={productUtils.getPrice(gift, currentCurrency)}
+                          currentCurrency={currentCurrency}
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
-        </div>
-        <div className="col-md-6">
-          <div className="tile-gift-cta-buttons tile-gift-cta-buttons--bottom">
-            <div className="row">
-              <div className="col-md-6 tile-add-to-basket-button-col">
-                <AddToBasketButton product={gift} />
-              </div>
-              <div className="col-md-6 gift-buy-now-col">
-                <BuyNowButton product={gift} />
+            </section>
+          </div>
+          <div className="col-md-7">
+            <div className="tile-gift-cta-buttons tile-gift-cta-buttons--bottom">
+              <div className="row">
+                <div className="col-sm-6 tile-add-to-basket-button-col">
+                  <AddToBasketButton product={gift} />
+                </div>
+                <div className="col-sm-6 gift-buy-now-col">
+                  <BuyNowButton product={gift} />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="row row-eq-height" />
       {/* end bottom CTAs */}
 
 

@@ -257,6 +257,28 @@ kbd {
     padding-left: 150px;
     padding-right: 150px;
   }
+
+  .padding-horizontal-100-xl {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media (min-width: $container-md) {
+  .padding-horizontal-150-md {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+  .padding-horizontal-100-md {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .padding-horizontal-60-md {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
 }
 
 @media #{$tablet-port} {

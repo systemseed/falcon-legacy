@@ -10,7 +10,7 @@ const BundleProductsViewContainer = ({ bundle, currency }) => (
       <div className="col-xs-12">
         <h1 className="tile-gift-title">In This Bundle</h1>
         <p className="gift-in-this-bundle-description">With this bundle you get the following gifts:</p>
-        <Grid bsClass="padding-bottom-3x" componentClass="section">
+        <Grid componentClass="section">
           <Row>
             {bundle.giftsInBundle.map(product => (
               <Col md={4} key={product.id}>
