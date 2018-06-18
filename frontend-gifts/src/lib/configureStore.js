@@ -56,6 +56,13 @@ const configureStore = (initialState = {}) => {
         return state;
       }
       return { ...state, basket: undefined, cards: undefined };
+    },
+    2: (state) => {
+      if (state.app && state.app.version && state.app.version < 2) {
+        // Clean up older baskets and cards after fix of broken reducer.
+        return { ...state, basket: undefined, cards: undefined };
+      }
+      return state;
     }
   };
 
