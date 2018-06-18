@@ -143,9 +143,9 @@ $bundle-section-margin: 150px 48px 150px 80px;
   .tile-add-to-basket-button-col {
     button {
       background-color: $cta-button-color-dark;
-      &:hover {
-        color: #ffffff;
-        background-color: darken($cta-button-color-dark, 5%)
+      &:hover, &:active {
+        color: #ffffff !important;
+        background-color: darken($cta-button-color-dark, 5%) !important;
       }
     }
 
@@ -158,9 +158,9 @@ $bundle-section-margin: 150px 48px 150px 80px;
   .gift-buy-now-col {
     button {
       background-color: $cta-button-color-light;
-      &:hover {
-        color: #ffffff;
-        background-color: darken($cta-button-color-light, 5%)
+      &:hover,  &:active{
+        color: #ffffff !important;
+        background-color: darken($cta-button-color-light, 5%) !important;
       }
     }
 

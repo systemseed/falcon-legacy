@@ -29,7 +29,7 @@ const mapStoreToProps = store => ({
 });
 
 BundleProductsViewContainer.propTypes = {
-  bundle: PropTypes.string.isRequired,
+  bundle: PropTypes.object.isRequired,
   currency: PropTypes.string.isRequired
 };
 

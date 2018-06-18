@@ -30,7 +30,7 @@ const GiftBody = ({ gift, currentCurrency }) => (
               <div className="tile-gift-cta-buttons">
                 <div className="row">
                   <div className="col-sm-6 tile-add-to-basket-button-col product-tools">
-                    <AddToBasketButton prodct={gift} />
+                    <AddToBasketButton product={gift} />
                   </div>
                   <div className="col-sm-6 gift-buy-now-col product-tools">
                     <BuyNowButton product={gift} />

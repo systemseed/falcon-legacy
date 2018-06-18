@@ -17,7 +17,7 @@ const GiftPage = ({ gift, currentCurrency }) => (
       {/* In this bundle */}
       {gift.variantType === 'bundle' &&
       <div className="padding-horizontal-10-md padding-horizontal-100-lg">
-        <BundleProductsViewContainer bundle={gift} />
+        <BundleProductsViewContainer bundle={gift} currency={currentCurrency} />
       </div>
       }
       {/* end In this bundle */}
