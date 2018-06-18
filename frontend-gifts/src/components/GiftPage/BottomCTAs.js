@@ -31,10 +31,10 @@ const BottomCTAs = ({ gift, currentCurrency }) => (
       <div className="col-md-7">
         <div className="tile-gift-cta-buttons tile-gift-cta-buttons--bottom">
           <div className="row">
-            <div className="col-sm-6 tile-add-to-basket-button-col">
+            <div className="col-sm-6 tile-add-to-basket-button-col product-tools">
               <AddToBasketButton product={gift} />
             </div>
-            <div className="col-sm-6 gift-buy-now-col">
+            <div className="col-sm-6 gift-buy-now-col product-tools">
               <BuyNowButton product={gift} />
             </div>
           </div>
