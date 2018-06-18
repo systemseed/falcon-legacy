@@ -3,7 +3,7 @@ $section-title-color: #00734a; // Convert to global variable and replace it's us
 $text-color: #595959;
 $cta-button-color-dark: #8e0042;
 $cta-button-color-light: #d41b66;
-$tile-image-background-color: #c5c5c5;
+$tile-image-background-color: #f6f6f6;
 $bundled-products-price-color: #606060;
 
 // Font sizes
@@ -47,6 +47,15 @@ $bundle-section-margin: 150px 48px 150px 80px;
   img {
     margin: 0 auto;
     max-height: 580px;
+  }
+}
+
+.tile--image-section--primary {
+  @media (max-width: $screen-md - 1){
+    img {
+      max-height: 400px;
+      width: auto;
+    }
   }
 }
 

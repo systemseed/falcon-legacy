@@ -1,159 +1,28 @@
 import React from 'react';
-import * as productUtils from '../../utils/products';
-import AddToBasketButton from '../AddToBasketButton';
-import BuyNowButton from '../BuyNowButton';
-import ProductPrice from '../ProductPrice';
 import BundleProductsViewContainer from '../../containers/BundleProductsViewContainer';
+import GiftBody from './GiftBody';
+import GiftInAction from './GiftInAction';
+import WhatYouGet from './WhatYouGet';
+import BottomCTAs from './BottomCTAs';
 
 const GiftPage = ({ gift, currentCurrency }) => (
   <div className="container tiles-container">
     <div className="bg-white">
 
-      {/* primary content */}
-      <div className="row row-eq-height">
-        <div className="col-md-6 tile-image-col-left no-gutter-sm">
-          <div className="tile tile--image-section">
-            <section className="fw-section tile--image-section object-fit-wrapper">
-              <img className="object-fit-cover" src={gift.imageUrl} alt={gift.imageAlt} title={gift.imageAlt} />
-            </section>
-          </div>
-        </div>
-        <div className="col-md-6">
-          <div className="tile tile--text-section tile--text-section--primary">
-            <section className="fw-section">
-              <div className="gift-content">
-                <div className="product-info">
-                  <h1 className="tile-gift-title">{gift.title}</h1>
-                  <div className="tile-gift-price">
-                    <ProductPrice
-                      price={productUtils.getPrice(gift, currentCurrency)}
-                      currentCurrency={currentCurrency}
-                    />
-                  </div>
-                  <div className="tile-gift-body" dangerouslySetInnerHTML={{ __html: gift.annotation }} />
+      <GiftBody gift={gift} currentCurrency={currentCurrency} />
+      <GiftInAction gift={gift} />
+      <WhatYouGet gift={gift} />
 
-                  <div className="tile-gift-cta-buttons">
-                    <div className="row">
-                      <div className="col-sm-6 tile-add-to-basket-button-col">
-                        <AddToBasketButton prodct={gift} />
-                      </div>
-                      <div className="col-sm-6 gift-buy-now-col">
-                        <BuyNowButton product={gift} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-      {/* end primary content */}
-
-      {/* gift in action */}
-      <div className="row row-eq-height">
-        <div className="col-md-push-6 col-md-6 tile-image-col-right no-gutter-sm">
-          <div className="tile tile--image-section">
-            <section className="fw-section tile--image-section object-fit-wrapper">
-              <img
-                className="object-fit-cover" src={gift.actionImageUrl} alt={gift.actionImageAlt}
-                title={gift.actionImageAlt}
-              />
-            </section>
-          </div>
-        </div>
-        <div className="col-md-pull-6 col-md-6">
-          <div className="tile tile--text-section">
-            <section className="fw-section">
-              <div className="gift-content">
-                <div className="product-info">
-                  <h1 className="tile-gift-title tile-gift-title--in-action">Gift in action</h1>
-                  <div className="tile-gift-body" dangerouslySetInnerHTML={{ __html: gift.actionDescription }} />
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-      {/* end gift in action */}
-
-      {/* what you get */}
-      <div className="row row-eq-height">
-        <div className="col-md-6 tile-image-col-left no-gutter-sm">
-          <div className="tile tile--image-section">
-            <section className="fw-section tile--image-section object-fit-wrapper">
-              <img
-                className="object-fit-cover" src={gift.whatYouGetImage.src} alt={gift.whatYouGetImage.alt}
-                title={gift.whatYouGetImage.alt}
-              />
-            </section>
-          </div>
-        </div>
-        <div className="col-md-6">
-          <div className="tile tile--text-section">
-            <section className="fw-section">
-              <div className="gift-content">
-                <div className="product-info">
-                  <h1 className="tile-gift-title tile-gift-title--what-you-get">What You Get</h1>
-                  <div className="tile-gift-body" dangerouslySetInnerHTML={{ __html: gift.description }} />
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-      {/* end what you get */}
 
       {/* In this bundle */}
       {gift.variantType === 'bundle' &&
-      <div className="padding-horizontal-150-md">
+      <div className="padding-horizontal-10-md padding-horizontal-100-lg">
         <BundleProductsViewContainer bundle={gift} />
       </div>
       }
       {/* end In this bundle */}
 
-      {/* bottom CTAs */}
-      <div className="padding-horizontal-100-md">
-        <div className="tile tile--text-section--bottom-ctas row">
-          <div className="col-md-5">
-            <section className="fw-section">
-              <div className="gift-content">
-                <div className="product-info product-info--bottom">
-                  <div className="row">
-                    <div className="col-md-9">
-                      <h1 className="tile-gift-title">{gift.title}</h1>
-                    </div>
-                    <div className="col-md-3">
-                      <div className="tile-gift-price tile-gift-price--bottom">
-                        <ProductPrice
-                          price={productUtils.getPrice(gift, currentCurrency)}
-                          currentCurrency={currentCurrency}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-          <div className="col-md-7">
-            <div className="tile-gift-cta-buttons tile-gift-cta-buttons--bottom">
-              <div className="row">
-                <div className="col-sm-6 tile-add-to-basket-button-col">
-                  <AddToBasketButton product={gift} />
-                </div>
-                <div className="col-sm-6 gift-buy-now-col">
-                  <BuyNowButton product={gift} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* end bottom CTAs */}
-
-
-      {/* <GiftTabs gift={gift}/> */}
+      <BottomCTAs gift={gift} currentCurrency={currentCurrency} />
     </div>
   </div>
 );
