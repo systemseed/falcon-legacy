@@ -40,6 +40,12 @@ $bundle-section-margin: 150px 48px 150px 80px;
   .product-tools {
     margin: 0;
   }
+
+  .shop-thumbnail{
+    .item-link {
+      display: none;
+    }
+  }
 }
 
 .tile--image-section {
