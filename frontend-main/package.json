@@ -22,7 +22,7 @@
     "react-dom": "^16.2.0",
     "react-jsonschema-form": "^1.0.0",
     "react-player": "^0.25.3",
-    "reactstrap": "next",
+    "reactstrap": "^5.0.0",
     "sanitize-html": "^1.18.2",
     "sass-loader": "^6.0.6"
   },
