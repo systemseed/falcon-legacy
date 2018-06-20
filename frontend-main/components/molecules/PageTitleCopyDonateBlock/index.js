@@ -14,7 +14,7 @@ class PageTitleCopyDonateBlock extends React.Component {
 
     this.state = {
       isSending: false,
-      isRegular: true,
+      isRegular: (props.regularDonationUrl.length > 0) ? true : false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -72,7 +72,11 @@ class PageTitleCopyDonateBlock extends React.Component {
             {/* @todo: Move Regular checkbox and button to separate component */}
             <div className="donation-form-block__monthly">
               <div className="donate-monthly">
-                <input type="checkbox" name="donate_monthly" id="donate-monthly" onChange={this.handleChange} checked={this.state.isRegular}/><label htmlFor="donate-monthly">Donate Monthly</label>
+              { this.state.isRegular &&
+                <div>
+                  <input type="checkbox" name="donate_monthly" id="donate-monthly" onChange={this.handleChange} checked={this.state.isRegular}/><label htmlFor="donate-monthly">Donate Monthly mobile</label>
+                </div>
+              }
               </div>
               <div className="donate-paypal">
                 <PaypalButton outline size="sm" color="grey" onClick={this.handleSubmit} />

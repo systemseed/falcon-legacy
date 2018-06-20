@@ -38,6 +38,16 @@
     }
   }
 
+  @include media-breakpoint-down(sm) {
+    .money-handles-with-button__button {
+      .btn {
+        span {
+          max-width: 100px;
+        }
+      }
+    }
+  }
+
   @include media-breakpoint-only(sm) {
     height: 202px;
     .money-handles-icon {
