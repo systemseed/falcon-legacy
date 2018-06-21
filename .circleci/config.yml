@@ -238,15 +238,15 @@ jobs:
 
       - restore_cache:
           keys:
-            - composer-circle-scripts-{{ arch }}-{{ .Branch }}
-            - composer-circle-scripts
+            - composer-circle-scripts-{{ .Branch }}
+            - composer-circle-scripts-
 
       - run:
           name: Install php dependencies
           command: composer install -d .circleci/scripts/falcon-private
 
       - save_cache:
-          key: composer-circle-scripts
+          key: composer-circle-scripts-{{ .Branch }}
           paths:
             - .circleci/scripts/falcon-private/vendor
 
