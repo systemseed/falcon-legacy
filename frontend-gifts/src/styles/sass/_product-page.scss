@@ -1,10 +1,9 @@
 // Colors
-$section-title-color: #00734a; // Convert to global variable and replace it's usage in codebase.
 $text-color: #595959;
 $cta-button-color-dark: #8e0042;
 $cta-button-color-light: #d41b66;
 $tile-image-background-color: #f6f6f6;
-$bundled-products-price-color: #606060;
+$grey-dark: #606060;
 
 // Font sizes
 // $font-size-h1
@@ -22,15 +21,9 @@ $secondary-section-padding: 64px 88px 64px 64px;
 $bottom-cta-padding: 172px 80px;
 $bundle-section-margin: 150px 48px 150px 80px;
 
-.tiles-row {
-}
-
-.tile {
-}
-
 .tiles-container {
   overflow: hidden;
-  @media (min-width: 768px) and (max-width: 1470px) {
+  @media (min-width: $screen-sm-min) and (max-width: $screen-xlg) {
     width: 100%;
     padding-right: 0;
     padding-left: 0;
@@ -41,7 +34,7 @@ $bundle-section-margin: 150px 48px 150px 80px;
     margin: 0;
   }
 
-  .shop-thumbnail{
+  .shop-thumbnail {
     .item-link {
       display: none;
     }
@@ -61,7 +54,7 @@ $bundle-section-margin: 150px 48px 150px 80px;
 }
 
 .tile--image-section--primary {
-  @media (max-width: $screen-md - 1){
+  @media (max-width: $screen-md - 1) {
     img {
       max-height: 400px;
       width: auto;
@@ -69,7 +62,7 @@ $bundle-section-margin: 150px 48px 150px 80px;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: $screen-sm-min) {
   .tile-image-col-right {
     padding-left: 0;
   }
@@ -81,7 +74,7 @@ $bundle-section-margin: 150px 48px 150px 80px;
 
 .tile--text-section {
   margin-bottom: 20px;
-  @media (min-width: 768px) {
+  @media (min-width: $screen-sm-min) {
     margin-bottom: 36px;
 
     p {
@@ -93,8 +86,15 @@ $bundle-section-margin: 150px 48px 150px 80px;
 .tile--text-section--bottom-ctas {
   padding-top: 85px;
   padding-bottom: 64px;
+  @media (min-width: $screen-xlg) {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
   .tile-gift-title {
     padding-top: 8px;
+    @media (min-width: $screen-xlg) {
+      font-size: 30px;
+    }
   }
   .tile-gift-price--bottom {
     padding-top: 6px;
@@ -102,7 +102,7 @@ $bundle-section-margin: 150px 48px 150px 80px;
 }
 
 .tile-gift-title--in-action, .tile-gift-title--what-you-get {
-  @media (min-width: 768px) {
+  @media (min-width: $screen-sm-min) {
     padding-bottom: 16px;
     padding-top: 40px;
   }
@@ -121,12 +121,12 @@ $bundle-section-margin: 150px 48px 150px 80px;
 }
 
 .tile-gift-body {
+  margin-bottom: 8px;
   p {
     padding-bottom: 8px;
     margin: 0;
+    color: $grey-dark;
   }
-
-  margin-bottom: 8px;
 }
 
 .tile-gift-cta-buttons {
@@ -149,7 +149,7 @@ $bundle-section-margin: 150px 48px 150px 80px;
       }
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: $screen-sm-min) {
       padding-right: 8px;
     }
 
@@ -158,34 +158,45 @@ $bundle-section-margin: 150px 48px 150px 80px;
   .gift-buy-now-col {
     button {
       background-color: $cta-button-color-light;
-      &:hover,  &:active{
+      &:hover, &:active {
         color: #ffffff !important;
         background-color: darken($cta-button-color-light, 5%) !important;
       }
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: $screen-sm-min) {
       padding-left: 8px;
     }
   }
-
-
 
   @media (min-width: 992px) {
     max-width: 100%;
   }
 
-  @media (min-width: 1470px) {
+  @media (min-width: $screen-xlg) {
     margin-top: 48px;
   }
 }
 
 .tile-gift-cta-buttons--bottom {
-  @media (min-width: 768px) {
-    max-width: 660px;
+  @media (min-width: $screen-xs-min) and (max-width: $screen-md-min) {
+    max-width: 86%;
+    margin: 0 auto;
+  }
+
+  @media (min-width: $screen-sm-min) and (max-width: $screen-md-min) {
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+
+  @media (min-width: $screen-sm-min) {
     margin-left: auto;
     margin-right: auto;
     margin-top: 0;
+  }
+
+  @media (min-width: $screen-md-min) {
+    margin-right: 0;
   }
 }
 
@@ -193,51 +204,72 @@ $bundle-section-margin: 150px 48px 150px 80px;
   padding-bottom: 24px;
 }
 
-@media (min-width: 768px) {
-  .product-info {
+.product-info {
+  @media (min-width: $screen-sm-min) {
     padding-left: 26px;
     padding-right: 26px;
+    max-width: none;
+  }
+  @media (min-width: $screen-xs-min) and (max-width: $screen-md-min) {
+    max-width: 86%;
   }
 }
 
 @media (min-width: 992px) {
   .product-info {
-    padding: 64px 88px 64px 64px;
+    padding: $secondary-section-padding;
   }
 }
 
 .product-info--bottom {
   padding: 0;
-  @media (max-width: 992px) {
+  @media (max-width: $screen-md-min) {
     margin-top: -50px;
   }
+
+  @media (min-width: $screen-xs-min) and (max-width: $screen-md-min) {
+    max-width: 86%;
+  }
+
+  @media (min-width: $screen-sm-min) and (max-width: $screen-md-min) {
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+
 }
 
 .tile-gift-title {
   font-size: 24px;
   line-height: 1.33;
-  color: $section-title-color;
+  color: $green-primary;
   font-weight: bold;
   margin-bottom: 0;
   padding-top: 8px;
-  @media (min-width: 768px) {
+  @media (min-width: $screen-sm-min) {
     padding-top: 24px;
   }
-  @media (min-width: 1470px) {
-    font-size: 30px;
+  @media (min-width: $screen-xlg) {
+    font-size: 36px;
     padding-top: 0;
   }
 }
 
 .tile--text-section--primary {
-  @media (min-width: 992px) {
-    .tile-gift-title {
+  .tile-gift-title {
+    @media (min-width: 992px) {
       padding-top: 0;
     }
-    .product-info {
+
+    @media (min-width: $screen-xlg) {
+      font-size: 30px;
+    }
+  }
+
+  .product-info {
+    @media (min-width: 992px) {
       padding-top: 48px;
-      padding-left: 48px;
-      padding-right: 48px;
+      padding-left: 32px;
+      padding-right: 32px;
     }
   }
 }
@@ -252,20 +284,25 @@ $bundle-section-margin: 150px 48px 150px 80px;
     margin-bottom: 0;
   }
   .shop-item-price {
-    color: $bundled-products-price-color;
+    color: $grey-dark;
   }
 
-  @media (min-width: 768px)  and (max-width: 992px) {
+  @media (min-width: $screen-sm-min) and (max-width: $screen-md-min) {
     max-width: 660px;
-    margin-left: auto;
-    margin-right: auto;
     padding-left: 26px;
     padding-right: 26px;
   }
 
+  @media (min-width: $screen-xs-min) and (max-width: $screen-md-min) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 86%;
+  }
+
   @media (min-width: 992px) {
-    max-width: 100%;
+    max-width: 92%;
     padding-top: 48px;
+    margin: 0 auto;
   }
 
 }
@@ -283,14 +320,14 @@ $bundle-section-margin: 150px 48px 150px 80px;
   height: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: $screen-sm-min) {
   .no-gutter-sm {
     padding-left: 0;
     padding-right: 0;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: $screen-sm-min) {
   .no-gutter-md {
     padding-left: 0;
     padding-right: 0;
