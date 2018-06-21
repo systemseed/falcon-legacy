@@ -263,14 +263,17 @@ jobs:
       - run:
           name: "BACKEND DONATIONS: create files backup and upload to Circle."
           #command: |
-          #  platform ssh "tar -zcf /tmp/don-files.tar.gz web/sites/default/files" -A backend-donations
-          #  scp "$(platform ssh -A backend-donations --pipe)":/tmp/don-files.tar.gz "/home/circleci/backups/backend-donations/don-files-$(date +%Y%m%d-%H%M%S-%Z).tar.gz"
+          #  platform ssh "tar -zcf /tmp/don-files.tar.gz web/sites/default/files" -e prod-don
+          #  scp "$(platform ssh -e prod-don --pipe)":/tmp/don-files.tar.gz "/home/circleci/backups/backend-donations/don-files-$(date +%Y%m%d-%H%M%S-%Z).tar.gz"
           command: |
             platform ssh "tar -zcf /tmp/don-files.tar.gz web/sites/default/files" -A backend-donations
             scp "$(platform ssh -A backend-donations --pipe)":/tmp/don-files.tar.gz "/home/circleci/backups/backend-donations/don-files-$(date +%Y%m%d-%H%M%S-%Z).tar.gz"
 
       - run:
           name: "BACKEND GIFTS: create files backup and upload to Circle."
+          #command: |
+          #  platform ssh "tar -zcf /tmp/gifts-files.tar.gz web/sites/default/files" -e prod-gift
+          #  scp "$(platform ssh -e prod-gift --pipe)":/tmp/gifts-files.tar.gz "/home/circleci/backups/backend-gifts/gifts-files-$(date +%Y%m%d-%H%M%S-%Z).tar.gz"
           command: |
             platform ssh "tar -zcf /tmp/gifts-files.tar.gz web/sites/default/files" -A backend-gifts
             scp "$(platform ssh -A backend-gifts --pipe)":/tmp/gifts-files.tar.gz "/home/circleci/backups/backend-gifts/gifts-files-$(date +%Y%m%d-%H%M%S-%Z).tar.gz"
