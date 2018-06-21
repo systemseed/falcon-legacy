@@ -1,0 +1,31 @@
+uuid: 9dba9a69-c88a-4e67-a2d7-1f4164d3ea13
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraph_blocks
+    - node.type.cw_page
+    - paragraphs.paragraphs_type.info_card
+  module:
+    - entity_reference_revisions
+id: node.cw_page.field_paragraph_blocks
+field_name: field_paragraph_blocks
+entity_type: node
+bundle: cw_page
+label: 'Paragraph Blocks'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      info_card: info_card
+    target_bundles_drag_drop:
+      info_card:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

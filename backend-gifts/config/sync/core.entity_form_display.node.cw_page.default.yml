@@ -7,9 +7,11 @@ dependencies:
     - field.field.node.cw_page.field_featured_image
     - field.field.node.cw_page.field_fieldable_path
     - field.field.node.cw_page.field_metatags
+    - field.field.node.cw_page.field_paragraph_blocks
     - node.type.cw_page
   module:
     - metatag
+    - paragraphs
     - path
     - scheduler
     - text
@@ -46,6 +48,18 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
+    region: content
+  field_paragraph_blocks:
+    type: entity_reference_paragraphs
+    weight: 51
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
     region: content
   path:
     type: path
@@ -108,5 +122,8 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
 hidden:
   field_fieldable_path: true
