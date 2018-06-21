@@ -39,7 +39,7 @@ const App = () => (
         >
           {/* ROUTES FROM THE MAIN MENU */}
           <PageRoute exact path="/" component={FrontPageView} />
-          <PageRoute exact path="/corporate" component={CorporateGiftsView} />
+          <PageRoute exact path="/corporate-old" component={CorporateGiftsView} />
           <PageRoute exact path="/contact" component={ContactPageView} />
           {/* GIFTS AND CORPORATE GIFTS FULL VIEW PAGES */}
           <PageRoute exact path="/gifts/:path" component={GiftView} />
