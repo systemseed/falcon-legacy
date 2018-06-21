@@ -109,11 +109,21 @@ $bundle-section-margin: 150px 48px 150px 80px;
 }
 
 .tile-gift-price {
+  margin-bottom: 8px;
   span {
     font-size: 24px;
     font-weight: normal;
     color: $text-color;
   }
+
+  @media (min-width: $screen-md) {
+    margin-bottom: 16px;
+  }
+
+  @media (min-width: $screen-xlg) {
+    margin-bottom: 24px;
+  }
+
 }
 
 .tile-gift-price--bottom {
