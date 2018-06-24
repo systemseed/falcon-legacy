@@ -10,6 +10,12 @@ $grey-dark: #606060;
 $text-font-size: 18px;
 $price-font-size: 30px;
 
+$font-size--title: 28px;
+$line-height--title: 1.5;
+
+$font-size--title--primary: 24px;
+$line-height--title--primary: 1.33;
+
 // Font weights
 $title-font-weight: bold;
 $bold-text-font-weight: bold;
@@ -49,14 +55,17 @@ $bundle-section-margin: 150px 48px 150px 80px;
   align-items: center;
   img {
     margin: 0 auto;
-    max-height: 580px;
+    max-height: 250px;
+    @media (min-width: $screen-sm-min) {
+      max-height: 534px;
+    }
   }
 }
 
 .tile--image-section--primary {
   @media (max-width: $screen-md - 1) {
     img {
-      max-height: 400px;
+      //max-height: 400px;
       width: auto;
     }
   }
@@ -131,9 +140,7 @@ $bundle-section-margin: 150px 48px 150px 80px;
 }
 
 .tile-gift-body {
-  margin-bottom: 8px;
   p {
-    padding-bottom: 8px;
     margin: 0;
     color: $grey-dark;
   }
@@ -248,20 +255,49 @@ $bundle-section-margin: 150px 48px 150px 80px;
 
 }
 
+/*
+ * Titles
+ */
 .tile-gift-title {
-  font-size: 24px;
-  line-height: 1.33;
+  font-size: $font-size--title;
+  line-height: $line-height--title;
+  padding-bottom: 8px;
   color: $green-primary;
   font-weight: bold;
   margin-bottom: 0;
   padding-top: 8px;
   @media (min-width: $screen-sm-min) {
+    font-size: 30px;
+    line-height: 1.4;
     padding-top: 24px;
   }
   @media (min-width: $screen-xlg) {
     font-size: 36px;
     padding-top: 0;
   }
+}
+
+.tile-gift-title--primary {
+  font-size: $font-size--title--primary;
+  line-height: $line-height--title--primary;
+  padding-bottom: 0;
+}
+
+
+/*
+ * Paragraphs
+ */
+.tile-gift-body {
+  p {
+    padding-bottom: 24px;
+  }
+}
+
+/* --- */
+
+.products-in-this-bundle {
+  width: 50%;
+  margin: 0 auto;
 }
 
 .tile--text-section--primary {

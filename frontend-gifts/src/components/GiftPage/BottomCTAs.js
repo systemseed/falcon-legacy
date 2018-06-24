@@ -13,7 +13,7 @@ const BottomCTAs = ({ gift, currentCurrency }) => (
             <div className="product-info product-info--bottom">
               <div className="row">
                 <div className="col-md-9">
-                  <h1 className="tile-gift-title">{gift.title}</h1>
+                  <h1 className="tile-gift-title tile-gift-title--primary">{gift.title}</h1>
                 </div>
                 <div className="col-md-3">
                   <div className="tile-gift-price tile-gift-price--bottom">

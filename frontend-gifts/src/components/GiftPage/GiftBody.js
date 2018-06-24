@@ -18,7 +18,7 @@ const GiftBody = ({ gift, currentCurrency }) => (
         <section className="fw-section">
           <div className="gift-content">
             <div className="product-info">
-              <h1 className="tile-gift-title">{gift.title}</h1>
+              <h1 className="tile-gift-title tile-gift-title--primary">{gift.title}</h1>
               <div className="tile-gift-price">
                 <ProductPrice
                   price={productUtils.getPrice(gift, currentCurrency)}
