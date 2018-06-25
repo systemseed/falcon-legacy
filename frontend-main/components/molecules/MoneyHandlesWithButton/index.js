@@ -14,6 +14,7 @@ const MoneyHandlesWithButton = ({ description, iconType, buttonText, buttonUrl }
           <div className="money-handles-description" dangerouslySetInnerHTML={{__html: sanitizeHtml(description)}} />
         </div>
       </div>
+      <img className="money-handles-icon money-handles-icon--desktop" src={iconUrl} />
       <div className="money-handles-with-button__button">
         <ButtonWithAmount color="secondary" size="lg" buttonUrl={buttonUrl}>{buttonTextWrapped}</ButtonWithAmount>
       </div>

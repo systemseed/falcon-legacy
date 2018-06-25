@@ -1,5 +1,5 @@
 .money-handles-with-button {
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(sm) {
     height: 142px;
     display: flex;
     text-align: center;
@@ -31,18 +31,8 @@
         align-items: center;
         text-align: center;
         span {
-          max-width: 150px;
+          max-width: 90px;
           margin: 0 auto;
-        }
-      }
-    }
-  }
-
-  @include media-breakpoint-down(sm) {
-    .money-handles-with-button__button {
-      .btn {
-        span {
-          max-width: 100px;
         }
       }
     }
@@ -61,6 +51,9 @@
 
     .money-handles-with-button__button .btn {
       @include font-size(32px);
+      span {
+        max-width: 140px;
+      }
     }
 
     .money-handles-description {
@@ -87,12 +80,6 @@
     justify-content: center;
     position: relative;
 
-    .money-handles-icon {
-      position: absolute;
-      bottom: 156px;
-      left: calc(50% - 75px);
-    }
-
     .money-handles-with-button__button {
       width: 100%;
       .btn {
@@ -100,6 +87,14 @@
         padding: 0.438rem 1.5rem;
         width: 100%;
         max-width: 410px;
+      }
+    }
+  }
+
+  @include media-breakpoint-between(md, lg) {
+    .money-handles-with-button__button {
+      .btn {
+        @include font-size(22px);
       }
     }
   }
@@ -125,10 +120,18 @@
       width: 104px;
     }
     @include media-breakpoint-up(md) {
+      display: none;
       width: 112px;
     }
     @include media-breakpoint-up(xl) {
       width: 150px;
+    }
+  }
+
+  .money-handles-icon--desktop {
+    display: none;
+    @include media-breakpoint-up(md) {
+      display: block;
     }
   }
 }
