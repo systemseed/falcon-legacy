@@ -10,7 +10,6 @@
     padding-top: 40px;
     margin-bottom: 50px;
     line-height: 1.5;
-    display: flex;
     align-items: center;
   }
 
@@ -24,15 +23,27 @@
       padding-right: 20px;
     }
   }
-  .logo {
-    margin: 0 auto;
-    display: block;
+  .logos {
+    @media (max-width: 1200px) {
+      text-align: center;
+    }
 
+    @include media-breakpoint-up(xlg) {
+      text-align: right;
+    }
+
+    }
+  .logo {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10px;
     @include media-breakpoint-up(lg) {
       width: 90px;
-      margin-top: -20px;
-      display: inline-block;
-      vertical-align: top;
     }
+  }
+
+  .logo--regulator {
+    width: 130px;
+    margin-right: 10px;
   }
 }
