@@ -9,7 +9,7 @@ const MoneyHandlesWithButtonPane = ({ styles, moneyHandlesData }) => {
       {
         moneyHandlesData.map((data, i) => {
           return (
-            <div className="col-12 col-xl-4" key={i}>
+            <div className="col-12 col-md-4" key={i}>
               <MoneyHandlesWithButton
                 description={data.description}
                 iconType={data.iconType}

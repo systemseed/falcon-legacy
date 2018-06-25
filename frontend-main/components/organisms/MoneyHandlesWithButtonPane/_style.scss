@@ -11,7 +11,7 @@
       margin-bottom: 10px;
     }
   }
-  @include media-breakpoint-up(xl) {
+  @include media-breakpoint-up(md) {
     & > div {
       margin-bottom: 0;
     }
