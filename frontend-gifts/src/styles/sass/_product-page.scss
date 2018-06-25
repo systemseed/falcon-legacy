@@ -296,8 +296,14 @@ $bundle-section-margin: 150px 48px 150px 80px;
 /* --- */
 
 .products-in-this-bundle {
-  width: 50%;
-  margin: 0 auto;
+  @media (min-width: $screen-sm) {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  @media (min-width: $screen-md) {
+    width: 100%;
+  }
 }
 
 .tile--text-section--primary {
