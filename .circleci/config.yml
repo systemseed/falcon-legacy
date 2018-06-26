@@ -219,28 +219,96 @@ jobs:
           command: platform ssh -q -A backend-gifts "drush ups -r web --security-only --pipe" | wc -l | grep -q "\b0$"
 
 
+  ######################################
+  ####### MAKE REGULAR BACKUPS #########
+  ######################################
+  create_and_upload_backups:
+    <<: *defaults
+    steps:
+      - checkout
+
+      - run:
+          <<: *install_platform_cli
+
+      - run:
+          name: Prepare backups folders.
+          command: |
+            mkdir -p /home/circleci/backups/backend-donations
+            mkdir -p /home/circleci/backups/backend-gifts
+
+      - restore_cache:
+          keys:
+            - composer-circle-scripts-{{ .Branch }}
+            - composer-circle-scripts-
+
+      - run:
+          name: Install php dependencies
+          command: composer install -d .circleci/scripts/falcon-private
+
+      - save_cache:
+          key: composer-circle-scripts-{{ .Branch }}
+          paths:
+            - .circleci/scripts/falcon-private/vendor
+
+      - run:
+          name: "BACKEND DONATIONS: create db dump."
+          #command: platform db:dump -y --gzip --file=/home/circleci/backups/backend-donations/don-dump.sql.gz --timestamp -e prod-don
+          command: platform db:dump -y --gzip --file=/home/circleci/backups/backend-donations/don-dump.sql.gz --timestamp -A backend-donations
+
+      - run:
+          name: "BACKEND GIFTS: create db dump."
+          #command: platform db:dump -y --gzip --file=/home/circleci/backups/backend-gifts/gifts-dump.sql.gz --timestamp -e prod-gift
+          command: platform db:dump -y --gzip --file=/home/circleci/backups/backend-gifts/gifts-dump.sql.gz --timestamp -A backend-gifts
+
+      - run:
+          name: "BACKEND DONATIONS: create files backup and upload to Circle."
+          #command: |
+          #  platform ssh "tar -zcf /tmp/don-files.tar.gz web/sites/default/files" -e prod-don
+          #  scp "$(platform ssh -e prod-don --pipe)":/tmp/don-files.tar.gz "/home/circleci/backups/backend-donations/don-files-$(date +%Y%m%d-%H%M%S-%Z).tar.gz"
+          command: |
+            platform ssh "tar -zcf /tmp/don-files.tar.gz web/sites/default/files" -A backend-donations
+            scp "$(platform ssh -A backend-donations --pipe)":/tmp/don-files.tar.gz "/home/circleci/backups/backend-donations/don-files-$(date +%Y%m%d-%H%M%S-%Z).tar.gz"
+
+      - run:
+          name: "BACKEND GIFTS: create files backup and upload to Circle."
+          #command: |
+          #  platform ssh "tar -zcf /tmp/gifts-files.tar.gz web/sites/default/files" -e prod-gift
+          #  scp "$(platform ssh -e prod-gift --pipe)":/tmp/gifts-files.tar.gz "/home/circleci/backups/backend-gifts/gifts-files-$(date +%Y%m%d-%H%M%S-%Z).tar.gz"
+          command: |
+            platform ssh "tar -zcf /tmp/gifts-files.tar.gz web/sites/default/files" -A backend-gifts
+            scp "$(platform ssh -A backend-gifts --pipe)":/tmp/gifts-files.tar.gz "/home/circleci/backups/backend-gifts/gifts-files-$(date +%Y%m%d-%H%M%S-%Z).tar.gz"
+
+      - run:
+          name: Upload backups to AWS S3.
+          command: php .circleci/scripts/falcon-private/upload_backups.php
+
+
 workflows:
   version: 2
+  deploy:
+    jobs:
+      - create_and_upload_backups:
+          filters:
+            branches:
+              only:
+                - your-prod-branch
+      - prepare_platformsh:
+          requires:
+            - create_and_upload_backups
+
   build_and_test:
     jobs:
-      - prepare_platformsh
-
-      - run_tests_backend_gifts:
-          requires:
-            - prepare_platformsh
+      - prepare_platformsh:
           filters:
             branches:
               ignore:
-                #- master
-                - production
-
+                - your-prod-branch
+      - run_tests_backend_gifts:
+          requires:
+            - prepare_platformsh
       - run_success_build_hook:
           requires:
             - run_tests_backend_gifts
-            # Jobs to be introduced.
-            #- run_tests_backend_donations
-            #- run_tests_api_bus
-            #- run_tests_frontend_gifts
 
   security_updates_scheduled:
     triggers:
@@ -251,3 +319,13 @@ workflows:
               only: master
     jobs:
       - check_security_updates
+
+  backup:
+    triggers:
+      - schedule:
+          cron: "55 0,14 * * *"
+          filters:
+            branches:
+              only: your-prod-branch
+    jobs:
+      - create_and_upload_backups

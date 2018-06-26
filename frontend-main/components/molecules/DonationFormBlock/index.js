@@ -12,7 +12,7 @@ class DonationForm extends React.Component {
     super(props);
 
     this.state = {
-      isRegular: true,
+      isRegular: (props.regularDonationUrl.length > 0) ? true : false,
       rSelected: null // No radio buttons active by default.
     };
 
@@ -96,9 +96,13 @@ class DonationForm extends React.Component {
         </div>
 
         <div className="donation-form-block__monthly">
-          <div className="donate-monthly">
-            <input type="checkbox" name="donate_monthly" id="donate-monthly" onChange={this.handleChange} checked={this.state.isRegular}/><label htmlFor="donate-monthly">Donate Monthly</label>
-          </div>
+            <div className="donate-monthly">
+              { this.state.isRegular &&
+                <div>
+                  <input type="checkbox" name="donate_monthly" id="donate-monthly" onChange={this.handleChange} checked={this.state.isRegular}/><label htmlFor="donate-monthly">Donate Monthly</label>
+                </div>
+              }
+            </div>
           <div className="donate-paypal">
             <PaypalButton outline size="sm" color="grey" onClick={this.handleSubmit} />
           </div>
