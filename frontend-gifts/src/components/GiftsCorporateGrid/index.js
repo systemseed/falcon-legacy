@@ -15,7 +15,7 @@ const GiftsGridCorporate = ({ gifts, currentCurrency }) => {
   return (
     <Grid
       componentClass="section"
-      className="corporate"
+      className="gifts-grid corporate"
       bsClass={false}
     >
 
