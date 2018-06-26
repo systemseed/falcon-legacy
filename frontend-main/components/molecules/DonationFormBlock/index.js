@@ -54,7 +54,7 @@ class DonationForm extends React.Component {
 
   handleSubmit(event) {
     const { regularDonationUrl, singleDonationUrl } = this.props;
-    let donationUrl = this.state.regularAvailable ? regularDonationUrl : singleDonationUrl;
+    let donationUrl = this.state.regularChecked ? regularDonationUrl : singleDonationUrl;
     event.preventDefault();
 
     let queryParams = [];

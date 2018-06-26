@@ -1,5 +1,5 @@
 .money-handles-with-button {
-  @include media-breakpoint-down(sm) {
+  @media (max-width: 767px) {
     height: 142px;
     display: flex;
     text-align: center;
@@ -46,7 +46,7 @@
     }
   }
 
-  @include media-breakpoint-between(sm, md) {
+  @media (min-width: 576px) and (max-width: 767px){
     height: 260px;
 
     .money-handles-with-button__button .btn {
