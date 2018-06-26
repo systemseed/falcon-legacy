@@ -11,8 +11,10 @@ class DonationForm extends React.Component {
   constructor(props) {
     super(props);
 
+    const regularAvailable = (props.regularDonationUrl.length > 0) ? true : false;
     this.state = {
-      isRegular: (props.regularDonationUrl.length > 0) ? true : false,
+      regularAvailable,
+      regularChecked: regularAvailable,
       rSelected: null // No radio buttons active by default.
     };
 
@@ -37,7 +39,7 @@ class DonationForm extends React.Component {
     // Donate monthly checkbox.
     if (event.target.name == 'donate_monthly') {
       this.setState({
-        isRegular: event.target.checked
+        regularChecked: event.target.checked
       });
     }
 
@@ -52,7 +54,7 @@ class DonationForm extends React.Component {
 
   handleSubmit(event) {
     const { regularDonationUrl, singleDonationUrl } = this.props;
-    let donationUrl = this.state.isRegular ? regularDonationUrl : singleDonationUrl;
+    let donationUrl = this.state.regularChecked ? regularDonationUrl : singleDonationUrl;
     event.preventDefault();
 
     let queryParams = [];
@@ -97,9 +99,9 @@ class DonationForm extends React.Component {
 
         <div className="donation-form-block__monthly">
             <div className="donate-monthly">
-              { this.state.isRegular &&
+              { this.state.regularAvailable &&
                 <div>
-                  <input type="checkbox" name="donate_monthly" id="donate-monthly" onChange={this.handleChange} checked={this.state.isRegular}/><label htmlFor="donate-monthly">Donate Monthly</label>
+                  <input type="checkbox" name="donate_monthly" id="donate-monthly" onChange={this.handleChange} checked={this.state.regularChecked}/><label htmlFor="donate-monthly">Donate Monthly</label>
                 </div>
               }
             </div>

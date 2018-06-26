@@ -12,9 +12,11 @@ class PageTitleCopyDonateBlock extends React.Component {
   constructor(props) {
     super(props);
 
+    const regularAvailable = (props.regularDonationUrl.length > 0) ? true : false;
     this.state = {
       isSending: false,
-      isRegular: (props.regularDonationUrl.length > 0) ? true : false,
+      regularAvailable,
+      regularChecked: regularAvailable
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -24,14 +26,14 @@ class PageTitleCopyDonateBlock extends React.Component {
   handleChange(event) {
     if (event.target.name == 'donate_monthly') {
       this.setState({
-        isRegular: event.target.checked
+        regularChecked: event.target.checked
       });
     }
   }
 
   handleSubmit(event) {
-    const { regularDonationUrl, singleDonationUrl } = this.props;
-    let donationUrl = this.state.isRegular ? regularDonationUrl : singleDonationUrl;
+    const {regularDonationUrl, singleDonationUrl} = this.props;
+    let donationUrl = this.state.regularAvailable ? regularDonationUrl : singleDonationUrl;
 
     let queryParams = [];
     if (event.target.name !== 'donate') {
@@ -50,8 +52,8 @@ class PageTitleCopyDonateBlock extends React.Component {
   }
 
   render() {
-    const { buttonText, heading, subheading, copy } = this.props;
-    return(
+    const {buttonText, heading, subheading, copy} = this.props;
+    return (
       <div className="copy-with-title-and-subtitle">
         <Heading1>{heading}</Heading1>
         <SubHeading>{subheading}</SubHeading>
@@ -63,20 +65,24 @@ class PageTitleCopyDonateBlock extends React.Component {
 
             <div className="sticky-donation-button-wrapper d-sm-none">
               <Sticky className="sticky-donation-button">
-                <DonationButton block color="secondary" size="lg" name="donate" onClick={this.handleSubmit}>{buttonText}</DonationButton>
+                <DonationButton block color="secondary" size="lg" name="donate"
+                                onClick={this.handleSubmit}>{buttonText}</DonationButton>
               </Sticky>
             </div>
 
-            <DonationButton block className="d-none d-sm-block" color="secondary" size="lg" name="donate" onClick={this.handleSubmit}>{buttonText}</DonationButton>
+            <DonationButton block className="d-none d-sm-block" color="secondary" size="lg" name="donate"
+                            onClick={this.handleSubmit}>{buttonText}</DonationButton>
 
             {/* @todo: Move Regular checkbox and button to separate component */}
             <div className="donation-form-block__monthly">
               <div className="donate-monthly">
-              { this.state.isRegular &&
+                {this.state.regularAvailable &&
                 <div>
-                  <input type="checkbox" name="donate_monthly" id="donate-monthly" onChange={this.handleChange} checked={this.state.isRegular}/><label htmlFor="donate-monthly">Donate Monthly mobile</label>
+                  <input type="checkbox" name="donate_monthly" id="donate-monthly" onChange={this.handleChange}
+                         checked={this.state.regularChecked}/>
+                  <label htmlFor="donate-monthly">Donate Monthly</label>
                 </div>
-              }
+                }
               </div>
               <div className="donate-paypal">
                 <PaypalButton outline size="sm" color="grey" onClick={this.handleSubmit} />
@@ -87,7 +93,7 @@ class PageTitleCopyDonateBlock extends React.Component {
         </div>
 
         {/* Show copy after Donate block on Small screens */}
-        <PlainText className="d-sm-none" >{copy}</PlainText>
+        <PlainText className="d-sm-none">{copy}</PlainText>
       </div>
     );
   }
