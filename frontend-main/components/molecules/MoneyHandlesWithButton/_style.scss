@@ -94,7 +94,7 @@
   @include media-breakpoint-between(md, lg) {
     .money-handles-with-button__button {
       .btn {
-        @include font-size(22px);
+        @include font-size(18px);
       }
     }
   }
