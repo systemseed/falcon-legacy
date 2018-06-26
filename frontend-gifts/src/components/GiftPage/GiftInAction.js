@@ -1,7 +1,7 @@
 import React from 'react';
 
 const GiftInAction = ({ gift }) => (
-  <div className="row row-eq-height">
+  <div className="row row-eq-height gift-in-action">
     <div className="col-md-push-6 col-md-6 tile-image-col-right no-gutter-sm">
       <div className="tile tile--image-section">
         <section className="fw-section tile--image-section object-fit-wrapper">

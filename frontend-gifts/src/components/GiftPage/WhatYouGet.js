@@ -1,7 +1,7 @@
 import React from 'react';
 
 const WhatYouGet = ({ gift }) => (
-  <div className="row row-eq-height">
+  <div className="row row-eq-height what-you-get">
     <div className="col-md-6 tile-image-col-left no-gutter-sm">
       <div className="tile tile--image-section">
         <section className="fw-section tile--image-section object-fit-wrapper">

@@ -6,6 +6,16 @@ import ProductPrice from '../ProductPrice';
 
 const BottomCTAs = ({ gift, currentCurrency }) => (
   <div className="padding-horizontal-10-md padding-horizontal-100-lg">
+    <div className="bottom-ctas--desktop">
+      <h1 className="tile-gift-title tile-gift-title--primary">{gift.title}</h1>
+      <ProductPrice
+        price={productUtils.getPrice(gift, currentCurrency)}
+        currentCurrency={currentCurrency}
+      />
+      <AddToBasketButton product={gift} />
+      <BuyNowButton product={gift} />
+
+    </div>
     <div className="tile tile--text-section--bottom-ctas row">
       <div className="col-md-5">
         <section className="fw-section">

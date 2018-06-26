@@ -93,13 +93,13 @@ $bundle-section-margin: 150px 48px 150px 80px;
 }
 
 .tile--text-section--bottom-ctas {
-  padding-top: 85px;
-  padding-bottom: 64px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   @media (min-width: $screen-xlg) {
     padding-left: 14px;
     padding-right: 14px;
   }
-  .tile-gift-title {
+  .tile-gift-title, .bottom-ctas--desktop .tile-gift-title {
     padding-top: 8px;
     @media (min-width: $screen-xlg) {
       font-size: 30px;
@@ -108,12 +108,9 @@ $bundle-section-margin: 150px 48px 150px 80px;
   .tile-gift-price--bottom {
     padding-top: 6px;
   }
-}
 
-.tile-gift-title--in-action, .tile-gift-title--what-you-get {
-  @media (min-width: $screen-sm-min) {
-    padding-bottom: 16px;
-    padding-top: 40px;
+  @media (min-width: $screen-md-min) {
+      display: none;
   }
 }
 
@@ -123,6 +120,11 @@ $bundle-section-margin: 150px 48px 150px 80px;
     font-size: 24px;
     font-weight: normal;
     color: $text-color;
+
+    @media (min-width: $screen-lg-min) {
+      font-size: 30px;
+      line-height: 40px;
+    }
   }
 
   @media (min-width: $screen-md) {
@@ -130,7 +132,7 @@ $bundle-section-margin: 150px 48px 150px 80px;
   }
 
   @media (min-width: $screen-xlg) {
-    margin-bottom: 24px;
+    margin-bottom: 40px;
   }
 
 }
@@ -191,7 +193,8 @@ $bundle-section-margin: 150px 48px 150px 80px;
   }
 
   @media (min-width: $screen-xlg) {
-    margin-top: 48px;
+    margin-top: 40px;
+
   }
 }
 
@@ -223,8 +226,8 @@ $bundle-section-margin: 150px 48px 150px 80px;
 
 .product-info {
   @media (min-width: $screen-sm-min) {
-    padding-left: 26px;
-    padding-right: 26px;
+    padding-left: 49px;
+    padding-right: 64px;
     max-width: none;
   }
   @media (min-width: $screen-xs-min) and (max-width: $screen-md-min) {
@@ -234,7 +237,6 @@ $bundle-section-margin: 150px 48px 150px 80px;
 
 @media (min-width: 992px) {
   .product-info {
-    padding: $secondary-section-padding;
   }
 }
 
@@ -271,6 +273,7 @@ $bundle-section-margin: 150px 48px 150px 80px;
     line-height: 1.4;
     padding-top: 24px;
   }
+
   @media (min-width: $screen-xlg) {
     font-size: 36px;
     padding-top: 0;
@@ -281,8 +284,18 @@ $bundle-section-margin: 150px 48px 150px 80px;
   font-size: $font-size--title--primary;
   line-height: $line-height--title--primary;
   padding-bottom: 0;
+
+  @media (min-width: $screen-lg-min) {
+    line-height: 40px;
+  }
 }
 
+.tile-gift-title--in-action, .tile-gift-title--what-you-get {
+  @media (min-width: $screen-sm-min) {
+    padding-bottom: 16px;
+    padding-top: 88px;
+  }
+}
 
 /*
  * Paragraphs
@@ -290,6 +303,10 @@ $bundle-section-margin: 150px 48px 150px 80px;
 .tile-gift-body {
   p {
     padding-bottom: 24px;
+  }
+
+  p:last-of-type {
+    padding-bottom: 16px;
   }
 }
 
@@ -320,19 +337,19 @@ $bundle-section-margin: 150px 48px 150px 80px;
   .product-info {
     @media (min-width: 992px) {
       padding-top: 48px;
-      padding-left: 32px;
-      padding-right: 32px;
+      padding-left: 33px;
+      padding-right: 48px;
     }
   }
 }
 
 .gift-in-this-bundle {
   .tile-gift-title {
-    padding-bottom: 8px;
+    padding-bottom: 24px;
   }
 
   .gift-in-this-bundle-description {
-    padding-bottom: 32px;
+    padding-bottom: 40px;
     margin-bottom: 0;
   }
   .shop-item-price {
@@ -355,6 +372,9 @@ $bundle-section-margin: 150px 48px 150px 80px;
     max-width: 92%;
     padding-top: 48px;
     margin: 0 auto;
+    .shop-item {
+      margin-bottom: 0;
+    }
   }
 
 }
@@ -390,5 +410,75 @@ $bundle-section-margin: 150px 48px 150px 80px;
 @media (min-width: 992px) {
   .row-eq-height {
     display: flex;
+  }
+}
+
+.gift-in-action {
+  .product-info {
+    @media (min-width: $screen-sm-min) {
+      padding-left: 64px;
+      padding-right: 49px;
+      max-width: none;
+    }
+  }
+}
+
+.what-you-get {
+  .product-info {
+    @media (min-width: $screen-sm-min) {
+      padding-left: 49px;
+      padding-right: 64px;
+      max-width: none;
+    }
+  }
+}
+
+.bottom-ctas--desktop {
+  display: none;
+
+  @media (min-width: $screen-md-min) {
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-size: 30px;
+      display: inline;
+      margin-right: 40px;
+      padding-top: 0;
+    }
+    span {
+      font-size: 30px;
+      line-height: 40px;
+      margin-right: 40px;
+    }
+
+    .add-to-cart {
+      margin-right: 24px;
+      background-color: $cta-button-color-dark;
+      max-width: 304px;
+      width: 25%;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 2.2;
+      height: 48px;
+      margin-bottom: 12px;
+      &:hover, &:active {
+        color: #ffffff !important;
+        background-color: darken($cta-button-color-dark, 5%) !important;
+      }
+    }
+
+    .buy-now {
+      background-color: $cta-button-color-light;
+      &:hover, &:active {
+        color: #ffffff !important;
+        background-color: darken($cta-button-color-light, 5%) !important;
+      }
+    }
   }
 }
