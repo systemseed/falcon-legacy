@@ -3,13 +3,14 @@ import { renderToStaticMarkup } from 'react-dom/server';
 
 const InfoCard = ({ title, description, imageUrl }) => (
   <div className="category-tile">
+    { imageUrl &&
     <div
       className="info-card__image-container"
       dangerouslySetInnerHTML={{
         __html: renderToStaticMarkup(
           <img className="info-card-image--mobile" src={imageUrl} alt="Order" />)
       }}
-    />
+    /> }
 
     <div className="inner">
       <div className="column space-bottom-2x">
@@ -20,10 +21,11 @@ const InfoCard = ({ title, description, imageUrl }) => (
       </div>
 
       <div className="column column--info-card-image">
+        { imageUrl &&
         <div
           className="category-thumb"
           dangerouslySetInnerHTML={{ __html: renderToStaticMarkup(<img src={imageUrl} alt="Order" />) }}
-        />
+        /> }
       </div>
     </div>
   </div>

@@ -44,7 +44,7 @@ export const pages = (state = {
               uuid: paragraphBlock.uuid,
               type: paragraphRelationship.type,
               title: paragraphBlock.fieldTitle,
-              description: pageUtils.processImages(paragraphBlock.fieldDescription.value),
+              description: (paragraphBlock.fieldDescription) ? paragraphBlock.fieldDescription.value : '',
             };
 
             if (Object.prototype.hasOwnProperty.call(paragraphBlock, 'fieldImage')) {
