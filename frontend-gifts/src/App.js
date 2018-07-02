@@ -7,7 +7,6 @@ import BasketView from './views/BasketView';
 import ContactPageView from './views/ContactPageView';
 import GiftView from './views/GiftView';
 import CorporateGiftView from './views/CorporateGiftView';
-import CorporateGiftsView from './views/CorporateGiftsView';
 import CheckoutView from './views/CheckoutView';
 import ThankYouView from './views/ThankYouView';
 import DynamicPathView from './views/DynamicPathView';
@@ -39,7 +38,6 @@ const App = () => (
         >
           {/* ROUTES FROM THE MAIN MENU */}
           <PageRoute exact path="/" component={FrontPageView} />
-          <PageRoute exact path="/corporate-old" component={CorporateGiftsView} />
           <PageRoute exact path="/contact" component={ContactPageView} />
           {/* GIFTS AND CORPORATE GIFTS FULL VIEW PAGES */}
           <PageRoute exact path="/gifts/:path" component={GiftView} />

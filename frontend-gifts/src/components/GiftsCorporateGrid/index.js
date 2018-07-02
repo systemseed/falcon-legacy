@@ -16,9 +16,8 @@ const GiftsGridCorporate = ({ gifts, currentCurrency }) => {
     <Grid
       componentClass="section"
       className="gifts-grid corporate"
-      bsClass={false}
+      bsClass=""
     >
-
       <div className="bg-white padding-horizontal-150-xl padding-top-3x padding-bottom-2x">
         <h3 className="text-center">
           Falcon Corporate Gifts - Give the gift of hope to children this year

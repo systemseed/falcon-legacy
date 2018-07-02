@@ -1,45 +1,18 @@
 import React from 'react';
-
 import BasicPage from '../../components/BasicPage';
 import Metatags from '../../components/Metatags';
 import FeaturedImage from '../FeaturedImageContainer';
-import CorporateGiftsView from '../../views/CorporateGiftsView';
-import GiftsCorporateContainer from '../../containers/GiftsCorporateContainer'
 
-class BasicPageContainer extends React.Component {
+const BasicPageContainer = ({ page, location }) => {
+  const corporate = (location.pathname === '/corporate');
 
-  constructor(props) {
-    super(props);
-    console.log("CONSTRUCTOR!!");
-    console.log(this.props.location);
-    console.log(this.props.page);
-
-  }
-
-  render = () => {
-    const page = this.props.page;
-
-    // Hardcoding corporate gifts rendering on `/corporate` path.
-    if (this.props.location.pathname = "/corporate") {
-      // TODO: Render corporate gifts section
-    }
-
-    return (<div className={`basic-page-container path-${page.field_fieldable_path.replace(/\/+/g, '-')}`}>
-      <Metatags metatags={page.field_metatags}/>
-      {page.field_featured_image &&
-      <FeaturedImage uuid={page.field_featured_image}/>}
-      <BasicPage page={page}/>
-
-      {/* Hardcoded corporate gifts rendering on `/corporate` path. */}
-      {this.props.location.pathname = "/corporate" &&
-        <div className="container">
-          <GiftsCorporateContainer/>
-        </div>
-      }
-
-    </div>);
-  }
-}
+  return (<div className={`basic-page-container path-${page.field_fieldable_path.replace(/\/+/g, '-')}`}>
+    <Metatags metatags={page.field_metatags} />
+    {page.field_featured_image &&
+      <FeaturedImage uuid={page.field_featured_image} />}
+    <BasicPage page={page} corporate={corporate} />
+  </div>);
+};
 
 
 BasicPageContainer.propTypes = {
@@ -54,6 +27,7 @@ BasicPageContainer.propTypes = {
     field_fieldable_path: React.PropTypes.string,
     field_metatags: React.PropTypes.object
   }).isRequired,
+  location: React.PropTypes.string,
 };
 
 export default BasicPageContainer;

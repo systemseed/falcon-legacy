@@ -1,4 +1,5 @@
 import * as pageUtils from '../utils/page';
+import config from '../config';
 
 export const pages = (state = {
   isPending: false,
@@ -26,6 +27,32 @@ export const pages = (state = {
 
         if (page.relationships.field_featured_image && page.relationships.field_featured_image.data) {
           page.attributes.field_featured_image = page.relationships.field_featured_image.data.id;
+        }
+
+
+        // Adding Paragraph Blocks values to page.
+        if (page.fieldParagraphBlocks.length > 0) {
+          const paragraphBlocks = page.fieldParagraphBlocks;
+          page.attributes.paragraphBlocks = {
+            infoCards: [],
+          };
+
+          paragraphBlocks.forEach((paragraphBlock) => {
+            const paragraphRelationship = page.relationships.field_paragraph_blocks.data.filter(relationship => relationship.id === paragraphBlock.uuid);
+
+            const paragraphBlockValues = {
+              uuid: paragraphBlock.uuid,
+              type: paragraphRelationship.type,
+              title: paragraphBlock.fieldTitle,
+              description: pageUtils.processImages(paragraphBlock.fieldDescription.value),
+            };
+
+            if (Object.prototype.hasOwnProperty.call(paragraphBlock, 'fieldImage')) {
+              paragraphBlockValues.image = config.gifts + paragraphBlock.fieldImage.uri.url;
+            }
+
+            page.attributes.paragraphBlocks.infoCards.push(paragraphBlockValues);
+          });
         }
 
         list.push(page.attributes);

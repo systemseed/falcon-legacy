@@ -1,0 +1,32 @@
+/*
+ * Row with equal height columns
+ * --------------------------------------------------
+ */
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+.row-eq-height--md {
+  @media (min-width: $screen-md-min) {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+  }
+}
+
+.info-card-image--mobile {
+  @media (min-width: $screen-sm-min) {
+    display: none !important;
+  }
+}
+
+.column--info-card-image, .category-tile>.inner>.column.column--info-card-image {
+  display: none;
+  @media (min-width: $screen-sm-min) {
+    display: table-cell;
+  }
+}
