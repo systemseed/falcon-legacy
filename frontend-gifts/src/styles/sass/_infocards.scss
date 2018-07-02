@@ -1,26 +1,18 @@
-/*
- * Row with equal height columns
- * --------------------------------------------------
- */
-.row-eq-height {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display:         flex;
-}
-
-.row-eq-height--md {
-  @media (min-width: $screen-md-min) {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display:         flex;
-  }
-}
-
 .info-card-image--mobile {
   @media (min-width: $screen-sm-min) {
     display: none !important;
+  }
+}
+
+.info-card__image-container {
+  text-align: center;
+
+  img {
+    width: 100%;
+  }
+
+  @media (min-width: $screen-md) {
+    padding-top: 0;
   }
 }
 

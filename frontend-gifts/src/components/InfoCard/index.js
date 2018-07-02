@@ -1,19 +1,21 @@
 import React from 'react';
 
-const InfoCard = ({ title, description, imageUrl }) => (
+const InfoCard = ({title, description, imageUrl}) => (
   <div className="category-tile">
-    <img className="info-card-image--mobile" src={imageUrl} alt="Order" />
+    <div className="info-card__image-container">
+      <img className="info-card-image--mobile" src={imageUrl} alt="Order"/>
+    </div>
     <div className="inner">
       <div className="column space-bottom-2x">
         <h3 className="space-bottom-half">
           {title}
         </h3>
-        {description}
+        <div dangerouslySetInnerHTML={{__html: description}}/>
       </div>
 
       <div className="column column--info-card-image">
         <div className="category-thumb">
-          <img src={imageUrl} alt="Order" />
+          <img src={imageUrl} alt="Order"/>
         </div>
       </div>
     </div>

@@ -27,7 +27,7 @@ BasicPageContainer.propTypes = {
     field_fieldable_path: React.PropTypes.string,
     field_metatags: React.PropTypes.object
   }).isRequired,
-  location: React.PropTypes.string,
+  location: React.PropTypes.object,
 };
 
 export default BasicPageContainer;
