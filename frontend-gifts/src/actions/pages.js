@@ -12,7 +12,7 @@ export function loadAll() {
       .query({
         'filter[status][value]': 1,
         'fields[node--cw_page]': 'uuid,title,body,field_metatags,field_fieldable_path,field_featured_image,field_paragraph_blocks',
-        'include': 'field_paragraph_blocks,field_paragraph_blocks.field_image,field_paragraph_blocks.type'
+        'include': 'field_paragraph_blocks,field_paragraph_blocks.field_image'
       })
   };
 }

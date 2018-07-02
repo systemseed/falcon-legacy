@@ -17,6 +17,7 @@ export const pages = (state = {
 
     case 'GET_PAGES_FULFILLED': {
       const data = action.payload.body.data;
+      const included = action.payload.body.included;
       const list = [];
 
       data.forEach((page) => {
@@ -38,20 +39,31 @@ export const pages = (state = {
           };
 
           paragraphBlocks.forEach((paragraphBlock) => {
-            const paragraphRelationship = page.relationships.field_paragraph_blocks.data.filter(relationship => relationship.id === paragraphBlock.uuid);
+            // Checking if current paragraph is InfoCard
+            // This need to be refactored in more
+            // general approach to support any kind of Paragraphs
+            let isInfoCard = false;
+            included.forEach((includedParagraphBlock) => {
+              if (includedParagraphBlock.id === paragraphBlock.uuid) {
+                if (includedParagraphBlock.type === 'paragraph--info_card') {
+                  isInfoCard = true;
+                }
+              }
+            });
 
-            const paragraphBlockValues = {
-              uuid: paragraphBlock.uuid,
-              type: paragraphRelationship.type,
-              title: paragraphBlock.fieldTitle,
-              description: (paragraphBlock.fieldDescription) ? paragraphBlock.fieldDescription.value : '',
-            };
+            if (isInfoCard) {
+              const paragraphBlockValues = {
+                uuid: paragraphBlock.uuid,
+                title: paragraphBlock.fieldTitle,
+                description: (paragraphBlock.fieldDescription) ? paragraphBlock.fieldDescription.value : '',
+              };
 
-            if (Object.prototype.hasOwnProperty.call(paragraphBlock, 'fieldImage')) {
-              paragraphBlockValues.image = config.gifts + paragraphBlock.fieldImage.uri.url;
+              if (Object.prototype.hasOwnProperty.call(paragraphBlock, 'fieldImage')) {
+                paragraphBlockValues.image = config.gifts + paragraphBlock.fieldImage.uri.url;
+              }
+
+              page.attributes.paragraphBlocks.infoCards.push(paragraphBlockValues);
             }
-
-            page.attributes.paragraphBlocks.infoCards.push(paragraphBlockValues);
           });
         }
 
