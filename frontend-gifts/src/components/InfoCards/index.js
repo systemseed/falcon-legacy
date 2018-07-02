@@ -6,8 +6,11 @@ const InfoCards = ({ title, infoCardsData }) => {
   // If there is odd number of InfoCards - pop last one
   // to render it centered below other cards.
   let lastInfoCardData = false;
-  if (infoCardsData.length % 2 !== 0) {
-    lastInfoCardData = infoCardsData.pop();
+  const infoCardsCount = infoCardsData.length;
+  let oddNumberOfInfoCards = infoCardsData;
+  if (infoCardsCount % 2 !== 0) {
+    lastInfoCardData = infoCardsData[infoCardsCount - 1];
+    oddNumberOfInfoCards = infoCardsData.slice(0, infoCardsCount - 1);
   }
 
   return (
@@ -17,7 +20,7 @@ const InfoCards = ({ title, infoCardsData }) => {
       </h3>
 
       <Row className="">
-        {infoCardsData.map(infoCardData => (
+        {oddNumberOfInfoCards.map(infoCardData => (
           <Col
             key={infoCardData.uuid}
             xs={12}
@@ -30,8 +33,9 @@ const InfoCards = ({ title, infoCardsData }) => {
             />
 
           </Col>
-        ))}
-        {lastInfoCardData &&
+          )
+        )}
+        { lastInfoCardData &&
         <Col
           key={lastInfoCardData.uuid}
           xs={12}
