@@ -29,7 +29,7 @@ const EmailGiftCard = ({ product, card }) => {
       {body &&
         <div className="card-body" dangerouslySetInnerHTML={{ __html: body }} />
       }
-      <p className="email-card-message">{card.fieldMessage}</p>
+      <p className="email-card-message white-space-pre-wrap">{card.fieldMessage}</p>
     </div>
   );
 };
