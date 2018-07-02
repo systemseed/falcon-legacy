@@ -7,7 +7,7 @@ const BasicPage = ({ page, corporate }) => {
   const paragraphs = [];
   if (Object.prototype.hasOwnProperty.call(page, 'paragraphBlocks')) {
     if (Object.prototype.hasOwnProperty.call(page.paragraphBlocks, 'infoCards')) {
-      paragraphs.push(<InfoCards key={"info-cards"} title={page.title} infoCardsData={page.paragraphBlocks.infoCards} />);
+      paragraphs.push(<InfoCards key={'info-cards'} title={page.title} infoCardsData={page.paragraphBlocks.infoCards} />);
     }
   }
 

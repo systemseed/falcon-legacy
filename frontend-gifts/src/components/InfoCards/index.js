@@ -1,8 +1,8 @@
 import React from 'react';
-import {Grid, Row, Col} from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 import InfoCard from '../../components/InfoCard';
 
-const InfoCards = ({title, infoCardsData}) => {
+const InfoCards = ({ title, infoCardsData }) => {
   // If there is odd number of InfoCards - pop last one
   // to render it centered below other cards.
   let lastInfoCardData = false;
