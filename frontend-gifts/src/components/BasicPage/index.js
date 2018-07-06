@@ -4,6 +4,9 @@ import GiftsCorporateContainer from '../../containers/GiftsCorporateContainer';
 import BlockSubheading from '../Paragraphs/BlockSubheading';
 import BlockInfoCard from '../Paragraphs/BlockInfoCard';
 
+// React cannot render component dynamicly by its name in string format.
+// The easiest way to work around it is to create a map between string name
+// and React component.
 export const getComponentByBlockType = (type) => {
   const BlockComponents = {
     'subheading': BlockSubheading,
@@ -17,7 +20,7 @@ const BasicPage = ({ page, corporate }) => {
   // Render paragraph blocks if any.
   const blocks = page.blocks.map((block) => {
     const Component = getComponentByBlockType(block.type);
-    const { uuid, type, component, ...blockProps, } = block;
+    const { uuid, type, ...blockProps, } = block;
     return <Component key={block.uuid} {...blockProps} />;
   });
 
