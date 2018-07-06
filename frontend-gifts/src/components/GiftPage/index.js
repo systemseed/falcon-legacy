@@ -1,14 +1,28 @@
 import React from 'react';
-import GiftHeroImage from './GiftHeroImage';
+import BundleProductsViewContainer from '../../containers/BundleProductsViewContainer';
 import GiftBody from './GiftBody';
-import GiftTabs from './GiftTabs';
+import GiftInAction from './GiftInAction';
+import WhatYouGet from './WhatYouGet';
+import BottomCTAs from './BottomCTAs';
 
 const GiftPage = ({ gift, currentCurrency }) => (
-  <div className="container">
+  <div className="container tiles-container">
     <div className="bg-white">
-      <GiftHeroImage gift={gift} />
+
       <GiftBody gift={gift} currentCurrency={currentCurrency} />
-      <GiftTabs gift={gift} />
+      <GiftInAction gift={gift} />
+      <WhatYouGet gift={gift} />
+
+
+      {/* In this bundle */}
+      {gift.variantType === 'bundle' &&
+      <div className="padding-horizontal-10-md padding-horizontal-100-lg">
+        <BundleProductsViewContainer bundle={gift} currency={currentCurrency} />
+      </div>
+      }
+      {/* end In this bundle */}
+
+      <BottomCTAs gift={gift} currentCurrency={currentCurrency} />
     </div>
   </div>
 );

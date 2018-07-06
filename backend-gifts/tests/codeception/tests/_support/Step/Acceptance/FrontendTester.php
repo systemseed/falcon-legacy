@@ -57,11 +57,11 @@ class FrontendTester extends \AcceptanceTester {
   /**
    * Click "Buy now" on product page.
    */
-  public function clickBuyNow() {
+  public function clickBuyNow($context) {
     $I = $this;
     // NOTE: em uses absolute position and can't be clicked by it's inner text.
     $I->amGoingTo('Click "Buy Now" button');
-    $I->click('button.add-to-cart.buy-now em', '.product-tools');
+    $I->click('button.add-to-cart.buy-now em', $context);
   }
 
   /**

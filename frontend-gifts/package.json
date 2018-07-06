@@ -1,6 +1,6 @@
 {
   "name": "frontend-gifts",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "private": true,
   "devDependencies": {
     "babel-eslint": "^7.1.1",

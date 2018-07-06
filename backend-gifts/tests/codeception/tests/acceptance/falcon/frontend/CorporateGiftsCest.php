@@ -49,7 +49,7 @@ class CorporateGiftsCest {
     // Test "Add to basket" button.
     $I->clickAddToBasket();
     // Test "Buy now" button.
-    $I->clickBuyNow();
+    $I->clickBuyNow('.product-tools');
 
 
     $I->expectTo('See Shopping Basket with two items of test product added');

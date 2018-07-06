@@ -5,26 +5,44 @@ import BuyNowButton from '../BuyNowButton';
 import ProductPrice from '../ProductPrice';
 
 const GiftBody = ({ gift, currentCurrency }) => (
-  <section className="fw-section padding-bottom-2x">
-    <div>
-      <div className="product-info padding-top-1x text-center">
-        <h1 className="h2 space-bottom-half">{ gift.title }</h1>
-        <h2>
-          <ProductPrice
-            price={productUtils.getPrice(gift, currentCurrency)}
-            currentCurrency={currentCurrency}
-          />
-        </h2>
-        <div className="text-sm text-gray" dangerouslySetInnerHTML={{ __html: gift.annotation }} />
-
-        <div className="product-tools shop-item">
-          <AddToBasketButton product={gift} />
-          <BuyNowButton product={gift} />
-        </div>
-
+  <div className="row row-eq-height">
+    <div className="col-md-6 tile-image-col-left no-gutter-sm">
+      <div className="tile tile--image-section">
+        <section className="fw-section tile--image-section tile--image-section--primary object-fit-wrapper">
+          <img className="object-fit-cover" src={gift.imageUrl} alt={gift.imageAlt} title={gift.imageAlt} />
+        </section>
       </div>
     </div>
-  </section>
+    <div className="col-md-6">
+      <div className="tile tile--text-section tile--text-section--primary">
+        <section className="fw-section">
+          <div className="gift-content">
+            <div className="product-info">
+              <h1 className="tile-gift-title tile-gift-title--primary">{gift.title}</h1>
+              <div className="tile-gift-price">
+                <ProductPrice
+                  price={productUtils.getPrice(gift, currentCurrency)}
+                  currentCurrency={currentCurrency}
+                />
+              </div>
+              <div className="tile-gift-body" dangerouslySetInnerHTML={{ __html: gift.annotation }} />
+
+              <div className="tile-gift-cta-buttons">
+                <div className="row">
+                  <div className="col-sm-6 tile-add-to-basket-button-col product-tools">
+                    <AddToBasketButton product={gift} />
+                  </div>
+                  <div className="col-sm-6 gift-buy-now-col product-tools">
+                    <BuyNowButton product={gift} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
 );
 
 GiftBody.propTypes = {

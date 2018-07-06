@@ -88,9 +88,6 @@
         color: $shop-item-wishlist-hover-color;
       }
     }
-    .add-to-cart {
-      margin: 0;
-    }
   }
   &:hover {
     .shop-thumbnail > img { opacity: .5; }
@@ -154,7 +151,6 @@
   &:focus, &:active { color: $add-to-cart-color; }
   &.buy-now {
     background-color: $brand-success;
-    margin-left: 7px !important;
     &:hover {
       background-color: darken($brand-success, 15%);
     }
@@ -373,7 +369,6 @@
 
 // Single Product Info
 .product-info {
-  max-width: $product-gallery-preview-max-width;
   margin-left: auto;
   margin-right: auto;
 }
