@@ -131,7 +131,7 @@ $bundle-section-margin: 150px 48px 150px 80px;
     margin-bottom: 16px;
   }
 
-  @media (min-width: $screen-xlg) {
+  @media (min-width: $screen-lg-min) {
     margin-bottom: 40px;
   }
 
@@ -192,7 +192,7 @@ $bundle-section-margin: 150px 48px 150px 80px;
     max-width: 100%;
   }
 
-  @media (min-width: $screen-xlg) {
+  @media (min-width: $screen-md-min) {
     margin-top: 40px;
 
   }
@@ -231,7 +231,11 @@ $bundle-section-margin: 150px 48px 150px 80px;
     max-width: none;
   }
   @media (min-width: $screen-xs-min) and (max-width: $screen-md-min) {
+    margin-left: auto;
+    margin-right: auto;
     max-width: 86%;
+    padding-left: 26px;
+    padding-right: 26px;
   }
 }
 
@@ -257,14 +261,14 @@ $bundle-section-margin: 150px 48px 150px 80px;
  * Titles
  */
 .tile-gift-title {
-  font-size: $font-size--title;
+  font-size: 24px;
   line-height: $line-height--title;
   padding-bottom: 8px;
   color: $green-primary;
   font-weight: bold;
   margin-bottom: 0;
   padding-top: 8px;
-  @media (min-width: $screen-sm-min) {
+  @media (min-width: $screen-md-min) {
     font-size: 30px;
     line-height: 1.4;
     padding-top: 24px;
@@ -287,9 +291,20 @@ $bundle-section-margin: 150px 48px 150px 80px;
 }
 
 .tile-gift-title--in-action, .tile-gift-title--what-you-get {
+  padding-top: 8px;
+
   @media (min-width: $screen-sm-min) {
+    padding-top: 24px;
     padding-bottom: 16px;
+  }
+
+  @media (min-width: $screen-md-min) {
+    padding-top: 48px;
+  }
+
+  @media (min-width: $screen-lg-min) {
     padding-top: 88px;
+    padding-bottom: 32px;
   }
 }
 
@@ -309,6 +324,26 @@ $bundle-section-margin: 150px 48px 150px 80px;
 /* --- */
 
 .products-in-this-bundle {
+
+  // Support multiline titles.
+  @media (max-width: $screen-sm-min) {
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      .col-sm-4 {
+        display: flex;
+      }
+      .shop-item {
+        display: flex;
+        flex-direction: column;
+
+        .shop-item-title {
+          flex: 1 0 auto;
+        }
+      }
+    }
+  }
+
   .shop-item {
     max-width: 360px;
     margin: 0 auto;
@@ -317,14 +352,10 @@ $bundle-section-margin: 150px 48px 150px 80px;
       padding-bottom: 24px;
     }
 
-  }
-  @media (min-width: $screen-sm) {
-    width: 50%;
-    margin: 0 auto;
-  }
-
-  @media (min-width: $screen-md) {
-    width: 100%;
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 }
 
@@ -338,7 +369,7 @@ $bundle-section-margin: 150px 48px 150px 80px;
       padding-top: 0;
     }
 
-    @media (min-width: $screen-xlg) {
+    @media (min-width: $screen-lg-min) {
       font-size: 30px;
     }
   }
@@ -353,8 +384,10 @@ $bundle-section-margin: 150px 48px 150px 80px;
 }
 
 .gift-in-this-bundle {
-  .tile-gift-title {
-    padding-bottom: 24px;
+  @media (min-width: $screen-md-min) {
+    .tile-gift-title {
+      padding-bottom: 24px;
+    }
   }
 
   .gift-in-this-bundle-description {
@@ -425,6 +458,14 @@ $bundle-section-margin: 150px 48px 150px 80px;
 .gift-in-action {
   .product-info {
     @media (min-width: $screen-sm-min) {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 86%;
+      padding-left: 26px;
+      padding-right: 26px;
+    }
+
+    @media (min-width: $screen-md-min) {
       padding-left: 64px;
       padding-right: 49px;
       max-width: none;
@@ -434,7 +475,15 @@ $bundle-section-margin: 150px 48px 150px 80px;
 
 .what-you-get {
   .product-info {
-    @media (min-width: $screen-sm-min) {
+   @media (min-width: $screen-sm-min) {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 86%;
+      padding-left: 26px;
+      padding-right: 26px;
+    }
+
+    @media (min-width: $screen-md-min) {
       padding-left: 49px;
       padding-right: 64px;
       max-width: none;

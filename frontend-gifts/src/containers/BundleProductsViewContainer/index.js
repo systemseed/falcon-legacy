@@ -13,7 +13,7 @@ const BundleProductsViewContainer = ({ bundle, currency }) => (
         <Grid bsClass="products-in-this-bundle" componentClass="section">
           <Row>
             {bundle.giftsInBundle.map(product => (
-              <Col md={4} key={product.id}>
+              <Col sm={4} key={product.id}>
                 <GiftsGridItem productData={product} currentCurrency={currency} showAddToBasket={false} />
               </Col>
             ))}
