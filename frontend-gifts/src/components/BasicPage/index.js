@@ -1,33 +1,45 @@
 import React from 'react';
 import { Grid, Row, Col, PageHeader } from 'react-bootstrap';
-import InfoCards from '../../components/InfoCards';
 import GiftsCorporateContainer from '../../containers/GiftsCorporateContainer';
+import BlockSubheading from '../Paragraphs/BlockSubheading';
+import BlockInfoCard from '../Paragraphs/BlockInfoCard';
+
+export const getComponentByBlockType = (type) => {
+  const BlockComponents = {
+    'subheading': BlockSubheading,
+    'info_card': BlockInfoCard,
+  };
+
+  return BlockComponents[type];
+};
 
 const BasicPage = ({ page, corporate }) => {
-  const paragraphs = [];
-  if (Object.prototype.hasOwnProperty.call(page, 'paragraphBlocks')) {
-    if (Object.prototype.hasOwnProperty.call(page.paragraphBlocks, 'infoCards')) {
-      paragraphs.push(<InfoCards key={'info-cards'} title={page.title} infoCardsData={page.paragraphBlocks.infoCards} />);
-    }
-  }
+  // Render paragraph blocks if any.
+  const blocks = page.blocks.map((block) => {
+    const Component = getComponentByBlockType(block.type);
+    const { uuid, type, component, ...blockProps, } = block;
+    return <Component key={block.uuid} {...blockProps} />;
+  });
 
   return (
     <Grid componentClass="section" className="basic-page">
-      <div className="bg-white padding-top-3x padding-bottom-2x padding-horizontal-150-xl">
+      <div className="bg-white padding-bottom-2x padding-horizontal-150-xl">
         <Row>
           <Col xs={12}>
-            {!corporate &&
-            <PageHeader>{page.title}</PageHeader>}
+            {/* Normal basic page with title and body. */}
+            {page.bodyHtml &&
+              <div className="padding-top-3x">
+                <PageHeader>{page.title}</PageHeader>
+                <div dangerouslySetInnerHTML={{ __html: page.bodyHtml }} />
+              </div>
+            }
 
-            {page.body &&
-            <div dangerouslySetInnerHTML={{ __html: page.body.value }} />}
+            {/* Paragpaph blocks. */}
+            <div className="blocks-wrapper">{blocks}</div>
 
-            <div>
-              {paragraphs}
-
-              {corporate &&
+            {/* TODO: allow to configure attached products on the backend. */}
+            {corporate &&
               <GiftsCorporateContainer />}
-            </div>
 
           </Col>
         </Row>

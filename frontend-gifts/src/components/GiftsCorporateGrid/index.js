@@ -18,11 +18,7 @@ const GiftsGridCorporate = ({ gifts, currentCurrency }) => {
       className="gifts-grid corporate"
       bsClass=""
     >
-      <div className="bg-white padding-horizontal-150-xl padding-top-3x padding-bottom-2x">
-        <h3 className="text-center">
-          Falcon Corporate Gifts - Give the gift of hope to children this year
-        </h3>
-
+      <div className="bg-white padding-horizontal-150-xl padding-bottom-2x">
         <Row className="padding-top">
           {products}
         </Row>

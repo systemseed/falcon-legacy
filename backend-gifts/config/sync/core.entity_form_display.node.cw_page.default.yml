@@ -10,11 +10,26 @@ dependencies:
     - field.field.node.cw_page.field_paragraph_blocks
     - node.type.cw_page
   module:
+    - field_group
     - metatag
     - paragraphs
     - path
     - scheduler
     - text
+third_party_settings:
+  field_group:
+    group_blocks:
+      children:
+        - field_paragraph_blocks
+      parent_name: ''
+      weight: 13
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Extra blocks'
 _core:
   default_config_hash: d3k6xEQjK0Sn8CwTjJfQfVenxWnAjjfsrM7-mZJEQ6w
 id: node.cw_page.default
@@ -50,15 +65,21 @@ content:
     type: metatag_firehose
     region: content
   field_paragraph_blocks:
-    type: entity_reference_paragraphs
-    weight: 51
+    type: paragraphs
+    weight: 14
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
+      title: Block
+      title_plural: Blocks
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
+      default_paragraph_type: _none
+      features:
+        duplicate: duplicate
+        add_above: add_above
+        collapse_edit_all: '0'
     third_party_settings: {  }
     region: content
   path:
@@ -123,7 +144,9 @@ content:
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 15
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_fieldable_path: true

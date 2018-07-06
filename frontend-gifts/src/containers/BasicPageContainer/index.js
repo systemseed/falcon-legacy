@@ -4,12 +4,14 @@ import Metatags from '../../components/Metatags';
 import FeaturedImage from '../FeaturedImageContainer';
 
 const BasicPageContainer = ({ page, location }) => {
+  // Quick workaround for Coprorate page which now uses basic page tempate.
+  // TODO: get rid of it in the future.
   const corporate = (location.pathname === '/corporate');
 
   return (<div className={`basic-page-container path-${page.field_fieldable_path.replace(/\/+/g, '-')}`}>
     <Metatags metatags={page.field_metatags} />
-    {page.field_featured_image &&
-      <FeaturedImage uuid={page.field_featured_image} />}
+    {page.featuredImageId &&
+      <FeaturedImage uuid={page.featuredImageId} />}
     <BasicPage page={page} corporate={corporate} />
   </div>);
 };

@@ -1,0 +1,14 @@
+uuid: daf14d95-8ffb-4358-8417-6625ced794c4
+langcode: en
+status: true
+dependencies: {  }
+name: square_420
+label: square_420
+effects:
+  3a644814-fa43-446f-9c32-59e81df8d2db:
+    uuid: 3a644814-fa43-446f-9c32-59e81df8d2db
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 420
+      height: 420

@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_paragraph_blocks
     - node.type.cw_page
-    - paragraphs.paragraphs_type.info_card
   module:
     - entity_reference_revisions
 id: node.cw_page.field_paragraph_blocks
@@ -13,7 +12,7 @@ field_name: field_paragraph_blocks
 entity_type: node
 bundle: cw_page
 label: 'Paragraph Blocks'
-description: ''
+description: "Add blocks of different types on the page. See example usage on the Corporate Gifts page."
 required: false
 translatable: false
 default_value: {  }
@@ -22,10 +21,12 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     negate: 0
-    target_bundles:
-      info_card: info_card
+    target_bundles: null
     target_bundles_drag_drop:
       info_card:
-        enabled: true
         weight: 2
+        enabled: false
+      subheading:
+        weight: 3
+        enabled: false
 field_type: entity_reference_revisions

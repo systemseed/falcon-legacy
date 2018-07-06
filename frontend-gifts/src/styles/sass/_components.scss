@@ -144,7 +144,6 @@
   min-height: 250px;
   background-color: $category-tile-bg;
   text-decoration: none;
-  margin-bottom: 30px;
   height: 100%;
 
   @media (min-width: $screen-sm-min) {
@@ -153,7 +152,12 @@
   > .inner {
     display: table;
     width: 100%;
-    padding: floor($line-height-computed * 2);
+    padding: $line-height-computed;
+
+    @media (min-width: $screen-xs-min) {
+      padding: floor($line-height-computed * 2);
+    }
+
     > .column {
       display: table-cell;
       width: 50%;
@@ -181,6 +185,7 @@
   }
   ul {
     text-align: left;
+    display: inline-block;
   }
   &:hover,
   &:focus { text-decoration: none; }

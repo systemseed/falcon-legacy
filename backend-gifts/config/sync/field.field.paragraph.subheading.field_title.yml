@@ -1,18 +1,18 @@
-uuid: 36001737-ca8e-41a6-ab3e-ee3ac5bd4800
+uuid: c59926b3-51ae-4288-a492-31b59fccfaab
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_title
-    - paragraphs.paragraphs_type.info_card
-id: paragraph.info_card.field_title
+    - paragraphs.paragraphs_type.subheading
+id: paragraph.subheading.field_title
 field_name: field_title
 entity_type: paragraph
-bundle: info_card
-label: Title
+bundle: subheading
+label: Subheading
 description: ''
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
