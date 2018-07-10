@@ -5,7 +5,7 @@ import * as basketUtils from '../../utils/basket';
 import BasketItem from './BasketItem';
 import BasketItemsInCart from './BasketItemsInCart';
 import AddGiftDonationContainer from '../../containers/AddGiftDonationContainer';
-import CheckoutButton from '../../containers/CheckoutButton';
+import CheckoutCardsButton from '../../containers/CheckoutCardsButton';
 import FreeProductsOfferings from '../../containers/FreeProductsOfferings';
 import BasketNav from '../BasketNav';
 import BasketSummary from './BasketSummary';
@@ -29,7 +29,7 @@ const BasketWithGifts = ({ currentCurrency, products }) => {
 
           <Col xs={12} sm={7} className="padding-bottom-2x sticky-bottom-boundary-basket">
             <BasketSummary
-              className="text-sm visible-xs"
+              className="basket-summary text-sm visible-xs"
               count={basketUtils.getItemsCount(products, currentCurrency)}
               total={basketUtils.getTotal(products, currentCurrency)}
               currency={currentCurrency}
@@ -52,14 +52,14 @@ const BasketWithGifts = ({ currentCurrency, products }) => {
                   <AddGiftDonationContainer />
                 </div>
                 <BasketSummary
-                  className="text-sm lead-md"
+                  className="basket-summary text-sm lead-md"
                   total={basketUtils.getTotal(products, currentCurrency)}
                   currency={currentCurrency}
                 />
 
-                <CheckoutButton className="btn btn-primary btn-block btn-checkout space-top-none">
+                <CheckoutCardsButton className="btn btn-primary btn-block btn-checkout space-top-none">
                   Checkout
-                </CheckoutButton>
+                </CheckoutCardsButton>
               </Sticky>
             </aside>
           </Col>

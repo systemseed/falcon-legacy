@@ -6,14 +6,42 @@ export const getGiftCardItems = (state) => {
     return [];
   }
 
-  return Object.keys(state.cards.items).reduce((flattenArray, productId) => [
-    ...flattenArray,
-    ...state.cards.items[productId]
-  ], []);
+  const flattenArray = [];
+  Object.keys(state.cards.items).forEach((productID) => {
+    const productCards = state.cards.items[productID];
+    const total = productCards.length;
+    productCards.forEach((card, index) => {
+      card.index = index + 1;
+      card.total = total;
+      flattenArray.push(card);
+    });
+  });
+
+  return flattenArray;
 };
 
-// Checks is Gift cards part of the checkout form is validated.
-const isCheckoutCardsValidated = (state) => {
+export const getPostalCardsCount = (cards) => {
+  let count = 0;
+  cards.forEach((card) => {
+    if (card.type === 'physical') {
+      count++;
+    }
+  });
+  return count;
+};
+
+export const getEmailCardsCount = (cards) => {
+  let count = 0;
+  cards.forEach((card) => {
+    if (card.type === 'email') {
+      count++;
+    }
+  });
+  return count;
+};
+
+// Checks if Gift cards part of the checkout form is validated.
+export const isCheckoutCardsValidated = (state) => {
   if (state.basket.type !== 'gift') {
     return true;
   }

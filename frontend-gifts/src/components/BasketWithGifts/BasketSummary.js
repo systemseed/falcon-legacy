@@ -3,7 +3,7 @@ import { FormattedPlural } from 'react-intl';
 import BasketTotal from '../BasketTotal';
 
 const BasketSummary = ({ total, currency, count, className }) => (
-  <p className={className}>
+  <div className={className}>
     Basket subtotal
     {
       count &&
@@ -11,14 +11,14 @@ const BasketSummary = ({ total, currency, count, className }) => (
         {' '}({count} <FormattedPlural value={count} one="item" other="items" />)
       </span>
     }
-    : <strong className="text-danger">
+    : <div className="amount text-danger">
       <BasketTotal total={total} currentCurrency={currency} />
-    </strong>
-  </p >
+    </div>
+  </div>
 );
 
 BasketSummary.defaultProps = {
-  className: '',
+  className: 'basket-summary',
 };
 
 BasketSummary.propTypes = {

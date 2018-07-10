@@ -20,7 +20,7 @@ const BasketWithCorporateGifts = ({ currentCurrency, products }) => {
   return (
     <Grid>
       <div className="bg-white padding-horizontal-150-xl padding-top">
-        <BasketNav />
+        <BasketNav corpGifts />
         <h1 className="space-top">Shopping Basket</h1>
 
         <Row>
@@ -28,7 +28,7 @@ const BasketWithCorporateGifts = ({ currentCurrency, products }) => {
           <Col sm={8} className="padding-bottom-2x sticky-bottom-boundary-basket">
 
             <BasketSummary
-              className="text-sm visible-xs"
+              className="basket-summary text-sm visible-xs"
               count={basketUtils.getItemsCount(products, currentCurrency)}
               total={basketUtils.getTotal(products, currentCurrency)}
               currency={currentCurrency}
@@ -48,7 +48,7 @@ const BasketWithCorporateGifts = ({ currentCurrency, products }) => {
             <aside>
               <Sticky top={114} bottomBoundary=".sticky-bottom-boundary-basket">
                 <BasketSummary
-                  className="text-sm lead-md"
+                  className="basket-summary text-sm lead-md"
                   total={basketUtils.getTotal(products, currentCurrency)}
                   currency={currentCurrency}
                 />

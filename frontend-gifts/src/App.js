@@ -7,11 +7,10 @@ import BasketView from './views/BasketView';
 import ContactPageView from './views/ContactPageView';
 import GiftView from './views/GiftView';
 import CorporateGiftView from './views/CorporateGiftView';
+import CheckoutCardsView from './views/CheckoutCardsView';
 import CheckoutView from './views/CheckoutView';
 import ThankYouView from './views/ThankYouView';
 import DynamicPathView from './views/DynamicPathView';
-import MessageBarContainer from './containers/MessageBarContainer';
-import GlobalHeader from './components/GlobalHeader';
 import ScrollToTop from './components/ScrollToTop';
 
 // Importing pre-defined css.
@@ -25,10 +24,6 @@ const App = () => (
   <IntlProvider locale="en">
     <ScrollToTop>
       <div className="page-wrapper">
-
-        <GlobalHeader />
-        <MessageBarContainer />
-
         <AnimatedSwitch
           atEnter={{ opacity: 0 }}
           atLeave={{ opacity: 2 }}
@@ -43,9 +38,10 @@ const App = () => (
           <PageRoute exact path="/gifts/:path" component={GiftView} />
           <PageRoute exact path="/corporate/:path" component={CorporateGiftView} />
           {/* COMMERCE BASKET & CHECKOUT PAGES */}
+          <PageRoute exact path="/basket" component={BasketView} />
+          <PageRoute exact path="/cards" component={CheckoutCardsView} />
           <PageRoute exact path="/checkout" component={CheckoutView} />
           <PageRoute path="/checkout/:orderId/complete" component={ThankYouView} />
-          <PageRoute exact path="/basket" component={BasketView} />
           {/* CARD POPUP. CONTAINS FRONTPAGE ON THE BACKGROUND */}
           <PageRoute path="/gift-card/:giftCard" component={FrontPageView} />
           {/* GIFTS CATEGORIES */}

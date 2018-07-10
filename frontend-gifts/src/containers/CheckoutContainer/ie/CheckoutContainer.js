@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { withDone as withServerDone } from 'react-router-server';
 import { Modal } from 'react-bootstrap';
-import CheckoutCardsContainer from '../../../containers/CheckoutCardsContainer';
 import CheckoutFormProfile from '../CheckoutFormProfile';
 import config from '../../../config';
 import CheckoutFormAddress from '../CheckoutFormAddress';
@@ -56,7 +55,6 @@ class CheckoutContainer extends Component {
 
   render() {
     const {
-      showCards,
       showThankYouPage,
       isEmpty,
       showErrors,
@@ -85,8 +83,8 @@ class CheckoutContainer extends Component {
     if (eventcodes.isFulfilled && eventcodes.codes.length) {
       return (
         <div className={showErrors ? 'checkout-container-inner showErrors' : 'checkout-container-inner'}>
-          {siteContentSettings.fieldConfigCheckoutStep1 &&
-            <h3>{siteContentSettings.fieldConfigCheckoutStep1}</h3>
+          {siteContentSettings.fieldConfigCheckoutStep2 &&
+            <h3>{siteContentSettings.fieldConfigCheckoutStep2}</h3>
           }
           {/* Different parts of the form are controlled by this container and built on top of CheckoutFormContainer */}
           <CheckoutFormProfile
@@ -98,8 +96,8 @@ class CheckoutContainer extends Component {
             onFormValidate={this.onAddressChange}
             tooltips={siteContentSettings.tooltips}
           />
-          {siteContentSettings.fieldConfigCheckoutStep2 &&
-            <h3>{siteContentSettings.fieldConfigCheckoutStep2}</h3>
+          {siteContentSettings.fieldConfigCheckoutStep3 &&
+            <h3>{siteContentSettings.fieldConfigCheckoutStep3}</h3>
           }
           {eventcodes.codes.length > 0 &&
             <CheckoutFormEventCodes
@@ -115,10 +113,6 @@ class CheckoutContainer extends Component {
             descriptionBottom={siteContentSettings.fieldConfigCheckoutOptinsBtm && siteContentSettings.fieldConfigCheckoutOptinsBtm.value ? siteContentSettings.fieldConfigCheckoutOptinsBtm.value : ''}
             tooltips={siteContentSettings.tooltips}
           />
-          {showCards &&
-            /* Card container is special case. It manages everything related to cards. */
-            <CheckoutCardsContainer />
-          }
           {/* Block screen while checkout is processing. */}
           <Modal show={processing} backdrop="static" className="checkout-processing">
             <p className="loading-animation">Please wait<span>.</span><span>.</span><span>.</span></p>
@@ -133,13 +127,11 @@ class CheckoutContainer extends Component {
 
 
 CheckoutContainer.defaultProps = {
-  showCards: false,
   showThankYouPage: false,
   orderId: ''
 };
 
 CheckoutContainer.propTypes = {
-  showCards: PropTypes.bool.isRequired,
   showThankYouPage: PropTypes.bool.isRequired,
   orderId: PropTypes.string.isRequired,
   eventcodes: PropTypes.object.isRequired,
@@ -153,7 +145,6 @@ CheckoutContainer.propTypes = {
 
 const mapStateToProps = state => ({
   isEmpty: !basketUtils.getItemsCount(state.basket.products, state.currentCurrency),
-  showCards: state.basket.type === 'gift',
   // Determines status of the order based on data in store.
   showThankYouPage: checkoutUtils.isCheckoutComplete(state),
   // The idea is to highlight errors on checkout button click only.

@@ -1,0 +1,122 @@
+.checkout-cards-view {
+  color: #595959;
+
+  .text-gray {
+    color: #595959 !important;
+  }
+
+  h1 {
+    font-size: 24px;
+    font-weight: normal;
+    margin: 16px 0 0 0;
+
+    @media (min-width: $screen-sm-min) {
+      font-size: 30px;
+      margin: 24px 0 0 0;
+    }
+
+    @media (min-width: $screen-md-min) {
+      font-size: 36px;
+      margin: 20px 0 0 0;
+    }
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0 0 16px 0;
+
+    @media (min-width: $screen-sm-min) {
+      font-size: 20px;
+    }
+
+    @media (min-width: $screen-md-min) {
+      font-size: 24px;
+      margin: 0 0 24px 0;
+    }
+  }
+
+  .checkout-container.checkout-cards-container {
+    .card-wrapper {
+      .card-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #8e0042;
+        margin: 32px 0 24px 0;
+      }
+
+      .form-group {
+        margin-bottom: 0;
+      }
+      .field-string {
+        margin: 0;
+      }
+
+      .card-preview {
+        text-align: center;
+        margin-top: 8px;
+
+        a {
+          font-size: 14px;
+          font-weight: 600;
+          color: #00734a;
+          text-decoration: none;
+        }
+      }
+
+      .email-card-form {
+        .form-control {
+          font-size: 16px;
+        }
+
+        .panel {
+          border-bottom: solid 2px #bfbfbf;
+          padding-bottom: 24px;
+
+          .panel-collapse {
+            padding-top: 18px;
+
+            .field-friends-name, .field-friends-email {
+              margin-bottom: 16px;
+            }
+
+            @media (min-width: $screen-sm-min) {
+              .field-friends-name {
+                padding-right: 8px;
+              }
+              .field-friends-email {
+                padding-left: 8px;
+              }
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        .email-card-form {
+          .panel {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+
+  .checkout-cards-continue-container {
+    .btn-checkout {
+      font-size: 18px;
+      font-weight: 600;
+      background-color: #00734a;
+    }
+  }
+
+  .checkout-cards-summary {
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 500;
+
+    @media (min-width: $screen-sm-min) {
+      font-size: 16px;
+    }
+  }
+}

@@ -98,7 +98,7 @@ class CorporateGiftsCheckoutStripeCest {
     $profile = $I->fillCheckoutForm(\ContentConfig::getProfileData());
     $I->seePaymentButtons();
 
-    $I->click('Pay With Card');
+    $I->click('Pay With Card', 'aside.checkout-payment');
     $I->waitForElement('iframe.stripe_checkout_app');
     $I->switchToIFrame('stripe_checkout_app');
     $I->canSee('Pay ' . $gift['price'][$currency]['formatted']);

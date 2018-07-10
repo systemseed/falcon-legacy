@@ -1,5 +1,5 @@
 
-// View detail produc page.
+// View detail product page.
 export const ecommerceDetail = product => ({
   type: 'ANALYTICS_ECOMMERCE_DETAIL',
   product

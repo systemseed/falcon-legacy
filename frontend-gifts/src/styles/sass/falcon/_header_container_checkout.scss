@@ -1,0 +1,155 @@
+.header-container-checkout {
+  position: relative;
+
+  .checkout-cards-summary {
+    position: absolute;
+    top: 38px;
+
+    .cards-summary {
+      font-size: 12px;
+
+      .cards-summary-postal, .cards-summary-email {
+        display: inline;
+      }
+
+      >div {
+        &:after {
+          content: ", ";
+        }
+        &:last-child {
+          &:after {
+            content: "";
+          }
+        }
+      }
+    }
+
+    @media (min-width: $screen-sm-min) {
+      top: 52px;
+
+      .cards-summary {
+        font-size: 14px;
+        font-weight: 500;
+
+        .cards-summary-postal, .cards-summary-email {
+          display: block;
+        }
+
+        >div {
+          &:after {
+            content: "";
+          }
+        }
+      }
+    }
+  }
+
+  .checkout-basket-summary {
+    position: absolute;
+    top: 38px;
+    right: 16px;
+
+    .basket-summary {
+      font-size: 12px;
+    }
+
+    @media (min-width: $screen-sm-min) {
+      top: 52px;
+      right: 248px;
+
+      .basket-summary {
+        font-size: 14px;
+
+        .amount {
+          display: block;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .checkout-cards-continue-container, .checkout-payment-container {
+    position: absolute;
+    top: 58px;
+    left: 0;
+    width: 100%;
+    padding: 0 16px;
+
+    .btn-checkout {
+      height: 32px;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      padding: 3px 0;
+      margin: 0;
+
+      &.show-errors {
+        display: none;
+      }
+    }
+
+    .error-message {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 10px 0;
+      color: #ce3131;
+    }
+
+    @media (min-width: $screen-sm-min) {
+      top: 52px;
+      right: -16px;
+      padding: 0;
+      width: auto;
+      margin-right: 32px;
+
+      .btn-checkout {
+        width: 216px;
+        height: 36px;
+        padding: 5px 0;
+        float: right;
+
+        &.show-errors {
+          display: block;
+        }
+      }
+
+      .error-message {
+        float: right;
+        clear: both;
+        padding: 2px 0;
+      }
+    }
+  }
+
+  .checkout-payment-container {
+    .payment-options-label, .payment-options-or-label  {
+      display: none;
+    }
+
+    .payment-buttons {
+      .payment-option {
+        display: inline-block;
+        vertical-align: middle;
+        width: 125px;
+
+        &.stripe {
+          margin-right: 12px;
+        }
+      }
+    }
+
+    @media (min-width: $screen-sm-min) {
+      .payment-buttons {
+        float: right;
+
+        .payment-option {
+
+          &.paypal {
+            width: 80px;
+          }
+        }
+      }
+    }
+
+  }
+}

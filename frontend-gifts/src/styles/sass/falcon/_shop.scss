@@ -228,6 +228,7 @@
   }
 }
 
+// Equal height gifts previews.
 .gifts-grid {
   .row {
     display: flex;
@@ -251,4 +252,11 @@
       }
     }
   }
+}
+
+// Error message styles.
+.error-message {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ce3131;
 }

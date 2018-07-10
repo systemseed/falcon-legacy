@@ -14,16 +14,17 @@ class CheckoutPaymentContainer extends Component {
 
   render() {
     const { validated, showErrors } = this.props;
+    const btnCls = showErrors ? ' show-errors' : '';
     return (
-      <div>
+      <div className="checkout-payment-container">
         {validated !== true &&
-          <div>
+          <div className="checkout-payment-fake-button">
             <button
-              className="btn btn-primary btn-block space-top-none"
+              className={`btn btn-primary btn-block btn-checkout space-top-none${btnCls}`}
               onClick={this.onFakeSubmit.bind(this)}
             >Continue to payment</button>
             {showErrors &&
-              <p>Please fill in all required fields to continue.</p>
+              <div className="error-message">* Please fill in all required fields to continue.</div>
             }
           </div>
         }
