@@ -1,0 +1,32 @@
+uuid: 9dba9a69-c88a-4e67-a2d7-1f4164d3ea13
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraph_blocks
+    - node.type.cw_page
+  module:
+    - entity_reference_revisions
+id: node.cw_page.field_paragraph_blocks
+field_name: field_paragraph_blocks
+entity_type: node
+bundle: cw_page
+label: 'Paragraph Blocks'
+description: "Add blocks of different types on the page. See example usage on the Corporate Gifts page."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles: null
+    target_bundles_drag_drop:
+      info_card:
+        weight: 2
+        enabled: false
+      subheading:
+        weight: 3
+        enabled: false
+field_type: entity_reference_revisions

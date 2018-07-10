@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 name: 'RAW HTML'
 format: raw_html
-weight: -6
+weight: -9
 filters:
   filter_htmlcorrector:
     id: filter_htmlcorrector

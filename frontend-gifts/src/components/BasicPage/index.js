@@ -1,18 +1,55 @@
 import React from 'react';
 import { Grid, Row, Col, PageHeader } from 'react-bootstrap';
+import GiftsCorporateContainer from '../../containers/GiftsCorporateContainer';
+import BlockSubheading from '../Paragraphs/BlockSubheading';
+import BlockInfoCard from '../Paragraphs/BlockInfoCard';
 
-const BasicPage = ({ page }) => (
-  <Grid componentClass="section" className="basic-page">
-    <div className="bg-white padding-top-3x padding-bottom-2x padding-horizontal-150-xl">
-      <Row>
-        <Col xs={12}>
-          <PageHeader>{page.title}</PageHeader>
-          <div dangerouslySetInnerHTML={{ __html: page.body.value }} />
-        </Col>
-      </Row>
-    </div>
-  </Grid>
-);
+// React cannot render component dynamicly by its name in string format.
+// The easiest way to work around it is to create a map between string name
+// and React component.
+export const getComponentByBlockType = (type) => {
+  const BlockComponents = {
+    'subheading': BlockSubheading,
+    'info_card': BlockInfoCard,
+  };
+
+  return BlockComponents[type];
+};
+
+const BasicPage = ({ page, corporate }) => {
+  // Render paragraph blocks if any.
+  const blocks = page.blocks.map((block) => {
+    const Component = getComponentByBlockType(block.type);
+    const { uuid, type, ...blockProps, } = block;
+    return <Component key={block.uuid} {...blockProps} />;
+  });
+
+  return (
+    <Grid componentClass="section" className="basic-page">
+      <div className="bg-white padding-bottom-2x padding-horizontal-150-xl">
+        <Row>
+          <Col xs={12}>
+            {/* Normal basic page with title and body. */}
+            {page.bodyHtml &&
+              <div className="padding-top-3x">
+                <PageHeader>{page.title}</PageHeader>
+                <div dangerouslySetInnerHTML={{ __html: page.bodyHtml }} />
+              </div>
+            }
+
+            {/* Paragpaph blocks. */}
+            <div className="blocks-wrapper">{blocks}</div>
+
+            {/* TODO: allow to configure attached products on the backend. */}
+            {corporate &&
+              <GiftsCorporateContainer />}
+
+          </Col>
+        </Row>
+      </div>
+    </Grid>
+  );
+};
 
 BasicPage.propTypes = {
   page: React.PropTypes.shape({
@@ -24,6 +61,7 @@ BasicPage.propTypes = {
       format: React.PropTypes.string,
     }),
   }).isRequired,
+  corporate: React.PropTypes.bool,
 };
 
 export default BasicPage;

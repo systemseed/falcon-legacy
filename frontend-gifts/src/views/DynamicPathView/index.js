@@ -59,7 +59,7 @@ class DynamicPathView extends Component {
       return <NotFoundView />;
     }
 
-    return <BasicPageContainer page={page} />;
+    return <BasicPageContainer page={page} location={this.props.location} />;
   }
 }
 

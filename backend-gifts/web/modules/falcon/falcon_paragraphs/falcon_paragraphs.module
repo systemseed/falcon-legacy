@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Contains falcon_paragraphs.module.
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Session\AccountInterface;
+
+
+/**
+ * Implements hook_ENTITY_TYPE_access().
+ */
+function falcon_paragraphs_paragraphs_type_access(EntityInterface $entity, $operation, AccountInterface $account) {
+  // Allow everyone to read paragraph types information.
+  // Fixes issue with JSON API is not able to read paragraph type.
+  if ($operation == 'view') {
+    return AccessResult::allowed();
+  }
+
+  return AccessResult::neutral();
+}
+

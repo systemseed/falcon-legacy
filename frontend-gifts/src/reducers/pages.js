@@ -19,16 +19,7 @@ export const pages = (state = {
       const list = [];
 
       data.forEach((page) => {
-        if (page.attributes.body && page.attributes.body.value) {
-          // Add Gifts domain to all image urls.
-          page.attributes.body.value = pageUtils.processImages(page.attributes.body.value);
-        }
-
-        if (page.relationships.field_featured_image && page.relationships.field_featured_image.data) {
-          page.attributes.field_featured_image = page.relationships.field_featured_image.data.id;
-        }
-
-        list.push(page.attributes);
+        list.push(pageUtils.mappedPageItem(page));
       });
 
       return {

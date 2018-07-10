@@ -7,8 +7,10 @@ dependencies:
     - field.field.node.cw_page.field_featured_image
     - field.field.node.cw_page.field_fieldable_path
     - field.field.node.cw_page.field_metatags
+    - field.field.node.cw_page.field_paragraph_blocks
     - node.type.cw_page
   module:
+    - entity_reference_revisions
     - text
     - user
 _core:
@@ -23,6 +25,15 @@ content:
     type: text_default
     weight: 0
     settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_paragraph_blocks:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: ''
     third_party_settings: {  }
     region: content
 hidden:

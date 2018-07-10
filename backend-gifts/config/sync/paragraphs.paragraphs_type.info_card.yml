@@ -1,0 +1,9 @@
+uuid: 294af124-a13b-46e5-a4a2-835af4056416
+langcode: en
+status: true
+dependencies: {  }
+id: info_card
+label: 'Info Card'
+icon_uuid: null
+description: 'Provides a reusable structure with title, description and an image to represent informational cards. '
+behavior_plugins: {  }

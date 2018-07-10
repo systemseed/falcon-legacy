@@ -1,0 +1,15 @@
+.blocks-wrapper {
+  display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.block-subheading {
+  text-align: center;
+  width: 100%;
+}
+
+.block-info-card {
+  margin-bottom: 32px;
+}
