@@ -4,12 +4,14 @@ import { Redirect } from 'react-router-dom';
 import { withDone as withServerDone } from 'react-router-server';
 import _find from 'lodash/find';
 import _isEmpty from 'lodash/isEmpty';
-
 import NotFoundView from '../NotFoundView';
 import * as pageActions from '../../actions/pages';
 import * as redirectActions from '../../actions/redirects';
 import Loading from '../../components/Loading';
 import BasicPageContainer from '../../containers/BasicPageContainer';
+import BasicPage from '../../components/BasicPage';
+import FaqPage from '../../components/FaqPage';
+import GiftsCorporateContainer from '../../containers/GiftsCorporateContainer';
 
 // Render pages and handles redirects by dynamic page path.
 class DynamicPathView extends Component {
@@ -59,7 +61,22 @@ class DynamicPathView extends Component {
       return <NotFoundView />;
     }
 
-    return <BasicPageContainer page={page} location={this.props.location} />;
+    // Special case for FAQ page.
+    if (this.props.location.pathname === '/faq') {
+      return <BasicPageContainer page={page}><FaqPage page={page} /></BasicPageContainer>;
+    }
+
+    // Special case for the corporate page.
+    if (this.props.location.pathname === '/corporate') {
+      return (<BasicPageContainer page={page}>
+        <BasicPage page={page}><GiftsCorporateContainer /></BasicPage>
+      </BasicPageContainer>);
+    }
+
+    // Default case.
+    return (<BasicPageContainer page={page}>
+      <BasicPage page={page} />
+    </BasicPageContainer>);
   }
 }
 

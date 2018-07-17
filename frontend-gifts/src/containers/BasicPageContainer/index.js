@@ -1,20 +1,16 @@
 import React from 'react';
-import BasicPage from '../../components/BasicPage';
 import Metatags from '../../components/Metatags';
 import FeaturedImage from '../FeaturedImageContainer';
 
-const BasicPageContainer = ({ page, location }) => {
-  // Quick workaround for Coprorate page which now uses basic page tempate.
-  // TODO: get rid of it in the future.
-  const corporate = (location.pathname === '/corporate');
-
-  return (<div className={`basic-page-container path-${page.field_fieldable_path.replace(/\/+/g, '-')}`}>
+const BasicPageContainer = ({ page, children }) => (
+  <div className={`basic-page-container path-${page.field_fieldable_path.replace(/\/+/g, '-')}`}>
     <Metatags metatags={page.field_metatags} />
     {page.featuredImageId &&
       <FeaturedImage uuid={page.featuredImageId} />}
-    <BasicPage page={page} corporate={corporate} />
-  </div>);
-};
+    {/* Render all contents of the page. */}
+    {children}
+  </div>
+);
 
 
 BasicPageContainer.propTypes = {
@@ -29,7 +25,7 @@ BasicPageContainer.propTypes = {
     field_fieldable_path: React.PropTypes.string,
     field_metatags: React.PropTypes.object
   }).isRequired,
-  location: React.PropTypes.object,
+  children: React.PropTypes.node
 };
 
 export default BasicPageContainer;

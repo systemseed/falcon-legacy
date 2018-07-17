@@ -1,0 +1,14 @@
+.table-of-contents {
+  padding: 0;
+  list-style: none;
+  font-weight: 500;
+  margin: 25px 0 10px;
+
+  @media (min-width: $screen-md) {
+    margin: 40px 0 20px;
+  }
+
+  li {
+    margin: 20px 0;
+  }
+}

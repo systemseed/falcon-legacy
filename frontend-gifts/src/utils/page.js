@@ -69,3 +69,23 @@ export const mappedPageItem = (page) => {
     blocks
   };
 };
+
+/**
+ * Generate very trivial table of contents.
+ * Used on FAQ page.
+ */
+export const generateTableOfContents = (html) => {
+  const tableOfContents = [];
+  // Assign html ids to heading tags and add an item for each heading into
+  // tableOfContents array.
+  const content = html.replace(/<h(\d)>(.+?)<\/h\d>/gi, (match, p1, p2) => {
+    const id = `ref${tableOfContents.length + 1}`;
+    tableOfContents.push({ id, label: p2 });
+    return `<h${p1} id="${id}">${p2}</h${p1}>`;
+  });
+
+  return {
+    tableOfContents,
+    content
+  };
+};
