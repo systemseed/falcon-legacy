@@ -36,7 +36,7 @@ class CheckoutFormContainer extends Component {
 
     if (this.inited) {
       // Send data to store so other parts of checkout form can use it.
-      this.props.onFormValidate(formData, this.validated);
+      this.props.onFormValidate(formData, this.validated, this.props);
     }
     else {
       // Skip very first validation call (empty object).
@@ -48,9 +48,9 @@ class CheckoutFormContainer extends Component {
 
   render() {
     // Add tooltips data to uiSchema, used in FieldTemplate.
-    const { tooltips, uiSchema } = this.props;
+    const { tooltips, uiSchema, formData } = this.props;
     Object.keys(uiSchema).forEach((key) => {
-      if (tooltips[key]) {
+      if (tooltips && tooltips[key]) {
         uiSchema[key]['ui:tooltip'] = tooltips[key];
       }
     });
@@ -58,10 +58,10 @@ class CheckoutFormContainer extends Component {
     return (
       <Row>
         <Form
-          // We pass empty formData to initialize validation.
+          // We pass formData to initialize validation.
           // Note that re-rendering is disabled for this component that's why
           // we don't need to keep formData value up to date with user input.
-          formData={{}}
+          formData={formData}
           schema={this.props.schema}
           uiSchema={uiSchema}
           validate={this.onValidate.bind(this)}
@@ -92,11 +92,13 @@ CheckoutFormContainer.propTypes = {
   uiSchema: PropTypes.object.isRequired,
   formClass: PropTypes.string.isRequired,
   tooltips: PropTypes.object,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  formData: PropTypes.object,
 };
 
 CheckoutFormContainer.defaultProps = {
-  onChange: () => {}
+  onChange: () => {},
+  formData: {},
 };
 
 export default CheckoutFormContainer;

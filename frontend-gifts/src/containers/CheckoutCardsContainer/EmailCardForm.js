@@ -1,19 +1,18 @@
 import React, { Component, PropTypes } from 'react';
 import { Row, Col, Panel } from 'react-bootstrap';
-import Form from 'react-jsonschema-form';
-import { FieldTemplateCheckout } from '../../utils/forms';
+import CheckoutFormContainer from '../CheckoutFormContainer';
 
 class EmailCardForm extends Component {
   schema = {
     title: '',
     type: 'object',
-    required: ['field_friends_name', 'field_friends_email', 'field_message'],
+    required: ['field_friends_name', 'field_friends_email'],
     properties: {
       field_friends_name: {
-        type: 'string', title: 'Friend’s name'
+        type: 'string', title: 'Recipient’s Name'
       },
       field_friends_email: {
-        type: 'string', format: 'email', title: 'Friend’s email'
+        type: 'string', format: 'email', title: 'Recipient’s Email'
       },
       field_message: {
         type: 'string', maxLength: 500, title: 'Message'
@@ -24,14 +23,16 @@ class EmailCardForm extends Component {
         title: ' ',
       }
     }
-  }
+  };
 
   uiSchema = {
     field_friends_name: {
-      'ui:placeholder': ' '
+      'ui:placeholder': ' ',
+      'bsClassNames': 'col-sm-6 field-friends-name'
     },
     field_friends_email: {
-      'ui:placeholder': ' '
+      'ui:placeholder': ' ',
+      'bsClassNames': 'col-sm-6 field-friends-email'
     },
     field_message: {
       'ui:placeholder': ' ',
@@ -42,7 +43,7 @@ class EmailCardForm extends Component {
       'bsClassNames': 'col-sm-12 send-date',
       'ui:widget': 'hidden'
     }
-  }
+  };
 
   shouldComponentUpdate(nextProps) {
     if (nextProps.expanded !== this.props.expanded) {
@@ -52,52 +53,21 @@ class EmailCardForm extends Component {
     return false;
   }
 
-  onChange({ formData }) {
-    const { card, onChangeEmailForm } = this.props;
-    onChangeEmailForm(card.cardIndex, formData, false);
-  }
-
-  onValidate(formData, errors) {
-    const { card, onChangeEmailForm } = this.props;
-    onChangeEmailForm(card.cardIndex, formData, false);
-
-    return errors;
-  }
-
-  onSubmit({ formData }) {
-    const { card, onChangeEmailForm } = this.props;
-    onChangeEmailForm(card.cardIndex, formData, true);
-  }
-
-  onPreviewClick(e) {
-    e.preventDefault();
-    this.props.onPreviewOpen(this.props.card.cardIndex);
-  }
-
   render() {
     const { card } = this.props;
     return (
-      <Row>
+      <Row className="email-card-form">
         <Col xs={12}>
           <Panel expanded={this.props.expanded} onToggle={() => {}}>
             <Panel.Collapse>
               <Panel.Body>
-                <Form
+                <CheckoutFormContainer
                   schema={this.schema}
                   uiSchema={this.uiSchema}
-                  widgets={this.widgets}
+                  formClass="ecard"
                   formData={card.emailFormData}
-                  onChange={this.onChange.bind(this)}
-                  onSubmit={this.onSubmit.bind(this)}
-                  validate={this.onValidate.bind(this)}
-                  FieldTemplate={FieldTemplateCheckout}
-                  className="card-send space-top space-bottom-2x"
-                >
-                  <div className="primary-buttons">
-                    <button className="btn" onClick={this.onPreviewClick.bind(this)}>Preview</button>
-                    <button type="submit" className="btn btn-primary">Save</button>
-                  </div>
-                </Form>
+                  {...this.props}
+                />
               </Panel.Body>
             </Panel.Collapse>
           </Panel>
@@ -110,8 +80,6 @@ class EmailCardForm extends Component {
 EmailCardForm.propTypes = {
   card: PropTypes.object.isRequired,
   expanded: PropTypes.bool.isRequired,
-  onChangeEmailForm: PropTypes.func.isRequired,
-  onPreviewOpen: PropTypes.func.isRequired,
 };
 
 export default EmailCardForm;

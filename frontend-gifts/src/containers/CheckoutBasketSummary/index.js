@@ -5,9 +5,9 @@ import BasketSummary from '../../components/BasketWithGifts/BasketSummary';
 
 
 const CheckoutBasketSummary = ({ products, currentCurrency }) => (
-  <div>
+  <div className="checkout-basket-summary">
     <BasketSummary
-      className="text-sm lead-md"
+      className="basket-summary text-sm lead-md"
       total={basketUtils.getTotal(products, currentCurrency)}
       currency={currentCurrency}
     />

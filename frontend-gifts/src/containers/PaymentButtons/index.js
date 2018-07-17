@@ -30,13 +30,17 @@ class PaymentButtons extends Component {
     }
 
     return (
-      <div>
-        <div style={{ display: this.props.show ? 'block' : 'none' }}>
+      <div className="payment-buttons-wrapper">
+        <div className="payment-buttons" style={{ display: this.props.show ? 'block' : 'none' }}>
           <h3 className="payment-options-label">Payment options:</h3>
-          <Stripe paymentMethod={paymentMethods.stripe} />
+          <div className="payment-option stripe">
+            <Stripe paymentMethod={paymentMethods.stripe} />
+          </div>
           <p className="payment-options-or-label">or</p>
           {typeof window !== 'undefined' &&
-            <Paypal paymentMethod={paymentMethods.paypal_button} />
+            <div className="payment-option paypal">
+              <Paypal paymentMethod={paymentMethods.paypal_button} />
+            </div>
           }
         </div>
       </div>

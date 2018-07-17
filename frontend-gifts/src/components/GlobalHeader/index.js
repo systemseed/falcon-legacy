@@ -8,6 +8,10 @@ import TopBar from './TopBar';
 import MainMenu from './MainMenu';
 import BasketWidget from '../../containers/BasketWidgetContainer';
 import * as siteContentSettingsActions from '../../actions/siteContentSettings';
+import CheckoutCardsSummary from '../../containers/CheckoutCardsSummary';
+import CheckoutBasketSummary from '../../containers/CheckoutBasketSummary';
+import CheckoutCardsContinueContainer from '../../containers/CheckoutCardsContinueContainer';
+import CheckoutPaymentContainer from '../../containers/CheckoutPaymentContainer';
 
 class GlobalHeader extends React.Component {
 
@@ -34,11 +38,31 @@ class GlobalHeader extends React.Component {
   };
 
   render = () => {
-    const { siteContentSettings } = this.props;
+    const { siteContentSettings, location } = this.props;
+    console.log(this.props);
 
     if (_isEmpty(siteContentSettings)) {
       return null;
     }
+
+    let checkoutHeader = false;
+    let cardsPage = false;
+    let checkoutPage = false;
+    switch (location.pathname) {
+      case '/cards':
+        cardsPage = true;
+        checkoutHeader = true;
+        break;
+      case '/checkout':
+        checkoutPage = true;
+        checkoutHeader = true;
+        break;
+      default:
+        break;
+    }
+
+    const headerCls = checkoutHeader ? ' hidden-xs hidden-sm hidden-md' : '';
+    const checkoutHeaderCls = checkoutHeader ? ' hidden-lg hidden-xl' : ' hidden';
 
     return (
       <header className="navbar navbar-sticky">
@@ -47,7 +71,7 @@ class GlobalHeader extends React.Component {
           headerLeftText={siteContentSettings.fieldConfigHeaderLeftText.value}
           headerRightText={siteContentSettings.fieldConfigHeaderRightText.value}
         />
-        <div className="container header-container">
+        <div className={`container header-container${headerCls}`}>
 
           {/* Visible only on the mobile */}
           <div className="mobile-menu-wrapper">
@@ -76,6 +100,12 @@ class GlobalHeader extends React.Component {
             </div>
           </div>
         </div>
+        <div className={`container header-container header-container-checkout${checkoutHeaderCls}`}>
+          {(cardsPage || checkoutPage) && <CheckoutCardsSummary />}
+          <CheckoutBasketSummary />
+          {cardsPage && <CheckoutCardsContinueContainer />}
+          {checkoutPage && <CheckoutPaymentContainer />}
+        </div>
       </header>
     );
   };
@@ -86,6 +116,7 @@ GlobalHeader.propTypes = {
   siteContentSettings: React.PropTypes.object,
   getSiteContentSettings: React.PropTypes.func,
   done: React.PropTypes.func,
+  location: React.PropTypes.object,
 };
 
 // Anything in the returned object below is merged in with the props of the

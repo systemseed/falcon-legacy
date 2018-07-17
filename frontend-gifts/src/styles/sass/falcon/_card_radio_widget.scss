@@ -1,0 +1,74 @@
+.card-radio-widget {
+  display: flex;
+
+  input {
+    display: none;
+  }
+
+  .option-wrapper {
+    cursor: pointer;
+    border: solid 2px #bfbfbf;
+    border-radius: 4px;
+    padding: 0;
+    opacity: 0.8;
+
+    .option-wrapper-inner {
+      text-align: center;
+
+      .option-text {
+        font-size: 16px;
+        border-bottom: solid 2px #bfbfbf;
+        padding: 8px;
+
+        .post-icon, .email-icon {
+          margin-right: 8px;
+
+          path.fill {
+            fill: #bfbfbf;
+          }
+
+          rect.fill {
+            stroke: #bfbfbf;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:first-child {
+      margin-left: 15px;
+      margin-right: 8px;
+    }
+    &:last-child {
+      margin-left: 8px;
+      margin-right: 15px;
+    }
+
+    &.checked {
+      border: solid 2px #00734a;
+      opacity: 1;
+
+      .option-wrapper-inner {
+        .option-text {
+          border-bottom: solid 2px #00734a;
+          background-color: #00734a;
+          color: #ffffff;
+          font-weight: bold;
+
+          .post-icon, .email-icon {
+            path.fill {
+              fill: #ffffff;
+            }
+
+            rect.fill {
+              stroke: #ffffff;
+            }
+          }
+        }
+      }
+    }
+  }
+}

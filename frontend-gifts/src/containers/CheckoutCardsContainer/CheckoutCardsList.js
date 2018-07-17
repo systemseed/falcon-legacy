@@ -9,7 +9,7 @@ class CheckoutCardsList extends Component {
   state = {
     openedCardIndex: -1,
     openedPreview: -1
-  }
+  };
 
   onChangeType(index, type) {
     const { dispatch } = this.props;
@@ -24,15 +24,14 @@ class CheckoutCardsList extends Component {
     dispatch(checkoutCardTypeChanged(index, type));
   }
 
-  onChangeEmailForm(index, emailFormData, validated = false) {
+  onChangeEmailForm(emailFormData, validated = false, props) {
     const { dispatch } = this.props;
     if (validated === true) {
       this.setState({ openedCardIndex: -1 });
     }
 
-    dispatch(checkoutCardEmailFormChanged(index, emailFormData, validated));
+    dispatch(checkoutCardEmailFormChanged(props.card.cardIndex, emailFormData, validated));
   }
-
 
   onPreviewOpen(cardIndex) {
     this.setState({ openedPreview: cardIndex });
@@ -48,9 +47,17 @@ class CheckoutCardsList extends Component {
       <Row>
         {
           cards.map(card => (
-            <Col xs={12} key={card.cardIndex}>
-              <ProductCardItem cardItem={card} onChangeType={this.onChangeType.bind(this)} onPreviewOpen={this.onPreviewOpen.bind(this)} />
-              <EmailCardForm card={card} expanded={this.state.openedCardIndex === card.cardIndex} onChangeEmailForm={this.onChangeEmailForm.bind(this)} onPreviewOpen={this.onPreviewOpen.bind(this)} />
+            <Col xs={12} key={card.cardIndex} className="card-wrapper">
+              <ProductCardItem
+                cardItem={card}
+                onChangeType={this.onChangeType.bind(this)}
+                onPreviewOpen={this.onPreviewOpen.bind(this)}
+              />
+              <EmailCardForm
+                card={card}
+                expanded={card.type === 'email'}
+                onFormValidate={this.onChangeEmailForm.bind(this)}
+              />
               <ModalPreviewGiftCard
                 show={this.state.openedPreview === card.cardIndex}
                 card={card}

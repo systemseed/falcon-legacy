@@ -236,7 +236,7 @@ class FrontendTester extends \AcceptanceTester {
     // Increase this timeout if you can see __prerender__ at the beginning of
     // iframe name.
     $I->wait(5);
-    $iframe_name = $I->grabAttributeFrom('.paypal-button-context-iframe iframe', 'name');
+    $iframe_name = $I->grabAttributeFrom('aside.checkout-payment .paypal-button-context-iframe iframe', 'name');
     // Paypal button lives in an iframe. Switch into it.
     $I->switchToIFrame($iframe_name);
     $I->seeElement('div.paypal-button');

@@ -34,8 +34,12 @@ class GiftsCheckoutStripeCest {
     $I->click('Checkout', '.sticky-outer-wrapper');
     $I->canSee('Checkout and save lives');
 
+    $I->waitForElementVisible('.sticky-outer-wrapper');
+    $I->click('Continue checkout', '.sticky-outer-wrapper');
+    $I->canSee('Checkout and save lives');
+
     // Wait until the form is loaded.
-    $I->waitForElement('#root_field_event_code');
+    $I->waitForElement('#root_field_event_code', 15);
   }
 
   /**
@@ -99,7 +103,7 @@ class GiftsCheckoutStripeCest {
     $profile = $I->fillCheckoutForm(\ContentConfig::getProfileData());
     $I->seePaymentButtons();
 
-    $I->click('Pay With Card');
+    $I->click('Pay With Card', 'aside.checkout-payment');
     $I->waitForElement('iframe.stripe_checkout_app');
     $I->switchToIFrame('stripe_checkout_app');
     $I->canSee('Pay ' . $gift['price'][$currency]['formatted']);
@@ -225,24 +229,27 @@ class GiftsCheckoutStripeCest {
     $I->canSee($gift['title'], '.checkout-container .row.checkout-cards-list .row .col-xs-12:nth-of-type(1) .card-product');
     $I->canSee($gift['title'], '.checkout-container .row.checkout-cards-list .row .col-xs-12:nth-of-type(2) .card-product');
 
-    // Fill in the form with valid data. Buttons should be visible.
-    $profile = $I->fillCheckoutForm(\ContentConfig::getProfileData());
-    $I->seePaymentButtons();
+    $I->canSee('Continue checkout', '.checkout-submit-real');
 
     // Choose "Email" type for the first item.
-    $I->selectOption('.checkout-container .row.checkout-cards-list .row .col-xs-12:nth-of-type(1) .card-product input', 'email');
+    $I->clickWithLeftButton('.checkout-container .row.checkout-cards-list .row .col-xs-12:nth-of-type(1) .card-product .option-wrapper:nth-of-type(2)');
 
-    $I->cantSeePaymentButtons();
-    $I->scrollTo('.primary-buttons');
+    $I->canSee('Continue checkout', '.checkout-submit-fake');
 
     $I->fillField('#root_field_friends_name', 'Tester Best Friend');
     $I->fillField('#root_field_friends_email', 'test-cw2.friend@systemseed.com');
     $I->fillField('#root_field_message', 'Hello from robots!');
 
-    $I->click('Save');
+    $I->canSee('Continue checkout', '.checkout-submit-real');
+
+    $I->click('Continue checkout', '.sticky-outer-wrapper');
+    $I->canSee('Checkout and save lives');
+
+    // Fill in the form with valid data. Buttons should be visible.
+    $profile = $I->fillCheckoutForm(\ContentConfig::getProfileData());
     $I->seePaymentButtons();
 
-    $I->click('Pay With Card');
+    $I->click('Pay With Card', 'aside.checkout-payment');
     $I->waitForElement('iframe.stripe_checkout_app');
     $I->switchToIFrame('stripe_checkout_app');
     $I->canSee($total_formatted);

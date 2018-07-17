@@ -33,6 +33,10 @@ class GiftsCheckoutPaypalCest {
     $I->click('Checkout', '.sticky-outer-wrapper');
     $I->canSee('Checkout and save lives');
 
+    $I->waitForElementVisible('.sticky-outer-wrapper');
+    $I->click('Continue checkout', '.sticky-outer-wrapper');
+    $I->canSee('Checkout and save lives');
+
     // Wait until the form is loaded.
     $I->waitForElement('#root_field_event_code', 15);
   }

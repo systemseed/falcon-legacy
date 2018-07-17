@@ -149,10 +149,10 @@
 
   // By default, hide errors highlighting.
   .has-error .form-control {
-    border-color: #ededed;
+    border-color: #bfbfbf;
   }
   .has-error .form-control:focus {
-    border-color: #77cde3;
+    border-color: #00743a;
   }
 
   // Only highlight errors if parent class showErrors exists.
