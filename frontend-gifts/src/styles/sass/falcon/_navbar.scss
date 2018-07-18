@@ -33,17 +33,13 @@
   }
 }
 
-.site-logo.visible-mobile {
-  padding: 17px 0;
-}
-
 // Go to Basket widget.
 .toolbar {
   right: 15px;
   width: 110px;
 
   @media (min-width: $screen-xs-min) {
-    right: 20px;
+    right: 30px;
     width: 130px;
   }
 
@@ -86,12 +82,13 @@
 // Mobile menu.
 .mobile-menu-wrapper {
   display: inline-block;
-  margin-top: 34px;
-  vertical-align: middle;
-  margin-left: -10px;
+  position: absolute;
+  left: 5px;
+  top: 40px;
 
   @media (min-width: $screen-sm-min) {
-    margin-right: 20px;
+    left: 20px;
+    top: 45px;
   }
 
   .mobile-menu-toggle {
@@ -139,4 +136,26 @@
       line-height: 30px;
     }
   }
+}
+
+// Site logo.
+.site-logo-wrapper {
+  position: absolute;
+  left: 49px;
+
+  @media (min-width: $screen-sm-min) {
+    left: 84px;
+  }
+
+  @media #{$navbar-collapse-min} {
+    left: 30px;
+  }
+
+  @media (min-width: $screen-xlg) {
+    left: 40px;
+  }
+}
+
+.site-logo.visible-mobile {
+  padding: 17px 0;
 }

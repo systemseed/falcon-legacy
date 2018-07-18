@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Logo = () => (
-  <span>
+  <span className="site-logo-wrapper">
     <Link to="/" className="site-logo visible-desktop">
       <img src="/images/logo.png" alt="Gifts" />
     </Link>
