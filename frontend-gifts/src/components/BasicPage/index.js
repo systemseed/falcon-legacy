@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid, Row, Col, PageHeader } from 'react-bootstrap';
-import GiftsCorporateContainer from '../../containers/GiftsCorporateContainer';
 import BlockSubheading from '../Paragraphs/BlockSubheading';
 import BlockInfoCard from '../Paragraphs/BlockInfoCard';
 
@@ -16,7 +15,7 @@ export const getComponentByBlockType = (type) => {
   return BlockComponents[type];
 };
 
-const BasicPage = ({ page, corporate }) => {
+const BasicPage = ({ page, children }) => {
   // Render paragraph blocks if any.
   const blocks = page.blocks.map((block) => {
     const Component = getComponentByBlockType(block.type);
@@ -40,9 +39,8 @@ const BasicPage = ({ page, corporate }) => {
             {/* Paragpaph blocks. */}
             <div className="blocks-wrapper">{blocks}</div>
 
-            {/* TODO: allow to configure attached products on the backend. */}
-            {corporate &&
-              <GiftsCorporateContainer />}
+            {/* Any extra children if exist. */}
+            {children}
 
           </Col>
         </Row>
@@ -61,7 +59,7 @@ BasicPage.propTypes = {
       format: React.PropTypes.string,
     }),
   }).isRequired,
-  corporate: React.PropTypes.bool,
+  children: React.PropTypes.node
 };
 
 export default BasicPage;

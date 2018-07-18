@@ -1,4 +1,29 @@
 .basic-page {
+  // Typography change for all basic pages. To be refactored when the styleguide
+  // is ready.
+  font-size: 16px;
+  line-height: 24px;
+
+  @media (min-width: $screen-md) {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  @media (min-width: $screen-xs) and (max-width: $screen-md) {
+    max-width: 688px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media (min-width: $screen-md) and (max-width: $screen-lg) {
+    max-width: 790px;
+  }
+
+
+  p {
+    max-width: 760px;
+  }
+
   img {
     display: inline-block;
   }
