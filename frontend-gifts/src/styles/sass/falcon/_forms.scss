@@ -38,3 +38,9 @@ form.options > .form-group {
 .text-gray p a {
   color: $text-gray;
 }
+
+// Fixing images inside label element in IE11.
+label img {
+  pointer-events: none;
+  position:relative;
+}
