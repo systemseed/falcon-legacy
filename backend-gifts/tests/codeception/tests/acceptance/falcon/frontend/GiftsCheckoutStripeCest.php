@@ -236,9 +236,9 @@ class GiftsCheckoutStripeCest {
 
     $I->canSee('Continue checkout', '.checkout-submit-fake');
 
-    $I->fillField('#root_field_friends_name', 'Tester Best Friend');
-    $I->fillField('#root_field_friends_email', 'test-cw2.friend@systemseed.com');
-    $I->fillField('#root_field_message', 'Hello from robots!');
+    $I->fillField('input[id$="_field_friends_name"]', 'Tester Best Friend');
+    $I->fillField('input[id$="_field_friends_email"]', 'test-cw2.friend@systemseed.com');
+    $I->fillField('textarea[id$="_field_message"]', 'Hello from robots!');
 
     $I->canSee('Continue checkout', '.checkout-submit-real');
 

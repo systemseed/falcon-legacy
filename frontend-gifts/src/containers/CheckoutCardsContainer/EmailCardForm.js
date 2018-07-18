@@ -55,15 +55,22 @@ class EmailCardForm extends Component {
 
   render() {
     const { card } = this.props;
+
+    const uiSchema = {
+      // Add a unique prefix to form fields to avoid conflicts between multiple
+      // instanses of the same form.
+      'ui:rootFieldId': card.cardIndex.substring(0, 8),
+      ...this.uiSchema
+    };
     return (
       <Row className="email-card-form">
         <Col xs={12}>
-          <Panel expanded={this.props.expanded} onToggle={() => {}}>
+          <Panel expanded={this.props.expanded} onToggle={() => { }}>
             <Panel.Collapse>
               <Panel.Body>
                 <CheckoutFormContainer
                   schema={this.schema}
-                  uiSchema={this.uiSchema}
+                  uiSchema={uiSchema}
                   formClass="ecard"
                   formData={card.emailFormData}
                   {...this.props}
