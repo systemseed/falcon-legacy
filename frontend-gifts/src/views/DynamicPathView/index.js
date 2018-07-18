@@ -63,20 +63,30 @@ class DynamicPathView extends Component {
 
     // Special case for FAQ page.
     if (this.props.location.pathname === '/faq') {
-      return <BasicPageContainer page={page}><FaqPage page={page} /></BasicPageContainer>;
+      return (
+        <BasicPageContainer page={page}>
+          <FaqPage page={page} />
+        </BasicPageContainer>
+      );
     }
 
     // Special case for the corporate page.
     if (this.props.location.pathname === '/corporate') {
-      return (<BasicPageContainer page={page}>
-        <BasicPage page={page}><GiftsCorporateContainer /></BasicPage>
-      </BasicPageContainer>);
+      return (
+        <BasicPageContainer page={page}>
+          <BasicPage page={page}>
+            <GiftsCorporateContainer />
+          </BasicPage>
+        </BasicPageContainer>
+      );
     }
 
     // Default case.
-    return (<BasicPageContainer page={page}>
-      <BasicPage page={page} />
-    </BasicPageContainer>);
+    return (
+      <BasicPageContainer page={page}>
+        <BasicPage page={page} />
+      </BasicPageContainer>
+    );
   }
 }
 

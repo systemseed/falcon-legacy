@@ -13,7 +13,7 @@ const TableOfContents = ({ tableOfContents }) => (
             // in considereation.
             scrollToElement(item.id);
             // Update URL for those who want to share the link.
-            window.location = `#${item.id}`; // eslint-disable-line no-undef
+            window.location.hash = `#${item.id}`; // eslint-disable-line no-undef
           }}
         >{item.label}</a>
       </li>
@@ -27,7 +27,7 @@ TableOfContents.propTypes = {
     PropTypes.shape({
       id: PropTypes.string,
       label: PropTypes.string
-    })
+    }).isRequired
   ),
 };
 

@@ -99,12 +99,28 @@
   position: absolute;
   z-index: 10;
   vertical-align: middle;
-  display: block;
-  left: 200px;
-  top: 62px;
-  @media #{$tablet-port} {
-    left: 135px;
+  display: none;
+
+  // Current mobile header doesn't have space for region switcher.
+  @media (min-width: 350px) {
+    left: 160px;
+    top: 55px;
+    display: block;
   }
+
+  @media (min-width: $screen-sm-min) {
+    left: 240px;
+    top: 62px;
+  }
+
+  @media #{$navbar-collapse-min} {
+    left: 190px;
+  }
+
+  @media (min-width: $screen-xlg) {
+    left: 200px;
+  }
+
   .lang-toggle {
     cursor: pointer;
     > img, > i {
