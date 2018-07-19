@@ -21,6 +21,16 @@ const showErrors = (state = false, action) => {
   }
 };
 
+// Counts all CHECKOUT_SHOW_ERRORS actions.
+const showErrorsCounter = (state = 0, action) => {
+  switch (action.type) {
+    case 'CHECKOUT_SHOW_ERRORS':
+      return state + 1;
+    default:
+      return state;
+  }
+};
+
 const paymentMethods = (state = {
   isPending: false,
   isFulfilled: false,
@@ -128,5 +138,6 @@ export default combineReducers({
   // Main checkout form.
   form: checkoutForm,
   showErrors,
+  showErrorsCounter,
   paymentMethods
 });

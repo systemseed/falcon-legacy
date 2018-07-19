@@ -1,8 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import { Row, Col, Panel } from 'react-bootstrap';
+import classNames from 'classnames';
+import { connect } from 'react-redux';
 import CheckoutFormContainer from '../CheckoutFormContainer';
 
 class EmailCardForm extends Component {
+
+  state = {
+    showErrors: false
+  };
+
   schema = {
     title: '',
     type: 'object',
@@ -49,23 +56,42 @@ class EmailCardForm extends Component {
     if (nextProps.expanded !== this.props.expanded) {
       return true;
     }
+    if (nextProps.clicksCounter !== this.props.clicksCounter) {
+      return true;
+    }
 
     return false;
   }
 
+  componentWillReceiveProps(nextProps) {
+    // The form was closed - disable errors.
+    if (!nextProps.expanded) {
+      this.setState({ showErrors: false });
+      return;
+    }
+
+    // True if a user initiated validation by clicking "Continue Checkout".
+    const newSubmitClickOccurred = nextProps.clicksCounter > this.props.clicksCounter;
+    // True if the form was already expanded.
+    const isExanded = this.props.expanded && nextProps.expanded;
+    if (isExanded && newSubmitClickOccurred) {
+      this.setState({ showErrors: true });
+    }
+  }
+
   render() {
-    const { card } = this.props;
+    const { card, expanded } = this.props;
 
     const uiSchema = {
       // Add a unique prefix to form fields to avoid conflicts between multiple
       // instanses of the same form.
-      'ui:rootFieldId': card.cardIndex.substring(0, 8),
+      'ui:rootFieldId': card.cardIndex.substring(card.cardIndex.length - 10),
       ...this.uiSchema
     };
     return (
-      <Row className="email-card-form">
+      <Row className={classNames('email-card-form', { 'showErrors': this.state.showErrors })}>
         <Col xs={12}>
-          <Panel expanded={this.props.expanded} onToggle={() => { }}>
+          <Panel expanded={expanded} onToggle={() => { }}>
             <Panel.Collapse>
               <Panel.Body>
                 <CheckoutFormContainer
@@ -87,6 +113,13 @@ class EmailCardForm extends Component {
 EmailCardForm.propTypes = {
   card: PropTypes.object.isRequired,
   expanded: PropTypes.bool.isRequired,
+  clicksCounter: PropTypes.number.isRequired,
 };
 
-export default EmailCardForm;
+const mapStateToProps = state => ({
+  // The component will receive a new value of clicksCounter prop each time
+  // a user clicks on "Continue Checkout" button.
+  clicksCounter: state.checkout.showErrorsCounter,
+});
+
+export default connect(mapStateToProps)(EmailCardForm);

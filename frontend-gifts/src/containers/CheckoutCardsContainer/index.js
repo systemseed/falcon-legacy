@@ -8,7 +8,7 @@ import CheckoutCardsList from './CheckoutCardsList';
 // Manage Gift cards configuration.
 class CheckoutCardsContainer extends Component {
   render() {
-    const { basketType, cardItems, dispatch, siteContentSettings, showErrors, isEmpty } = this.props;
+    const { basketType, cardItems, dispatch, siteContentSettings, isEmpty } = this.props;
 
     if (isEmpty) {
       return (
@@ -21,7 +21,7 @@ class CheckoutCardsContainer extends Component {
       return null;
     }
     return (
-      <Row className={showErrors ? 'checkout-cards-list showErrors' : 'checkout-cards-list'}>
+      <Row className="checkout-cards-list">
         <Col xs={12}>
           {siteContentSettings.fieldConfigCheckoutStep1 &&
             <h3>{siteContentSettings.fieldConfigCheckoutStep1}</h3>
@@ -45,7 +45,6 @@ CheckoutCardsContainer.propTypes = {
   cardItems: PropTypes.array,
   dispatch: PropTypes.func,
   siteContentSettings: PropTypes.object.isRequired,
-  showErrors: PropTypes.bool.isRequired,
   isEmpty: PropTypes.bool.isRequired,
 };
 
@@ -56,7 +55,6 @@ const mapStateToProps = state => ({
   cardItems: checkoutUtils.getGiftCardItems(state),
   dispatch: PropTypes.func,
   siteContentSettings: state.siteContentSettings.data,
-  showErrors: state.checkout.showErrors,
   isEmpty: !basketUtils.getItemsCount(state.basket.products, state.currentCurrency),
 });
 
