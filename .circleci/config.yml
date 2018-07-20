@@ -17,7 +17,13 @@ defaults: &defaults
 install_platform_cli: &install_platform_cli
   name: Install and configure Platform.sh CLI
   command: |
-    curl -sS https://platform.sh/cli/installer | php
+    ### Uncomment when https://github.com/platformsh/platformsh-cli/issues/737 is fixed.
+    # curl -sS https://platform.sh/cli/installer | php
+    ### Download a specific version of CLI instead of latest.
+    mkdir ~/.platformsh/bin -p
+    wget https://github.com/platformsh/platformsh-cli/releases/download/v3.33.6/platform.phar -q -O ~/.platformsh/bin/platform
+    chmod ua+x ~/.platformsh/bin/platform
+    ### End of download.
     sudo ln -s ~/.platformsh/bin/platform /usr/local/bin/platform
     echo $PLATFORM_TOKEN > ~/.platformsh/token
     cp .platform/config.yaml ~/.platformsh/config.yaml
