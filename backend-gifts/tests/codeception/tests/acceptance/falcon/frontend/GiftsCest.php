@@ -20,30 +20,32 @@ class GiftsCest {
     $I->amGoingTo('Visit frontpage and filter gifts by category');
     $I->amOnPage('/');
 
+    $category = \ContentConfig::getRandomCategory();
+
     // Wait until products are loaded.
-    $I->waitForText('HEALTH AND SAFETY', 15, '.filters-bar');
+    $I->waitForText(strtoupper($category), 15, '.filters-bar');
 
     // I see at least one product.
     $I->seeElement('.shop-item');
     $I->canSeeLink(\ContentConfig::getGiftData('title'));
 
-    $I->amGoingTo('Filter gifts by "Health and Safety" category');
+    $I->amGoingTo('Filter gifts by "' . $category . '" category');
     $I->expect('Not to see test gift');
-    $I->click('Health and Safety', '.filters-bar');
-    $I->waitForText('HEALTH AND SAFETY', 15, '.filters-bar');
+    $I->click($category, '.filters-bar');
+    $I->waitForText(strtoupper($category), 5, '.filters-bar');
     $I->dontSeeLink(\ContentConfig::getGiftData('title'));
 
     $category = \ContentConfig::getGiftData('category');
     $I->amGoingTo('Filter gifts by '. $category .' category');
     $I->expect('To see test gift');
     $I->click($category, '.filters-bar');
-    $I->waitForText('HEALTH AND SAFETY', 15, '.filters-bar');
+    $I->waitForText(strtoupper($category), 5, '.filters-bar');
     $I->canSeeLink(\ContentConfig::getGiftData('title'));
 
     $I->amGoingTo('Reset filters');
     $I->expect('To see test gift');
     $I->click('All', '.filters-bar');
-    $I->waitForText('HEALTH AND SAFETY', 15, '.filters-bar');
+    $I->waitForText(strtoupper($category), 5, '.filters-bar');
     $I->canSeeLink(\ContentConfig::getGiftData('title'));
   }
 

@@ -141,25 +141,14 @@ class FrontendTester extends \AcceptanceTester {
     $I->selectOption('#root_field_event_code', $profile['root_field_event_code']);
 
     // Opt-ins.
-    // TODO: update & refactor in https://www.pivotaltracker.com/story/show/148679037.
     foreach ($profile['optins'] as $key => $value) {
-      if ($I->getRegion() === 'ie') {
-        // Check if opt-in is presented on the page.
-        if (count($I->grabMultiple("#$key", 'value'))) {
-          if ($value === TRUE) {
-            $I->simulateCheck("$key");
-          }
-          else {
-            $I->cantSeeCheckboxIsChecked("#$key");
-          }
-        }
-      }
-      else {
-        if ($value === FALSE) {
-          $I->simulateUncheck("$key");
+      // Check if opt-in is presented on the page.
+      if (count($I->grabMultiple("#$key", 'value'))) {
+        if ($value === TRUE) {
+          $I->simulateCheck("$key");
         }
         else {
-          $I->canSeeCheckboxIsChecked("#$key");
+          $I->cantSeeCheckboxIsChecked("#$key");
         }
       }
     }

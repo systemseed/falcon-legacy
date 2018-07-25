@@ -6,6 +6,7 @@
 function falcon_development_install() {
   // Make necessary environment switches here.
   activateTestUsers();
+  activateTestProducts();
 }
 
 /**
@@ -21,6 +22,28 @@ function activateTestUsers() {
         $account->activate();
         $account->save();
       }
+    }
+  }
+}
+
+/**
+ * Activate test products on all development environments.
+ */
+function activateTestProducts() {
+  // Find all products with "(Test Suite)" in title.
+  $db = \Drupal\Core\Database\Database::getConnection();
+  $storage = \Drupal::entityTypeManager()->getStorage('commerce_product');
+  $query = $storage->getQuery();
+
+  $product_ids = $query
+    ->condition('title', '%' . $db->escapeLike('(Test Suite)') . '%', 'LIKE')
+    ->execute();
+
+  /* @var \Drupal\commerce_product\Entity\Product $product */
+  foreach($storage->loadMultiple($product_ids) as $product) {
+    if (!$product->isPublished()) {
+      $product->setPublished(TRUE);
+      $product->save();
     }
   }
 }

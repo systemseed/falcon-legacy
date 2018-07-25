@@ -11,6 +11,12 @@ class ContentConfig {
 
   static protected $project = 'Falcon';
 
+  // Available categories in filters (at least one is required).
+  static protected $giftCategories = [
+    'Health and Safety',
+    'Education',
+  ];
+
   static protected $gift = [
     'id' => 13,
     'uuid' => '355215cd-f4f2-4525-a29b-54c26f8cc1ac',
@@ -76,5 +82,12 @@ class ContentConfig {
 
   public static function getProjectName() {
     return self::$project;
+  }
+
+  public static function getRandomCategory() {
+    // Get all available categories apart from the category of test gift.
+    $categories = array_diff(self::$giftCategories, [self::$gift['category']]);
+
+    return $categories[array_rand($categories)];
   }
 }
