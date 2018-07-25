@@ -61,9 +61,6 @@ class GiftsCest {
     $I->amGoingTo('Visit frontpage and review ' . $gift['title'] . ' product data.');
     $I->amOnPage('/');
 
-    // Wait until products are loaded.
-    $I->waitForText('HEALTH AND SAFETY', 15);
-
     $I->amGoingTo('Visit gift detailed page.');
     $I->click($gift['title']);
 
