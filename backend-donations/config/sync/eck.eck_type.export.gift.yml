@@ -1,9 +1,0 @@
-uuid: c678360b-cd43-40e2-95d5-097539159631
-langcode: en
-status: true
-dependencies:
-  config:
-    - eck.eck_entity_type.export
-name: gift
-type: gift
-description: ''

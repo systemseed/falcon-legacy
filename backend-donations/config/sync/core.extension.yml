@@ -40,11 +40,9 @@ module:
   falcon_commerce: 0
   falcon_commerce_checkout: 0
   falcon_event_codes: 0
-  falcon_exports: 0
   falcon_mail: 0
   falcon_metatag: 0
   falcon_payment_event: 0
-  falcon_thankq: 0
   field: 0
   field_group: 0
   field_ui: 0

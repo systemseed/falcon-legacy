@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Drop all export entities.
+ */
+function falcon_exports_uninstall() {
+  // Note that it won't delete actual orders and other data presented in
+  // exports.
+  $storage = \Drupal::entityTypeManager()->getStorage('export');
+  $storage->delete($storage->loadMultiple());
+}
