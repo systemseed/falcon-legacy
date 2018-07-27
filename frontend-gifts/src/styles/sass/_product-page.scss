@@ -51,7 +51,7 @@ $bundle-section-margin: 150px 48px 150px 80px;
   background-color: $tile-image-background-color;
   height: 100%;
   display: flex;
-  justify-content: center; /* align horizontal */
+  justify-content: flex-end; /* align horizontal */
   align-items: center;
   img {
     margin: 0 auto;
