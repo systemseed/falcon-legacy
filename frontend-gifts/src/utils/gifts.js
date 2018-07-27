@@ -150,7 +150,7 @@ export const mappedProductItem = (responseItem) => {
         ? responseItem.fieldGiftCategory.id
         : null,
     price,
-    imageUrl: api.getImageUrl('donations', responseItem.fieldGiftImage, 'width_660'),
+    imageUrl: api.getImageUrl('donations', responseItem.fieldGiftImage, 'width_720'),
     imageAlt: responseItem.relationships.field_gift_image.data.meta.alt,
     // "Gift in action" fields.
     actionImageUrl: api.getImageUrl(

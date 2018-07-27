@@ -9,7 +9,7 @@ const GiftBody = ({ gift, currentCurrency }) => (
     <div className="col-md-6 tile-image-col-left no-gutter-sm">
       <div className="tile tile--image-section">
         <section className="fw-section tile--image-section tile--image-section--primary object-fit-wrapper">
-          <img className="object-fit-cover" src={gift.imageUrl} alt={gift.imageAlt} title={gift.imageAlt} />
+          <img src={gift.imageUrl} alt={gift.imageAlt} title={gift.imageAlt} />
         </section>
       </div>
     </div>
