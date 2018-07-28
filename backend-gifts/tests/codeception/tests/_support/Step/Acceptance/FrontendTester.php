@@ -176,7 +176,7 @@ class FrontendTester extends \AcceptanceTester {
     $I->amOnPage('/');
 
     // Wait until products are loaded.
-    $I->waitForText('HEALTH AND SAFETY', 15);
+    $I->waitForText(strtoupper(\ContentConfig::getRandomCategory()), 15);
 
     $I->expectTo("See 0 items in basket");
     $I->see('0', 'span.count');
