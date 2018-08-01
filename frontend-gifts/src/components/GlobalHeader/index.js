@@ -39,7 +39,6 @@ class GlobalHeader extends React.Component {
 
   render = () => {
     const { siteContentSettings, location } = this.props;
-    console.log(this.props);
 
     if (_isEmpty(siteContentSettings)) {
       return null;

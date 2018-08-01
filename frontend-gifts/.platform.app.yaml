@@ -45,3 +45,9 @@ mounts:
   # Make whole build folder writeble for build scripts purposes.
   '/build': 'shared:files/build'
   '/run': 'shared:files/run'
+
+crons:
+  weekly_logrotate:
+    spec: "0 9 * * 0"
+    # Every Sunday, gzip logs from past week and truncate log files to free up disk space.
+    cmd: "cd ~/run/logs;for i in *.log; do gzip -f $i; truncate -s 0 $i; done"

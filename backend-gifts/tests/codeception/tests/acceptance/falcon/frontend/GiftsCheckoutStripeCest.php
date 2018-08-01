@@ -17,6 +17,7 @@ class GiftsCheckoutStripeCest {
   private $basket = [];
   private $profile_data = [];
   private $currency = '';
+  private $friend_email = '';
 
   /**
    * Prepare checkout page for testing.
@@ -141,13 +142,31 @@ class GiftsCheckoutStripeCest {
   }
 
   /**
+   * Push order to ThankQ and make sure it was created successfully.
+   *
+   * @param \Step\Acceptance\DonationsBackendTester $I
+   *
+   * @depends checkoutComplete
+   * @group backend-donations
+   */
+  public function checkOrderThankqSimple(DonationsBackendTester $I, $scenario) {
+    $I->login('gifts_manager.test');
+
+    if ($I->seeThankQIsEnabled()) {
+      $I->runGiftsThankQSync($this->order_id, $this->basket, $this->profile_data, $this->currency);
+    }
+    else {
+      $I->comment('ThankQ CRM is not configured. Skipping.');
+      $scenario->skip();
+    }
+  }
+
+  /**
    * Place a complex order (multiple products).
    *
    * @param \Step\Acceptance\FrontendTester $I
    *
    * @group frontend-gifts
-   *
-   * @skip
    */
   public function checkoutCompleteComplex(FrontendTester $I) {
     $currency = $I->getCurrency();
@@ -165,20 +184,24 @@ class GiftsCheckoutStripeCest {
 
     // Click on Checkout sometimes fails in Chrome with error: Other element
     // would receive the click.
-    // TODO: fix and remove @skip tag from this test.
-    $I->click('Checkout');
+    $I->click('Checkout', '.sticky-outer-wrapper');
+    $I->canSee('Checkout and save lives');
+
+    $I->waitForElementVisible('.sticky-outer-wrapper');
+    $I->click('Continue checkout', '.sticky-outer-wrapper');
     $I->canSee('Checkout and save lives');
 
     // Wait until the form is loaded.
-    $I->waitForElement('#root_field_event_code');
+    $I->waitForElement('#root_field_event_code', 15);
 
     // Fill in the form with valid data. Buttons should be visible.
     $profile = $I->fillCheckoutForm(\ContentConfig::getProfileData());
     $I->seePaymentButtons();
 
-    $I->click('Pay With Card');
+    $I->click('Pay With Card', 'aside.checkout-payment');
     $I->waitForElement('iframe.stripe_checkout_app');
     $I->switchToIFrame('stripe_checkout_app');
+
     $I->fillField('Card number', '4242424242424242');
     $I->fillField('Expiry', '0222');
     $I->fillField('CVC', '123');
@@ -237,7 +260,9 @@ class GiftsCheckoutStripeCest {
     $I->canSee('Continue checkout', '.checkout-submit-fake');
 
     $I->fillField('input[id$="_field_friends_name"]', 'Tester Best Friend');
-    $I->fillField('input[id$="_field_friends_email"]', 'test-cw2.friend@systemseed.com');
+
+    $this->friend_email = 'test-cw2+friend' . rand(0, 999) . '@systemseed.com';
+    $I->fillField('input[id$="_field_friends_email"]', $this->friend_email);
     $I->fillField('textarea[id$="_field_message"]', 'Hello from robots!');
 
     $I->canSee('Continue checkout', '.checkout-submit-real');
@@ -284,7 +309,7 @@ class GiftsCheckoutStripeCest {
     $I->amOnUrl($card_link);
 
     $I->waitForText('Tester Best Friend');
-    $I->canSee('test-cw2.friend@systemseed.com');
+    $I->canSee($this->friend_email);
     $I->canSee('Hello from robots!');
   }
 }

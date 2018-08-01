@@ -21,13 +21,13 @@ const CheckoutCardsView = ({ siteContentSettings }) => (
 
         <Row className="checkout-container checkout-cards-container padding-top">
 
-          <Col xs={12} lg={7} className="padding-bottom-2x sticky-bottom-boundary-checkout">
+          <Col xs={12} lg={7} className="padding-bottom-2x sticky-bottom-boundary-cards">
             <CheckoutCardsContainer />
           </Col>
 
           <Col lg={4} lgOffset={1} className="padding-bottom-2x hidden-xs hidden-sm hidden-md">
             <aside className="checkout-payment">
-              <Sticky top={114} bottomBoundary=".sticky-bottom-boundary-checkout">
+              <Sticky top={114} bottomBoundary=".sticky-bottom-boundary-cards">
                 <CheckoutBasketSummary />
                 <CheckoutCardsContinueContainer />
                 <CheckoutCardsSummary />

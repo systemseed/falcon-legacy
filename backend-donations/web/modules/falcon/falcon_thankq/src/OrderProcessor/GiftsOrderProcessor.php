@@ -392,8 +392,6 @@ class GiftsOrderProcessor {
     foreach ($errors_data as $order_id => $data) {
       $body .= self::orderFormattedShort($data['order']) . ' - ' . $data['error_message'] . '<br />';
     }
-    $thankq_report_url = Url::fromUri('internal:/admin/exports/gifts', ['absolute' => TRUE])->toString();
-    $body .= '<br />' . t("See more details in <a href='@url'>ThankQ export report</a>.", ['@url' => $thankq_report_url]);
 
     $this->sendEmail('thankq_export_error', $to, $subject, $body);
   }

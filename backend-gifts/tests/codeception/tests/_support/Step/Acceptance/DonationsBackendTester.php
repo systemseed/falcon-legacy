@@ -47,4 +47,65 @@ class DonationsBackendTester extends DrupalTester {
       }
     }
   }
+
+  /**
+   * Helper function to check if ThankQ CRM is configured on this environment.
+   */
+  public function seeThankQIsEnabled() {
+    $I = $this;
+    // Consider ThankQ configured if the module is available in the toolbar.
+    return $I->seePageHasElement($I, '.toolbar-menu-administration a[href="/admin/thankq"]');
+  }
+
+  /**
+   * Helper function to sync Gifts ThankQ.
+   */
+  public function runGiftsThankQSync($order_id, $products, $profile_data, $currency) {
+    $I = $this;
+    $total_amount = 0;
+    foreach ($products as $product) {
+      $total_amount += $product['price'][$currency]['number'];
+    }
+    $total_amount = number_format($total_amount, 2, '.', '');
+    $I->amOnPage('/admin/thankq/run/gifts');
+    // Make sure the order is ready for export.
+    $order_string = $profile_data['root_field_profile_email'] . ' - ' . $total_amount . ' ' . $currency;
+    $I->see($order_string);
+    // Make sure correct ThankQ instance is chosen.
+    $I->expectTo('See correct ThankQ instance chosen');
+    if ($currency === 'EUR') {
+      $I->see('using TeleServiceCCNDtest database');
+    }
+    elseif ($currency == 'GBP') {
+      $I->see('using TeleServiceCCNUKtest database');
+    }
+    // Start synchronisation.
+    $I->click('#edit-submit');
+    // Wait for success message for this order.
+    $I->waitForText($order_string, 90, '.messages--status');
+    $I->amOnPage("/admin/commerce/orders/$order_id/thankq");
+    $I->dontSee('This order was not exported into ThankQ');
+    $I->expectTo('See correct total amount pushed to ThankQ');
+    $I->see($total_amount, '.ordervalue');
+    $I->see($total_amount, '.paid');
+    $I->expectTo('See correct all ordered products pushed to ThankQ');
+    foreach ($products as $product) {
+      $line_total = number_format($product['price'][$currency]['number'], 4, '.', '');
+      $I->see($product['title'], '.name');
+      $I->see($line_total, '.linetotal');
+    }
+    $I->expectTo('See correct profile data pushed to ThankQ');
+    $I->see($profile_data['root_field_profile_email'], '.emailaddress');
+    $I->see($profile_data['root_field_profile_first_name'], '.firstname');
+    $I->see($profile_data['root_field_profile_last_name'], '.keyname');
+    // NOTE: line 1 and line 2 should be in ThankQ field addressline1.
+    $I->see($profile_data['root_address_line1'], '.addressline1');
+    $I->see($profile_data['root_address_line2'], '.addressline1');
+    $I->see($profile_data['root_locality'], '.addressline3');
+    $I->see($profile_data['root_field_profile_phone'], '.mobilenumber');
+    if ($I->getRegion() == 'ie') {
+      $I->see($profile_data['root_administrative_area'], '.addressline4');
+    }
+  }
+
 }

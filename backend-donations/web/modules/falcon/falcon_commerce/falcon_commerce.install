@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * Uninstall falcon_exports module from the system.
+ */
+function falcon_commerce_update_8001() {
+  // Uninstall the module before reverting the configs to avoid
+  // config validation errors.
+  \Drupal::service('module_installer')->uninstall(['falcon_exports']);
+}

@@ -73,6 +73,26 @@ class GiftsCheckoutPaypalCest {
   }
 
   /**
+   * Push order to ThankQ and make sure it was created successfully.
+   *
+   * @param \Step\Acceptance\DonationsBackendTester $I
+   *
+   * @depends checkoutComplete
+   * @group backend-donations
+   */
+  public function checkOrderThankqSimple(DonationsBackendTester $I, $scenario) {
+    $I->login('gifts_manager.test');
+
+    if ($I->seeThankQIsEnabled()) {
+      $I->runGiftsThankQSync($this->order_id, $this->basket, $this->profile_data, $this->currency);
+    }
+    else {
+      $I->comment('ThankQ CRM is not configured. Skipping.');
+      $scenario->skip();
+    }
+  }
+
+  /**
    * Check order data in Donations backend.
    *
    * @param \Step\Acceptance\DonationsBackendTester $I
