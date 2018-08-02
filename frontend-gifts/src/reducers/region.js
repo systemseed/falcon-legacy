@@ -5,9 +5,12 @@ export const regionPopupOff = (state = regionUtils.POPUP_UNKNOWN_STATE, action) 
     case 'REGION_POPUP_DISABLE':
       return regionUtils.POPUP_DISABLED;
     case 'persist/REHYDRATE':
-      if (action.payload && action.payload.regionPopupOff !== undefined) {
-        return action.payload.regionPopupOff;
+
+      if (action.payload && action.payload.regionPopupOff === regionUtils.POPUP_DISABLED) {
+        // Popup was previously disabled in local storage.
+        return regionUtils.POPUP_DISABLED;
       }
+
       if (state === regionUtils.POPUP_UNKNOWN_STATE) {
         // Keep it enabled if the state is not clear after REHYDRATE.
         return regionUtils.POPUP_ENABLED;
