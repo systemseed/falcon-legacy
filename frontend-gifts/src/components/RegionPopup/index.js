@@ -6,7 +6,7 @@ import * as regionUtils from '../../utils/region';
 
 class RegionPopup extends Component {
 
-  disablePopupFromReferrer() {
+  disablePopupFromReferrer(regions) {
     // If a user came from another region then they most likely know how to
     // swich site regions. Disable the popup for them.
     if (regionUtils.findRegionByReferrer(regions, document.referrer)) { // eslint-disable-line no-undef
@@ -26,7 +26,7 @@ class RegionPopup extends Component {
       return;
     }
 
-    this.disablePopupFromReferrer();
+    this.disablePopupFromReferrer(regions);
   }
 
   componentWillMount() {
@@ -41,7 +41,7 @@ class RegionPopup extends Component {
 
     if (regionSettings.regions.length) {
       // Check referrer if regions data is already available.
-      this.disablePopupFromReferrer();
+      this.disablePopupFromReferrer(regionSettings.regions);
     }
   }
 
