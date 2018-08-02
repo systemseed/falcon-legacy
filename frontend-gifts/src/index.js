@@ -26,6 +26,7 @@ persistStore(store, {
     'basket',
     'cards',
     'currentCurrency',
+    'regionPopupOff'
   ]
 });
 

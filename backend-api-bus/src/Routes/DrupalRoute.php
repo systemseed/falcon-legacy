@@ -8,6 +8,7 @@
 
 namespace Routes;
 
+use GuzzleHttp\Exception\ClientException;
 use Interop\Container\ContainerInterface;
 use Slim\Container;
 use Psr\Http\Message\ServerRequestInterface;
@@ -147,6 +148,38 @@ abstract class DrupalRoute extends Route {
     $args['proxy_path'] = '/rest/' . $request->getAttribute('params');
 
     $resp = $this->parentProxy($request, $response, $args);
+    return $resp;
+  }
+
+  /**
+   * Custom proxy method for Falcon features.
+   *
+   * @param \Psr\Http\Message\ServerRequestInterface $request
+   * @param \Psr\Http\Message\ResponseInterface $response
+   * @param $args
+   *
+   * @see SimpleProxyTrait::proxy().
+   *
+   * @return ResponseInterface
+   */
+  public function falconFeaturesProxy(ServerRequestInterface $request, ResponseInterface $response, $args) {
+
+    // Map full /oauth/* path.
+    $args['proxy_path'] = '/falcon/' . $request->getAttribute('params');
+
+    try {
+      $resp = $this->parentProxy($request, $response, $args);
+    }
+    catch (ClientException $e) {
+      // Drupal returns 404 if feature is disabled or not available for this user.
+      // Return empty response in this case. We client should know how to handle this case.
+      if ($e->getCode() === 404) {
+        $resp = $response->withStatus(204);
+        $this->logger->error('Falcon endpoint returned status 404.', ['url' => (string) $e->getRequest()->getUri()]);
+
+      }
+    }
+
     return $resp;
   }
 

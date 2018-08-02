@@ -67,6 +67,11 @@ class Gifts extends DrupalRoute {
         $app->post('[/{params:.*}]', Gifts::class . ':contactProxy');
       });
 
+      // Falcon features endpoint.
+      $app->group('/falcon', function () use ($app) {
+        $app->get('[/{params:.*}]', Gifts::class . ':falconFeaturesProxy');
+      });
+
     });
   }
 

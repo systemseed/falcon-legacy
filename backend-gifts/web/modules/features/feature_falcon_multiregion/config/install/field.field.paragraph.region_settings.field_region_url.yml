@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_region_url
+    - paragraphs.paragraphs_type.region_settings
+  module:
+    - link
+id: paragraph.region_settings.field_region_url
+field_name: field_region_url
+entity_type: paragraph
+bundle: region_settings
+label: URL
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

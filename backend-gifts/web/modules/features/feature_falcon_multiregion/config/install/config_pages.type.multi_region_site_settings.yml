@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+id: multi_region_site_settings
+label: 'Multi-regional site settings'
+context:
+  show_warning: 1
+  group:
+    language: 0
+menu:
+  path: ''
+  weight: '0'
+  description: ''

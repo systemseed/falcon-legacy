@@ -12,6 +12,7 @@ import CheckoutCardsSummary from '../../containers/CheckoutCardsSummary';
 import CheckoutBasketSummary from '../../containers/CheckoutBasketSummary';
 import CheckoutCardsContinueContainer from '../../containers/CheckoutCardsContinueContainer';
 import CheckoutPaymentContainer from '../../containers/CheckoutPaymentContainer';
+import RegionSwitcher from './RegionSwitcher';
 
 class GlobalHeader extends React.Component {
 
@@ -84,7 +85,7 @@ class GlobalHeader extends React.Component {
           </div>
 
           <Logo />
-          {/* <RegionSwitcher /> */}
+          <RegionSwitcher />
 
           <MainMenu
             isMenuCollapsed={this.state.isMenuCollapsed}

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.multi_region_site_settings
+    - field.storage.config_pages.field_enable_popup
+id: config_pages.multi_region_site_settings.field_enable_popup
+field_name: field_enable_popup
+entity_type: config_pages
+bundle: multi_region_site_settings
+label: 'Enable multi-region popup'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

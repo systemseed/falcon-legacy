@@ -4,6 +4,7 @@ import PopupContainer from '../../containers/PopupContainer';
 import GlobalFooter from '../../components/GlobalFooter';
 import MessageBarContainer from '../../containers/MessageBarContainer';
 import GlobalHeader from '../../components/GlobalHeader';
+import RegionPopup from '../../components/RegionPopup';
 
 // <Route /> with global page elements rendered.
 const PageRoute = ({ component: Component, ...rest }) => (
@@ -17,6 +18,8 @@ const PageRoute = ({ component: Component, ...rest }) => (
         <GlobalFooter />
         {/* POPUP CONTAINER SITS HERE AND WAITS FOR YOU TO OPEN IT */}
         <PopupContainer />
+        {/* Multi-regional popup */}
+        <RegionPopup />
       </div>
     )}
   />

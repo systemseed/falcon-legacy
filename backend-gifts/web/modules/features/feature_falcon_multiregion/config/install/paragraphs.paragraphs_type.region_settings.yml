@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: region_settings
+label: 'Region settings'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

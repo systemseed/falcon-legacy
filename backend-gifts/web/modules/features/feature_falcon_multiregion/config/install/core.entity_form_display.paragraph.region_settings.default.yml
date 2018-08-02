@@ -1,0 +1,54 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.region_settings.field_country_code
+    - field.field.paragraph.region_settings.field_image
+    - field.field.paragraph.region_settings.field_region_url
+    - field.field.paragraph.region_settings.field_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.region_settings
+  module:
+    - image
+    - link
+id: paragraph.region_settings.default
+targetEntityType: paragraph
+bundle: region_settings
+mode: default
+content:
+  field_country_code:
+    weight: 1
+    settings:
+      size: 20
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_image:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_region_url:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_title:
+    weight: 2
+    settings:
+      size: 20
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -5,6 +5,7 @@
 namespace Routes;
 
 use Interop\Container\ContainerInterface;
+use Middleware\PlatformConfigMiddleware;
 use Psr\Log\LoggerInterface;
 use \Slim\App;
 use \GuzzleHttp\Client;
@@ -86,6 +87,7 @@ abstract class Route {
           'X-Forwarded-Host' => $endpoint['public_host'],
           // See Drupal consumer module for details about this header.
           'X-Consumer-ID' => $endpoint['consumer_id'],
+          'X-Forwarded-CF-IPCountry' => PlatformConfigMiddleware::getCloudflareCountry(),
         ],
       ];
 
