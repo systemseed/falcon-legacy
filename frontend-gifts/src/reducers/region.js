@@ -8,7 +8,12 @@ export const regionPopupOff = (state = regionUtils.POPUP_UNKNOWN_STATE, action) 
       if (action.payload && action.payload.regionPopupOff !== undefined) {
         return action.payload.regionPopupOff;
       }
-      return regionUtils.POPUP_ENABLED;
+      if (state === regionUtils.POPUP_UNKNOWN_STATE) {
+        // Keep it enabled if the state is not clear after REHYDRATE.
+        return regionUtils.POPUP_ENABLED;
+      }
+
+      return state;
 
     default:
       return state;
