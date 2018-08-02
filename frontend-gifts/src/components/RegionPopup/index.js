@@ -6,6 +6,14 @@ import * as regionUtils from '../../utils/region';
 
 class RegionPopup extends Component {
 
+  disablePopupFromReferrer() {
+    // If a user came from another region then they most likely know how to
+    // swich site regions. Disable the popup for them.
+    if (regionUtils.findRegionByReferrer(regions, document.referrer)) { // eslint-disable-line no-undef
+      this.props.disablePopup();
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     // Popup is already disabled for this user. Do nothing.
     if (nextProps.popupDisabled === regionUtils.POPUP_DISABLED) {
@@ -18,11 +26,7 @@ class RegionPopup extends Component {
       return;
     }
 
-    // If a user came from another region then they most likely know how to
-    // swich site regions. Disable the popup for them.
-    if (regionUtils.findRegionByReferrer(regions, document.referrer)) { // eslint-disable-line no-undef
-      this.props.disablePopup();
-    }
+    this.disablePopupFromReferrer();
   }
 
   componentWillMount() {
@@ -33,6 +37,11 @@ class RegionPopup extends Component {
     // CDN headers to API bus to Gifts backend.
     if (typeof window !== 'undefined' && !isPending && !isFulfilled && !isError) {
       getRegionSettings();
+    }
+
+    if (regionSettings.regions.length) {
+      // Check referrer if regions data is already available.
+      this.disablePopupFromReferrer();
     }
   }
 
