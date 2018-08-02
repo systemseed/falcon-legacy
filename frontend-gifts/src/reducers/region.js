@@ -1,23 +1,26 @@
 import * as regionUtils from '../utils/region';
 
-export const regionPopupOff = (state = regionUtils.POPUP_UNKNOWN_STATE, action) => {
+// IMPORTANT NOTE: an object is used for popup status flag to avoid hard reset
+// of the state by REHYDRATE action.
+export const regionPopupOff = (state = {
+  status: regionUtils.POPUP_UNKNOWN_STATE
+}, action) => {
   switch (action.type) {
     case 'REGION_POPUP_DISABLE':
-      return regionUtils.POPUP_DISABLED;
+      return { status: regionUtils.POPUP_DISABLED };
     case 'persist/REHYDRATE':
-
+      // Instead simple restore apply some logic.
       if (action.payload && action.payload.regionPopupOff === regionUtils.POPUP_DISABLED) {
         // Popup was previously disabled in local storage.
-        return regionUtils.POPUP_DISABLED;
+        return { status: regionUtils.POPUP_DISABLED };
       }
 
-      if (state === regionUtils.POPUP_UNKNOWN_STATE) {
+      if (state.status === regionUtils.POPUP_UNKNOWN_STATE) {
         // Keep it enabled if the state is not clear after REHYDRATE.
-        return regionUtils.POPUP_ENABLED;
+        return { status: regionUtils.POPUP_ENABLED };
       }
 
-      return state;
-
+      return { status: state.status };
     default:
       return state;
   }

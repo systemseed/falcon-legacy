@@ -151,7 +151,7 @@ RegionPopup.defaultProps = {
 
 const mapStoreToProps = store => ({
   regionSettings: store.region,
-  popupDisabled: store.regionPopupOff
+  popupDisabled: store.regionPopupOff.status
 });
 
 const mapDispatchToProps = {
