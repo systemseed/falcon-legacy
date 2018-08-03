@@ -7,11 +7,11 @@
 assert_options(ASSERT_ACTIVE, TRUE);
 \Drupal\Component\Assertion\Handle::register();
 
-// Local hash salt.
-$settings['hash_salt'] = 'ZRD02mi6oDCGcdd1UwtOinURHCS73x-E8wcRP1VFMSEJujEvl4grBelw4rPkMlrWe6QwqCbGaA';
+# Display all errors.
+$config['system.logging']['error_level'] = 'verbose';
 
 // Enable local development services.
-$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
+$settings['container_yamls'][] =  __DIR__ . '/services.development.yml';
 
 // Set private files folder.
 $settings['file_private_path'] = preg_replace('~/web$~', '/private', $app_root);
@@ -32,12 +32,20 @@ $settings['file_public_base_url'] = 'http://gifts.api.flc.local/sites/default/fi
 $config['routes']['backend-donations']['client_id'] = '';
 $config['routes']['backend-donations']['client_secret'] = '';
 
-// Add your database configuration here.
-$databases['default']['default'] = array(
-  'driver' => 'mysql',
-  'host' => 'be_gifts_mariadb',
+// Make default hash salt for local envs.
+$settings['hash_salt'] = 'insecure-local-hash';
+
+$databases['default']['default'] = array (
+  'database' => 'drupal',
   'username' => 'drupal',
   'password' => 'drupal',
-  'database' => 'drupal',
   'prefix' => '',
+  'host' => 'be_gifts_mariadb',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
 );
+
+$settings['trusted_host_patterns'] = [
+  '^.*$',
+];

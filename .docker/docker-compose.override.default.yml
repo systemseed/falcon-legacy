@@ -1,0 +1,70 @@
+version: '2'
+
+services:
+
+  fe_main:
+    volumes:
+      - ../frontend-main:/app:cached
+
+  fe_gifts:
+    volumes:
+      - ../frontend-gifts:/app:cached
+    # Uncomment to make changes in package.json.
+    #command: sh -c 'yarn install'
+
+## Uncomment to run app with Server Side Rendering enabled.
+## Useful for debugging issues related to SSR.
+#  fe_gifts:
+#    command: sh -c 'yarn install && yarn run build && yarn run start:server'
+#    volumes:
+#      - ../frontend-gifts:/app:cached
+
+  api_bus:
+    volumes:
+      - ../backend-api-bus:/app:cached
+
+  be_gifts:
+    environment:
+## Read instructions at https://wodby.com/stacks/drupal/docs/local/xdebug/
+      PHP_XDEBUG: 1
+#      PHP_XDEBUG_DEFAULT_ENABLE: 1
+#      PHP_XDEBUG_REMOTE_CONNECT_BACK: 0
+#      PHP_IDE_CONFIG: serverName=my-ide
+#      PHP_XDEBUG_REMOTE_HOST: host.docker.internal # Docker 18.03+ & Linux/Mac/Win
+#      PHP_XDEBUG_REMOTE_HOST: 172.17.0.1 # Linux, Docker < 18.03
+#      PHP_XDEBUG_REMOTE_HOST: 10.254.254.254 # macOS, Docker < 18.03
+#      PHP_XDEBUG_REMOTE_HOST: 10.0.75.1 # Windows, Docker < 18.03
+    volumes:
+      - ../backend-gifts:/var/www/html:cached
+      - ../${BACKUP_DIR}:/var/www/html/${BACKUP_DIR}:cached
+
+  be_gifts_mariadb:
+    volumes:
+      - ${MYSQL_DATA_DIR}/${MYSQL_DATA_DIR_GIFTS}:/var/lib/mysql:cached
+
+  be_gifts_nginx:
+    volumes:
+      - ../backend-gifts:/var/www/html:cached
+
+  be_donations:
+    environment:
+## Read instructions at https://wodby.com/stacks/drupal/docs/local/xdebug/
+      PHP_XDEBUG: 1
+#      PHP_XDEBUG_DEFAULT_ENABLE: 1
+#      PHP_XDEBUG_REMOTE_CONNECT_BACK: 0
+#      PHP_IDE_CONFIG: serverName=my-ide
+#      PHP_XDEBUG_REMOTE_HOST: host.docker.internal # Docker 18.03+ & Linux/Mac/Win
+#      PHP_XDEBUG_REMOTE_HOST: 172.17.0.1 # Linux, Docker < 18.03
+#      PHP_XDEBUG_REMOTE_HOST: 10.254.254.254 # macOS, Docker < 18.03
+#      PHP_XDEBUG_REMOTE_HOST: 10.0.75.1 # Windows, Docker < 18.03
+    volumes:
+      - ../backend-donations:/var/www/html:cached
+      - ../${BACKUP_DIR}:/var/www/html/${BACKUP_DIR}:cached
+
+  be_donations_mariadb:
+    volumes:
+      - ${MYSQL_DATA_DIR}/${MYSQL_DATA_DIR_DONATIONS}:/var/lib/mysql:cached
+
+  be_donations_nginx:
+    volumes:
+      - ../backend-donations:/var/www/html:cached

@@ -1,7 +1,11 @@
-# IDE files
+# PHPStorm directory.
 .idea
-dev
 
-# Ignoring any composer files inside of the root (if any).
-vendor
+# MacOS Desktop Services Store files.
 .DS_Store
+
+# DB dumps/backups.
+/.backup/*
+
+# Environment overrides.
+/.env

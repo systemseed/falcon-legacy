@@ -6,11 +6,8 @@ web/modules/contrib
 web/themes/contrib
 web/profiles/contrib
 
-# Ignore mysql files.
-mysql
-
-# Ignore Drupal's file directory
+# Ignore Drupal files directory
 web/sites/*/files
 
-# Ignore Drupal's private file directory
-private/*
+# Ignore Drupal private files directory
+/private/*

@@ -1,7 +1,0 @@
-# `phantom` environment config goes here
-modules:
-  config:
-      WebDriver:
-          host: phantomjs
-          browser: 'phantomjs'
-          port: 8910

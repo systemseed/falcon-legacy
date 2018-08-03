@@ -44,7 +44,7 @@
     "drupal/field_group": "^1.0@RC",
     "drupal/config_ignore": "^2.1",
     "drupal/metatag": "^1.2",
-    "drupal/config_installer": "^1.5",
+    "drupal/config_installer": "^1.8",
     "drupal/default_content": "^1.0@alpha",
     "drupal/better_normalizers": "^1.0@beta",
     "drupal/config_filter": "^1.1",

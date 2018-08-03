@@ -1,7 +1,7 @@
 class_name: ApiTester
 modules:
-    enabled:
-        - \Helper\Api
-        - REST:
-            depends: PhpBrowser
-            part: Json
+  enabled:
+    - \Helper\Api
+    - REST:
+        depends: PhpBrowser
+        part: Json

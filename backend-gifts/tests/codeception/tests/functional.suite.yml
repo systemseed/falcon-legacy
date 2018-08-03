@@ -6,6 +6,6 @@
 
 class_name: FunctionalTester
 modules:
-    enabled:
-        - \Helper\Functional
-        - PhpBrowser
+  enabled:
+    - \Helper\Functional
+    - PhpBrowser

@@ -130,6 +130,8 @@ jobs:
           name: Install test dependencies
           command: |
             composer require codeception/codeception:^2.3.5 drupal/coder flow/jsonpath
+            # Commands to set the default codeception configs.
+            cp ./backend-gifts/tests/codeception/tests/acceptance.suite.local.template.yml ./backend-gifts/tests/codeception/tests/acceptance.suite.yml
             # Is not used now:
             # composer require stripe/stripe-php paypal/rest-api-sdk-php
 
