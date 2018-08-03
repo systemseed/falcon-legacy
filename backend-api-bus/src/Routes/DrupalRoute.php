@@ -172,12 +172,14 @@ abstract class DrupalRoute extends Route {
     }
     catch (ClientException $e) {
       // Drupal returns 404 if feature is disabled or not available for this user.
-      // Return empty response in this case. We client should know how to handle this case.
+      // Return empty response in this case. The client should know how to handle this case.
       if ($e->getCode() === 404) {
         $resp = $response->withStatus(204);
         $this->logger->error('Falcon endpoint returned status 404.', ['url' => (string) $e->getRequest()->getUri()]);
-
+        return $resp;
       }
+
+      throw $e;
     }
 
     return $resp;
