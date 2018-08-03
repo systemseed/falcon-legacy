@@ -1,0 +1,19 @@
+name: Falcon Multi-regional (feature)
+type: module
+core: 8.x
+package: Falcon Features
+description: Provides multi-regional features for the Gifts site.
+dependencies:
+  - config_pages
+  - entity_reference_revisions
+  - falcon_multiregion
+  - field
+  - field_group
+  - image
+  - link
+  - paragraphs
+  - rest
+  - serialization
+  - text
+  - user
+version: 8.x-1.0

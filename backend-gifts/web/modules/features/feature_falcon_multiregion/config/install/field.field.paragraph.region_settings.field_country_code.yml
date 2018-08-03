@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_country_code
+    - paragraphs.paragraphs_type.region_settings
+id: paragraph.region_settings.field_country_code
+field_name: field_country_code
+entity_type: paragraph
+bundle: region_settings
+label: 'Region/country code'
+description: 'A short code of the region. <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">Two-letter country code</a> is required for the popup feature. '
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

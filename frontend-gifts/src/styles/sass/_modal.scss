@@ -9,7 +9,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1050;
+  z-index: $navbar-zindex + 10;
   -webkit-overflow-scrolling: touch;
   outline: 0
 }
@@ -55,16 +55,14 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1040;
-  background-color: #000000
+  z-index: $navbar-zindex + 9;
+  background-color: white;
 }
 .modal-backdrop.fade {
   opacity: 0;
-  filter: alpha(opacity=0)
 }
 .modal-backdrop.in {
-  opacity: 0.5;
-  filter: alpha(opacity=50)
+  opacity: 0.9;
 }
 .modal-header {
   padding: 15px;

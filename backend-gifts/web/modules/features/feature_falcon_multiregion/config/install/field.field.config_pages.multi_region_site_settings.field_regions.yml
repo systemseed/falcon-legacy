@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.multi_region_site_settings
+    - field.storage.config_pages.field_regions
+    - paragraphs.paragraphs_type.region_settings
+  module:
+    - entity_reference_revisions
+id: config_pages.multi_region_site_settings.field_regions
+field_name: field_regions
+entity_type: config_pages
+bundle: multi_region_site_settings
+label: Regions
+description: 'Add available regions. At least two are required. The current region should be the first in the list.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      region_settings: region_settings
+    target_bundles_drag_drop:
+      region_settings:
+        enabled: true
+        weight: 4
+      info_card:
+        weight: 5
+        enabled: false
+      subheading:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

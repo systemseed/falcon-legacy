@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.multi_region_site_settings
+    - field.storage.config_pages.field_popup_title
+id: config_pages.multi_region_site_settings.field_popup_title
+field_name: field_popup_title
+entity_type: config_pages
+bundle: multi_region_site_settings
+label: Heading
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

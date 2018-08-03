@@ -23,6 +23,7 @@ class FrontendTester extends \AcceptanceTester {
       try {
         $I->waitForText('Confirm to clear basket', 1);
         $I->click('Proceed', '.modal-body');
+        $I->waitForElementNotVisible('div.fade.modal');
       }
       catch (\Exception $e) {
         return;

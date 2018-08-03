@@ -1,0 +1,63 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.multi_region_site_settings
+    - field.field.config_pages.multi_region_site_settings.field_enable_popup
+    - field.field.config_pages.multi_region_site_settings.field_enable_region_switcher
+    - field.field.config_pages.multi_region_site_settings.field_popup_body
+    - field.field.config_pages.multi_region_site_settings.field_popup_title
+    - field.field.config_pages.multi_region_site_settings.field_regions
+  module:
+    - entity_reference_revisions
+    - text
+id: config_pages.multi_region_site_settings.default
+targetEntityType: config_pages
+bundle: multi_region_site_settings
+mode: default
+content:
+  field_enable_popup:
+    weight: 3
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_enable_region_switcher:
+    weight: 2
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_popup_body:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_popup_title:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_regions:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

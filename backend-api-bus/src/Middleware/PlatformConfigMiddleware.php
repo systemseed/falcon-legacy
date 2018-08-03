@@ -88,6 +88,22 @@ class PlatformConfigMiddleware {
   }
 
   /**
+   * Get suggested user country from Cloudflare CDN.
+   *
+   * @return string
+   */
+  public static function getCloudflareCountry() {
+    // Test mode.
+    if (getenv('TEST_HTTP_CF_IPCOUNTRY')) {
+      return getenv('TEST_HTTP_CF_IPCOUNTRY');
+    }
+
+    // Use Cloudflare header if found.
+    // Read more: https://support.cloudflare.com/hc/en-us/articles/200168236-What-does-Cloudflare-IP-Geolocation-do-
+    return !empty($_SERVER['HTTP_CF_IPCOUNTRY']) ? $_SERVER['HTTP_CF_IPCOUNTRY'] : '';
+  }
+
+  /**
    * PlatformConfigMiddleware middleware invokable class.
    *
    * @param \Psr\Http\Message\ServerRequestInterface $request

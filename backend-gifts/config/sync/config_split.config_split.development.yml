@@ -8,6 +8,7 @@ folder: ../config/development
 module:
   devel: 0
   falcon_development: 0
+  features_ui: 0
   reroute_email: 0
 theme: {  }
 blacklist:

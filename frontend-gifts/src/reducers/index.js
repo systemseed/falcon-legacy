@@ -17,6 +17,7 @@ import checkout from './checkout';
 import { popup } from './popup';
 import eventcodes from './eventcodes';
 import { redirects } from './redirects';
+import { region, regionPopupOff } from './region';
 
 // THIS IS AN ANTI-PATTERN.
 // TODO: find out a way to trigger a function on route change.
@@ -51,6 +52,8 @@ export default combineReducers({
   pages,
   popup,
   redirects,
+  region,
+  regionPopupOff,
   siteContentSettings,
   router: routerReducer,
   routerChanged

@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - falcon_multiregion
+    - serialization
+    - user
+id: multiregion
+plugin_id: multiregion
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - cookie
